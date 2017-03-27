@@ -25,17 +25,17 @@ namespace Rsk.Samples.IdentityServer4.AdminUiIntegration
 
         public void ConfigureServices(IServiceCollection services)
         {
-            var connectionString = Configuration.GetConnectionString("DefaultConnection");
+            var connectionString = Configuration.GetValue<string>("DefaultConnection");
             var migrationAssembly = typeof(Startup).GetTypeInfo().Assembly.GetName().Name;
 
             services.AddIdentityExpressAdminUiConfiguraiton(
-                builder => builder.UseSqlite(connectionString, options => options.MigrationsAssembly(migrationAssembly)))
+                builder => builder.UseSqlServer(connectionString, options => options.MigrationsAssembly(migrationAssembly)))
                 .AddIdentityServerUserClaimsPrincipalFactory();
 
             services.AddIdentityServer()
                 .AddTemporarySigningCredential()
-                .AddOperationalStore(builder => builder.UseSqlite(connectionString, options => options.MigrationsAssembly(migrationAssembly)))
-                .AddConfigurationStore(builder => builder.UseSqlite(connectionString, options => options.MigrationsAssembly(migrationAssembly)))
+                .AddOperationalStore(builder => builder.UseSqlServer(connectionString, options => options.MigrationsAssembly(migrationAssembly)))
+                .AddConfigurationStore(builder => builder.UseSqlServer(connectionString, options => options.MigrationsAssembly(migrationAssembly)))
                 .AddAspNetIdentity<IdentityExpressUser>();
 
             services.AddMvc();
