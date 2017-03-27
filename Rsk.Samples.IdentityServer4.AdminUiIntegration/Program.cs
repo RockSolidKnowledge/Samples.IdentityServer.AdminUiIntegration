@@ -10,8 +10,8 @@ namespace Rsk.Samples.IdentityServer4.AdminUiIntegration
             var host = new WebHostBuilder()
                 .UseKestrel()
                 .UseContentRoot(Directory.GetCurrentDirectory())
-                .UseIISIntegration()
                 .UseStartup<Startup>()
+                .UseUrls("http://*:5003")
                 .Build();
 
             host.Run();
