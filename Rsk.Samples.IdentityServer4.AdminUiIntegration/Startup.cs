@@ -1,4 +1,5 @@
-﻿using System.Reflection;
+﻿using System;
+using System.Reflection;
 using IdentityExpress.Identity;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
@@ -25,17 +26,22 @@ namespace Rsk.Samples.IdentityServer4.AdminUiIntegration
 
         public void ConfigureServices(IServiceCollection services)
         {
+            Action<DbContextOptionsBuilder> builder;
             var connectionString = Configuration.GetValue<string>("DefaultConnection");
             var migrationAssembly = typeof(Startup).GetTypeInfo().Assembly.GetName().Name;
 
-            services.AddIdentityExpressAdminUiConfiguraiton(
-                builder => builder.UseSqlServer(connectionString, options => options.MigrationsAssembly(migrationAssembly)))
+            if (Configuration.GetValue("DbProvider", "Sqlite") == "SqlServer")
+                builder = x => x.UseSqlServer(connectionString, options => options.MigrationsAssembly(migrationAssembly));
+            else
+                builder = x => x.UseSqlite(connectionString, options => options.MigrationsAssembly(migrationAssembly));
+
+            services.AddIdentityExpressAdminUiConfiguraiton(builder)
                 .AddIdentityServerUserClaimsPrincipalFactory();
 
             services.AddIdentityServer()
                 .AddTemporarySigningCredential()
-                .AddOperationalStore(builder => builder.UseSqlServer(connectionString, options => options.MigrationsAssembly(migrationAssembly)))
-                .AddConfigurationStore(builder => builder.UseSqlServer(connectionString, options => options.MigrationsAssembly(migrationAssembly)))
+                .AddOperationalStore(builder)
+                .AddConfigurationStore(builder)
                 .AddAspNetIdentity<IdentityExpressUser>();
 
             services.AddMvc();
