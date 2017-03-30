@@ -27,7 +27,7 @@ namespace Rsk.Samples.IdentityServer4.AdminUiIntegration
         public void ConfigureServices(IServiceCollection services)
         {
             Action<DbContextOptionsBuilder> builder;
-            var connectionString = Configuration.GetValue<string>("DefaultConnection");
+            var connectionString = Configuration.GetValue<string>("DbConnectionString");
             var migrationAssembly = typeof(Startup).GetTypeInfo().Assembly.GetName().Name;
 
             if (Configuration.GetValue("DbProvider", "Sqlite") == "SqlServer")
