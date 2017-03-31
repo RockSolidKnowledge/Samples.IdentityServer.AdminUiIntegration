@@ -49,8 +49,8 @@ namespace Rsk.Samples.IdentityServer4.AdminUiIntegration
         
         public void Configure(IApplicationBuilder app, IHostingEnvironment env, ILoggerFactory loggerFactory)
         {
-            loggerFactory.AddConsole();
-            app.UseDeveloperExceptionPage();
+            loggerFactory.AddConsole(LogLevel.Warning);
+            //app.UseDeveloperExceptionPage();
             
             app.UseIdentity();
             app.UseIdentityServer();
