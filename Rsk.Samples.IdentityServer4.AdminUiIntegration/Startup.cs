@@ -35,7 +35,7 @@ namespace Rsk.Samples.IdentityServer4.AdminUiIntegration
             else
                 builder = x => x.UseSqlite(connectionString, options => options.MigrationsAssembly(migrationAssembly));
 
-            services.AddIdentityExpressAdminUiConfiguraiton(builder)
+            services.AddIdentityExpressAdminUiConfiguration(builder)
                 .AddIdentityServerUserClaimsPrincipalFactory();
 
             services.AddIdentityServer()
