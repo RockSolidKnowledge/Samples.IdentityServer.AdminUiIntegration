@@ -30,10 +30,18 @@ namespace Rsk.Samples.IdentityServer4.AdminUiIntegration
             var connectionString = Configuration.GetValue<string>("DbConnectionString");
             var migrationAssembly = typeof(Startup).GetTypeInfo().Assembly.GetName().Name;
 
-            if (Configuration.GetValue("DbProvider", "Sqlite") == "SqlServer")
-                builder = x => x.UseSqlServer(connectionString, options => options.MigrationsAssembly(migrationAssembly));
-            else
-                builder = x => x.UseSqlite(connectionString, options => options.MigrationsAssembly(migrationAssembly));
+            switch (Configuration.GetValue<string>("DbProvider"))
+            {
+                case "SqlServer":
+                    builder = x => x.UseSqlServer(connectionString, options => options.MigrationsAssembly(migrationAssembly));
+                    break;
+                case "MySql":
+                    builder = x => x.UseMySql(connectionString, options => options.MigrationsAssembly(migrationAssembly));
+                    break;
+                default:
+                    builder = x => x.UseSqlite(connectionString, options => options.MigrationsAssembly(migrationAssembly));
+                    break;
+            }
 
             services.AddIdentityExpressAdminUiConfiguration(builder)
                 .AddIdentityServerUserClaimsPrincipalFactory();
