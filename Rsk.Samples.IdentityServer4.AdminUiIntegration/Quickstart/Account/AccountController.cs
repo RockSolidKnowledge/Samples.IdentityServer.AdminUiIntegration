@@ -57,6 +57,7 @@ namespace IdentityServer4.Quickstart.UI
                 // only one option for logging in
                 return await ExternalLogin(vm.ExternalLoginScheme, returnUrl);
             }
+            
 
             return View(vm);
         }
@@ -104,6 +105,30 @@ namespace IdentityServer4.Quickstart.UI
             // something went wrong, show form with error
             var vm = await _account.BuildLoginViewModelAsync(model);
             return View(vm);
+        }
+
+        [HttpGet]
+        public IActionResult Register()
+        {
+            var vm = _account.BuildRegisterViewModel();
+            return View(vm);
+        }
+
+        [HttpPost]
+        public async Task<IActionResult> Register(RegisterInputModel model)
+        {
+            if (ModelState.IsValid)
+            {
+                var user = await _userManager.FindByNameAsync(model.Username);
+                
+                if(user != null)
+                {
+
+                }
+                ModelState.AddModelError("", AccountOptions.InvalidUsernameErrorMessage);
+            }
+
+            return View();
         }
 
         /// <summary>

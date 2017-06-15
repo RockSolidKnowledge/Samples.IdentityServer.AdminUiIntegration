@@ -43,6 +43,8 @@ namespace Rsk.Samples.IdentityServer4.AdminUiIntegration
                     break;
             }
 
+            services.AddCors();
+
             services.AddIdentityExpressAdminUiConfiguration(builder)
                 .AddIdentityServerUserClaimsPrincipalFactory();
 
@@ -60,6 +62,8 @@ namespace Rsk.Samples.IdentityServer4.AdminUiIntegration
             loggerFactory.AddConsole(LogLevel.Warning);
             //app.UseDeveloperExceptionPage();
             
+            app.UseCors(builder => builder.AllowAnyOrigin().AllowAnyHeader().AllowAnyMethod());
+
             app.UseIdentity();
             app.UseIdentityServer();
 

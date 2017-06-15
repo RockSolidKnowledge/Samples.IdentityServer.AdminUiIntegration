@@ -100,6 +100,17 @@ namespace IdentityServer4.Quickstart.UI
             return vm;
         }
 
+        public RegisterViewModel BuildRegisterViewModel()
+        {
+            var vm = new RegisterViewModel();
+            return vm;
+        }
+
+        //public RegisterViewModel BuildRegisterViewModel(RegisterInputModel model)
+        //{
+            
+        //}
+
         public async Task<LogoutViewModel> BuildLogoutViewModelAsync(string logoutId)
         {
             var vm = new LogoutViewModel { LogoutId = logoutId, ShowLogoutPrompt = AccountOptions.ShowLogoutPrompt };
