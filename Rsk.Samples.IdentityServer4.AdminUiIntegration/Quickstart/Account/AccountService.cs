@@ -7,6 +7,7 @@ using IdentityServer4.Extensions;
 using IdentityServer4.Services;
 using IdentityServer4.Stores;
 using Microsoft.AspNetCore.Http;
+using Microsoft.AspNetCore.Identity;
 using System.Linq;
 using System.Threading.Tasks;
 
@@ -17,7 +18,6 @@ namespace IdentityServer4.Quickstart.UI
         private readonly IClientStore _clientStore;
         private readonly IIdentityServerInteractionService _interaction;
         private readonly IHttpContextAccessor _httpContextAccessor;
-
         public AccountService(
             IIdentityServerInteractionService interaction,
             IHttpContextAccessor httpContextAccessor,
@@ -39,7 +39,7 @@ namespace IdentityServer4.Quickstart.UI
                     EnableLocalLogin = false,
                     ReturnUrl = returnUrl,
                     Username = context?.LoginHint,
-                    ExternalProviders = new ExternalProvider[] {new ExternalProvider { AuthenticationScheme = context.IdP } }
+                    ExternalProviders = new ExternalProvider[] { new ExternalProvider { AuthenticationScheme = context.IdP } }
                 };
             }
 
@@ -106,10 +106,16 @@ namespace IdentityServer4.Quickstart.UI
             return vm;
         }
 
-        //public RegisterViewModel BuildRegisterViewModel(RegisterInputModel model)
-        //{
-            
-        //}
+        public RegisterViewModel BuildRegisterViewModel(RegisterInputModel model, bool success)
+        {
+            RegisterViewModel newModel = new RegisterViewModel {
+                IsSuccess = success,
+                Username = model.Username,
+                Password = model.Password,
+                ConfirmPassword = model.ConfirmPassword
+            };
+            return newModel;
+        }
 
         public async Task<LogoutViewModel> BuildLogoutViewModelAsync(string logoutId)
         {

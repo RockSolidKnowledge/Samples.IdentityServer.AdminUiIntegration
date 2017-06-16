@@ -25,5 +25,6 @@ namespace IdentityServer4.Quickstart.UI
 
         public static string InvalidCredentialsErrorMessage = "Invalid username or password";
         public static string InvalidUsernameErrorMessage = "Username does not exist";
+        public static string UserHasPassword = "User already has a password";
     }
 }

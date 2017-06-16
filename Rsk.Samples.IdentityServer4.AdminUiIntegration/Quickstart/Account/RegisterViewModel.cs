@@ -7,6 +7,6 @@ namespace IdentityServer4.Quickstart.UI
 {
     public class RegisterViewModel : RegisterInputModel
     {
-        
+        public bool IsSuccess {get;set;}
     }
 }

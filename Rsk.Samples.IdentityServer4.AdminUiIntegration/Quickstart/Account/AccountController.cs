@@ -32,16 +32,20 @@ namespace IdentityServer4.Quickstart.UI
         private readonly UserManager<IdentityExpressUser> _userManager;
         private readonly IIdentityServerInteractionService _interaction;
         private readonly AccountService _account;
+        private readonly IPasswordHasher<IdentityExpressUser> _passwordHasher;
 
         public AccountController(
             IIdentityServerInteractionService interaction,
             IClientStore clientStore,
             IHttpContextAccessor httpContextAccessor,
+            IPasswordHasher<IdentityExpressUser> passwordHasher,
             UserManager<IdentityExpressUser> userManager)
         {
             _interaction = interaction;
             _account = new AccountService(interaction, httpContextAccessor, clientStore);
+            _passwordHasher = passwordHasher;
             _userManager = userManager;
+
         }
 
         /// <summary>
@@ -57,7 +61,7 @@ namespace IdentityServer4.Quickstart.UI
                 // only one option for logging in
                 return await ExternalLogin(vm.ExternalLoginScheme, returnUrl);
             }
-            
+
 
             return View(vm);
         }
@@ -87,7 +91,7 @@ namespace IdentityServer4.Quickstart.UI
                             ExpiresUtc = DateTimeOffset.UtcNow.Add(AccountOptions.RememberMeLoginDuration)
                         };
                     };
-                    
+
                     await HttpContext.Authentication.SignInAsync(user.Id, user.UserName, props);
 
                     // make sure the returnUrl is still valid, and if yes - redirect back to authorize endpoint
@@ -117,18 +121,35 @@ namespace IdentityServer4.Quickstart.UI
         [HttpPost]
         public async Task<IActionResult> Register(RegisterInputModel model)
         {
+            var isSuccess = false;
+
             if (ModelState.IsValid)
             {
                 var user = await _userManager.FindByNameAsync(model.Username);
-                
-                if(user != null)
-                {
 
+                if (user != null)
+                {
+                    var result = await _userManager.AddPasswordAsync(user, model.Password);
+
+                    if (!result.Succeeded)
+                        foreach (var item in result.Errors)
+                        {
+                            ModelState.AddModelError("", item.Description);
+                        }
+                        
+                    else
+                        isSuccess = true;
                 }
-                ModelState.AddModelError("", AccountOptions.InvalidUsernameErrorMessage);
+                else
+                {
+                    ModelState.AddModelError("", AccountOptions.InvalidUsernameErrorMessage);
+                }
+
             }
 
-            return View();
+            var vm = _account.BuildRegisterViewModel(model, isSuccess);
+
+            return View(vm);
         }
 
         /// <summary>
@@ -162,13 +183,13 @@ namespace IdentityServer4.Quickstart.UI
                 try
                 {
                     // hack: try/catch to handle social providers that throw
-                    await HttpContext.Authentication.SignOutAsync(vm.ExternalAuthenticationScheme, 
+                    await HttpContext.Authentication.SignOutAsync(vm.ExternalAuthenticationScheme,
                         new AuthenticationProperties { RedirectUri = url });
                 }
-                catch(NotSupportedException) // this is for the external providers that don't have signout
+                catch (NotSupportedException) // this is for the external providers that don't have signout
                 {
                 }
-                catch(InvalidOperationException) // this is for Windows/Negotiate
+                catch (InvalidOperationException) // this is for Windows/Negotiate
                 {
                 }
             }

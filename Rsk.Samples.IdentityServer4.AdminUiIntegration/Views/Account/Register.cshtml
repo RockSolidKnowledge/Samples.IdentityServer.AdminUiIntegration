@@ -9,6 +9,16 @@
 
     @Html.Partial("_ValidationSummary")
 
+    @if (Model.IsSuccess)
+    {
+        <div class="alert alert-success">
+            <div class="alert alert-success" role="alert">
+                Success! User is now registered!
+            </div>
+        </div>
+    }
+
+
     <div class="row">
         <div class="col-sm-6">
             <div class="panel panel-default">
@@ -40,6 +50,5 @@
                 </div>
             </div>
         </div>
-
     </div>
 </div>
