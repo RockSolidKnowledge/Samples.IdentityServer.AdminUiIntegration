@@ -121,33 +121,34 @@ namespace IdentityServer4.Quickstart.UI
         [HttpPost]
         public async Task<IActionResult> Register(RegisterInputModel model)
         {
-            var isSuccess = false;
-
-            if (ModelState.IsValid)
+            if (!ModelState.IsValid)
             {
-                var user = await _userManager.FindByNameAsync(model.Username);
+                return View(model);
+            }
 
-                if (user != null)
-                {
-                    var result = await _userManager.AddPasswordAsync(user, model.Password);
+            var user = await _userManager.FindByNameAsync(model.Username);
 
-                    if (!result.Succeeded)
-                        foreach (var item in result.Errors)
-                        {
-                            ModelState.AddModelError("", item.Description);
-                        }
-                        
-                    else
-                        isSuccess = true;
-                }
-                else
+            if (user == null)           
+                ModelState.AddModelError("", AccountOptions.InvalidUsernameErrorMessage);
+
+
+            var result = await _userManager.AddPasswordAsync(user, model.Password);
+
+            if (result.Succeeded)
+            { 
+                 result = await _userManager.UpdateAsync(user);                
+            }
+            
+            if (!result.Succeeded)
+            {
+                foreach (var item in result.Errors)
                 {
-                    ModelState.AddModelError("", AccountOptions.InvalidUsernameErrorMessage);
+                    ModelState.AddModelError("", item.Description);
                 }
 
             }
 
-            var vm = _account.BuildRegisterViewModel(model, isSuccess);
+            var vm = _account.BuildRegisterViewModel(model, result.Succeeded);
 
             return View(vm);
         }

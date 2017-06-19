@@ -7,6 +7,7 @@ using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Logging;
+using Microsoft.AspNetCore.Identity;
 
 namespace Rsk.Samples.IdentityServer4.AdminUiIntegration
 {
@@ -47,6 +48,14 @@ namespace Rsk.Samples.IdentityServer4.AdminUiIntegration
 
             services.AddIdentityExpressAdminUiConfiguration(builder)
                 .AddIdentityServerUserClaimsPrincipalFactory();
+
+            services.AddScoped<IUserStore<IdentityExpressUser>>(x =>
+            {
+                return new IdentityExpressUserStore(x.GetService<IdentityExpressDbContext>())
+                {
+                    AutoSaveChanges = true
+                };
+            });
 
             services.AddIdentityServer()
                 .AddTemporarySigningCredential()
