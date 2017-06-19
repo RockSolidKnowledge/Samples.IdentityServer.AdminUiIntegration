@@ -119,7 +119,7 @@ namespace IdentityServer4.Quickstart.UI
         }
 
         [HttpPost]
-        public async Task<IActionResult> Register(RegisterInputModel model)
+        public async Task<IActionResult> Register([FromBody] RegisterInputModel model)
         {
             if (!ModelState.IsValid)
             {
