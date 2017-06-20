@@ -8,6 +8,7 @@ using Microsoft.Extensions.Configuration;
 using Newtonsoft.Json;
 using Rsk.Samples.IdentityServer4.AdminUiIntegration;
 using System;
+using System.Collections.Generic;
 using System.IO;
 using System.Net.Http;
 using System.Text;
@@ -63,10 +64,15 @@ namespace Rsk.Samples.IdentityServer4.AdminUIIntegration.Tests
                 Password = "Password123!",
                 Username = username
             };
-            var json = JsonConvert.SerializeObject(model);
+            var list = new List<KeyValuePair<string, string>> {
+                new KeyValuePair<string, string>("ConfirmPassword", "Password123!"),
+                new KeyValuePair<string, string>("Password", "Password123!"),
+                new KeyValuePair<string, string>("Username", username)
+            };
+
 
             //act
-            var result = await client.PostAsync("/account/register", new StringContent(json, Encoding.UTF8, "application/json"));
+            var result = await client.PostAsync("/account/register", new FormUrlEncodedContent(list));
 
             //assert
             Assert.True(result.IsSuccessStatusCode);

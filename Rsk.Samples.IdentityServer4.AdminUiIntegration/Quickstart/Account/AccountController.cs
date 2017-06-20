@@ -116,11 +116,12 @@ namespace IdentityServer4.Quickstart.UI
         }
 
         [HttpPost]
-        public async Task<IActionResult> Register([FromBody] RegisterInputModel model)
+        public async Task<IActionResult> Register([FromForm] RegisterInputModel model)
         {
+            var vm = _account.BuildRegisterViewModel(model, false);
             if (!ModelState.IsValid)
             {
-                return View(model);
+                return View(vm);
             }
 
             var user = await _userManager.FindByNameAsync(model.Username);
@@ -128,7 +129,8 @@ namespace IdentityServer4.Quickstart.UI
             if (user == null)
             {
                 ModelState.AddModelError("", AccountOptions.InvalidUsernameErrorMessage);
-                return View(model);
+                vm = _account.BuildRegisterViewModel(model, false);
+                return View(vm);
             }
 
 
@@ -149,7 +151,7 @@ namespace IdentityServer4.Quickstart.UI
 
             }
 
-            var vm = _account.BuildRegisterViewModel(model, result.Succeeded);
+            vm = _account.BuildRegisterViewModel(model, result.Succeeded);
 
             return View(vm);
         }
