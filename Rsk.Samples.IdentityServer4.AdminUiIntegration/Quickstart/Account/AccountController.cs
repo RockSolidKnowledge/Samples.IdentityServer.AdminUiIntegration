@@ -32,18 +32,15 @@ namespace IdentityServer4.Quickstart.UI
         private readonly UserManager<IdentityExpressUser> _userManager;
         private readonly IIdentityServerInteractionService _interaction;
         private readonly AccountService _account;
-        private readonly IPasswordHasher<IdentityExpressUser> _passwordHasher;
 
         public AccountController(
             IIdentityServerInteractionService interaction,
             IClientStore clientStore,
             IHttpContextAccessor httpContextAccessor,
-            IPasswordHasher<IdentityExpressUser> passwordHasher,
             UserManager<IdentityExpressUser> userManager)
         {
             _interaction = interaction;
             _account = new AccountService(interaction, httpContextAccessor, clientStore);
-            _passwordHasher = passwordHasher;
             _userManager = userManager;
 
         }
@@ -128,8 +125,12 @@ namespace IdentityServer4.Quickstart.UI
 
             var user = await _userManager.FindByNameAsync(model.Username);
 
-            if (user == null)           
+            if (user == null)
+            {
                 ModelState.AddModelError("", AccountOptions.InvalidUsernameErrorMessage);
+                return View(model);
+            }
+
 
 
             var result = await _userManager.AddPasswordAsync(user, model.Password);
