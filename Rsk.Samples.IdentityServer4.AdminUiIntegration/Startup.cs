@@ -46,22 +46,21 @@ namespace Rsk.Samples.IdentityServer4.AdminUiIntegration
 
             services.AddCors();
 
-            services.AddIdentityExpressAdminUiConfiguration(builder)
-                .AddIdentityServerUserClaimsPrincipalFactory();
+            services
+                .AddIdentityExpressAdminUiConfiguration(builder) // ASP.NET Core Identity Registrations for AdminUI
+                .AddIdentityServerUserClaimsPrincipalFactory(); // Claims Principal Factory for loading AdminUI users as .NET Identities
 
-            services.AddScoped<IUserStore<IdentityExpressUser>>(x =>
-            {
-                return new IdentityExpressUserStore(x.GetService<IdentityExpressDbContext>())
+            services.AddScoped<IUserStore<IdentityExpressUser>>(
+                x => new IdentityExpressUserStore(x.GetService<IdentityExpressDbContext>())
                 {
                     AutoSaveChanges = true
-                };
             });
 
             services.AddIdentityServer()
                 .AddTemporarySigningCredential()
                 .AddOperationalStore(builder)
                 .AddConfigurationStore(builder)
-                .AddAspNetIdentity<IdentityExpressUser>();
+                .AddAspNetIdentity<IdentityExpressUser>(); // ASP.NET Core Identity Integration
 
             services.AddMvc();
         }
@@ -69,12 +68,27 @@ namespace Rsk.Samples.IdentityServer4.AdminUiIntegration
         public void Configure(IApplicationBuilder app, IHostingEnvironment env, ILoggerFactory loggerFactory)
         {
             loggerFactory.AddConsole(LogLevel.Warning);
-            //app.UseDeveloperExceptionPage();
+            app.UseDeveloperExceptionPage();
             
             app.UseCors(builder => builder.AllowAnyOrigin().AllowAnyHeader().AllowAnyMethod());
 
             app.UseIdentity();
             app.UseIdentityServer();
+
+
+            var googleClientId = Configuration.GetValue<string>("Google_ClientId");
+            var googleClientSecret = Configuration.GetValue<string>("Google_ClientSecret");
+            if (!string.IsNullOrWhiteSpace(googleClientId) && !string.IsNullOrWhiteSpace(googleClientSecret))
+            {
+                app.UseGoogleAuthentication(new GoogleOptions
+                {
+                    AuthenticationScheme = "Google",
+                    DisplayName = "Google",
+                    SignInScheme = "Identity.External", // ASP.NET Core Identity Extneral User Cookie
+                    ClientId = googleClientId, // ClientId Configured within Google Admin
+                    ClientSecret = googleClientSecret // ClientSecret Generated within Google Admin
+                });
+            }
 
             app.UseStaticFiles();
             app.UseMvcWithDefaultRoute();
