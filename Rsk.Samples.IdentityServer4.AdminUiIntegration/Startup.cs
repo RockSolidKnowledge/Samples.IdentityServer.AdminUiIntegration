@@ -27,39 +27,44 @@ namespace Rsk.Samples.IdentityServer4.AdminUiIntegration
 
         public void ConfigureServices(IServiceCollection services)
         {
-            Action<DbContextOptionsBuilder> builder;
-            var connectionString = Configuration.GetValue<string>("DbConnectionString");
+            Action<DbContextOptionsBuilder> identityBuilder;
+            Action<DbContextOptionsBuilder> identityServerBuilder;
+            var identityConnectionString = Configuration.GetValue<string>("IdentityConnectionString");
+            var identityServerConnectionString = Configuration.GetValue<string>("IdentityServerConnectionString");
             var migrationAssembly = typeof(Startup).GetTypeInfo().Assembly.GetName().Name;
 
             switch (Configuration.GetValue<string>("DbProvider"))
             {
                 case "SqlServer":
-                    builder = x => x.UseSqlServer(connectionString, options => options.MigrationsAssembly(migrationAssembly));
+                    identityBuilder = x => x.UseSqlServer(identityConnectionString, options => options.MigrationsAssembly(migrationAssembly));
+                    identityServerBuilder = x => x.UseSqlServer(identityServerConnectionString, options => options.MigrationsAssembly(migrationAssembly));
                     break;
                 case "MySql":
-                    builder = x => x.UseMySql(connectionString, options => options.MigrationsAssembly(migrationAssembly));
+                    identityBuilder = x => x.UseMySql(identityConnectionString, options => options.MigrationsAssembly(migrationAssembly));
+                    identityServerBuilder = x => x.UseMySql(identityServerConnectionString, options => options.MigrationsAssembly(migrationAssembly));
                     break;
                 default:
-                    builder = x => x.UseSqlite(connectionString, options => options.MigrationsAssembly(migrationAssembly));
+                    identityBuilder = x => x.UseSqlite(identityConnectionString, options => options.MigrationsAssembly(migrationAssembly));
+                    identityServerBuilder = x => x.UseSqlite(identityServerConnectionString, options => options.MigrationsAssembly(migrationAssembly));
                     break;
             }
 
             services.AddCors();
 
             services
-                .AddIdentityExpressAdminUiConfiguration(builder) // ASP.NET Core Identity Registrations for AdminUI
+                .AddIdentityExpressAdminUiConfiguration(identityBuilder) // ASP.NET Core Identity Registrations for AdminUI
                 .AddIdentityServerUserClaimsPrincipalFactory(); // Claims Principal Factory for loading AdminUI users as .NET Identities
 
             services.AddScoped<IUserStore<IdentityExpressUser>>(
                 x => new IdentityExpressUserStore(x.GetService<IdentityExpressDbContext>())
                 {
                     AutoSaveChanges = true
-            });
+                });
 
             services.AddIdentityServer()
                 .AddTemporarySigningCredential()
-                .AddOperationalStore(builder)
-                .AddConfigurationStore(builder)
+                .AddOperationalStore(identityServerBuilder)
+                .AddConfigurationStore(identityServerBuilder)
                 .AddAspNetIdentity<IdentityExpressUser>(); // ASP.NET Core Identity Integration
 
             services.AddMvc();
