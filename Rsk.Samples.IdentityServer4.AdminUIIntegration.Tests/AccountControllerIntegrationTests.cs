@@ -64,6 +64,8 @@ namespace Rsk.Samples.IdentityServer4.AdminUIIntegration.Tests
                 Password = "Password123!",
                 Username = username
             };
+
+            
             var list = new List<KeyValuePair<string, string>> {
                 new KeyValuePair<string, string>("ConfirmPassword", "Password123!"),
                 new KeyValuePair<string, string>("Password", "Password123!"),
