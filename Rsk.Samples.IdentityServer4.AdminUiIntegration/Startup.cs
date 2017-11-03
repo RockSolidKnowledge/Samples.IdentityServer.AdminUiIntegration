@@ -29,8 +29,8 @@ namespace Rsk.Samples.IdentityServer4.AdminUiIntegration
         {
             Action<DbContextOptionsBuilder> identityBuilder;
             Action<DbContextOptionsBuilder> identityServerBuilder;
-            var identityConnectionString = Configuration.GetValue<string>("IdentityConnectionString");
-            var identityServerConnectionString = Configuration.GetValue<string>("IdentityServerConnectionString");
+            var identityConnectionString = Configuration.GetValue("IdentityConnectionString", Configuration.GetValue<string>("DbConnectionString"));
+            var identityServerConnectionString = Configuration.GetValue("IdentityServerConnectionString", Configuration.GetValue<string>("DbConnectionString"));
             var migrationAssembly = typeof(Startup).GetTypeInfo().Assembly.GetName().Name;
 
             switch (Configuration.GetValue<string>("DbProvider"))
