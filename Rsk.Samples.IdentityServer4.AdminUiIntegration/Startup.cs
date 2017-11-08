@@ -53,7 +53,7 @@ namespace Rsk.Samples.IdentityServer4.AdminUiIntegration
 
             services
                 .AddIdentityExpressAdminUiConfiguration(identityBuilder) // ASP.NET Core Identity Registrations for AdminUI
-                .AddIdentityServerUserClaimsPrincipalFactory(); // Claims Principal Factory for loading AdminUI users as .NET Identities
+                .AddIdentityExpressUserClaimsPrincipalFactory(); // Claims Principal Factory for loading AdminUI users as .NET Identities
 
             services.AddScoped<IUserStore<IdentityExpressUser>>(
                 x => new IdentityExpressUserStore(x.GetService<IdentityExpressDbContext>())
