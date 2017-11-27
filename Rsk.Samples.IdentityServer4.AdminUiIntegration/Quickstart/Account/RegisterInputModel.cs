@@ -11,7 +11,7 @@ namespace IdentityServer4.Quickstart.UI
         [Required]
         public string Username { get; set; }
         [Required]
-        
+
         public string Password { get; set; }
         [Required]
         [Compare("Password", ErrorMessage = "Please make sure your passwords match")]
