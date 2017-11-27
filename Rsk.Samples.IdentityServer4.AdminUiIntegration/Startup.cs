@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Reflection;
 using IdentityExpress.Identity;
+using Microsoft.AspNetCore.Authentication.Google;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.EntityFrameworkCore;
@@ -20,8 +21,8 @@ namespace Rsk.Samples.IdentityServer4.AdminUiIntegration
                 .AddJsonFile("appsettings.json", true, true)
                 .AddJsonFile($"appsettings.{env.EnvironmentName}.json", true)
                 .AddEnvironmentVariables();
-            Configuration = builder.Build();
-        }
+            Configuration = builder.Build();    
+        }   
 
         public IConfigurationRoot Configuration { get; }
 
@@ -57,6 +58,7 @@ namespace Rsk.Samples.IdentityServer4.AdminUiIntegration
 
             services
                 .AddIdentityExpressAdminUiConfiguration(identityBuilder) // ASP.NET Core Identity Registrations for AdminUI
+                .AddDefaultTokenProviders()
                 .AddIdentityExpressUserClaimsPrincipalFactory(); // Claims Principal Factory for loading AdminUI users as .NET Identities
 
             services.AddScoped<IUserStore<IdentityExpressUser>>(
@@ -65,10 +67,11 @@ namespace Rsk.Samples.IdentityServer4.AdminUiIntegration
                     AutoSaveChanges = true
                 });
 
+
             services.AddIdentityServer()
-                .AddTemporarySigningCredential()
-                .AddOperationalStore(identityServerBuilder)
-                .AddConfigurationStore(identityServerBuilder)
+                .AddDeveloperSigningCredential()
+                .AddOperationalStore(options => options.ConfigureDbContext = identityServerBuilder)
+                .AddConfigurationStore(options => options.ConfigureDbContext = identityServerBuilder)
                 .AddAspNetIdentity<IdentityExpressUser>(); // ASP.NET Core Identity Integration
 
             services.AddMvc();
@@ -82,7 +85,7 @@ namespace Rsk.Samples.IdentityServer4.AdminUiIntegration
             
             app.UseCors(builder => builder.AllowAnyOrigin().AllowAnyHeader().AllowAnyMethod());
 
-            app.UseIdentity();
+            app.UseAuthentication();
             app.UseIdentityServer();
 
 
@@ -92,8 +95,6 @@ namespace Rsk.Samples.IdentityServer4.AdminUiIntegration
             {
                 app.UseGoogleAuthentication(new GoogleOptions
                 {
-                    AuthenticationScheme = "Google",
-                    DisplayName = "Google",
                     SignInScheme = "Identity.External", // ASP.NET Core Identity Extneral User Cookie
                     ClientId = googleClientId, // ClientId Configured within Google Admin
                     ClientSecret = googleClientSecret // ClientSecret Generated within Google Admin

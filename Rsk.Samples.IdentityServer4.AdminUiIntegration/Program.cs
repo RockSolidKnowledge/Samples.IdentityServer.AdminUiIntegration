@@ -1,4 +1,5 @@
 ﻿using System.IO;
+using Microsoft.AspNetCore;
 using Microsoft.AspNetCore.Hosting;
 
 namespace Rsk.Samples.IdentityServer4.AdminUiIntegration
@@ -7,15 +8,17 @@ namespace Rsk.Samples.IdentityServer4.AdminUiIntegration
     {
         public static void Main(string[] args)
         {
-            var host = new WebHostBuilder()
+            BuildWebHost(args).Run();
+        }
+
+        public static IWebHost BuildWebHost(string[] args) =>
+            WebHost.CreateDefaultBuilder(args)
                 .UseContentRoot(Directory.GetCurrentDirectory())
                 .UseStartup<Startup>()
                 .UseUrls("http://*:5003")
                 .UseIISIntegration()
                 .UseKestrel()
                 .Build();
-
-            host.Run();
-        }
     }
 }
+
