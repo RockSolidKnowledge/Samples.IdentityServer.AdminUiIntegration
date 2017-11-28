@@ -34,7 +34,6 @@ namespace IdentityServer4.Quickstart.UI
     public class AccountController : Controller
     {
         private readonly UserManager<IdentityExpressUser> _userManager;
-        private readonly TestUserStore _users;
         private readonly IIdentityServerInteractionService _interaction;
         private readonly IEventService _events;
         private readonly AccountService _account;
@@ -46,10 +45,8 @@ namespace IdentityServer4.Quickstart.UI
             IHttpContextAccessor httpContextAccessor,
             UserManager<IdentityExpressUser> userManager,
             IAuthenticationSchemeProvider schemeProvider,
-            IEventService events, IUrlHelperFactory urlHelperFactory, TestUserStore users = null)
+            IEventService events, IUrlHelperFactory urlHelperFactory)
         {
-            // if the TestUserStore is not in DI, then we'll just use the global users collection
-            _users = users ?? new TestUserStore(TestUsers.Users);
             _interaction = interaction;
             _events = events;
             _urlHelperFactory = urlHelperFactory;
