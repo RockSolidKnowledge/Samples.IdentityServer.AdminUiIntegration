@@ -1,7 +1,6 @@
 ﻿using System;
 using System.Reflection;
 using IdentityExpress.Identity;
-using Microsoft.AspNetCore.Authentication.Google;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.EntityFrameworkCore;
@@ -74,6 +73,20 @@ namespace Rsk.Samples.IdentityServer4.AdminUiIntegration
                 .AddConfigurationStore(options => options.ConfigureDbContext = identityServerBuilder)
                 .AddAspNetIdentity<IdentityExpressUser>(); // ASP.NET Core Identity Integration
 
+            var googleClientId = Configuration.GetValue<string>("Google_ClientId");
+            var googleClientSecret = Configuration.GetValue<string>("Google_ClientSecret");
+            if (!string.IsNullOrWhiteSpace(googleClientId) && !string.IsNullOrWhiteSpace(googleClientSecret))
+            {
+                services
+                    .AddAuthentication()
+                    .AddGoogle(options =>
+                    {
+                        options.SignInScheme = "Identity.External"; // ASP.NET Core Identity Extneral User Cookie
+                        options.ClientId = googleClientId; // ClientId Configured within Google Admin
+                        options.ClientSecret = googleClientSecret; // ClientSecret Generated within Google Admin
+                    });
+            }
+
             services.AddMvc();
         }
         
@@ -85,22 +98,8 @@ namespace Rsk.Samples.IdentityServer4.AdminUiIntegration
             
             app.UseCors(builder => builder.AllowAnyOrigin().AllowAnyHeader().AllowAnyMethod());
 
-            app.UseAuthentication();
             app.UseIdentityServer();
-
-
-            var googleClientId = Configuration.GetValue<string>("Google_ClientId");
-            var googleClientSecret = Configuration.GetValue<string>("Google_ClientSecret");
-            if (!string.IsNullOrWhiteSpace(googleClientId) && !string.IsNullOrWhiteSpace(googleClientSecret))
-            {
-                app.UseGoogleAuthentication(new GoogleOptions
-                {
-                    SignInScheme = "Identity.External", // ASP.NET Core Identity Extneral User Cookie
-                    ClientId = googleClientId, // ClientId Configured within Google Admin
-                    ClientSecret = googleClientSecret // ClientSecret Generated within Google Admin
-                });
-            }
-
+            
             app.UseStaticFiles();
             app.UseMvcWithDefaultRoute();
         }

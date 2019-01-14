@@ -32,7 +32,7 @@ namespace Rsk.Samples.IdentityServer4.AdminUIIntegration.Tests
                 .AddJsonFile("appsettings.testing.json").Build();
 
             normalizer = new UpperInvariantLookupNormalizer();
-            options = new DbContextOptionsBuilder<IdentityExpressDbContext>().UseSqlite(config.GetValue<string>("DbConnectionString")).Options;
+            options = new DbContextOptionsBuilder<IdentityExpressDbContext>().UseSqlite(config.GetValue<string>("IdentityConnectionString")).Options;
 
             using (var context = new IdentityExpressDbContext(options))
                 context.Database.EnsureCreated();
@@ -42,7 +42,7 @@ namespace Rsk.Samples.IdentityServer4.AdminUIIntegration.Tests
         }
 
         [Fact]
-        public async Task Resgiter_WhenModelIsValidWithNullPassword_ExpectSuccessAndUserPasswordSet()
+        public async Task Register_WhenModelIsValidWithNullPassword_ExpectSuccessAndUserPasswordSet()
         {
             //arrange
             var username = Guid.NewGuid().ToString();
@@ -58,23 +58,14 @@ namespace Rsk.Samples.IdentityServer4.AdminUIIntegration.Tests
                 context.SaveChanges();
             }
 
-            var model = new RegisterInputModel
-            {
-                ConfirmPassword = "Password123!",
-                Password = "Password123!",
-                Username = username
-            };
-
-            
-            var list = new List<KeyValuePair<string, string>> {
+            var registerInputModel = new List<KeyValuePair<string, string>> {
                 new KeyValuePair<string, string>("ConfirmPassword", "Password123!"),
                 new KeyValuePair<string, string>("Password", "Password123!"),
                 new KeyValuePair<string, string>("Username", username)
             };
 
-
             //act
-            var result = await client.PostAsync("/account/register", new FormUrlEncodedContent(list));
+            var result = await client.PostAsync("/account/register", new FormUrlEncodedContent(registerInputModel));
 
             //assert
             Assert.True(result.IsSuccessStatusCode);
@@ -92,7 +83,7 @@ namespace Rsk.Samples.IdentityServer4.AdminUIIntegration.Tests
         // TODO: Post with user who already has password
 
         [Fact]
-        public async Task Resgiter_WhenUserAlreadyHasPassword_ExpectFailureAndPasswordNotUpdated()
+        public async Task Register_WhenUserAlreadyHasPassword_ExpectFailureAndPasswordNotUpdated()
         {
             //arrange
             var username = Guid.NewGuid().ToString();
@@ -112,16 +103,14 @@ namespace Rsk.Samples.IdentityServer4.AdminUIIntegration.Tests
                 context.SaveChanges();
             }
 
-            var model = new RegisterInputModel
-            {
-                ConfirmPassword = "Password123!",
-                Password = "Password123!",
-                Username = username
+            var registerInputModel = new List<KeyValuePair<string, string>> {
+                new KeyValuePair<string, string>("ConfirmPassword", "Password123!"),
+                new KeyValuePair<string, string>("Password", "Password123!"),
+                new KeyValuePair<string, string>("Username", username)
             };
-            var json = JsonConvert.SerializeObject(model);
 
             //act
-            var result = await client.PostAsync("/account/register", new StringContent(json, Encoding.UTF8, "application/json"));
+            var result = await client.PostAsync("/account/register", new FormUrlEncodedContent(registerInputModel));
 
             //assert
             Assert.True(result.IsSuccessStatusCode);

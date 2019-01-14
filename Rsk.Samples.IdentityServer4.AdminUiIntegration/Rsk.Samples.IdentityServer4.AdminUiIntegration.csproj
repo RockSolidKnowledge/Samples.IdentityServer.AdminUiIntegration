@@ -3,7 +3,7 @@
     <TargetFramework>netcoreapp2.1</TargetFramework>
   </PropertyGroup>
   <ItemGroup>
-    <PackageReference Include="IdentityExpress.Identity" Version="2.3.0-preview1" />
+    <PackageReference Include="IdentityExpress.Identity" Version="2.3.0" />
     <PackageReference Include="IdentityServer4" Version="2.3.2" />
     <PackageReference Include="IdentityServer4.AspNetIdentity" Version="2.3.0" /> 
     <PackageReference Include="IdentityServer4.EntityFramework" Version="2.3.2" />
