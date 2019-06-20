@@ -252,3 +252,5 @@ paket-files/
 *.sln.iml
 
 /Rsk.Samples.IdentityServer4.AdminUiIntegration/out/*
+
+node_modules/

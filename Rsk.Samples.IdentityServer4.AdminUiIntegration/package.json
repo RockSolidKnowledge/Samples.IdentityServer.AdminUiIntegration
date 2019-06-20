@@ -1,0 +1,15 @@
+{
+	"name": "identityserver",
+	"version": "1.0.0",
+	"description": "IdentityServer",
+	"author": "@karltynan for Rock Solid Knowledge Ltd (https://www.rocksolidknowledge.com/)",
+	"private": true,
+	"license": "UNLICENSED",
+	"devDependencies": {
+		"gulp": "^4.0.2",
+		"gulp-purgecss": "^1.2.0",
+		"gulp-rename": "^1.4.0",
+		"gulp-uglify": "^3.0.2",
+		"gulp-uglifycss": "^1.1.0"
+	}
+}

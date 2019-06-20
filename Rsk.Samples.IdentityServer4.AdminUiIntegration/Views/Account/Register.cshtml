@@ -1,54 +1,46 @@
 ﻿@model RegisterViewModel
 
+@section banner
+{
+	<div class="bg-navy text-white px-6 py-8 md:py-12 lg:py-16 relative z-10">
+		<div class="container w-full text-left mx-auto self-center">
+			<div class="max-w-lg">
+				<div class="flex flex-wrap items-center">
+					<h1 class="font-bold w-full text-3xl lg:text-4xl leading-tight">Register</h1>
+				</div>
+			</div>
+		</div>
+	</div>
+}
 
+@if (Model.IsSuccess)
+{
+	<div class="message message-success" role="alert">
+		<div>
+			<h3 class="text-base mb-1">Success</h3>
+			<ul>
+				<li>New user registration was successfully completed</li>
+			</ul>
+		</div>
+	</div>
+}
 
-<div class="login-page">
-    <div class="page-header">
-        <h1>Register</h1>
-    </div>
+@Html.Partial("_ValidationSummary")
 
-    @Html.Partial("_ValidationSummary")
-
-    @if (Model.IsSuccess)
-    {
-        <div class="alert alert-success">
-            <div class="alert alert-success" role="alert">
-                Success! User is now registered!
-            </div>
-        </div>
-    }
-
-
-    <div class="row">
-        <div class="col-sm-6">
-            <div class="panel panel-default">
-                <div class="panel-heading">
-                    <h3 class="panel-title">Register</h3>
-                </div>
-                <div class="panel-body">
-
-                    <form asp-route="Register" method="post">
-                        <fieldset>
-                            <div class="form-group">
-                                <label asp-for="Username"></label>
-                                <input class="form-control" placeholder="Username" asp-for="Username" autofocus>
-                            </div>
-                            <div class="form-group">
-                                <label asp-for="Password"></label>
-                                <input type="password" class="form-control" placeholder="Password" asp-for="Password" autocomplete="off">
-                            </div>
-                            <div class="form-group">
-                                <label asp-for="ConfirmPassword"></label>
-                                <input type="password" class="form-control" placeholder="Confirm Password" asp-for="ConfirmPassword" autocomplete="off">
-                            </div>
-
-                            <div class="form-group">
-                                <button class="btn btn-primary">Register</button>
-                            </div>
-                        </fieldset>
-                    </form>
-                </div>
-            </div>
-        </div>
-    </div>
-</div>
+<form asp-route="Register" method="post">
+	<div class="form-group">
+		<label class="form-label" asp-for="Username"></label>
+		<input class="form-control" asp-for="Username" />
+	</div>
+	<div class="form-group">
+		<label class="form-label" asp-for="Password"></label>
+		<input type="password" class="form-control" asp-for="Password" autocomplete="off" />
+	</div>
+	<div class="form-group">
+		<label class="form-label" asp-for="ConfirmPassword"></label>
+		<input type="password" class="form-control" asp-for="ConfirmPassword" autocomplete="off" />
+	</div>
+	<div class="form-actions">
+		<button class="btn" type="submit">Register</button>
+	</div>
+</form>
