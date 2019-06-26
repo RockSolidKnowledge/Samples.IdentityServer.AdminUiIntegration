@@ -32,16 +32,12 @@ else
 	{
 		<section class="border border-navy-lightest overflow-hidden  rounded mb-6 last-child:mb-0">
 			<div class="flex items-center bg-navy-lightest px-6 py-4">
-				<div class="hidden sm:flex bg-white items-center justify-center flex-no-shrink shadow-inner overflow-hidden w-8 h-8 mr-3 rounded-full">
-					@if (grant.ClientLogoUrl != null)
-					{
-						<img class="object-cover w-8 h-8" src="@grant.ClientLogoUrl" alt="" aria-hidden="true" />
-					}
-					else
-					{
-						<span class="fas fa-camera text-sm text-grey-lighter"></span>
-					}
-				</div>
+				@if (grant.ClientLogoUrl != null)
+				 {
+					 <div class="hidden sm:block w-10 mr-3" aria-hidden="true">
+						 <img class="block" src="@grant.ClientLogoUrl" alt=""/>
+					 </div>
+				 }
 				<h2 class="text-base">@grant.ClientName</h2>
 			</div>
 			<div class="flex flex-wrap items-start lg:flex-no-wrap">

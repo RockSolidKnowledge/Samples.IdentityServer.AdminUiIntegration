@@ -1,46 +1,38 @@
 ﻿@model ConsentViewModel
 
 @section banner
-{
+	{
 	<div class="bg-navy text-white px-6 py-8 md:py-12 lg:py-16 relative z-10">
 		<div class="container w-full text-left mx-auto self-center">
 			<div class="max-w-lg">
-				<div class="flex items-center">
-					<div class="hidden sm:flex items-center justify-center flex-no-shrink bg-white h-16 w-16 shadow-inner mr-4 overflow-hidden rounded-full" aria-hidden="true">
-						@if (Model.ClientLogoUrl != null)
-						{
-							<img class="object-cover w-16 h-16" src="@Model.ClientLogoUrl" alt="" />
-						}
-						else
-						{
-							<span class="fas fa-image text-grey-lighter text-2xl"></span>
-						}
-					</div>
-					<div class="w-full">
-						<h1 class="font-bold text-3xl lg:text-4xl leading-tight">Consent</h1>
-						<p class="text-sm text-navy-lighter mt-1">@Model.ClientName is requesting your permission</p>
-					</div>
-				</div>
+				<h1 class="font-bold text-3xl lg:text-4xl leading-tight">Consent</h1>
+				<p class="text-sm text-navy-lighter mt-1">@Model.ClientName is requesting your permission</p>
 			</div>
 		</div>
 	</div>
 }
 
-<div class="cms mb-6">
+<div class="flex items-start mb-6">
+	@if (Model.ClientLogoUrl != null)
+	{
+		<img class="hidden sm:block w-16 -mt-2 mr-4" src="@Model.ClientLogoUrl" alt="" />
+	}
 	<p>
 		<strong>
 			@Model.ClientName is requesting your permission@(Model.ClientUrl != null ? ": " : ".")
-			@if (Model.ClientUrl != null)
-			{
-				<span class="block mt-1">
-					<a class="inline-block max-w-full break-words truncate" href="@Model.ClientUrl" target="_blank">
-						<span class="fas fa-link" aria-hidden="true"></span>
-						<span class="ml-1">@Model.ClientUrl</span>
-					</a>
-				</span>
-			}
 		</strong>
+		@if (Model.ClientUrl != null)
+		{
+			<span class="block">
+				<a class="font-bold text-red inline-block max-w-full hover:text-navy break-words truncate trans" href="@Model.ClientUrl" target="_blank">
+					<span class="fas fa-link" aria-hidden="true"></span>
+					<span class="ml-1">@Model.ClientUrl</span>
+				</a>
+			</span>
+		}
 	</p>
+</div>
+<div class="cms mb-6">
 	<p>Uncheck any permissions you do not wish to grant to @Model.ClientName.</p>
 </div>
 

@@ -67400,3 +67400,7 @@ a .cms-button:hover {
     word-spacing: inherit;
   }
 }
+
+.object-cover {
+	object-fit: cover;
+}
