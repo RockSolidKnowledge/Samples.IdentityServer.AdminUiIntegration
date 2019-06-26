@@ -1,4 +1,4 @@
-FROM microsoft/dotnet:2.0-runtime-jessie
+FROM mcr.microsoft.com/dotnet/core/aspnet:2.1.11
 
 COPY ./out /app
 COPY ./wait-for-it.sh /app
