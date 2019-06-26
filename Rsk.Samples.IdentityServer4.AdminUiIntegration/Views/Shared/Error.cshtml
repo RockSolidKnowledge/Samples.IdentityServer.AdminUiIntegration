@@ -3,40 +3,43 @@
 @inject IHostingEnvironment host
 
 @{
-    var error = Model?.Error?.Error;
-    var errorDescription = host.IsDevelopment() ? Model?.Error?.ErrorDescription : null;
-    var request_id = Model?.Error?.RequestId;
+	var error = Model?.Error?.Error;
+	var errorDescription = host.IsDevelopment() ? Model?.Error?.ErrorDescription : null;
+	var requestId = Model?.Error?.RequestId;
 }
 
-<div class="error-page">
-    <div class="page-header">
-        <h1>Error</h1>
-    </div>
+@section banner
+{
+	<div class="bg-navy text-white px-6 py-8 md:py-12 lg:py-16 relative z-10">
+		<div class="container w-full text-left mx-auto self-center">
+			<div class="max-w-lg">
+				<div class="flex flex-wrap items-center">
+					<h1 class="font-bold w-full text-3xl lg:text-4xl leading-tight">Error</h1>
+				</div>
+			</div>
+		</div>
+	</div>
+}
 
-    <div class="row">
-        <div class="col-sm-6">
-            <div class="alert alert-danger">
-                Sorry, there was an error
-
-                @if (error != null)
-                {
-                    <strong>
-                        <em>
-                            : @error
-                        </em>
-                    </strong>
-
-                    if (errorDescription != null)
-                    {
-                        <div>@errorDescription</div>
-                    }
-                }
-            </div>
-
-            @if (request_id != null)
-            {
-                <div class="request-id">Request Id: @request_id</div>
-            }
-        </div>
-    </div>
+<div class="message message-error" role="alert">
+	<div>
+		<h2 class="text-base">Sorry, there was an error</h2>
+		@if (error != null || requestId != null)
+		{
+			<ul class="mt-1">
+				@if (error != null)
+				{
+					<li>@error</li>
+					if (errorDescription != null)
+					{
+						<li>@errorDescription</li>
+					}
+				}
+				@if (requestId != null)
+				{
+					<li class="request-id">Request ID: @requestId</li>
+				}
+			</ul>
+		}
+	</div>
 </div>

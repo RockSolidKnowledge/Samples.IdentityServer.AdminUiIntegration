@@ -3,6 +3,12 @@
     <TargetFramework>netcoreapp2.1</TargetFramework>
   </PropertyGroup>
   <ItemGroup>
+    <Content Include="src\css\print.css" />
+    <Content Include="src\css\site.css" />
+    <Content Include="src\js\signout-redirect.js" />
+    <Content Include="src\js\site.js" />
+  </ItemGroup>
+  <ItemGroup>
     <PackageReference Include="IdentityExpress.Identity" Version="2.3.0" />
     <PackageReference Include="IdentityServer4" Version="2.3.2" />
     <PackageReference Include="IdentityServer4.AspNetIdentity" Version="2.3.0" /> 
@@ -11,5 +17,9 @@
     <PackageReference Include="Pomelo.EntityFrameworkCore.MySql" Version="2.1.4" />
     <PackageReference Include="Npgsql.EntityFrameworkCore.PostgreSQL" Version="2.1.2" />
     <PackageReference Include="Microsoft.EntityFrameworkCore.Sqlite" Version="2.1.4" />
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="wwwroot\css\" />
+    <Folder Include="wwwroot\js\" />
   </ItemGroup>
 </Project>

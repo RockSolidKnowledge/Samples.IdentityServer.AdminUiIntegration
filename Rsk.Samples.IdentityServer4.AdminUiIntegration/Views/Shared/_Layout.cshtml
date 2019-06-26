@@ -1,61 +1,172 @@
 ﻿@using IdentityServer4.Extensions
 @{
-    string name = null;
-    if (!true.Equals(ViewData["signed-out"]))
-    {
-        name = Context.User?.GetDisplayName();
-    }
+	var cacheString = 1;
+	string name = null;
+	if (!true.Equals(ViewData["signed-out"]))
+	{
+		name = Context.User?.GetDisplayName();
+	}
 }
 <!DOCTYPE html>
-<html>
+<html class="no-js bg-navy-darker" lang="en-gb">
 <head>
-    <meta charset="utf-8" />
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>IdentityServer4</title>
-    <link rel="icon" type="image/x-icon" href="~/favicon.ico" />
-    <link rel="shortcut icon" type="image/x-icon" href="~/favicon.ico" />
-    <link rel="stylesheet" href="~/lib/bootstrap/css/bootstrap.css" />
-    <link rel="stylesheet" href="~/css/site.css" />
+	<meta charset="utf-8" />
+	<title>IdentityServer4</title>
+	<meta name="robots" content="noindex" />
+	<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+	<meta name="viewport" content="width=device-width,shrink-to-fit=no,initial-scale=1,minimum-scale=1" />
+	<link href="https://fonts.googleapis.com/css?family=Roboto:400,500,700" rel="stylesheet">
+	<link href="https://use.fontawesome.com/releases/v5.2.0/css/all.css" rel="stylesheet" />
+	<link href="~/css/site.min.css?v=@(cacheString)" rel="stylesheet" media="screen" />
+	<link href="~/css/print.min.css?v=@(cacheString)" rel="stylesheet" media="print" />
+	<link href="~/favicon.ico?v=@(cacheString)" rel="shortcut icon" type="image/x-icon" />
+	<meta name="theme-color" content="#000913" />
+	<meta name="format-detection" content="telephone=no" />
 </head>
-<body>
-    <div class="navbar navbar-inverse navbar-fixed-top">
-        <div class="container-fluid">
-            <div class="navbar-header">
-                <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1" aria-expanded="false">
-                    <span class="sr-only">Toggle navigation</span>
-                    <span class="icon-bar"></span>
-                    <span class="icon-bar"></span>
-                    <span class="icon-bar"></span>
-                </button>
-                <a href="~/">
-                    <span class="navbar-brand">
-                        <img src="~/icon.png" class="icon-banner">
-                        IdentityServer4
-                    </span>
-                </a>
-            </div>
+<body id="top" class="preload bg-navy-darker text-white text-center text-base font-sans leading-normal">
 
-            @if (!string.IsNullOrWhiteSpace(name))
-            {
-                <ul class="nav navbar-nav">
-                    <li class="dropdown">
-                        <a href="#" class="dropdown-toggle" data-toggle="dropdown">@name <b class="caret"></b></a>
-                        <ul class="dropdown-menu">
-                            <li><a asp-action="Logout" asp-controller="Account">Logout</a></li>
-                        </ul>
-                    </li>
-                </ul>
-            }
-        </div>
-    </div>
+	<a class="skip-link sr-only sr-only-focusable bg-white font-semibold text-copy px-4 py-2" href="#main">Skip to content</a>
 
-    <div class="container body-content">
-        @RenderBody()
-    </div>
+	@if (!string.IsNullOrWhiteSpace(name))
+	{
+		<div class="bg-black-darker px-6 py-3 no-print">
+			<nav class="container text-xs leading-none text-grey-lighter text-right mx-auto" aria-label="Account">
+				<ul class="inline-flex items-center list-reset">
+					<li class="flex items-center mr-2 sm:mr-3" aria-hidden="true">
+						<span class="fas fa-user-alt opacity-75 hidden sm:inline"></span>
+						<span class="ml-2">@name</span>
+						<span class="block bg-grey w-1 h-1 ml-2 rounded-full sm:ml-3"></span>
+					</li>
+					<li>
+						<a class="text-grey-lighter hover:text-white trans" asp-action="Logout" asp-controller="Account">Logout</a>
+					</li>
+				</ul>
+			</nav>
+		</div>
+	}
 
-    <script src="~/lib/jquery/jquery.js"></script>
-    <script src="~/lib/bootstrap/js/bootstrap.js"></script>
-    @RenderSection("scripts", required: false)
+	<header id="header" class="bg-navy border-b border-white-25 text-white px-6" role="banner">
+		<div class="flex items-center justify-between container mx-auto h-header">
+			<a class="font-semibold flex items-center bg-red text-white px-5 py-1 rounded-full hover:bg-red-dark focus:shadow-outline focus:outline-none trans-bg" href="https://www.identityserver.com" target="_blank">
+				<span>IdentityServer</span>
+				<span class="text-white-75 font-normal no-print">.com</span>
+			</a>
+			<a class="text-xs text-navy-lighter hover:text-white trans no-print hidden sm:inline" href="https://www.identityserver.com/products" target="_blank">
+				View our products
+				<span class="fas fa-long-arrow-alt-right ml-1" aria-hidden="true"></span>
+			</a>
+		</div>
+	</header>
+
+	<main id="main" class="bg-navy-lightest text-copy focus:outline-none" role="main" tabindex="-1">
+
+		@RenderSection("banner", false)
+
+		<div id="content">
+
+			<div class="row-block">
+				<div class="container text-left mx-auto">
+					<div class="flex flex-wrap -mt-6 -ml-6 lg:-mt-12 lg:-ml-12 xl:-mt-16 xl:-ml-16">
+
+						<div id="body" class="text-left mx-auto pt-6 pl-6 w-full md:w-1/2 lg:w-2/3 lg:pt-12 lg:pl-12 xl:pt-16 xl:pl-16">
+							@RenderBody()
+						</div>
+
+						<aside class="text-left mx-auto pt-6 pl-6 w-full md:w-1/2 lg:w-1/3 lg:pt-12 lg:pl-12 xl:pt-16 xl:pl-16 print-grid">
+
+							<section class="bg-red-lightest border-b-3 border-red overflow-hidden rounded shadow-md print-grid__col-1/2">
+								<h2 class="bg-red text-base text-white p-4">
+									<span class="fas fa-wrench fa-fw mr-1" aria-hidden="true"></span>
+									Your own customised <abbr title="Single sign-on">SSO</abbr> solution
+								</h2>
+								<div class="p-4 pb-6">
+									<p class="text-sm">We can develop a customised IdentityServer solution to fit your needs:</p>
+									<ul class="list-reset text-sm mt-3">
+										<li class="flex items-start">
+											<span class="fas fa-check-circle flex-no-shrink text-red leading-normal mr-2" aria-hidden="true"></span>
+											<span>Built to your exact requirements</span>
+										</li>
+										<li class="flex items-start mt-1">
+											<span class="fas fa-check-circle flex-no-shrink text-red leading-normal mr-2" aria-hidden="true"></span>
+											<span>Seamless integration with your IT infrastructure</span>
+										</li>
+										<li class="flex items-start mt-1">
+											<span class="fas fa-check-circle flex-no-shrink text-red leading-normal mr-2" aria-hidden="true"></span>
+											<span>No subscription fees</span>
+										</li>
+									</ul>
+									<p class="mt-6 text-center">
+										<span class="hidden" aria-hidden="true">Email: sales@identityserver.com</span>
+										<a class="btn btn-small no-print" href="mailto:sales@identityserver.com?subject=Custom+SSO+solutions" target="_blank">Enquire Now</a>
+									</p>
+								</div>
+							</section>
+
+							<section class="bg-navy-lightest border-b-3 border-navy overflow-hidden rounded shadow-md mt-6 lg:mt-8 print-grid__col-1/2">
+								<h2 class="bg-navy text-base text-white p-4">
+									<span class="far fa-question-circle fa-fw mr-1" aria-hidden="true"></span>
+									Looking for IdentityServer support?
+								</h2>
+								<div class="p-4 pb-6">
+									<p class="text-sm">We can help with your IdentityServer solution providing expert guidance, support and consultancy:</p>
+									<ul class="list-reset text-sm mt-3">
+										<li class="flex items-start">
+											<span class="fas fa-check-circle flex-no-shrink text-navy leading-normal mr-2" aria-hidden="true"></span>
+											<span>Remote development support</span>
+										</li>
+										<li class="flex items-start mt-1">
+											<span class="fas fa-check-circle flex-no-shrink text-navy leading-normal mr-2" aria-hidden="true"></span>
+											<span>IdentityServer production support</span>
+										</li>
+										<li class="flex items-start mt-1">
+											<span class="fas fa-check-circle flex-no-shrink text-navy leading-normal mr-2" aria-hidden="true"></span>
+											<span>Formal health checks</span>
+										</li>
+									</ul>
+									<p class="mt-6 text-center">
+										<span class="hidden" aria-hidden="true">Email: sales@identityserver.com</span>
+										<a class="btn btn-small btn-secondary no-print" href="mailto:sales@identityserver.com?subject=IdentityServer+support" target="_blank">Enquire Now</a>
+									</p>
+								</div>
+							</section>
+
+						</aside>
+
+					</div>
+				</div>
+			</div>
+
+			<aside id="site-info" class="row-block">
+				<div class="max-w-md text-navy-light text-sm text-center mx-auto">
+					<p>This copy of IdentityServer4 is completely open source. Please go ahead and change the branding to meet your requirements. If you need any support or are interested in our commercial options for IdentityServer, please feel free to contact us at <a class="text-red-dark font-bold hover:text-navy trans" href="mailto:sales@identityserver.com?subject=Commercial" target="_blank">sales@identityserver.com</a></p>
+				</div>
+			</aside>
+
+		</div>
+	</main>
+
+	<div class="relative z-30 no-print">
+		<p class="absolute pin-b pin-l pin-r -mb-5 -ml-4 z-20">
+			<a class="bg-navy-darker text-navy-lighter h-10 w-10 rounded-full flex items-center justify-center mx-auto hover:bg-red hover:text-white trans" href="#top">
+				<span class="fas fa-arrow-up" aria-hidden="true"></span>
+				<span class="sr-only">Back To Top</span>
+			</a>
+		</p>
+	</div>
+
+	<footer id="footer" class="bg-navy-darker text-navy-lighter px-6 py-10 text-xs relative z-20" role="contentinfo">
+		<div class="flex flex-wrap sm:flex-no-wrap items-center sm:justify-between container text-left mx-auto">
+			<p class="mb-4 sm:mb-0 w-full sm:w-auto">&copy; @DateTime.Now.Year <a class="hover:text-white trans" href="https://www.rocksolidknowledge.com" target="_blank">Rock Solid Knowledge</a></p>
+			<p class="list-reset w-full sm:w-auto no-print">
+				<a class="hover:text-white trans" href="https://www.identityserver.com/" target="_blank">
+					IdentityServer.com
+				</a>
+			</p>
+		</div>
+	</footer>
+
+	<script src="~/js/site.min.js?v=@(cacheString)"></script>
+	@RenderSection("scripts", false)
+
 </body>
 </html>
