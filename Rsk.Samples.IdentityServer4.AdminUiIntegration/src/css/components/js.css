@@ -1,0 +1,6 @@
+@responsive {
+	.js .hide-on-js,
+	.no-js .show-on-js {
+		display: none;
+	}
+}

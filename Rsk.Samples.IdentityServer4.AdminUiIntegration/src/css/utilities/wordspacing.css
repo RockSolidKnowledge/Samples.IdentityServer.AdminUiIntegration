@@ -1,0 +1,15 @@
+﻿@responsive {
+
+	.wordspacing-normal {
+		word-spacing: normal;
+	}
+
+	.wordspacing-initial {
+		word-spacing: initial;
+	}
+
+	.wordspacing-inherit {
+		word-spacing: inherit;
+	}
+
+}

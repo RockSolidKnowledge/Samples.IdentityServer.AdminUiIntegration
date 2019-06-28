@@ -27,9 +27,9 @@ namespace IdentityServer4.Quickstart.UI
                 }
 
                 // https://developer.mozilla.org/en-US/docs/Web/HTTP/Headers/Content-Security-Policy
-                var csp = "default-src 'self' https://use.fontawesome.com https://fonts.googleapis.com https://fonts.gstatic.com; " +
+                var csp = "default-src 'self'; " +
                           "object-src 'none'; " +
-                          "img-src 'self' data:; " +
+                          "img-src 'self'; " +
                           "frame-ancestors 'none'; " +
                           "sandbox allow-forms allow-same-origin allow-scripts allow-popups; " +
                           "base-uri 'self';";

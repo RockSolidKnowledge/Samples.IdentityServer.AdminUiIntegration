@@ -1,0 +1,27 @@
+﻿@responsive {
+
+	.wordbreak-normal {
+		word-break: normal;
+	}
+
+	.wordbreak-break {
+		word-break: break-all;
+	}
+
+	.wordbreak-keep {
+		word-break: keep-all;
+	}
+
+	.wordbreak-word {
+		word-break: break-word;
+	}
+
+	.wordbreak-initial {
+		word-break: initial;
+	}
+
+	.wordbreak-inherit {
+		word-break: inherit;
+	}
+
+}

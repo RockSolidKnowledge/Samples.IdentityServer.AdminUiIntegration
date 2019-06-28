@@ -1,0 +1,148 @@
+﻿/* primary (red) */
+
+.btn {
+	@apply inline-block inline-flex items-center justify-center bg-red border-2 border-red text-white font-semibold px-6 py-2 text-center rounded-full truncate trans;
+}
+
+.btn:focus {
+	@apply outline-none shadow-outline;
+}
+
+.btn:hover {
+	@apply bg-navy border-navy text-white;
+}
+
+/* secondary (navy) */
+
+.btn-secondary {
+	@apply bg-navy border-navy text-white;
+}
+
+.btn-secondary:hover {
+	@apply bg-navy-darkest border-navy-darkest text-white;
+}
+
+/* subtle (navy-light) */
+
+.btn-subtle {
+	@apply bg-navy-light border-navy-light text-white;
+}
+
+.btn-subtle:hover {
+	@apply bg-navy border-navy text-white;
+}
+
+/* white */
+
+.btn-white {
+	@apply bg-white border-white text-navy;
+}
+
+.btn-white:hover {
+	@apply bg-transparent border-white text-white;
+}
+
+/* text */
+
+.btn-text {
+	@apply bg-transparent border-none text-red p-0 rounded-none;
+}
+
+.btn-text:hover {
+	@apply bg-transparent text-navy;
+}
+
+/* line */
+
+.btn-line {
+	@apply bg-transparent border-red text-red;
+}
+
+.btn-line:hover {
+	@apply bg-transparent border-navy text-navy;
+}
+
+/* line - secondary */
+
+.btn-line-secondary {
+	@apply bg-transparent border-navy text-navy;
+}
+
+.btn-line-secondary:hover {
+	@apply bg-transparent border-navy-darkest text-navy-darkest;
+}
+
+/* line - subtle */
+
+.btn-line-subtle {
+	@apply bg-transparent border-navy-light text-navy-light;
+}
+
+.btn-line-subtle:hover {
+	@apply bg-transparent border-navy-dark text-navy-dark;
+}
+
+/* line - white */
+
+.btn-line-white {
+	@apply bg-transparent border-white text-white;
+}
+
+.btn-line-white:hover {
+	@apply bg-white border-white text-navy;
+}
+
+/* clear */
+
+.btn-clear {
+	@apply bg-transparent border-navy-lighter text-navy-lighter;
+}
+
+.btn-clear:hover {
+	@apply bg-transparent border-white text-white;
+}
+
+/* small */
+
+.btn-small {
+	@apply text-sm;
+}
+
+.btn-small:not(.btn-text) {
+	@apply px-3 py-1;
+}
+
+/* disabled */
+.btn.disabled,
+.btn[disabled] {
+	@apply bg-grey-lighter border-grey-lighter text-black opacity-25 cursor-not-allowed;
+}
+
+.btn-line.disabled,
+.btn-line[disabled],
+.btn-line-secondary.disabled,
+.btn-line-secondary[disabled],
+.btn-line-subtle.disabled,
+.btn-line-subtle[disabled] {
+	@apply bg-transparent border-grey-lighter text-grey-darker;
+}
+
+.btn-text.disabled,
+.btn-text[disabled] {
+	@apply bg-transparent border-transparent;
+}
+
+.btn-clear.disabled,
+.btn-clear[disabled] {
+	@apply bg-transparent border-navy-light text-navy-light;
+}
+
+/* large */
+
+@responsive {
+
+	.btn-large {
+		@apply px-8 py-3 text-lg;
+	}
+
+}

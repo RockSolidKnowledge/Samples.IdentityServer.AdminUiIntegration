@@ -1,11 +1,11 @@
 ﻿@using IdentityServer4.Extensions
 @{
-	var cacheString = 1;
 	string name = null;
 	if (!true.Equals(ViewData["signed-out"]))
 	{
 		name = Context.User?.GetDisplayName();
 	}
+	bool signedIn = !string.IsNullOrWhiteSpace(name);
 }
 <!DOCTYPE html>
 <html class="no-js bg-navy-darker" lang="en-gb">
@@ -15,35 +15,42 @@
 	<meta name="robots" content="noindex" />
 	<meta http-equiv="X-UA-Compatible" content="IE=edge" />
 	<meta name="viewport" content="width=device-width,shrink-to-fit=no,initial-scale=1,minimum-scale=1" />
-	<link href="https://fonts.googleapis.com/css?family=Roboto:400,500,700" rel="stylesheet">
-	<link href="https://use.fontawesome.com/releases/v5.2.0/css/all.css" rel="stylesheet" />
-	<link href="~/css/site.min.css?v=@(cacheString)" rel="stylesheet" media="screen" />
-	<link href="~/css/print.min.css?v=@(cacheString)" rel="stylesheet" media="print" />
-	<link href="~/favicon.ico?v=@(cacheString)" rel="shortcut icon" type="image/x-icon" />
+	<link href="" rel="stylesheet">
+	<link href="~/fonts/fontawesome/css/all.min.css" rel="stylesheet" asp-append-version="true" />
+	<link href="~/css/site.min.css" rel="stylesheet" media="screen" asp-append-version="true" />
+	<link href="~/css/print.min.css" rel="stylesheet" media="print" asp-append-version="true" />
+	<link href="~/favicon.ico" rel="shortcut icon" type="image/x-icon" asp-append-version="true" />
 	<meta name="theme-color" content="#000913" />
 	<meta name="format-detection" content="telephone=no" />
 </head>
 <body id="top" class="preload bg-navy-darker text-white text-center text-base font-sans leading-normal">
 
-	<a class="skip-link sr-only sr-only-focusable bg-white font-semibold text-copy px-4 py-2" href="#main">Skip to content</a>
+	<a class="skip-link sr-only sr-only-focusable bg-white font-semibold text-copy px-4 py-2 no-print" href="#main">Skip to content</a>
 
-	@if (!string.IsNullOrWhiteSpace(name))
-	{
-		<div class="bg-black-darker px-6 py-3 no-print">
-			<nav class="container text-xs leading-none text-grey-lighter text-right mx-auto" aria-label="Account">
-				<ul class="inline-flex items-center list-reset">
+	<div class="bg-black-darker px-6 py-3 no-print">
+		<nav class="flex items-center justify-end container text-xs leading-none text-grey-lighter text-right mx-auto" aria-label="Account">
+			<span class="hidden sm:block fas fa-user-alt opacity-75 mr-2" aria-hidden="true"></span>
+			<ul class="flex items-center list-reset">
+				@if (signedIn)
+				{
 					<li class="flex items-center mr-2 sm:mr-3" aria-hidden="true">
-						<span class="fas fa-user-alt opacity-75 hidden sm:inline"></span>
-						<span class="ml-2">@name</span>
+						<span class="block text-right w-48 sm:w-auto sm:max-w-xs truncate">@name</span>
 						<span class="block bg-grey w-1 h-1 ml-2 rounded-full sm:ml-3"></span>
 					</li>
-					<li>
+				}
+				<li>
+					@if (signedIn)
+					{
 						<a class="text-grey-lighter hover:text-white trans" asp-action="Logout" asp-controller="Account">Logout</a>
-					</li>
-				</ul>
-			</nav>
-		</div>
-	}
+					}
+					else
+					{
+						<a class="text-grey-lighter hover:text-white trans" asp-action="Login" asp-controller="Account">Login</a>
+					}
+				</li>
+			</ul>
+		</nav>
+	</div>
 
 	<header id="header" class="bg-navy border-b border-white-25 text-white px-6" role="banner">
 		<div class="flex items-center justify-between container mx-auto h-header">
@@ -51,10 +58,28 @@
 				<span>IdentityServer</span>
 				<span class="text-white-75 font-normal no-print">.com</span>
 			</a>
-			<a class="text-xs text-navy-lighter hover:text-white trans no-print hidden sm:inline" href="https://www.identityserver.com/products" target="_blank">
-				View our products
-				<span class="fas fa-long-arrow-alt-right ml-1" aria-hidden="true"></span>
-			</a>
+			<nav id="nav" class="no-print">
+				<ul class="flex flex-wrap items-center list-reset">
+					<li class="sm:mr-5">
+						<a class="block p-1 text-navy-lighter hover:text-white trans-color" asp-action="Index" asp-controller="Home">
+							Home
+						</a>
+					</li>
+					<li class="hidden sm:block sm:mr-5">
+						<a class="block p-1 text-navy-lighter hover:text-white trans-color" asp-action="Index" asp-controller="Grants">
+							Grants
+						</a>
+					</li>
+					<li class="hidden sm:block">
+						<a class="flex items-center bg-navy-light font-semibold text-white px-5 py-1 hover:bg-navy-lightest hover:text-navy rounded-full trans" href="https://www.identityserver.com/products" target="_blank">
+							<span class="capitalize md:normal-case">
+								<span class="hidden md:inline">Our</span> products
+							</span>
+							<span class="fas fa-long-arrow-alt-right ml-2" aria-hidden="true"></span>
+						</a>
+					</li>
+				</ul>
+			</nav>
 		</div>
 	</header>
 
@@ -165,7 +190,7 @@
 		</div>
 	</footer>
 
-	<script src="~/js/site.min.js?v=@(cacheString)"></script>
+	<script src="~/js/site.min.js" asp-append-version="true"></script>
 	@RenderSection("scripts", false)
 
 </body>
