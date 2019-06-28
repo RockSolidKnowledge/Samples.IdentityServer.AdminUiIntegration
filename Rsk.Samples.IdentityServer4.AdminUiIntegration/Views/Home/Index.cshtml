@@ -1,6 +1,11 @@
 ﻿@using IdentityServer4.Extensions
 @{
-	bool signedIn = Context.User?.Identity.IsAuthenticated == true;
+	string name = null;
+	if (!true.Equals(ViewData["signed-out"]))
+	{
+		name = Context.User?.GetDisplayName();
+	}
+	bool signedIn = !string.IsNullOrWhiteSpace(name);
 }
 
 @section banner
