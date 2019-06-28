@@ -47,29 +47,3 @@ select {
 :-moz-placeholder {
 	@apply text-navy-lighter;
 }
-
-.field-validation-error {
-	@apply block flex items-center font-semibold mt-1 text-sm text-red;
-}
-
-.field-validation-error:before {
-	@apply font-icons font-bold text-xs flex-no-shrink mr-1;
-	content: "\f071";
-}
-
-.input-validation-error {
-	border-color: config("colors.red") !important;
-}
-
-.validation-summary-errors {
-	@apply flex bg-red-lightest shadow font-semibold text-red-darker mb-6 px-4 py-3 rounded overflow-hidden;
-}
-
-.validation-summary-errors:before {
-	@apply bg-red-light text-white font-icons font-bold flex-no-shrink px-4 py-3 -my-3 -ml-4 mr-4;
-	content: "\f057";
-}
-
-.validation-summary-errors ul {
-	@apply list-reset;
-}

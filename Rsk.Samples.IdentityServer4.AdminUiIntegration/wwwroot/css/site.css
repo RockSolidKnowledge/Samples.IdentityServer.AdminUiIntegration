@@ -600,69 +600,6 @@ select {
   color: #99a5b2;
 }
 
-.field-validation-error {
-  display: block;
-  display: -webkit-box;
-  display: flex;
-  -webkit-box-align: center;
-          align-items: center;
-  font-weight: 500;
-  margin-top: .25rem;
-  font-size: .875rem;
-  color: #ff4136;
-}
-
-.field-validation-error:before {
-  font-family: "Font Awesome 5 Free";
-  font-weight: 700;
-  font-size: .75rem;
-  flex-shrink: 0;
-  margin-right: .25rem;
-  content: "\f071";
-}
-
-.input-validation-error {
-  border-color: #ff4136 !important;
-}
-
-.validation-summary-errors {
-  display: -webkit-box;
-  display: flex;
-  background-color: #ffeceb;
-  box-shadow: 0 2px 4px 0 rgba(0, 0, 0, .1);
-  font-weight: 500;
-  color: #992720;
-  margin-bottom: 1.5rem;
-  padding-left: 1rem;
-  padding-right: 1rem;
-  padding-top: .75rem;
-  padding-bottom: .75rem;
-  border-radius: .25rem;
-  overflow: hidden;
-}
-
-.validation-summary-errors:before {
-  background-color: #ff7a72;
-  color: #fff;
-  font-family: "Font Awesome 5 Free";
-  font-weight: 700;
-  flex-shrink: 0;
-  padding-left: 1rem;
-  padding-right: 1rem;
-  padding-top: .75rem;
-  padding-bottom: .75rem;
-  margin-top: -0.75rem;
-  margin-bottom: -0.75rem;
-  margin-left: -1rem;
-  margin-right: 1rem;
-  content: "\f057";
-}
-
-.validation-summary-errors ul {
-  list-style: none;
-  padding: 0;
-}
-
 /**
  * This injects any component classes registered by plugins.
  *
@@ -987,26 +924,15 @@ select {
 
 /* links */
 
-.cms:not(.cms-bsod) a {
+.cms a {
   font-weight: 700;
   color: #ff4136;
   -webkit-transition: all .15s ease-in-out;
   transition: all .15s ease-in-out;
 }
 
-.cms:not(.cms-bsod) a:hover {
+.cms a:hover {
   color: #001f3f;
-}
-
-.cms-bsod a {
-  color: #fff;
-  -webkit-text-decoration: underline dashed;
-          text-decoration: underline dashed;
-}
-
-.cms-bsod a:hover {
-  color: #fff;
-  text-decoration: underline;
 }
 
 /* buttons */
@@ -1065,7 +991,7 @@ a .cms-button:hover {
   margin-bottom: .5rem;
 }
 
-.cms:not(.cms-bsod) ul:not(.cms-checks-list) > li:before {
+.cms ul:not(.cms-checks-list) > li:before {
   background-color: #ff4136;
   display: block;
   width: 6px;
@@ -1090,16 +1016,6 @@ a .cms-button:hover {
   top: 0;
   margin-left: -2.5rem;
   content: "\f058";
-}
-
-.cms-bsod ul > li:before {
-  text-align: right;
-  width: 2rem;
-  position: absolute;
-  left: 0;
-  top: 0;
-  margin-left: -2.5rem;
-  content: "*";
 }
 
 .cms ol {
@@ -1237,25 +1153,6 @@ a .cms-button:hover {
   display: block;
 }
 
-.cms-limited .cms-image {
-  margin-left: -1rem;
-  margin-right: -1rem;
-}
-
-@media (min-width: 992px) {
-  .cms-limited .cms-image {
-    margin-left: -4rem;
-    margin-right: -4rem;
-  }
-}
-
-@media (min-width: 1200px) {
-  .cms-limited .cms-image {
-    margin-left: -6rem;
-    margin-right: -6rem;
-  }
-}
-
 /* figure */
 
 .cms figure {
@@ -1328,28 +1225,11 @@ a .cms-button:hover {
   resize: vertical;
 }
 
-.cms-limited > pre {
-  margin-left: -1rem;
-  margin-right: -1rem;
-}
-
 .cms > pre:not(:first-child) {
   margin-top: 1.5rem;
 }
 
-@media (min-width: 992px) {
-  .cms-limited > pre {
-    margin-left: -4rem;
-    margin-right: -4rem;
-  }
-}
-
-@media (min-width: 1200px) {
-  .cms-limited > pre {
-    margin-left: -6rem;
-    margin-right: -6rem;
-  }
-}
+ccc
 
 /* embed */
 
@@ -1377,15 +1257,6 @@ a .cms-button:hover {
   font-size: .75rem;
 }
 
-/* weights */
-
-.cms:not(.cms-bsod) strong,
-.cms:not(.cms-bsod) b,
-.cms:not(.cms-bsod) em,
-.cms:not(.cms-bsod) i {
-  color: #001f3f;
-}
-
 /* attrs */
 
 .cms abbr[title] {
@@ -1395,14 +1266,6 @@ a .cms-button:hover {
   border-style: dotted;
   border-color: #605f5e;
   cursor: help;
-}
-
-/* bsod */
-
-.cms-bsod ul li:before {
-  position: absolute;
-  left: 0;
-  content: "*";
 }
 
 .form-group {
