@@ -1,0 +1,32 @@
+﻿@responsive {
+
+	.pin-l-center {
+		left: 50%;
+	}
+
+	.pin-t-center {
+		top: 50%;
+	}
+
+	.pin-center {
+		left: 50%;
+		top: 50%;
+	}
+
+	.pin-t-full {
+		top: 100%;
+	}
+
+	.pin-b-full {
+		bottom: 100%;
+	}
+
+	.pin-l-full {
+		left: 100%;
+	}
+
+	.pin-r-full {
+		right: 100%;
+	}
+
+}

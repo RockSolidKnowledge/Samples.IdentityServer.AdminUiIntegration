@@ -1,0 +1,47 @@
+﻿.preload * {
+	transition: none !important;
+}
+
+@responsive {
+
+	.trans {
+		transition: all .15s ease-in-out;
+	}
+
+	.trans-bg {
+		transition: background-color .15s ease-in-out;
+	}
+
+	.trans-border {
+		transition: border-color .15s ease-in-out;
+	}
+
+	.trans-color {
+		transition: color .15s ease-in-out;
+	}
+
+	.trans-opacity {
+		transition: opacity .15s ease-in-out;
+	}
+
+	.trans-transform {
+		transition: transform .15s ease-in-out;
+	}
+
+	.trans-slow {
+		transition-duration: .25s;
+	}
+
+	.trans-slower {
+		transition-duration: .35s;
+	}
+
+	.trans-slowest {
+		transition-duration: .45s;
+	}
+
+	.trans-none {
+		transition: none;
+	}
+
+}

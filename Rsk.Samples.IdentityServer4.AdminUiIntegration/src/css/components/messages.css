@@ -1,0 +1,43 @@
+﻿/* default */
+
+.message {
+	@apply flex bg-navy-lightest shadow font-semibold text-navy mb-6 px-4 py-3 rounded overflow-hidden;
+}
+
+.message:before {
+	@apply bg-navy-light text-white font-icons font-bold flex-no-shrink px-4 py-3 -my-3 -ml-4 mr-4;
+	content: "\f06a";
+}
+
+/* success */
+
+.message-success {
+	@apply bg-green-lightest text-green-darker;
+}
+
+.message-success:before {
+	@apply bg-green-light;
+	content: "\f058";
+}
+
+/* warning */
+
+.message-warning {
+	@apply bg-orange-lightest text-orange-dark;
+}
+
+.message-warning:before {
+	@apply bg-orange-light;
+	content: "\f071";
+}
+
+/* error */
+
+.message-error {
+	@apply bg-red-lightest text-red-dark;
+}
+
+.message-error:before {
+	@apply bg-red-light;
+	content: "\f057";
+}

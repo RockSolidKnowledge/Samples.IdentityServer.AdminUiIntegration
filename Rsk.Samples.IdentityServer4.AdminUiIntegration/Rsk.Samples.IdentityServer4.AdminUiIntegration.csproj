@@ -20,6 +20,7 @@
   </ItemGroup>
   <ItemGroup>
     <Folder Include="wwwroot\css\" />
+    <Folder Include="wwwroot\fonts\google\webfonts\" />
     <Folder Include="wwwroot\js\" />
   </ItemGroup>
 </Project>

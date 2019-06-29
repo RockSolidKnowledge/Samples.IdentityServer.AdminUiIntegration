@@ -1,0 +1,7 @@
+﻿.container {
+	max-width: config('screens.xl');
+}
+
+.content {
+	max-width: config('maxWidth.content');
+}

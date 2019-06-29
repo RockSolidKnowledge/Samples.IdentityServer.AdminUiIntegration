@@ -48,6 +48,15 @@ li {
 	padding: 0;
 }
 
+abbr[title] {
+	border: none;
+	text-decoration: none;
+}
+
+abbr[title]:after {
+	content: " (" attr(title) ")";
+}
+
 #header {
 	border-bottom: 1px solid #ddd;
 	font-size: 2rem;
