@@ -1,5 +1,7 @@
 ﻿using System;
+using System.IO;
 using System.Reflection;
+using System.Security.Cryptography.X509Certificates;
 using IdentityExpress.Identity;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
@@ -8,6 +10,7 @@ using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Logging;
 using Microsoft.AspNetCore.Identity;
+using Microsoft.IdentityModel.Tokens;
 
 namespace Rsk.Samples.IdentityServer4.AdminUiIntegration
 {
@@ -66,9 +69,8 @@ namespace Rsk.Samples.IdentityServer4.AdminUiIntegration
                     AutoSaveChanges = true
                 });
 
-
             services.AddIdentityServer()
-                .AddDeveloperSigningCredential()
+                .AddSigningCredential(GetEmbeddedCertificate())
                 .AddOperationalStore(options => options.ConfigureDbContext = identityServerBuilder)
                 .AddConfigurationStore(options => options.ConfigureDbContext = identityServerBuilder)
                 .AddAspNetIdentity<IdentityExpressUser>(); // ASP.NET Core Identity Integration
@@ -102,6 +104,20 @@ namespace Rsk.Samples.IdentityServer4.AdminUiIntegration
             
             app.UseStaticFiles();
             app.UseMvcWithDefaultRoute();
+        }
+
+        private X509Certificate2 GetEmbeddedCertificate()
+        {
+            using (Stream CertStream = Assembly.GetExecutingAssembly().GetManifestResourceStream(@"Rsk.Samples.IdentityServer4.AdminUiIntegration.CN=RSKSampleIdentityServer.pfx"))
+            {
+                byte[] RawBytes = new byte[CertStream.Length];
+                for (int Index = 0; Index < CertStream.Length; Index++)
+                {
+                    RawBytes[Index] = (byte)CertStream.ReadByte();
+                }
+
+                return new X509Certificate2(RawBytes, "Password123!", X509KeyStorageFlags.MachineKeySet);
+            }
         }
     }
 }

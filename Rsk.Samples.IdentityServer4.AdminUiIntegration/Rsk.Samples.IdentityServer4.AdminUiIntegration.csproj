@@ -3,10 +3,16 @@
     <TargetFramework>netcoreapp2.1</TargetFramework>
   </PropertyGroup>
   <ItemGroup>
+    <None Remove="CN=RSKSampleIdentityServer.pfx" />
+  </ItemGroup>
+  <ItemGroup>
     <Content Include="src\css\print.css" />
     <Content Include="src\css\site.css" />
     <Content Include="src\js\signout-redirect.js" />
     <Content Include="src\js\site.js" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="CN=RSKSampleIdentityServer.pfx" />
   </ItemGroup>
   <ItemGroup>
     <PackageReference Include="IdentityExpress.Identity" Version="2.3.0" />
