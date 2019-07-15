@@ -8,3 +8,5 @@ This package uses the AdminUI ASP.NET Identity schema found on [NuGet](https://w
 ---
 
 *For AdminUI documentation, visit [IdentityServer.com](https://www.identityserver.com/documentation/adminui/)*
+
+This Package uses a pre-generated embedded certificate and is not suitable for production
