@@ -75,6 +75,32 @@ namespace Rsk.Samples.IdentityServer4.AdminUiIntegration
                 .AddConfigurationStore(options => options.ConfigureDbContext = identityServerBuilder)
                 .AddAspNetIdentity<IdentityExpressUser>(); // ASP.NET Core Identity Integration
 
+            GoogleAuthentication(services);
+
+            MicrosoftAuthentication(services);
+
+            services.AddMvc();
+        }
+
+        private void MicrosoftAuthentication(IServiceCollection services)
+        {
+            var microsoftClientId = Configuration.GetValue<string>("Microsoft_ClientId");
+            var microsoftClientSecret = Configuration.GetValue<string>("Microsoft_ClientSecret");
+            if (!string.IsNullOrWhiteSpace(microsoftClientId) && !string.IsNullOrWhiteSpace(microsoftClientSecret))
+            {
+                services
+                    .AddAuthentication()
+                    .AddMicrosoftAccount(options =>
+                    {
+                        options.SignInScheme = "Identity.External"; // ASP.NET Core Identity Extneral User Cookie
+                        options.ClientId = microsoftClientId; // ClientId Configured within Azure DevOps Portal
+                        options.ClientSecret = microsoftClientSecret; // ClientSecret Generated within Azure DevOps Portal
+                    });
+            }
+        }
+
+        private void GoogleAuthentication(IServiceCollection services)
+        {
             var googleClientId = Configuration.GetValue<string>("Google_ClientId");
             var googleClientSecret = Configuration.GetValue<string>("Google_ClientSecret");
             if (!string.IsNullOrWhiteSpace(googleClientId) && !string.IsNullOrWhiteSpace(googleClientSecret))
@@ -88,14 +114,10 @@ namespace Rsk.Samples.IdentityServer4.AdminUiIntegration
                         options.ClientSecret = googleClientSecret; // ClientSecret Generated within Google Admin
                     });
             }
-
-            services.AddMvc();
         }
-        
+
         public void Configure(IApplicationBuilder app, IHostingEnvironment env, ILoggerFactory loggerFactory)
         {
-            loggerFactory.AddConsole(LogLevel.Debug);
-
             app.UseDeveloperExceptionPage();
             
             app.UseCors(builder => builder.AllowAnyOrigin().AllowAnyHeader().AllowAnyMethod());
