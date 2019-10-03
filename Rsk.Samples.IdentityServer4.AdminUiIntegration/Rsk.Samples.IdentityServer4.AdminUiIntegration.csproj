@@ -10,9 +10,12 @@
     <Content Include="src\css\site.css" />
     <Content Include="src\js\signout-redirect.js" />
     <Content Include="src\js\site.js" />
+    <Content Include="CN=RSKSampleIdentityServer.pfx" />
   </ItemGroup>
   <ItemGroup>
-    <EmbeddedResource Include="CN=RSKSampleIdentityServer.pfx" />
+    <EmbeddedResource Include="CN=RSKSampleIdentityServer.pfx">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </EmbeddedResource>
   </ItemGroup>
   <ItemGroup>
     <PackageReference Include="IdentityExpress.Identity" Version="2.3.0" />

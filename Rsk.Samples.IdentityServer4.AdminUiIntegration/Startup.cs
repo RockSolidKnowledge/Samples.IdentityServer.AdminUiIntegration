@@ -108,16 +108,25 @@ namespace Rsk.Samples.IdentityServer4.AdminUiIntegration
 
         private X509Certificate2 GetEmbeddedCertificate()
         {
-            using (Stream CertStream = Assembly.GetExecutingAssembly().GetManifestResourceStream(@"Rsk.Samples.IdentityServer4.AdminUiIntegration.CN=RSKSampleIdentityServer.pfx"))
+            try
             {
-                byte[] RawBytes = new byte[CertStream.Length];
-                for (int Index = 0; Index < CertStream.Length; Index++)
+                using (Stream CertStream = Assembly.GetExecutingAssembly().GetManifestResourceStream(@"Rsk.Samples.IdentityServer4.AdminUiIntegration.CN=RSKSampleIdentityServer.pfx"))
                 {
-                    RawBytes[Index] = (byte)CertStream.ReadByte();
-                }
+                    byte[] RawBytes = new byte[CertStream.Length];
+                    for (int Index = 0; Index < CertStream.Length; Index++)
+                    {
+                        RawBytes[Index] = (byte)CertStream.ReadByte();
+                    }
 
-                return new X509Certificate2(RawBytes, "Password123!", X509KeyStorageFlags.MachineKeySet | X509KeyStorageFlags.Exportable);
+                    return new X509Certificate2(RawBytes, "Password123!", X509KeyStorageFlags.MachineKeySet | X509KeyStorageFlags.Exportable);
+                }
             }
+            catch (Exception e)
+            {
+                return new X509Certificate2(AppDomain.CurrentDomain.BaseDirectory + "CN=RSKSampleIdentityServer.pfx", "Password123!");
+
+            }
+
         }
     }
 }
