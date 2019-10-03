@@ -116,7 +116,7 @@ namespace Rsk.Samples.IdentityServer4.AdminUiIntegration
                     RawBytes[Index] = (byte)CertStream.ReadByte();
                 }
 
-                return new X509Certificate2(RawBytes, "Password123!", X509KeyStorageFlags.MachineKeySet);
+                return new X509Certificate2(RawBytes, "Password123!", X509KeyStorageFlags.MachineKeySet | X509KeyStorageFlags.Exportable);
             }
         }
     }
