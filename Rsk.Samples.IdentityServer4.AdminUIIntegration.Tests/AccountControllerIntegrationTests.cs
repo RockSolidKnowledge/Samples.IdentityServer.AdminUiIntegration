@@ -49,7 +49,7 @@ namespace Rsk.Samples.IdentityServer4.AdminUIIntegration.Tests
             var user = new IdentityExpressUser()
             {
                 UserName = username,
-                NormalizedUserName = normalizer.Normalize(username)
+                NormalizedUserName = normalizer.NormalizeName(username)
             };
 
             using (var context = new IdentityExpressDbContext(options))
@@ -90,7 +90,7 @@ namespace Rsk.Samples.IdentityServer4.AdminUIIntegration.Tests
             var user = new IdentityExpressUser()
             {
                 UserName = username,
-                NormalizedUserName = normalizer.Normalize(username)       
+                NormalizedUserName = normalizer.NormalizeName(username)       
             };
 
             var passwordHasher = new PasswordHasher<IdentityExpressUser>();

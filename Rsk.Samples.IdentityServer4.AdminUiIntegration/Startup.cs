@@ -1,8 +1,16 @@
 ﻿using System;
+using System.Collections.Generic;
 using System.IO;
+using System.Linq;
 using System.Reflection;
+using System.Security.Claims;
 using System.Security.Cryptography.X509Certificates;
 using IdentityExpress.Identity;
+using IdentityModel;
+using IdentityServer4.EntityFramework.DbContexts;
+using IdentityServer4.EntityFramework.Interfaces;
+using IdentityServer4.EntityFramework.Mappers;
+using IdentityServer4.Models;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.EntityFrameworkCore;
@@ -10,21 +18,22 @@ using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Logging;
 using Microsoft.AspNetCore.Identity;
+using Microsoft.Extensions.Logging.Console;
 using Microsoft.IdentityModel.Tokens;
 
 namespace Rsk.Samples.IdentityServer4.AdminUiIntegration
 {
     public class Startup
     {
-        public Startup(IHostingEnvironment env)
+        public Startup(IWebHostEnvironment env)
         {
             var builder = new ConfigurationBuilder()
                 .SetBasePath(env.ContentRootPath)
                 .AddJsonFile("appsettings.json", true, true)
                 .AddJsonFile($"appsettings.{env.EnvironmentName}.json", true)
                 .AddEnvironmentVariables();
-            Configuration = builder.Build();    
-        }   
+            Configuration = builder.Build();
+        }
 
         public IConfigurationRoot Configuration { get; }
 
@@ -90,22 +99,25 @@ namespace Rsk.Samples.IdentityServer4.AdminUiIntegration
             }
 
             services.AddMvc();
-        }
-        
-        public void Configure(IApplicationBuilder app, IHostingEnvironment env, ILoggerFactory loggerFactory)
-        {
-            loggerFactory.AddConsole(LogLevel.Debug);
-
-            app.UseDeveloperExceptionPage();
             
+            services.AddLogging(builder => builder.AddConsole());
+        }
+
+        public void Configure(IApplicationBuilder app, IWebHostEnvironment env, ILoggerFactory loggerFactory)
+        {
+            app.UseDeveloperExceptionPage();
+
             app.UseCors(builder => builder.AllowAnyOrigin().AllowAnyHeader().AllowAnyMethod());
 
+            app.UseRouting();
+            
             app.UseIdentityServer();
+            app.UseAuthorization();
             
             app.UseStaticFiles();
-            app.UseMvcWithDefaultRoute();
+            app.UseEndpoints(endpoints=> endpoints.MapDefaultControllerRoute());
         }
-
+        
         private X509Certificate2 GetEmbeddedCertificate()
         {
             try
@@ -121,7 +133,7 @@ namespace Rsk.Samples.IdentityServer4.AdminUiIntegration
                     return new X509Certificate2(RawBytes, "Password123!", X509KeyStorageFlags.MachineKeySet | X509KeyStorageFlags.Exportable);
                 }
             }
-            catch (Exception e)
+            catch (Exception)
             {
                 return new X509Certificate2(AppDomain.CurrentDomain.BaseDirectory + "CN=RSKSampleIdentityServer.pfx", "Password123!");
 

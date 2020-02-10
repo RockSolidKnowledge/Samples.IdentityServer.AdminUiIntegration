@@ -20,7 +20,6 @@ namespace Rsk.Samples.IdentityServer4.AdminUIIntegration.Tests
     {
         private readonly Mock<UserManager<IdentityExpressUser>> mockUserManager;
         private readonly Mock<IIdentityServerInteractionService> mockInteraction;
-        private readonly Mock<AccountService> mockAccount;
         private readonly Mock<IClientStore> mockClientStore;
         private readonly Mock<IHttpContextAccessor> mockAccessor;
         private readonly Mock<IAuthenticationSchemeProvider> mockSchemeProvider;
@@ -30,7 +29,6 @@ namespace Rsk.Samples.IdentityServer4.AdminUIIntegration.Tests
         public AccountControllerUnitTests()
         {
             mockInteraction = new Mock<IIdentityServerInteractionService>();
-            mockAccount = new Mock<AccountService>();
             mockClientStore = new Mock<IClientStore>();
             mockAccessor = new Mock<IHttpContextAccessor>();
             var userStoreMock = new Mock<IUserStore<IdentityExpressUser>>();
@@ -76,7 +74,7 @@ namespace Rsk.Samples.IdentityServer4.AdminUIIntegration.Tests
             //assert
             var viewResult = Assert.IsType<ViewResult>(result);
             Assert.False(viewResult.ViewData.ModelState.IsValid);
-            Assert.Equal(1, viewResult.ViewData.ModelState.Count);
+            Assert.Single(viewResult.ViewData.ModelState);
             Assert.Equal("Username does not exist", viewResult.ViewData.ModelState.Root.Errors[0].ErrorMessage);
         }
 
