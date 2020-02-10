@@ -66,7 +66,7 @@ namespace IdentityServer4.Quickstart.UI
             if (vm.IsExternalLoginOnly)
             {
                 // we only have one option for logging in and it's an external provider
-                return await ExternalLogin(vm.ExternalLoginScheme, returnUrl);
+                return ExternalLogin(vm.ExternalLoginScheme, returnUrl);
             }
 
             return View(vm);
@@ -147,7 +147,7 @@ namespace IdentityServer4.Quickstart.UI
         /// initiate roundtrip to external authentication provider
         /// </summary>
         [HttpGet]
-        public async Task<IActionResult> ExternalLogin(string provider, string returnUrl)
+        public IActionResult ExternalLogin(string provider, string returnUrl)
         {
             var urlHelper = _urlHelperFactory.GetUrlHelper(ControllerContext);
             var props = new AuthenticationProperties
