@@ -7,6 +7,7 @@ using IdentityServer4.Stores;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.Extensions.Logging;
 using System.Threading.Tasks;
+using IdentityServer4.Extensions;
 
 namespace IdentityServer4.Quickstart.UI
 {
@@ -22,9 +23,10 @@ namespace IdentityServer4.Quickstart.UI
             IIdentityServerInteractionService interaction,
             IClientStore clientStore,
             IResourceStore resourceStore,
+            IEventService events,
             ILogger<ConsentController> logger)
         {
-            _consent = new ConsentService(interaction, clientStore, resourceStore, logger);
+            _consent = new ConsentService(interaction, clientStore, resourceStore, events, logger);
         }
 
         /// <summary>
@@ -51,7 +53,7 @@ namespace IdentityServer4.Quickstart.UI
         [ValidateAntiForgeryToken]
         public async Task<IActionResult> Index(ConsentInputModel model)
         {
-            var result = await _consent.ProcessConsent(model);
+            var result = await _consent.ProcessConsent(model, User.GetSubjectId());
 
             if (result.IsRedirect)
             {

@@ -5,8 +5,8 @@
 		<input class="form-checks__input"
 					 type="checkbox"
 					 name="ScopesConsented"
-					 id="scopes_@Model.Name"
-					 value="@Model.Name"
+					 id="scopes_@Model.Value"
+					 value="@Model.Value"
 					 checked="@Model.Checked"
 					 disabled="@Model.Required" />
 		<span class="form-checks__text">
@@ -28,7 +28,7 @@
 		{
 			<input type="hidden"
 						 name="ScopesConsented"
-						 value="@Model.Name" />
+						 value="@Model.Value" />
 		}
 	</label>
 </li>

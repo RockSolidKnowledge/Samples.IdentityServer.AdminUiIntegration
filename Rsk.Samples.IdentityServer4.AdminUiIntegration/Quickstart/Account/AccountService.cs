@@ -36,36 +36,41 @@ namespace IdentityServer4.Quickstart.UI
 
         public async Task<LoginViewModel> BuildLoginViewModelAsync(string returnUrl)
         {
-            var context = await _interaction.GetAuthorizationContextAsync(returnUrl);
-            if (context?.IdP != null)
+             var context = await _interaction.GetAuthorizationContextAsync(returnUrl);
+            if (context?.IdP != null && await _schemeProvider.GetSchemeAsync(context.IdP) != null)
             {
+                var local = context.IdP == IdentityServer4.IdentityServerConstants.LocalIdentityProvider;
+
                 // this is meant to short circuit the UI and only trigger the one external IdP
-                return new LoginViewModel
+                var vm = new LoginViewModel
                 {
-                    EnableLocalLogin = false,
+                    EnableLocalLogin = local,
                     ReturnUrl = returnUrl,
                     Username = context?.LoginHint,
-                    ExternalProviders = new ExternalProvider[] {new ExternalProvider { AuthenticationScheme = context.IdP } }
                 };
+
+                if (!local)
+                {
+                    vm.ExternalProviders = new[] { new ExternalProvider { AuthenticationScheme = context.IdP } };
+                }
+
+                return vm;
             }
 
             var schemes = await _schemeProvider.GetAllSchemesAsync();
 
             var providers = schemes
-                .Where(x => x.DisplayName != null || 
-                            (AccountOptions.WindowsAuthenticationEnabled && 
-                             x.Name.Equals(AccountOptions.WindowsAuthenticationSchemeName, StringComparison.OrdinalIgnoreCase))
-                )
+                .Where(x => x.DisplayName != null)
                 .Select(x => new ExternalProvider
                 {
-                    DisplayName = x.DisplayName,
+                    DisplayName = x.DisplayName ?? x.Name,
                     AuthenticationScheme = x.Name
                 }).ToList();
 
             var allowLocal = true;
-            if (context?.ClientId != null)
+            if (context?.Client.ClientId != null)
             {
-                var client = await _clientStore.FindEnabledClientByIdAsync(context.ClientId);
+                var client = await _clientStore.FindEnabledClientByIdAsync(context.Client.ClientId);
                 if (client != null)
                 {
                     allowLocal = client.EnableLocalLogin;
