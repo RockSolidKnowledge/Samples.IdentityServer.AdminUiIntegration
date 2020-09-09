@@ -100,6 +100,8 @@ namespace Rsk.Samples.IdentityServer4.AdminUiIntegration
             app.UseCors(builder => builder.AllowAnyOrigin().AllowAnyHeader().AllowAnyMethod());
 
             app.UseRouting();
+
+            app.UseHttpsRedirection();
             
             app.UseIdentityServer();
             app.UseAuthorization();
