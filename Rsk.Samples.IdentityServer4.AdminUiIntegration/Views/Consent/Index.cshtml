@@ -57,7 +57,7 @@
 			</div>
 		</section>
 	}
-	@if (Model.ResourceScopes.Any())
+	@if (Model.ApiScopes.Any())
 	{
 		<section class="border border-navy-lightest overflow-hidden rounded mb-6">
 			<h2 class="bg-navy-lightest text-base px-6 py-4">
@@ -66,7 +66,7 @@
 			</h2>
 			<div class="px-6 py-4">
 				<ul class="form-checks">
-					@foreach (var scope in Model.ResourceScopes)
+					@foreach (var scope in Model.ApiScopes)
 					{
 						@Html.Partial("_ScopeListItem", scope)
 					}
