@@ -22,7 +22,7 @@ RUN openssl req -x509 -newkey rsa:4096 -keyout /app/https/localhost.key -out /ap
 RUN cp -R /app/https/* /usr/local/share/ca-certificates
 RUN openssl pkcs12 -export -passin pass:"Password123!" -passout pass:"Password123!" -out /app/https/aspnetapp.pfx -inkey /app/https/localhost.key -in /app/https/localhost.crt
 RUN update-ca-certificates
-RUN chmod 777 /usr/local/share/ca-certificates/localhost.crt && 
+RUN chmod 777 /usr/local/share/ca-certificates/localhost.crt
 
 ENV ASPNETCORE_Kestrel__Certificates__Default__Password="Password123!"
 ENV ASPNETCORE_Kestrel__Certificates__Default__Path="/app/https/aspnetapp.pfx"
