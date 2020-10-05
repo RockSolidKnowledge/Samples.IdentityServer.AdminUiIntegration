@@ -14,17 +14,7 @@ RUN mkdir /app/https
 EXPOSE 5003
 
 ENV ASPNETCORE_ENVIRONMENT Production
-ENV ASPNETCORE_HTTPS_PORT=5003
-ENV ASPNETCORE_URLS https://*:5003
-
-#Not Suitable For Production!
-RUN openssl req -x509 -newkey rsa:4096 -keyout /app/https/localhost.key -out /app/https/localhost.crt -passout pass:"Password123!" -days 3650 -sha256 -subj '/CN=localhost' -addext "subjectAltName=DNS:localhost,DNS:ids"
-RUN cp -R /app/https/* /usr/local/share/ca-certificates
-RUN openssl pkcs12 -export -passin pass:"Password123!" -passout pass:"Password123!" -out /app/https/aspnetapp.pfx -inkey /app/https/localhost.key -in /app/https/localhost.crt
-RUN update-ca-certificates
-RUN chmod 777 /usr/local/share/ca-certificates/localhost.crt
-
-ENV ASPNETCORE_Kestrel__Certificates__Default__Password="Password123!"
-ENV ASPNETCORE_Kestrel__Certificates__Default__Path="/app/https/aspnetapp.pfx"
+ENV ASPNETCORE_HTTP_PORT=5003
+ENV ASPNETCORE_URLS http://*:5003
 
 ENTRYPOINT ["dotnet", "Rsk.Samples.IdentityServer4.AdminUiIntegration.dll"]

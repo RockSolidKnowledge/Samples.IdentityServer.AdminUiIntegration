@@ -21,6 +21,7 @@ bld/
 [Bb]in/
 [Oo]bj/
 [Ll]og/
+[Oo]ut/
 
 # Visual Studio 2015 cache/options directory
 .vs/
@@ -254,6 +255,5 @@ paket-files/
 .idea/
 *.sln.iml
 
-/Rsk.Samples.IdentityServer4.AdminUiIntegration/out/*
 
 node_modules/
