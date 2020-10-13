@@ -10,6 +10,8 @@ using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Logging;
 using Microsoft.AspNetCore.Identity;
+using Microsoft.AspNetCore.HttpOverrides;
+using Microsoft.AspNetCore.Http;
 
 namespace Rsk.Samples.IdentityServer4.AdminUiIntegration
 {
@@ -89,27 +91,37 @@ namespace Rsk.Samples.IdentityServer4.AdminUiIntegration
             }
 
             services.AddMvc();
-            
+
             services.AddLogging(builder => builder.AddConsole());
         }
 
         public void Configure(IApplicationBuilder app, IWebHostEnvironment env, ILoggerFactory loggerFactory)
         {
+            var options = new ForwardedHeadersOptions
+            {
+                ForwardedHeaders = ForwardedHeaders.XForwardedProto | ForwardedHeaders.XForwardedHost,
+                RequireHeaderSymmetry = false,
+                ForwardLimit = 10
+            };
+
+            options.KnownNetworks.Clear();
+            options.KnownProxies.Clear();
+
+            app.UseForwardedHeaders(options);
+
             app.UseDeveloperExceptionPage();
 
             app.UseCors(builder => builder.AllowAnyOrigin().AllowAnyHeader().AllowAnyMethod());
 
             app.UseRouting();
 
-            app.UseHttpsRedirection();
-            
             app.UseIdentityServer();
             app.UseAuthorization();
-            
+
             app.UseStaticFiles();
-            app.UseEndpoints(endpoints=> endpoints.MapDefaultControllerRoute());
+            app.UseEndpoints(endpoints => endpoints.MapDefaultControllerRoute());
         }
-        
+
         private X509Certificate2 GetEmbeddedCertificate()
         {
             try
