@@ -1,8 +1,12 @@
 ﻿using System;
 using System.IO;
+using System.Linq;
 using System.Reflection;
 using System.Security.Cryptography.X509Certificates;
 using IdentityExpress.Identity;
+using IdentityExpress.Manager.UI.Middleware;
+using IdentityServer4;
+using Microsoft.AspNetCore.Authentication.Cookies;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.EntityFrameworkCore;
@@ -56,6 +60,8 @@ namespace Rsk.Samples.IdentityServer4.AdminUiIntegration
                     identityServerBuilder = x => x.UseSqlite(identityServerConnectionString, options => options.MigrationsAssembly(migrationAssembly));
                     break;
             }
+			
+            services.AddSingleton<XForwardedPrefixMiddleware>();
 
             services.AddCors();
 
@@ -110,6 +116,8 @@ namespace Rsk.Samples.IdentityServer4.AdminUiIntegration
                 RequireHeaderSymmetry = false,
                 ForwardLimit = 10
             };
+
+            app.UseMiddleware<XForwardedPrefixMiddleware>();
 
             options.KnownNetworks.Clear();
             options.KnownProxies.Clear();
