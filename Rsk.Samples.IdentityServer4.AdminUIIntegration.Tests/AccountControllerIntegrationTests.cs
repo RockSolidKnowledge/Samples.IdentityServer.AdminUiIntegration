@@ -1,21 +1,18 @@
+using System;
+using System.Collections.Generic;
+using System.IO;
+using System.Net.Http;
+using System.Threading.Tasks;
 using IdentityExpress.Identity;
-using IdentityServer4.Quickstart.UI;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.TestHost;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Configuration;
-using Newtonsoft.Json;
 using Rsk.Samples.IdentityServer4.AdminUiIntegration;
-using System;
-using System.Collections.Generic;
-using System.IO;
-using System.Net.Http;
-using System.Text;
-using System.Threading.Tasks;
 using Xunit;
 
-namespace Rsk.Samples.IdentityServer4.AdminUIIntegration.Tests
+namespace AdminUIIntegration.Tests
 {
     public class AccountControllerIntegrationTests
     {

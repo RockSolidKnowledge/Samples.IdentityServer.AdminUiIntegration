@@ -2,14 +2,16 @@
 // Licensed under the Apache License, Version 2.0. See LICENSE in the project root for license information.
 
 
-using IdentityServer4.Services;
-using IdentityServer4.Stores;
-using Microsoft.AspNetCore.Mvc;
-using Microsoft.Extensions.Logging;
 using System.Threading.Tasks;
 using IdentityServer4.Extensions;
+using IdentityServer4.Services;
+using Microsoft.AspNetCore.Mvc;
+using Microsoft.Extensions.Logging;
+using Rsk.Samples.IdentityServer4.AdminUiIntegration.Middleware;
+using Rsk.Samples.IdentityServer4.AdminUiIntegration.Models;
+using Rsk.Samples.IdentityServer4.AdminUiIntegration.Services;
 
-namespace IdentityServer4.Quickstart.UI
+namespace Rsk.Samples.IdentityServer4.AdminUiIntegration.Controllers
 {
     /// <summary>
     /// This controller processes the consent UI
@@ -17,16 +19,14 @@ namespace IdentityServer4.Quickstart.UI
     [SecurityHeaders]
     public class ConsentController : Controller
     {
-        private readonly ConsentService _consent;
+        private readonly ConsentService consent;
 
         public ConsentController(
             IIdentityServerInteractionService interaction,
-            IClientStore clientStore,
-            IResourceStore resourceStore,
             IEventService events,
             ILogger<ConsentController> logger)
         {
-            _consent = new ConsentService(interaction, clientStore, resourceStore, events, logger);
+            consent = new ConsentService(interaction, events, logger);
         }
 
         /// <summary>
@@ -37,7 +37,7 @@ namespace IdentityServer4.Quickstart.UI
         [HttpGet]
         public async Task<IActionResult> Index(string returnUrl)
         {
-            var vm = await _consent.BuildViewModelAsync(returnUrl);
+            var vm = await consent.BuildViewModelAsync(returnUrl);
             if (vm != null)
             {
                 return View("Index", vm);
@@ -53,7 +53,7 @@ namespace IdentityServer4.Quickstart.UI
         [ValidateAntiForgeryToken]
         public async Task<IActionResult> Index(ConsentInputModel model)
         {
-            var result = await _consent.ProcessConsent(model, User.GetSubjectId());
+            var result = await consent.ProcessConsent(model, User.GetSubjectId());
 
             if (result.IsRedirect)
             {

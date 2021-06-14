@@ -2,15 +2,17 @@
 // Licensed under the Apache License, Version 2.0. See LICENSE in the project root for license information.
 
 
-using IdentityServer4.Services;
-using IdentityServer4.Stores;
-using Microsoft.AspNetCore.Mvc;
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
+using IdentityServer4.Services;
+using IdentityServer4.Stores;
 using Microsoft.AspNetCore.Authorization;
+using Microsoft.AspNetCore.Mvc;
+using Rsk.Samples.IdentityServer4.AdminUiIntegration.Middleware;
+using Rsk.Samples.IdentityServer4.AdminUiIntegration.Models;
 
-namespace IdentityServer4.Quickstart.UI
+namespace Rsk.Samples.IdentityServer4.AdminUiIntegration.Controllers
 {
     /// <summary>
     /// This sample controller allows a user to revoke grants given to clients
@@ -19,17 +21,17 @@ namespace IdentityServer4.Quickstart.UI
     [Authorize]
     public class GrantsController : Controller
     {
-        private readonly IIdentityServerInteractionService _interaction;
-        private readonly IClientStore _clients;
-        private readonly IResourceStore _resources;
+        private readonly IIdentityServerInteractionService interaction;
+        private readonly IClientStore clients;
+        private readonly IResourceStore resources;
 
         public GrantsController(IIdentityServerInteractionService interaction,
             IClientStore clients,
             IResourceStore resources)
         {
-            _interaction = interaction;
-            _clients = clients;
-            _resources = resources;
+            this.interaction = interaction;
+            this.clients = clients;
+            this.resources = resources;
         }
 
         /// <summary>
@@ -48,23 +50,23 @@ namespace IdentityServer4.Quickstart.UI
         [ValidateAntiForgeryToken]
         public async Task<IActionResult> Revoke(string clientId)
         {
-            await _interaction.RevokeUserConsentAsync(clientId);
+            await interaction.RevokeUserConsentAsync(clientId);
             return RedirectToAction("Index");
         }
 
         private async Task<GrantsViewModel> BuildViewModelAsync()
         {
-            var grants = await _interaction.GetAllUserGrantsAsync();
+            var grants = await interaction.GetAllUserGrantsAsync();
 
             var list = new List<GrantViewModel>();
             foreach(var grant in grants)
             {
-                var client = await _clients.FindClientByIdAsync(grant.ClientId);
+                var client = await clients.FindClientByIdAsync(grant.ClientId);
                 if (client != null)
                 {
-                    var resources = await _resources.FindResourcesByScopeAsync(grant.Scopes);
+                    var resources = await this.resources.FindResourcesByScopeAsync(grant.Scopes);
 
-                    var item = new GrantViewModel()
+                    var item = new GrantViewModel
                     {
                         ClientId = client.ClientId,
                         ClientName = client.ClientName ?? client.ClientId,

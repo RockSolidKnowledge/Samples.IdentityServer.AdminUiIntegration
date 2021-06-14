@@ -1,20 +1,18 @@
-﻿using Microsoft.AspNetCore.Identity;
-using System;
-using System.Collections.Generic;
-using System.Text;
-using Moq;
-using Xunit;
-using IdentityServer4.Services;
+﻿using System.Threading.Tasks;
 using IdentityExpress.Identity;
-using IdentityServer4.Quickstart.UI;
+using IdentityServer4.Services;
 using IdentityServer4.Stores;
-using Microsoft.AspNetCore.Http;
-using Microsoft.AspNetCore.Mvc;
-using System.Threading.Tasks;
 using Microsoft.AspNetCore.Authentication;
+using Microsoft.AspNetCore.Http;
+using Microsoft.AspNetCore.Identity;
+using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.Routing;
+using Moq;
+using Rsk.Samples.IdentityServer4.AdminUiIntegration.Controllers;
+using Rsk.Samples.IdentityServer4.AdminUiIntegration.Models;
+using Xunit;
 
-namespace Rsk.Samples.IdentityServer4.AdminUIIntegration.Tests
+namespace AdminUIIntegration.Tests
 {
     public class AccountControllerUnitTests
     {

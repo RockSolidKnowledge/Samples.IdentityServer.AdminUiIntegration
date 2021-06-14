@@ -4,37 +4,32 @@
 
 using System;
 using System.Collections.Generic;
-using IdentityServer4.Models;
-using IdentityServer4.Services;
-using IdentityServer4.Stores;
-using Microsoft.Extensions.Logging;
 using System.Linq;
 using System.Threading.Tasks;
+using IdentityServer4;
 using IdentityServer4.Events;
+using IdentityServer4.Models;
+using IdentityServer4.Services;
 using IdentityServer4.Validation;
+using Microsoft.Extensions.Logging;
+using Rsk.Samples.IdentityServer4.AdminUiIntegration.Models;
 
-namespace IdentityServer4.Quickstart.UI
+namespace Rsk.Samples.IdentityServer4.AdminUiIntegration.Services
 {
     public class ConsentService
     {
-        private readonly IClientStore _clientStore;
-        private readonly IResourceStore _resourceStore;
-        private readonly IIdentityServerInteractionService _interaction;
-        private readonly IEventService _events;
-        private readonly ILogger _logger;
+        private readonly IIdentityServerInteractionService interaction;
+        private readonly IEventService events;
+        private readonly ILogger logger;
 
         public ConsentService(
             IIdentityServerInteractionService interaction,
-            IClientStore clientStore,
-            IResourceStore resourceStore,
             IEventService events,
             ILogger logger)
         {
-            _interaction = interaction;
-            _clientStore = clientStore;
-            _resourceStore = resourceStore;
-            _events = events;
-            _logger = logger;
+            this.interaction = interaction;
+            this.events = events;
+            this.logger = logger;
         }
 
         public async Task<ProcessConsentResult> ProcessConsent(ConsentInputModel model, string userId)
@@ -42,32 +37,29 @@ namespace IdentityServer4.Quickstart.UI
             var result = new ProcessConsentResult();
 
             // validate return url is still valid
-            var request = await _interaction.GetAuthorizationContextAsync(model.ReturnUrl);
+            var request = await interaction.GetAuthorizationContextAsync(model.ReturnUrl);
             if (request == null) return result;
 
             ConsentResponse grantedConsent = null;
 
             // user clicked 'no' - send back the standard 'access_denied' response
-            if (model?.Button == "no")
+            if (model.Button == "no")
             {
                 grantedConsent = new ConsentResponse {Error = AuthorizationError.AccessDenied};
 
                 // emit event
-                await _events.RaiseAsync(new ConsentDeniedEvent(userId, request.Client.ClientId,
+                await events.RaiseAsync(new ConsentDeniedEvent(userId, request.Client.ClientId,
                     request.ValidatedResources.RawScopeValues));
             }
             // user clicked 'yes' - validate the data
-            else if (model?.Button == "yes")
+            else if (model.Button == "yes")
             {
                 // if the user consented to some scope, build the response model
                 if (model.ScopesConsented != null && model.ScopesConsented.Any())
                 {
                     var scopes = model.ScopesConsented;
-                    if (ConsentOptions.EnableOfflineAccess == false)
-                    {
-                        scopes = scopes.Where(x =>
-                            x != IdentityServer4.IdentityServerConstants.StandardScopes.OfflineAccess);
-                    }
+                    scopes = scopes.Where(x =>
+                        x != IdentityServerConstants.StandardScopes.OfflineAccess);
 
                     grantedConsent = new ConsentResponse
                     {
@@ -77,24 +69,24 @@ namespace IdentityServer4.Quickstart.UI
                     };
 
                     // emit event
-                    await _events.RaiseAsync(new ConsentGrantedEvent(userId, request.Client.ClientId,
+                    await events.RaiseAsync(new ConsentGrantedEvent(userId, request.Client.ClientId,
                         request.ValidatedResources.RawScopeValues, grantedConsent.ScopesValuesConsented,
                         grantedConsent.RememberConsent));
                 }
                 else
                 {
-                    result.ValidationError = ConsentOptions.MustChooseOneErrorMessage;
+                    result.ValidationError = "You must pick at least one permission";
                 }
             }
             else
             {
-                result.ValidationError = ConsentOptions.InvalidSelectionErrorMessage;
+                result.ValidationError = "Invalid selection";
             }
 
             if (grantedConsent != null)
             {
                 // communicate outcome of consent back to identityserver
-                await _interaction.GrantConsentAsync(request, grantedConsent);
+                await interaction.GrantConsentAsync(request, grantedConsent);
 
                 // indicate that's it ok to redirect back to authorization endpoint
                 result.RedirectUri = model.ReturnUrl;
@@ -111,14 +103,14 @@ namespace IdentityServer4.Quickstart.UI
 
         public async Task<ConsentViewModel> BuildViewModelAsync(string returnUrl, ConsentInputModel model = null)
         {
-            var request = await _interaction.GetAuthorizationContextAsync(returnUrl);
+            var request = await interaction.GetAuthorizationContextAsync(returnUrl);
             if (request != null)
             {
                 return CreateConsentViewModel(model, returnUrl, request);
             }
             else
             {
-                _logger.LogError("No consent request matching request: {0}", returnUrl);
+                logger.LogError("No consent request matching request: {0}", returnUrl);
             }
 
             return null;
@@ -155,10 +147,10 @@ namespace IdentityServer4.Quickstart.UI
                 }
             }
 
-            if (ConsentOptions.EnableOfflineAccess && request.ValidatedResources.Resources.OfflineAccess)
+            if (request.ValidatedResources.Resources.OfflineAccess)
             {
                 apiScopes.Add(GetOfflineAccessScope(
-                    vm.ScopesConsented.Contains(IdentityServer4.IdentityServerConstants.StandardScopes.OfflineAccess) ||
+                    vm.ScopesConsented.Contains(IdentityServerConstants.StandardScopes.OfflineAccess) ||
                     model == null));
             }
 
@@ -206,9 +198,9 @@ namespace IdentityServer4.Quickstart.UI
         {
             return new ScopeViewModel
             {
-                Value = IdentityServer4.IdentityServerConstants.StandardScopes.OfflineAccess,
-                DisplayName = ConsentOptions.OfflineAccessDisplayName,
-                Description = ConsentOptions.OfflineAccessDescription,
+                Value = IdentityServerConstants.StandardScopes.OfflineAccess,
+                DisplayName = "Offline Access",
+                Description = "Access to your applications and resources, even when you are offline",
                 Emphasize = true,
                 Checked = check
             };

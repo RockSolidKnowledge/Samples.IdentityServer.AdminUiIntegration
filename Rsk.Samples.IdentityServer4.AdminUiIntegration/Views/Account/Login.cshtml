@@ -1,4 +1,4 @@
-﻿@model LoginViewModel
+﻿@model Rsk.Samples.IdentityServer4.AdminUiIntegration.Models.LoginViewModel
 
 @section banner
 {
@@ -27,19 +27,16 @@
 			<label class="form-label" asp-for="Password"></label>
 			<input type="password" class="form-control" asp-for="Password" autocomplete="off" />
 		</div>
-		@if (Model.AllowRememberLogin)
-		{
-			<div class="form-group">
-				<ul class="form-checks">
-					<li class="form-checks__item">
-						<label class="form-checks__label" asp-for="RememberLogin">
-							<input class="form-checks__input" asp-for="RememberLogin">
-							<span class="form-checks__text">Remember me</span>
-						</label>
-					</li>
-				</ul>
-			</div>
-		}
+		<div class="form-group">
+			<ul class="form-checks">
+				<li class="form-checks__item">
+					<label class="form-checks__label" asp-for="RememberLogin">
+						<input class="form-checks__input" asp-for="RememberLogin">
+						<span class="form-checks__text">Remember me</span>
+					</label>
+				</li>
+			</ul>
+		</div>
 		<div class="form-actions">
 			<button id="LoginBtn" class="btn" name="button" value="login">Login</button>
 			<button class="btn btn-text ml-6" name="button" value="cancel">Cancel</button>

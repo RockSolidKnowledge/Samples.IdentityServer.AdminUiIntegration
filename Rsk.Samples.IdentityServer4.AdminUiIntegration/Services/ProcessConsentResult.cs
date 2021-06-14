@@ -3,8 +3,9 @@
 
 
 using IdentityServer4.Models;
+using Rsk.Samples.IdentityServer4.AdminUiIntegration.Models;
 
-namespace IdentityServer4.Quickstart.UI
+namespace Rsk.Samples.IdentityServer4.AdminUiIntegration.Services
 {
     public class ProcessConsentResult
     {

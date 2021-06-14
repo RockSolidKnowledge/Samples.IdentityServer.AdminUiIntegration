@@ -1,18 +1,16 @@
-﻿using IdentityModel;
+﻿using System.Collections.Generic;
+using System.Security.Claims;
+using IdentityModel;
 using IdentityServer4.Models;
-using IdentityServer4.Quickstart.UI;
 using IdentityServer4.Services;
 using IdentityServer4.Stores;
 using Microsoft.AspNetCore.Authentication;
 using Microsoft.AspNetCore.Http;
 using Moq;
-using System;
-using System.Collections.Generic;
-using System.Security.Claims;
-using System.Text;
+using Rsk.Samples.IdentityServer4.AdminUiIntegration.Services;
 using Xunit;
 
-namespace Rsk.Samples.IdentityServer4.AdminUIIntegration.Tests
+namespace AdminUIIntegration.Tests
 {
     public class AccountServiceUnitTests
     {
@@ -30,7 +28,7 @@ namespace Rsk.Samples.IdentityServer4.AdminUIIntegration.Tests
             mockSchemeProvider = new Mock<IAuthenticationSchemeProvider>();
         }
 
-        private AccountService sut()
+        private AccountService CreateSut()
         {
             return new AccountService(mockInteraction.Object, mockAccessor.Object, mockSchemeProvider.Object, mockClientStore.Object);
         }
@@ -39,23 +37,24 @@ namespace Rsk.Samples.IdentityServer4.AdminUIIntegration.Tests
         public void BuildLoggedOutViewModelAsync_WhenSuccessfulLogout_ShowCorrectLogoutView()
         {
             //arrange
-            string logoutId = "logoutId";
-            string iFrameUrl = "iframeUrl";
-            string redirectUrl = "redirectUrl";
+            const string logoutId = "logoutId";
+            const string iFrameUrl = "iframeUrl";
+            const string redirectUrl = "redirectUrl";
 
-            ClaimsPrincipal user = new ClaimsPrincipal(new ClaimsIdentity(new Claim[]{
+            var user = new ClaimsPrincipal(new ClaimsIdentity(new[]
+            {
                 new Claim(ClaimTypes.Name, "name"),
-                new Claim(JwtClaimTypes.IdentityProvider,"client")
+                new Claim(JwtClaimTypes.IdentityProvider, "client")
             }));
 
-            Client client = new Client()
+            var client = new Client
             {
                 ClientId = "clientId",
                 ClientName = "clientName",
                 PostLogoutRedirectUris = new List<string> { redirectUrl}
             };
 
-            LogoutMessage logoutMessge = new LogoutMessage()
+            var logoutMessge = new LogoutMessage
             {
                 ClientId = client.ClientId,
                 ClientName = client.ClientName,
@@ -75,10 +74,10 @@ namespace Rsk.Samples.IdentityServer4.AdminUIIntegration.Tests
             mockAccessor.SetupGet(x => x.HttpContext.User).Returns(user).Verifiable();
 
             //act
-            var result = sut().BuildLoggedOutViewModelAsync(logoutId).Result;
+            var result = CreateSut().BuildLoggedOutViewModelAsync(logoutId).Result;
 
             //assert
-            Assert.False(result.AutomaticRedirectAfterSignOut);
+            Assert.True(result.AutomaticRedirectAfterSignOut);
             Assert.Equal(redirectUrl, result.PostLogoutRedirectUri);
             Assert.Equal(client.ClientName, result.ClientName);
             Assert.Equal(iFrameUrl, result.SignOutIframeUrl);
