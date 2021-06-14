@@ -75,6 +75,13 @@ namespace Rsk.Samples.IdentityServer4.AdminUiIntegration
                 .AddOperationalStore(options => options.ConfigureDbContext = identityServerBuilder)
                 .AddConfigurationStore(options => options.ConfigureDbContext = identityServerBuilder)
                 .AddAspNetIdentity<IdentityExpressUser>(); // ASP.NET Core Identity Integration
+            
+            services.Configure<CookieAuthenticationOptions>(IdentityConstants.ApplicationScheme, options =>
+            {
+                options.Cookie.SameSite = SameSiteMode.Lax;
+                options.Cookie.SecurePolicy = CookieSecurePolicy.SameAsRequest;
+                options.Cookie.IsEssential = true;
+            });
 
             var googleClientId = Configuration.GetValue<string>("Google_ClientId");
             var googleClientSecret = Configuration.GetValue<string>("Google_ClientSecret");
