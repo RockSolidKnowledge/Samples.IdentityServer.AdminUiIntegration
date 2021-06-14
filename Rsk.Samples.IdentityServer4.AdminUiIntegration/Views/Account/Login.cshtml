@@ -13,7 +13,7 @@
 	</div>
 }
 
-@Html.Partial("_ValidationSummary")
+@await Html.PartialAsync("_ValidationSummary")
 
 @if (Model.EnableLocalLogin)
 {

@@ -36,7 +36,7 @@
 	<p>Uncheck any permissions you do not wish to grant to @Model.ClientName.</p>
 </div>
 
-@Html.Partial("_ValidationSummary")
+@await Html.PartialAsync("_ValidationSummary")
 
 <form asp-action="Index">
 	<input type="hidden" asp-for="ReturnUrl" />
@@ -51,7 +51,7 @@
 				<ul class="form-checks">
 					@foreach (var scope in Model.IdentityScopes)
 					{
-						@Html.Partial("_ScopeListItem", scope)
+						@await Html.PartialAsync("_ScopeListItem", scope)
 					}
 				</ul>
 			</div>
@@ -68,7 +68,7 @@
 				<ul class="form-checks">
 					@foreach (var scope in Model.ApiScopes)
 					{
-						@Html.Partial("_ScopeListItem", scope)
+						@await Html.PartialAsync("_ScopeListItem", scope)
 					}
 				</ul>
 			</div>
