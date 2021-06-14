@@ -1,8 +1,8 @@
-﻿﻿using System.Linq;
+﻿using System.Linq;
 using System.Threading.Tasks;
 using Microsoft.AspNetCore.Http;
 
-namespace IdentityExpress.Manager.UI.Middleware
+namespace Rsk.Samples.IdentityServer4.AdminUiIntegration.Middleware
 {
     public class XForwardedPrefixMiddleware : IMiddleware
     {
@@ -10,7 +10,7 @@ namespace IdentityExpress.Manager.UI.Middleware
         {
             if (context.Request.Headers.TryGetValue("X-Forwarded-Prefix", out var pathBase))
             {
-                context.Request.PathBase = Enumerable.Last<string>(pathBase);
+                context.Request.PathBase = pathBase.Last();
 
                 if (context.Request.Path.StartsWithSegments(context.Request.PathBase, out var path))
                 {

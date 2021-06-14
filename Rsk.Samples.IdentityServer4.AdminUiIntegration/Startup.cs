@@ -1,19 +1,17 @@
-﻿using System;
-using System.IO;
+using System;
 using System.Reflection;
 using System.Security.Cryptography.X509Certificates;
 using IdentityExpress.Identity;
-using IdentityExpress.Manager.UI.Middleware;
 using Microsoft.AspNetCore.Authentication.Cookies;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
-using Microsoft.Extensions.Logging;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.HttpOverrides;
 using Microsoft.AspNetCore.Http;
+using Rsk.Samples.IdentityServer4.AdminUiIntegration.Middleware;
 
 namespace Rsk.Samples.IdentityServer4.AdminUiIntegration
 {
@@ -33,6 +31,7 @@ namespace Rsk.Samples.IdentityServer4.AdminUiIntegration
 
         public void ConfigureServices(IServiceCollection services)
         {
+            // configure databases
             Action<DbContextOptionsBuilder> identityBuilder;
             Action<DbContextOptionsBuilder> identityServerBuilder;
             var identityConnectionString = Configuration.GetValue("IdentityConnectionString", Configuration.GetValue<string>("DbConnectionString"));
@@ -59,10 +58,25 @@ namespace Rsk.Samples.IdentityServer4.AdminUiIntegration
                     break;
             }
 			
+            // configure test-suitable X-Forwarded headers and CORS policy
             services.AddSingleton<XForwardedPrefixMiddleware>();
 
-            services.AddCors();
+            services.Configure<ForwardedHeadersOptions>(options =>
+            {
+                options.ForwardedHeaders = ForwardedHeaders.XForwardedProto | ForwardedHeaders.XForwardedHost;
+                options.RequireHeaderSymmetry = false;
+                options.ForwardLimit = 10;
+                
+                options.KnownNetworks.Clear();
+                options.KnownProxies.Clear();
+            });
+            
+            services.AddCors(options =>
+            {
+                options.AddDefaultPolicy(builder => builder.AllowAnyOrigin().AllowAnyHeader().AllowAnyMethod());
+            });
 
+            // configure ASP.NET Identity
             services
                 .AddIdentityExpressAdminUiConfiguration(identityBuilder) // ASP.NET Core Identity Registrations for AdminUI
                 .AddDefaultTokenProviders()
@@ -73,13 +87,16 @@ namespace Rsk.Samples.IdentityServer4.AdminUiIntegration
                 {
                     AutoSaveChanges = true
                 });
-
+            
+            // configure IdentityServer
             services.AddIdentityServer()
-                .AddSigningCredential(GetEmbeddedCertificate())
                 .AddOperationalStore(options => options.ConfigureDbContext = identityServerBuilder)
                 .AddConfigurationStore(options => options.ConfigureDbContext = identityServerBuilder)
-                .AddAspNetIdentity<IdentityExpressUser>(); // ASP.NET Core Identity Integration
+                .AddAspNetIdentity<IdentityExpressUser>() // configure IdentityServer to use ASP.NET Identity
+                .AddSigningCredential(GetEmbeddedCertificate()); // embedded test cert for testing only
             
+
+            // configure the ASP.NET Identity cookie to work on HTTP for testing only
             services.Configure<CookieAuthenticationOptions>(IdentityConstants.ApplicationScheme, options =>
             {
                 options.Cookie.SameSite = SameSiteMode.Lax;
@@ -87,6 +104,7 @@ namespace Rsk.Samples.IdentityServer4.AdminUiIntegration
                 options.Cookie.IsEssential = true;
             });
 
+            // optional Google authentication
             var googleClientId = Configuration.GetValue<string>("Google_ClientId");
             var googleClientSecret = Configuration.GetValue<string>("Google_ClientSecret");
             if (!string.IsNullOrWhiteSpace(googleClientId) && !string.IsNullOrWhiteSpace(googleClientSecret))
@@ -102,58 +120,43 @@ namespace Rsk.Samples.IdentityServer4.AdminUiIntegration
             }
 
             services.AddMvc();
-
-            services.AddLogging(builder => builder.AddConsole());
         }
 
-        public void Configure(IApplicationBuilder app, IWebHostEnvironment env, ILoggerFactory loggerFactory)
+        public void Configure(IApplicationBuilder app)
         {
-            var options = new ForwardedHeadersOptions
-            {
-                ForwardedHeaders = ForwardedHeaders.XForwardedProto | ForwardedHeaders.XForwardedHost,
-                RequireHeaderSymmetry = false,
-                ForwardLimit = 10
-            };
-
-            app.UseMiddleware<XForwardedPrefixMiddleware>();
-
-            options.KnownNetworks.Clear();
-            options.KnownProxies.Clear();
-
-            app.UseForwardedHeaders(options);
-
             app.UseDeveloperExceptionPage();
+            
+            app.UseMiddleware<XForwardedPrefixMiddleware>();
+            app.UseForwardedHeaders();
 
-            app.UseCors(builder => builder.AllowAnyOrigin().AllowAnyHeader().AllowAnyMethod());
-
+            app.UseStaticFiles();
             app.UseRouting();
+            app.UseCors();
 
             app.UseIdentityServer();
             app.UseAuthorization();
 
-            app.UseStaticFiles();
             app.UseEndpoints(endpoints => endpoints.MapDefaultControllerRoute());
         }
 
-        private X509Certificate2 GetEmbeddedCertificate()
+        private static X509Certificate2 GetEmbeddedCertificate()
         {
             try
             {
-                using (Stream CertStream = Assembly.GetExecutingAssembly().GetManifestResourceStream(@"Rsk.Samples.IdentityServer4.AdminUiIntegration.CN=RSKSampleIdentityServer.pfx"))
+                using (var certStream = Assembly.GetExecutingAssembly().GetManifestResourceStream(@"Rsk.Samples.IdentityServer4.AdminUiIntegration.CN=RSKSampleIdentityServer.pfx"))
                 {
-                    byte[] RawBytes = new byte[CertStream.Length];
-                    for (int Index = 0; Index < CertStream.Length; Index++)
+                    var rawBytes = new byte[certStream.Length];
+                    for (var index = 0; index < certStream.Length; index++)
                     {
-                        RawBytes[Index] = (byte)CertStream.ReadByte();
+                        rawBytes[index] = (byte)certStream.ReadByte();
                     }
-
-                    return new X509Certificate2(RawBytes, "Password123!", X509KeyStorageFlags.MachineKeySet | X509KeyStorageFlags.Exportable);
+                    
+                    return new X509Certificate2(rawBytes, "Password123!", X509KeyStorageFlags.MachineKeySet | X509KeyStorageFlags.Exportable);
                 }
             }
             catch (Exception)
             {
                 return new X509Certificate2(AppDomain.CurrentDomain.BaseDirectory + "CN=RSKSampleIdentityServer.pfx", "Password123!");
-
             }
         }
     }
