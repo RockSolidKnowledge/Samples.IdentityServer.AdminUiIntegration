@@ -12,7 +12,7 @@ namespace Rsk.Samples.IdentityServer4.AdminUiIntegration.Models
 
         [Required]
         [Compare("Password", ErrorMessage = "Please make sure your passwords match")]
-				[Display(Name = "Confirm password")]
+        [Display(Name = "Confirm password")]
         public string ConfirmPassword { get; set; }
     }
 }

@@ -103,8 +103,7 @@ namespace Rsk.Samples.IdentityServer4.AdminUiIntegration.Services
         {
             var vm = new LogoutViewModel { LogoutId = logoutId, ShowLogoutPrompt = true };
 
-            var user = httpContextAccessor.HttpContext.User;
-            if (user?.Identity.IsAuthenticated != true)
+            if (httpContextAccessor.HttpContext.User?.Identity.IsAuthenticated != true)
             {
                 // if the user is not authenticated, then just show logged out page
                 vm.ShowLogoutPrompt = false;

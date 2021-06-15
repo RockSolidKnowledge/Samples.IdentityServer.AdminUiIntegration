@@ -108,11 +108,8 @@ namespace Rsk.Samples.IdentityServer4.AdminUiIntegration.Services
             {
                 return CreateConsentViewModel(model, returnUrl, request);
             }
-            else
-            {
-                logger.LogError("No consent request matching request: {0}", returnUrl);
-            }
 
+            logger.LogError("No consent request matching request: {0}", returnUrl);
             return null;
         }
 
