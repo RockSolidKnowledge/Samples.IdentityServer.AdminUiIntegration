@@ -14,6 +14,7 @@ using Microsoft.Extensions.DependencyInjection;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.HttpOverrides;
 using Microsoft.AspNetCore.Http;
+using Rsk.Samples.IdentityServer4.AdminUiIntegration.Demo;
 using Rsk.Samples.IdentityServer4.AdminUiIntegration.Middleware;
 
 namespace Rsk.Samples.IdentityServer4.AdminUiIntegration
@@ -28,9 +29,12 @@ namespace Rsk.Samples.IdentityServer4.AdminUiIntegration
                 .AddJsonFile($"appsettings.{env.EnvironmentName}.json", true)
                 .AddEnvironmentVariables();
             Configuration = builder.Build();
+
+            IsDemo = Configuration.GetValue("IsDemo", false);
         }
 
         public IConfigurationRoot Configuration { get; }
+        private bool IsDemo { get; }
 
         public void ConfigureServices(IServiceCollection services)
         {
@@ -101,6 +105,13 @@ namespace Rsk.Samples.IdentityServer4.AdminUiIntegration
                 .AddConfigurationStore(options => options.ConfigureDbContext = identityServerBuilder)
                 .AddAspNetIdentity<IdentityExpressUser>() // configure IdentityServer to use ASP.NET Identity
                 .AddSigningCredential(GetEmbeddedCertificate()); // embedded test cert for testing only
+
+            // Demo services - DO NOT USE IN PRODUCTION
+            if (IsDemo)
+            {
+                services.AddTransient<ICorsPolicyService, DemoCorsPolicy>();
+                services.AddTransient<IRedirectUriValidator, DemoRedirectUriValidator>();
+            }
             
             // configure the ASP.NET Identity cookie to work on HTTP for testing only
             services.Configure<CookieAuthenticationOptions>(IdentityConstants.ApplicationScheme, options =>
