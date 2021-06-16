@@ -2,7 +2,7 @@
 // Licensed under the Apache License, Version 2.0. See LICENSE in the project root for license information.
 
 
-using IdentityServer4.Models;
+using Duende.IdentityServer.Models;
 using Rsk.Samples.IdentityServer4.AdminUiIntegration.Models;
 
 namespace Rsk.Samples.IdentityServer4.AdminUiIntegration.Services

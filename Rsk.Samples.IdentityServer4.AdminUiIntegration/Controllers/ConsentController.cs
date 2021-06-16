@@ -3,8 +3,8 @@
 
 
 using System.Threading.Tasks;
-using IdentityServer4.Extensions;
-using IdentityServer4.Services;
+using Duende.IdentityServer.Extensions;
+using Duende.IdentityServer.Services;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.Extensions.Logging;
 using Rsk.Samples.IdentityServer4.AdminUiIntegration.Middleware;

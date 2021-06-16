@@ -1,6 +1,9 @@
 using System;
+using System.Linq;
 using System.Reflection;
 using System.Security.Cryptography.X509Certificates;
+using Duende.IdentityServer.Services;
+using Duende.IdentityServer.Validation;
 using IdentityExpress.Identity;
 using Microsoft.AspNetCore.Authentication.Cookies;
 using Microsoft.AspNetCore.Builder;
@@ -89,13 +92,16 @@ namespace Rsk.Samples.IdentityServer4.AdminUiIntegration
                 });
             
             // configure IdentityServer
-            services.AddIdentityServer()
+            services.AddIdentityServer(options =>
+                {
+                    options.KeyManagement.Enabled = false; // disabled to only use test cert
+                    options.LicenseKey = null; // for development only
+                })
                 .AddOperationalStore(options => options.ConfigureDbContext = identityServerBuilder)
                 .AddConfigurationStore(options => options.ConfigureDbContext = identityServerBuilder)
                 .AddAspNetIdentity<IdentityExpressUser>() // configure IdentityServer to use ASP.NET Identity
                 .AddSigningCredential(GetEmbeddedCertificate()); // embedded test cert for testing only
             
-
             // configure the ASP.NET Identity cookie to work on HTTP for testing only
             services.Configure<CookieAuthenticationOptions>(IdentityConstants.ApplicationScheme, options =>
             {
