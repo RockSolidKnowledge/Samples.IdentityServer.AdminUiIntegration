@@ -69,39 +69,35 @@ namespace Rsk.Samples.IdentityServer4.AdminUiIntegration
             {
                 new IdentityResources.OpenId(),
                 new IdentityResources.Profile(),
+                new IdentityResources.Email(),
+                new IdentityResources.Phone()
             };
 
-        public static IEnumerable<ApiResource> ApiResources => new List<ApiResource> {new ApiResource("api1", "My API") {Scopes = new[] {"api1"}}};
-        public static IEnumerable<ApiScope> ApiScopes => new List<ApiScope> {new ApiScope("api1", "My API")};
+        private static IEnumerable<ApiResource> ApiResources => new[] {new ApiResource("api1", "Sample API") {Scopes = new[] {"api1"}}};
+        private static IEnumerable<ApiScope> ApiScopes => new[] {new ApiScope("api1", "Sample API - full access")};
 
-        public static IEnumerable<Client> Clients =>
-            new List<Client>
+        private static IEnumerable<Client> Clients =>
+            new[]
             {
                 // machine to machine client
                 new Client
                 {
                     ClientId = "client",
-                    ClientSecrets = { new Secret("secret".Sha256()) },
-
+                    ClientSecrets = {new Secret("secret".Sha256())},
+                    Description = "Demo client credentials app. Client secret = 'secret'.",
                     AllowedGrantTypes = GrantTypes.ClientCredentials,
-                    // scopes that client has access to
-                    AllowedScopes = { "api1" }
+                    AllowedScopes = {"api1"}
                 },
-                
+
                 // interactive ASP.NET Core MVC client
                 new Client
                 {
                     ClientId = "mvc",
-                    ClientSecrets = { new Secret("secret".Sha256()) },
-
+                    ClientSecrets = {new Secret("secret".Sha256())},
+                    Description = "Demo auth code + PKCE app. Client secret = 'secret'.",
                     AllowedGrantTypes = GrantTypes.Code,
-                    
-                    // where to redirect to after login
-                    RedirectUris = { "https://localhost:5002/signin-oidc" },
-
-                    // where to redirect to after logout
-                    PostLogoutRedirectUris = { "https://localhost:5002/signout-callback-oidc" },
-
+                    RedirectUris = {"https://localhost:5002/signin-oidc"},
+                    PostLogoutRedirectUris = {"https://localhost:5002/signout-callback-oidc"},
                     AllowedScopes = new List<string>
                     {
                         IdentityServerConstants.StandardScopes.OpenId,
