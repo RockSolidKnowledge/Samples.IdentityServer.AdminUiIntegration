@@ -1,11 +1,13 @@
 using System;
 using System.Collections.Generic;
+using System.IO;
 using System.Linq;
 using Duende.IdentityServer;
-using Duende.IdentityServer.EntityFramework.Interfaces;
+using Duende.IdentityServer.EntityFramework.DbContexts;
 using Duende.IdentityServer.EntityFramework.Mappers;
 using Duende.IdentityServer.Models;
 using Microsoft.AspNetCore.Hosting;
+using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
 using Microsoft.Extensions.Logging;
@@ -18,11 +20,30 @@ namespace Rsk.Samples.IdentityServer4.AdminUiIntegration
         {
             var host = BuildWebHost(args).Build();
 
+            var builder = new ConfigurationBuilder()
+                .SetBasePath(Directory.GetCurrentDirectory())
+                .AddJsonFile("appsettings.json", true, true)
+                .AddEnvironmentVariables();
+            var configuration = builder.Build();
+            
             if (args.Contains("seed"))
             {
-                var context = host.Services.GetRequiredService<IConfigurationDbContext>();
-                var exitCode = Config.Seed(context);
-                Environment.ExitCode = exitCode;
+                var isDemo = configuration.GetValue("IsDemo", false);
+                if (!isDemo)
+                {
+                    Console.WriteLine("IsDemo Set to False - Not Running Seed");
+                    // Per https://tldp.org/LDP/abs/html/exitcodes.html
+                    Environment.ExitCode = 126;
+                    return;
+                }
+
+                //ONLY FOR DEMO PURPOSES
+                using (var scope = host.Services.CreateScope())
+                {
+                    var dbContext = scope.ServiceProvider.GetRequiredService<ConfigurationDbContext>();
+                    var exitCode = Config.Seed(dbContext);
+                    Environment.ExitCode = exitCode;
+                }
                 return;
             }
             
@@ -50,7 +71,7 @@ namespace Rsk.Samples.IdentityServer4.AdminUiIntegration
     /// </summary>
     public static class Config
     {
-        public static int Seed(IConfigurationDbContext context)
+        public static int Seed(ConfigurationDbContext context)
         {
             var missingClients = Clients.Where(x => !context.Clients.Any(y => y.ClientId == x.ClientId));
             context.Clients.AddRange(missingClients.Select(x => x.ToEntity()));
@@ -60,7 +81,15 @@ namespace Rsk.Samples.IdentityServer4.AdminUiIntegration
             context.ApiResources.AddRange(missingApiResources.Select(x => x.ToEntity()));
             var missingApiScopes = ApiScopes.Where(x => !context.IdentityResources.Any(y => y.Name == x.Name));
             context.ApiScopes.AddRange(missingApiScopes.Select(x => x.ToEntity()));
-            
+
+            try
+            {
+                context.SaveChanges();
+            }
+            catch (Exception e)
+            {
+                return 1;
+            }
             return 0;
         }
         
@@ -83,6 +112,7 @@ namespace Rsk.Samples.IdentityServer4.AdminUiIntegration
                 new Client
                 {
                     ClientId = "client",
+                    ClientName = "Machine to Machine Client",
                     ClientSecrets = {new Secret("secret".Sha256())},
                     Description = "Demo client credentials app. Client secret = 'secret'.",
                     AllowedGrantTypes = GrantTypes.ClientCredentials,
@@ -93,6 +123,7 @@ namespace Rsk.Samples.IdentityServer4.AdminUiIntegration
                 new Client
                 {
                     ClientId = "mvc",
+                    ClientName = "MVC Client",
                     ClientSecrets = {new Secret("secret".Sha256())},
                     Description = "Demo auth code + PKCE app. Client secret = 'secret'.",
                     AllowedGrantTypes = GrantTypes.Code,
