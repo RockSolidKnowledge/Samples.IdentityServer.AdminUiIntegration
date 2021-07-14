@@ -3,20 +3,14 @@ using System.Collections.Generic;
 using System.IO;
 using System.Linq;
 using Duende.IdentityServer;
-using Duende.IdentityServer.Configuration;
 using Duende.IdentityServer.EntityFramework.DbContexts;
-using Duende.IdentityServer.EntityFramework.Interfaces;
 using Duende.IdentityServer.EntityFramework.Mappers;
-using Duende.IdentityServer.EntityFramework.Options;
 using Duende.IdentityServer.Models;
 using Microsoft.AspNetCore.Hosting;
-using Microsoft.EntityFrameworkCore;
-using Microsoft.EntityFrameworkCore.Diagnostics;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
 using Microsoft.Extensions.Logging;
-using Microsoft.Extensions.Options;
 
 namespace Rsk.Samples.IdentityServer4.AdminUiIntegration
 {
@@ -31,13 +25,15 @@ namespace Rsk.Samples.IdentityServer4.AdminUiIntegration
                 .AddJsonFile("appsettings.json", true, true)
                 .AddEnvironmentVariables();
             var configuration = builder.Build();
-
+            
             if (args.Contains("seed"))
             {
                 var isDemo = configuration.GetValue("IsDemo", false);
                 if (!isDemo)
                 {
                     Console.WriteLine("IsDemo Set to False - Not Running Seed");
+                    // Per https://tldp.org/LDP/abs/html/exitcodes.html
+                    Environment.ExitCode = 126;
                     return;
                 }
 
@@ -45,7 +41,8 @@ namespace Rsk.Samples.IdentityServer4.AdminUiIntegration
                 using (var scope = host.Services.CreateScope())
                 {
                     var dbContext = scope.ServiceProvider.GetRequiredService<ConfigurationDbContext>();
-                    Config.Seed(dbContext);
+                    var exitCode = Config.Seed(dbContext);
+                    Environment.ExitCode = exitCode;
                 }
                 return;
             }
@@ -91,7 +88,7 @@ namespace Rsk.Samples.IdentityServer4.AdminUiIntegration
             }
             catch (Exception e)
             {
-                return 500;
+                return 1;
             }
             return 0;
         }
