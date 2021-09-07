@@ -3,7 +3,7 @@
 
 
 using System.Threading.Tasks;
-using IdentityServer4.Services;
+using Duende.IdentityServer.Services;
 using Microsoft.AspNetCore.Mvc;
 using Rsk.Samples.IdentityServer4.AdminUiIntegration.Middleware;
 using Rsk.Samples.IdentityServer4.AdminUiIntegration.Models;

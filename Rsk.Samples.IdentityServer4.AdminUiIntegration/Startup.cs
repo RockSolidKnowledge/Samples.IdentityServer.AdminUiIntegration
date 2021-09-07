@@ -1,6 +1,9 @@
 using System;
+using System.Linq;
 using System.Reflection;
 using System.Security.Cryptography.X509Certificates;
+using Duende.IdentityServer.Services;
+using Duende.IdentityServer.Validation;
 using IdentityExpress.Identity;
 using Microsoft.AspNetCore.Authentication.Cookies;
 using Microsoft.AspNetCore.Builder;
@@ -11,6 +14,7 @@ using Microsoft.Extensions.DependencyInjection;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.HttpOverrides;
 using Microsoft.AspNetCore.Http;
+using Rsk.Samples.IdentityServer4.AdminUiIntegration.Demo;
 using Rsk.Samples.IdentityServer4.AdminUiIntegration.Middleware;
 
 namespace Rsk.Samples.IdentityServer4.AdminUiIntegration
@@ -25,9 +29,12 @@ namespace Rsk.Samples.IdentityServer4.AdminUiIntegration
                 .AddJsonFile($"appsettings.{env.EnvironmentName}.json", true)
                 .AddEnvironmentVariables();
             Configuration = builder.Build();
+
+            IsDemo = Configuration.GetValue("IsDemo", false);
         }
 
         public IConfigurationRoot Configuration { get; }
+        private bool IsDemo { get; }
 
         public void ConfigureServices(IServiceCollection services)
         {
@@ -89,13 +96,23 @@ namespace Rsk.Samples.IdentityServer4.AdminUiIntegration
                 });
             
             // configure IdentityServer
-            services.AddIdentityServer()
+            services.AddIdentityServer(options =>
+                {
+                    options.KeyManagement.Enabled = false; // disabled to only use test cert
+                    options.LicenseKey = null; // for development only
+                })
                 .AddOperationalStore(options => options.ConfigureDbContext = identityServerBuilder)
                 .AddConfigurationStore(options => options.ConfigureDbContext = identityServerBuilder)
                 .AddAspNetIdentity<IdentityExpressUser>() // configure IdentityServer to use ASP.NET Identity
                 .AddSigningCredential(GetEmbeddedCertificate()); // embedded test cert for testing only
-            
 
+            // Demo services - DO NOT USE IN PRODUCTION
+            if (IsDemo)
+            {
+                services.AddTransient<ICorsPolicyService, DemoCorsPolicy>();
+                services.AddTransient<IRedirectUriValidator, DemoRedirectUriValidator>();
+            }
+            
             // configure the ASP.NET Identity cookie to work on HTTP for testing only
             services.Configure<CookieAuthenticationOptions>(IdentityConstants.ApplicationScheme, options =>
             {
