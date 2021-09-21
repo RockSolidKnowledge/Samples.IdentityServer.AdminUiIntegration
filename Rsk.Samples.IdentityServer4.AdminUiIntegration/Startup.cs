@@ -6,6 +6,7 @@ using Duende.IdentityServer.Services;
 using Duende.IdentityServer.Validation;
 using IdentityExpress.Identity;
 using Microsoft.AspNetCore.Authentication.Cookies;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.EntityFrameworkCore;
@@ -137,6 +138,26 @@ namespace Rsk.Samples.IdentityServer4.AdminUiIntegration
             }
 
             services.AddMvc();
+            services.AddMvcCore()
+                .AddAuthorization();
+            
+            services.AddAuthentication("Bearer")
+                .AddIdentityServerAuthentication(options =>
+                {
+                    options.Authority = "https://localhost:5001";
+                    options.RequireHttpsMetadata = false;
+                    options.ApiName = "admin_ui_webhooks";
+                });
+
+
+            services.AddAuthorization(options =>
+            {
+                options.AddPolicy("webhook", builder =>
+                {
+                    builder.AddAuthenticationSchemes("Bearer");
+                    builder.RequireScope("admin_ui_webhooks");
+                });
+            });
         }
 
         public void Configure(IApplicationBuilder app)

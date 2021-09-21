@@ -317,8 +317,6 @@ namespace Rsk.Samples.IdentityServer4.AdminUiIntegration.Controllers
                 return View(vm);
             }
 
-
-
             var result = await userManager.AddPasswordAsync(user, model.Password);
 
             if (result.Succeeded)
@@ -339,5 +337,7 @@ namespace Rsk.Samples.IdentityServer4.AdminUiIntegration.Controllers
 
             return View(vm);
         }
+        
+        
     }
 }
