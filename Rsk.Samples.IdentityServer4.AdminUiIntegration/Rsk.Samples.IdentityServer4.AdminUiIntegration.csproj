@@ -16,6 +16,8 @@
   </ItemGroup>
   <ItemGroup>
     <PackageReference Include="IdentityExpress.Identity" Version="3.2.0" />
+    <PackageReference Include="IdentityModel.AspNetCore.AccessTokenValidation" Version="1.0.0-preview.3" />
+    <PackageReference Include="IdentityModel.AspNetCore.OAuth2Introspection" Version="5.1.0" />
 	<PackageReference Include="IdentityServer4.AccessTokenValidation" Version="3.0.1" />
     <PackageReference Include="Duende.IdentityServer" Version="5.2.1" />
     <PackageReference Include="Duende.IdentityServer.AspNetIdentity" Version="5.2.1" /> 

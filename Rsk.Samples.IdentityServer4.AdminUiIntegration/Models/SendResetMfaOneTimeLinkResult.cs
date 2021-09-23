@@ -2,6 +2,8 @@
 {
     public class SendResetMfaOneTimeLinkResult
     {
+        private SendResetMfaOneTimeLinkResult() {}
+
         public bool Succeeded => ErrorMessage == null;
         public string ErrorMessage { get; private set; }
 

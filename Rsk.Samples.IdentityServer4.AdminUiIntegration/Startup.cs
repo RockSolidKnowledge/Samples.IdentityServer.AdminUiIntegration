@@ -1,12 +1,12 @@
 using System;
-using System.Linq;
 using System.Reflection;
 using System.Security.Cryptography.X509Certificates;
 using Duende.IdentityServer.Services;
 using Duende.IdentityServer.Validation;
 using IdentityExpress.Identity;
+using IdentityModel.AspNetCore.AccessTokenValidation;
 using Microsoft.AspNetCore.Authentication.Cookies;
-using Microsoft.AspNetCore.Authorization;
+using Microsoft.AspNetCore.Authentication.JwtBearer;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.EntityFrameworkCore;
@@ -138,15 +138,23 @@ namespace Rsk.Samples.IdentityServer4.AdminUiIntegration
             }
 
             services.AddMvc();
-            services.AddMvcCore()
-                .AddAuthorization();
-            
-            services.AddAuthentication("Bearer")
-                .AddIdentityServerAuthentication(options =>
+            services.AddMvcCore().AddAuthorization();
+
+            services.AddAuthentication(JwtBearerDefaults.AuthenticationScheme)
+                .AddJwtBearer(options =>
                 {
                     options.Authority = "https://localhost:5001";
-                    options.RequireHttpsMetadata = false;
-                    options.ApiName = "admin_ui_webhooks";
+                    options.TokenValidationParameters.ValidTypes = new[] { "at+jwt" };
+                    options.Audience = "admin_ui_webhooks";
+
+                    // if token does not contain a dot, it is a reference token
+                    options.ForwardDefaultSelector = Selector.ForwardReferenceToken("introspection");
+                })
+                .AddOAuth2Introspection("introspection", options =>
+                {
+                    options.Authority = "https://localhost:5001";
+                    options.ClientId = "admin_ui_webhooks";
+                    options.ClientSecret = "adminUiWebhooksSecret";
                 });
 
 
