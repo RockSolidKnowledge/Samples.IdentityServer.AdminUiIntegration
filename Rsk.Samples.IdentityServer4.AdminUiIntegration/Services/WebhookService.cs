@@ -26,10 +26,12 @@ namespace Rsk.Samples.IdentityServer4.AdminUiIntegration.Services
                 return SendResetMfaOneTimeLinkResult.Failed($"No user exists with username: {username}");
             }
             
-            //Send an email to your user wanting to reset their MFA
-            //The user will click the link and then be prompted to log into IdentityServer
-            //After successfully logging in, they will be prompted to create a new MFA provider
-            //Previous MFA providers will then be removed
+            // -- Suggested Flow -- //
+            
+            //1. Send an email to your user wanting to reset their MFA
+            //2. The user will click the link and then be prompted to log into IdentityServer
+            //3. After successfully logging in, they will be prompted to create a new MFA provider
+            //4. Previous MFA providers will then be removed
             
             return SendResetMfaOneTimeLinkResult.Success();
         }
