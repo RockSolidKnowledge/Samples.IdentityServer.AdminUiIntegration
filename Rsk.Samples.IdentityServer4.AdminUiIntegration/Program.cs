@@ -79,15 +79,14 @@ namespace Rsk.Samples.IdentityServer4.AdminUiIntegration
             context.ApiResources.AddRange(missingApiResources.Select(x => x.ToEntity()));
             var missingApiScopes = ApiScopes.Where(x => !context.ApiScopes.Any(y => y.Name == x.Name));
             context.ApiScopes.AddRange(missingApiScopes.Select(x => x.ToEntity()));
+            
             var missingIdentityResources = IdentityResources.Where(x => !context.IdentityResources.Any(y => y.Name == x.Name));
-            List<Duende.IdentityServer.EntityFramework.Entities.IdentityResource> identityResourcesToAdd = new List<Duende.IdentityServer.EntityFramework.Entities.IdentityResource>();
             foreach (var idr in missingIdentityResources)
             {
                 var idrToEntity = idr.ToEntity();
                 if (idrToEntity.Name == IdentityServerConstants.StandardScopes.OpenId || idrToEntity.Name == IdentityServerConstants.StandardScopes.Profile) idrToEntity.NonEditable = true;
-                identityResourcesToAdd.Add(idrToEntity);
+                context.IdentityResources.Add(idrToEntity);
             }
-            context.IdentityResources.AddRange(identityResourcesToAdd);
 
             try
             {
