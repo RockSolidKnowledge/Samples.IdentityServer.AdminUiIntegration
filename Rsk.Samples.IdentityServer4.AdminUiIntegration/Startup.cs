@@ -100,6 +100,9 @@ namespace Rsk.Samples.IdentityServer4.AdminUiIntegration
                 {
                     options.KeyManagement.Enabled = false; // disabled to only use test cert
                     options.LicenseKey = null; // for development only
+                    options.Events.RaiseSuccessEvents = true;
+                    options.Events.RaiseFailureEvents = true;
+                    options.Events.RaiseErrorEvents = true;
                 })
                 .AddOperationalStore(options => options.ConfigureDbContext = identityServerBuilder)
                 .AddConfigurationStore(options => options.ConfigureDbContext = identityServerBuilder)
