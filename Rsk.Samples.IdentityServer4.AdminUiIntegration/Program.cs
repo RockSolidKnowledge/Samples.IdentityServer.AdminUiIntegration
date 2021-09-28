@@ -75,12 +75,18 @@ namespace Rsk.Samples.IdentityServer4.AdminUiIntegration
         {
             var missingClients = Clients.Where(x => !context.Clients.Any(y => y.ClientId == x.ClientId));
             context.Clients.AddRange(missingClients.Select(x => x.ToEntity()));
-            var missingIdentityResources = IdentityResources.Where(x => !context.IdentityResources.Any(y => y.Name == x.Name));
-            context.IdentityResources.AddRange(missingIdentityResources.Select(x => x.ToEntity()));
-            var missingApiResources = ApiResources.Where(x => !context.IdentityResources.Any(y => y.Name == x.Name));
+            var missingApiResources = ApiResources.Where(x => !context.ApiResources.Any(y => y.Name == x.Name));
             context.ApiResources.AddRange(missingApiResources.Select(x => x.ToEntity()));
-            var missingApiScopes = ApiScopes.Where(x => !context.IdentityResources.Any(y => y.Name == x.Name));
+            var missingApiScopes = ApiScopes.Where(x => !context.ApiScopes.Any(y => y.Name == x.Name));
             context.ApiScopes.AddRange(missingApiScopes.Select(x => x.ToEntity()));
+            
+            var missingIdentityResources = IdentityResources.Where(x => !context.IdentityResources.Any(y => y.Name == x.Name));
+            foreach (var idr in missingIdentityResources)
+            {
+                var idrToEntity = idr.ToEntity();
+                if (idrToEntity.Name == IdentityServerConstants.StandardScopes.OpenId || idrToEntity.Name == IdentityServerConstants.StandardScopes.Profile) idrToEntity.NonEditable = true;
+                context.IdentityResources.Add(idrToEntity);
+            }
 
             try
             {
@@ -92,7 +98,7 @@ namespace Rsk.Samples.IdentityServer4.AdminUiIntegration
             }
             return 0;
         }
-        
+
         public static IEnumerable<IdentityResource> IdentityResources =>
             new List<IdentityResource>
             {
@@ -102,8 +108,21 @@ namespace Rsk.Samples.IdentityServer4.AdminUiIntegration
                 new IdentityResources.Phone()
             };
 
-        private static IEnumerable<ApiResource> ApiResources => new[] {new ApiResource("api1", "Sample API") {Scopes = new[] {"api1"}}};
-        private static IEnumerable<ApiScope> ApiScopes => new[] {new ApiScope("api1", "Sample API - full access")};
+        private static IEnumerable<ApiResource> ApiResources => new[]
+        {
+            new ApiResource("api1", "Sample API")
+            {
+                Scopes = new[] {"api1"}, 
+                ApiSecrets = new List<Secret> { new Secret("api1Secret") }
+            },
+            new ApiResource("admin_ui_webhooks", "Admin UI Webhooks")
+            {
+                Scopes = new [] {"admin_ui_webhooks"}, 
+                ApiSecrets = new List<Secret> { new Secret("adminUiWebhooksSecret") }
+            }
+        };
+        
+        private static IEnumerable<ApiScope> ApiScopes => new[] {new ApiScope("api1", "Sample API - full access"), new ApiScope("admin_ui_webhooks", "Admin UI Webhooks")};
 
         private static IEnumerable<Client> Clients =>
             new[]
