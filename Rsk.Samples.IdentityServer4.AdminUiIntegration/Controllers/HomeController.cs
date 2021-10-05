@@ -41,7 +41,7 @@ namespace Rsk.Samples.IdentityServer4.AdminUiIntegration.Controllers
             // retrieve error details from identity server
             var message = await interaction.GetErrorContextAsync(errorId);
             
-            //try and get more details regarding the error from the identity server event cache
+            //try and get more details regarding the error from the IdentityServer event cache
             var cachedEventInformation = eventStore.GetEventByTraceID(HttpContext.TraceIdentifier);
             
             if (message != null)
