@@ -9,5 +9,6 @@ namespace Rsk.Samples.IdentityServer4.AdminUiIntegration.Models
     public class ErrorViewModel
     {
         public ErrorMessage Error { get; set; }
+        public string EventStoreMessage { get; set; }
     }
 }

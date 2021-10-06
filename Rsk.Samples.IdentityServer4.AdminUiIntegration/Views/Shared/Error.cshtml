@@ -6,6 +6,7 @@
 @{
 	var error = Model?.Error?.Error;
 	var errorDescription = host.IsDevelopment() ? Model?.Error?.ErrorDescription : null;
+	var cachedEventError = host.IsDevelopment() ? Model?.EventStoreMessage : null;
 	var requestId = Model?.Error?.RequestId;
 }
 
@@ -34,6 +35,10 @@
 					if (errorDescription != null)
 					{
 						<li>@errorDescription</li>
+					}
+					if (cachedEventError != null)
+					{
+						<li>@cachedEventError</li>
 					}
 				}
 				@if (requestId != null)

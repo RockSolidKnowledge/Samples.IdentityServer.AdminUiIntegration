@@ -17,6 +17,7 @@ using Microsoft.AspNetCore.HttpOverrides;
 using Microsoft.AspNetCore.Http;
 using Rsk.Samples.IdentityServer4.AdminUiIntegration.Demo;
 using Rsk.Samples.IdentityServer4.AdminUiIntegration.Middleware;
+using Rsk.Samples.IdentityServer4.AdminUiIntegration.Services;
 
 namespace Rsk.Samples.IdentityServer4.AdminUiIntegration
 {
@@ -39,6 +40,13 @@ namespace Rsk.Samples.IdentityServer4.AdminUiIntegration
 
         public void ConfigureServices(IServiceCollection services)
         {
+            //add memory cache for custom identity server event sink
+            //limit cache to preserving the last 10 error or failure identity server events
+            services.AddMemoryCache(options =>
+            {
+                options.SizeLimit = 10;
+            });
+            
             // configure databases
             Action<DbContextOptionsBuilder> identityBuilder;
             Action<DbContextOptionsBuilder> identityServerBuilder;
@@ -101,9 +109,9 @@ namespace Rsk.Samples.IdentityServer4.AdminUiIntegration
                 {
                     options.KeyManagement.Enabled = false; // disabled to only use test cert
                     options.LicenseKey = null; // for development only
-                    options.Events.RaiseSuccessEvents = true;
-                    options.Events.RaiseFailureEvents = true;
                     options.Events.RaiseErrorEvents = true;
+                    options.Events.RaiseFailureEvents = true;
+                    options.Events.RaiseSuccessEvents = true;
                 })
                 .AddOperationalStore(options => options.ConfigureDbContext = identityServerBuilder)
                 .AddConfigurationStore(options => options.ConfigureDbContext = identityServerBuilder)
@@ -169,6 +177,9 @@ namespace Rsk.Samples.IdentityServer4.AdminUiIntegration
                     builder.RequireScope("admin_ui_webhooks");
                 });
             });
+
+			services.AddSingleton<IEventSink, CustomEventSink>();
+            services.AddSingleton<IEventStore, ErrorEventStore>();
         }
 
         public void Configure(IApplicationBuilder app)
