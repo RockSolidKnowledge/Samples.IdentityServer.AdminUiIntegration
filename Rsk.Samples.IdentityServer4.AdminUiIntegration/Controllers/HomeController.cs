@@ -38,7 +38,7 @@ namespace Rsk.Samples.IdentityServer4.AdminUiIntegration.Controllers
         {
             var vm = new ErrorViewModel();
             
-            // retrieve error details from identity server
+            // retrieve error details from IdentityServer
             var message = await interaction.GetErrorContextAsync(errorId);
             
             //try and get more details regarding the error from the IdentityServer event cache
