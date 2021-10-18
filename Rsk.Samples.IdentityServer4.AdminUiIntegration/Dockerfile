@@ -5,8 +5,11 @@ WORKDIR /app
 
 EXPOSE 5003
 
+RUN apk add --no-cache icu-libs
+
 ENV ASPNETCORE_ENVIRONMENT Production
 ENV ASPNETCORE_HTTP_PORT=5003
 ENV ASPNETCORE_URLS http://*:5003
+ENV DOTNET_SYSTEM_GLOBALIZATION_INVARIANT=false
 
 ENTRYPOINT ["dotnet", "Rsk.Samples.IdentityServer4.AdminUiIntegration.dll"]
