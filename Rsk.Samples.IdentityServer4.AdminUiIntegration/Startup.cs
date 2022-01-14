@@ -4,9 +4,10 @@ using System.Security.Cryptography.X509Certificates;
 using Duende.IdentityServer.Services;
 using Duende.IdentityServer.Validation;
 using IdentityExpress.Identity;
-using IdentityModel.AspNetCore.AccessTokenValidation;
+using IdentityExpress.Manager.Api.AccessTokenValidation;
 using Microsoft.AspNetCore.Authentication.Cookies;
 using Microsoft.AspNetCore.Authentication.JwtBearer;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.EntityFrameworkCore;
@@ -15,6 +16,7 @@ using Microsoft.Extensions.DependencyInjection;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.HttpOverrides;
 using Microsoft.AspNetCore.Http;
+using Microsoft.IdentityModel.Logging;
 using Rsk.Samples.IdentityServer4.AdminUiIntegration.Demo;
 using Rsk.Samples.IdentityServer4.AdminUiIntegration.Middleware;
 using Rsk.Samples.IdentityServer4.AdminUiIntegration.Services;
@@ -46,7 +48,7 @@ namespace Rsk.Samples.IdentityServer4.AdminUiIntegration
             {
                 options.SizeLimit = 10;
             });
-            
+
             // configure databases
             Action<DbContextOptionsBuilder> identityBuilder;
             Action<DbContextOptionsBuilder> identityServerBuilder;
@@ -61,8 +63,8 @@ namespace Rsk.Samples.IdentityServer4.AdminUiIntegration
                     identityServerBuilder = x => x.UseSqlServer(identityServerConnectionString, options => options.MigrationsAssembly(migrationAssembly));
                     break;
                 case "MySql":
-                    identityBuilder = x => x.UseMySql(identityConnectionString, options => options.MigrationsAssembly(migrationAssembly));
-                    identityServerBuilder = x => x.UseMySql(identityServerConnectionString, options => options.MigrationsAssembly(migrationAssembly));
+                    identityBuilder = x => x.UseMySql(identityConnectionString,  new MySqlServerVersion(new Version(5, 6, 49)), options => options.MigrationsAssembly(migrationAssembly));
+                    identityServerBuilder = x => x.UseMySql(identityServerConnectionString, new MySqlServerVersion(new Version(5, 6, 49)),options => options.MigrationsAssembly(migrationAssembly));
                     break;
                 case "PostgreSql":
                     identityBuilder = x => x.UseNpgsql(identityConnectionString, options => options.MigrationsAssembly(migrationAssembly));
