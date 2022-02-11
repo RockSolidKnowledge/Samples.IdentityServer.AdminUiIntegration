@@ -58,9 +58,13 @@ namespace Rsk.Samples.IdentityServer4.AdminUiIntegration.Services
                 if (model.ScopesConsented != null && model.ScopesConsented.Any())
                 {
                     var scopes = model.ScopesConsented;
-                    scopes = scopes.Where(x =>
-                        x != IdentityServerConstants.StandardScopes.OfflineAccess);
 
+                    if (!request.ValidatedResources.Resources.OfflineAccess)
+                    {
+                        scopes = scopes.Where(x =>
+                            x != IdentityServerConstants.StandardScopes.OfflineAccess);
+                    }
+                    
                     grantedConsent = new ConsentResponse
                     {
                         RememberConsent = model.RememberConsent,
