@@ -6,6 +6,7 @@ using Duende.IdentityServer;
 using Duende.IdentityServer.EntityFramework.DbContexts;
 using Duende.IdentityServer.EntityFramework.Mappers;
 using Duende.IdentityServer.Models;
+using IdentityModel;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
@@ -84,7 +85,13 @@ namespace Rsk.Samples.IdentityServer4.AdminUiIntegration
             foreach (var idr in missingIdentityResources)
             {
                 var idrToEntity = idr.ToEntity();
-                if (idrToEntity.Name == IdentityServerConstants.StandardScopes.OpenId || idrToEntity.Name == IdentityServerConstants.StandardScopes.Profile) idrToEntity.NonEditable = true;
+                
+                if (idrToEntity.Name == IdentityServerConstants.StandardScopes.OpenId ||
+                    idrToEntity.Name == IdentityServerConstants.StandardScopes.Profile)
+                {
+                    idrToEntity.NonEditable = true;
+                }
+                
                 context.IdentityResources.Add(idrToEntity);
             }
 
@@ -92,7 +99,7 @@ namespace Rsk.Samples.IdentityServer4.AdminUiIntegration
             {
                 context.SaveChanges();
             }
-            catch (Exception e)
+            catch (Exception)
             {
                 return 1;
             }
@@ -105,7 +112,9 @@ namespace Rsk.Samples.IdentityServer4.AdminUiIntegration
                 new IdentityResources.OpenId(),
                 new IdentityResources.Profile(),
                 new IdentityResources.Email(),
-                new IdentityResources.Phone()
+                new IdentityResources.Phone(),
+                
+                new("verification", new List<string> { JwtClaimTypes.Email, JwtClaimTypes.EmailVerified })
             };
 
         private static IEnumerable<ApiResource> ApiResources => new[]
@@ -141,8 +150,8 @@ namespace Rsk.Samples.IdentityServer4.AdminUiIntegration
                 // interactive ASP.NET Core MVC client
                 new Client
                 {
-                    ClientId = "mvc",
-                    ClientName = "MVC Client",
+                    ClientId = "web",
+                    ClientName = "Web Client",
                     ClientSecrets = {new Secret("secret".Sha256())},
                     Description = "Demo auth code + PKCE app. Client secret = 'secret'.",
                     AllowedGrantTypes = GrantTypes.Code,
@@ -152,6 +161,7 @@ namespace Rsk.Samples.IdentityServer4.AdminUiIntegration
                     {
                         IdentityServerConstants.StandardScopes.OpenId,
                         IdentityServerConstants.StandardScopes.Profile,
+                        "verification",
                         "api1"
                     }
                 }
