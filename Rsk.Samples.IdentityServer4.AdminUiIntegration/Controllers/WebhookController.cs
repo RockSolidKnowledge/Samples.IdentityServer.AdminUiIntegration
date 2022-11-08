@@ -1,5 +1,8 @@
 ﻿using System;
+using System.Linq;
 using System.Threading.Tasks;
+using Duende.IdentityServer.Services;
+using Duende.IdentityServer.Stores;
 using IdentityExpress.Identity;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Identity;
@@ -10,16 +13,19 @@ using Rsk.Samples.IdentityServer4.AdminUiIntegration.Services;
 
 namespace Rsk.Samples.IdentityServer4.AdminUiIntegration.Controllers
 {
+    [Route("[controller]")]
     public class WebhookController : Controller
     {
         private readonly WebhookService webhookService;
         private readonly ILogger<WebhookController> logger;
+        private readonly ISessionManagementService sessionManagementService;
         
-        public WebhookController(ILogger<WebhookController> logger, UserManager<IdentityExpressUser> userManager)
+        public WebhookController(ILogger<WebhookController> logger, UserManager<IdentityExpressUser> userManager, ISessionManagementService sessionManagementService)
         {
             webhookService = new WebhookService(userManager);
             
             this.logger = logger ?? throw new ArgumentNullException(nameof(logger));
+            this.sessionManagementService = sessionManagementService ?? throw new ArgumentNullException(nameof(sessionManagementService));
         }
 
         [Authorize("webhook")]
@@ -40,6 +46,19 @@ namespace Rsk.Samples.IdentityServer4.AdminUiIntegration.Controllers
                 return BadRequest(result.ErrorMessage);
             }
             
+            return Ok();
+        }
+
+        [HttpDelete("deletesession/{id}")]
+        public async Task<IActionResult> DeleteServerSideSession([FromRoute] string id)
+        {
+            ArgumentNullException.ThrowIfNull(id);
+
+            await sessionManagementService.RemoveSessionsAsync(new RemoveSessionsContext
+            {
+                SessionId = id
+            });
+
             return Ok();
         }
         

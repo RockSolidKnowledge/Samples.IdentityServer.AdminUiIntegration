@@ -1,6 +1,7 @@
 using System;
 using System.Reflection;
 using System.Security.Cryptography.X509Certificates;
+using Duende.Bff.EntityFramework;
 using Duende.IdentityServer.Services;
 using Duende.IdentityServer.Validation;
 using IdentityExpress.Identity;
@@ -106,6 +107,13 @@ namespace Rsk.Samples.IdentityServer4.AdminUiIntegration
                     AutoSaveChanges = true
                 });
             
+            // Add ServerSideSessions 
+            services.AddBff()
+                .AddEntityFrameworkServerSideSessions(options =>
+                {
+                    options.UseSqlServer(identityServerConnectionString);
+                });
+            
             // configure IdentityServer
             services.AddIdentityServer(options =>
                 {
@@ -118,8 +126,9 @@ namespace Rsk.Samples.IdentityServer4.AdminUiIntegration
                 .AddOperationalStore(options => options.ConfigureDbContext = identityServerBuilder)
                 .AddConfigurationStore(options => options.ConfigureDbContext = identityServerBuilder)
                 .AddAspNetIdentity<IdentityExpressUser>() // configure IdentityServer to use ASP.NET Identity
-                .AddSigningCredential(GetEmbeddedCertificate()); // embedded test cert for testing only
-
+                .AddSigningCredential(GetEmbeddedCertificate()) // embedded test cert for testing only
+                .AddServerSideSessions();
+           
             // Demo services - DO NOT USE IN PRODUCTION
             if (IsDemo)
             {
@@ -158,7 +167,7 @@ namespace Rsk.Samples.IdentityServer4.AdminUiIntegration
                 {
                     options.Authority = "https://localhost:5001";
                     options.TokenValidationParameters.ValidTypes = new[] { "at+jwt" };
-                    options.Audience = "admin_ui_webhooks";
+                    options.Audience = "admin_api";
 
                     // if token does not contain a dot, it is a reference token
                     options.ForwardDefaultSelector = Selector.ForwardReferenceToken("introspection");
@@ -166,10 +175,9 @@ namespace Rsk.Samples.IdentityServer4.AdminUiIntegration
                 .AddOAuth2Introspection("introspection", options =>
                 {
                     options.Authority = "https://localhost:5001";
-                    options.ClientId = "admin_ui_webhooks";
+                    options.ClientId = "admin_api";
                     options.ClientSecret = "adminUiWebhooksSecret";
                 });
-
 
             services.AddAuthorization(options =>
             {
