@@ -14,7 +14,7 @@
   </ItemGroup>
 
   <ItemGroup>
-    <ProjectReference Include="..\Rsk.Samples.IdentityServer4.AdminUiIntegration\Rsk.Samples.IdentityServer4.AdminUiIntegration.csproj" />
+    <ProjectReference Include="..\Rsk.Samples.IdentityServer.AdminUiIntegration\Rsk.Samples.IdentityServer.AdminUiIntegration.csproj" />
   </ItemGroup>
 
 </Project>

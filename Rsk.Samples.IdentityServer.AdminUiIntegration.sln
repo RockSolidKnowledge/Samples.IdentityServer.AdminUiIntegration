@@ -3,9 +3,9 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio 15
 VisualStudioVersion = 15.0.26430.13
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Rsk.Samples.IdentityServer4.AdminUiIntegration", "Rsk.Samples.IdentityServer4.AdminUiIntegration\Rsk.Samples.IdentityServer4.AdminUiIntegration.csproj", "{F6F8D777-08BD-44EE-A627-A67EF315360F}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Rsk.Samples.IdentityServer.AdminUiIntegration", "Rsk.Samples.IdentityServer.AdminUiIntegration\Rsk.Samples.IdentityServer.AdminUiIntegration.csproj", "{F6F8D777-08BD-44EE-A627-A67EF315360F}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "AdminUIIntegration.Tests", "Rsk.Samples.IdentityServer4.AdminUIIntegration.Tests\AdminUIIntegration.Tests.csproj", "{830D4D2D-4F89-4C36-A12C-544176CDE15F}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "AdminUIIntegration.Tests", "Rsk.Samples.IdentityServer.AdminUIIntegration.Tests\AdminUIIntegration.Tests.csproj", "{830D4D2D-4F89-4C36-A12C-544176CDE15F}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
