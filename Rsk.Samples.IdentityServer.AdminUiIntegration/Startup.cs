@@ -213,7 +213,7 @@ namespace Rsk.Samples.IdentityServer4.AdminUiIntegration
         {
             try
             {
-                using (var certStream = Assembly.GetExecutingAssembly().GetManifestResourceStream(@"Rsk.Samples.IdentityServer4.AdminUiIntegration.CN=RSKSampleIdentityServer.pfx"))
+                using (var certStream = Assembly.GetExecutingAssembly().GetManifestResourceStream(@"Rsk.Samples.IdentityServer.AdminUiIntegration.CN=RSKSampleIdentityServer.pfx"))
                 {
                     var rawBytes = new byte[certStream.Length];
                     for (var index = 0; index < certStream.Length; index++)

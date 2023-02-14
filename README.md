@@ -1,5 +1,5 @@
-# Sample IdentityServer4 AdminUI Integration
-**IdentityServer4 implementation using the ASP.NET Identity schema from the [AdminUI product](https://www.identityserver.com/products/adminui) from [Rock Solid Knowledge](https://www.identityserver.com).**
+# Sample IdentityServer (Duende) AdminUI Integration
+**IdentityServer implementation using the ASP.NET Identity schema from the [AdminUI product](https://www.identityserver.com/products/adminui) from [Rock Solid Knowledge](https://www.identityserver.com).**
 
 This package uses the AdminUI ASP.NET Identity schema found on [NuGet](https://www.nuget.org/packages/IdentityExpress.Identity/):
 

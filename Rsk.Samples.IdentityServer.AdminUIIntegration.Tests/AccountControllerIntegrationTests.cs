@@ -22,7 +22,7 @@ namespace AdminUIIntegration.Tests
 
         public AccountControllerIntegrationTests()
         {
-            var path = Path.GetFullPath(Path.Combine(Directory.GetCurrentDirectory(), @"..\..\..\..\Rsk.Samples.IdentityServer4.AdminUiIntegration"));
+            var path = Path.GetFullPath(Path.Combine(Directory.GetCurrentDirectory(), @"..\..\..\..\Rsk.Samples.IdentityServer.AdminUiIntegration"));
 
             var config = new ConfigurationBuilder()
                 .SetBasePath(path)

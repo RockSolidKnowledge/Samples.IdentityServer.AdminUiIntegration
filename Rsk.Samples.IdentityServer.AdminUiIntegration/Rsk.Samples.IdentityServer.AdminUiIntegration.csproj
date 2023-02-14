@@ -1,6 +1,7 @@
 ﻿<Project Sdk="Microsoft.NET.Sdk.Web">
   <PropertyGroup>
     <TargetFramework>net6.0</TargetFramework>
+    <RootNamespace>Rsk.Samples.IdentityServer4.AdminUiIntegration</RootNamespace>
   </PropertyGroup>
   <ItemGroup>
     <Content Include="src\css\print.css" />
