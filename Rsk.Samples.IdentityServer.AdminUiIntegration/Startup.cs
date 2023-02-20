@@ -56,6 +56,8 @@ namespace Rsk.Samples.IdentityServer4.AdminUiIntegration
             var identityConnectionString = Configuration.GetValue("IdentityConnectionString", Configuration.GetValue<string>("DbConnectionString"));
             var identityServerConnectionString = Configuration.GetValue("IdentityServerConnectionString", Configuration.GetValue<string>("DbConnectionString"));
             var migrationAssembly = typeof(Startup).GetTypeInfo().Assembly.GetName().Name;
+            var operationalStoreSchemaName = Configuration.GetValue("OperationalStoreSchemaName", "dbo");
+            var configurationStoreSchemaName = Configuration.GetValue("ConfigurationStoreSchemaName", "dbo");
 
             switch (Configuration.GetValue<string>("DbProvider"))
             {
@@ -123,8 +125,15 @@ namespace Rsk.Samples.IdentityServer4.AdminUiIntegration
                     options.Events.RaiseFailureEvents = true;
                     options.Events.RaiseSuccessEvents = true;
                 })
-                .AddOperationalStore(options => options.ConfigureDbContext = identityServerBuilder)
-                .AddConfigurationStore(options => options.ConfigureDbContext = identityServerBuilder)
+                .AddOperationalStore(
+                    options => {
+                        options.ConfigureDbContext = identityServerBuilder;
+                        options.DefaultSchema = operationalStoreSchemaName;
+                    })
+                .AddConfigurationStore(options => {
+                    options.ConfigureDbContext = identityServerBuilder;
+                    options.DefaultSchema = configurationStoreSchemaName;
+                })
                 .AddAspNetIdentity<IdentityExpressUser>() // configure IdentityServer to use ASP.NET Identity
                 .AddSigningCredential(GetEmbeddedCertificate()) // embedded test cert for testing only
                 .AddServerSideSessions();
