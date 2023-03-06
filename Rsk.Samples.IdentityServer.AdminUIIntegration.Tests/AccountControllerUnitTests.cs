@@ -23,6 +23,7 @@ namespace AdminUIIntegration.Tests
         private readonly Mock<IAuthenticationSchemeProvider> mockSchemeProvider;
         private readonly Mock<IEventService> mockEvents;
         private readonly Mock<IUrlHelperFactory> mockUrlHelper;
+        private readonly Mock<IIdentityProviderStore> mockIdentityProviderStore;
 
         public AccountControllerUnitTests()
         {
@@ -34,6 +35,12 @@ namespace AdminUIIntegration.Tests
             mockSchemeProvider = new Mock<IAuthenticationSchemeProvider>();
             mockEvents = new Mock<IEventService>();
             mockUrlHelper = new Mock<IUrlHelperFactory>();
+            mockIdentityProviderStore = new Mock<IIdentityProviderStore>();
+        }
+
+        private AccountController CreateSut()
+        {
+            return new AccountController(mockInteraction.Object, mockClientStore.Object, mockAccessor.Object, mockUserManager.Object, mockSchemeProvider.Object, mockEvents.Object, mockUrlHelper.Object, mockIdentityProviderStore.Object);
         }
 
         //Returns view when modelState is invalid.
@@ -41,7 +48,7 @@ namespace AdminUIIntegration.Tests
         public async Task Register_WhenModelStateIsInvalid_()
         {
             //arrange
-            var controller = new AccountController(mockInteraction.Object, mockClientStore.Object, mockAccessor.Object, mockUserManager.Object, mockSchemeProvider.Object, mockEvents.Object, mockUrlHelper.Object);
+            var controller = CreateSut();
             var model = new RegisterInputModel();
             controller.ModelState.AddModelError("", "Unit Test Error");
             //act
@@ -57,8 +64,7 @@ namespace AdminUIIntegration.Tests
         public async Task Register_WhenUserCannotBeFound_ExpectModelStateHassInvalidUsernameErrorMessage()
         {
             //arrange
-            var controller = new AccountController(mockInteraction.Object, mockClientStore.Object, mockAccessor.Object, mockUserManager.Object, mockSchemeProvider.Object, mockEvents.Object, mockUrlHelper.Object);
-
+            var controller = CreateSut();
 
             mockUserManager.Setup(x => x.FindByNameAsync(It.IsAny<string>())).ReturnsAsync(null as IdentityExpressUser);
 
@@ -80,7 +86,7 @@ namespace AdminUIIntegration.Tests
         public async Task Register_WhenAddPasswordFails_ExpectUpdateToNotBeCalledAndModelStateToHaveErrors()
         {
             //arrange
-            var controller = new AccountController(mockInteraction.Object, mockClientStore.Object, mockAccessor.Object, mockUserManager.Object, mockSchemeProvider.Object, mockEvents.Object, mockUrlHelper.Object);
+            var controller = CreateSut();
 
             mockUserManager.Setup(x => x.FindByNameAsync(It.IsAny<string>())).ReturnsAsync(new IdentityExpressUser());
             mockUserManager.Setup(x => x.AddPasswordAsync(It.IsAny<IdentityExpressUser>(), It.IsAny<string>())).ReturnsAsync(IdentityResult.Failed(new IdentityError {Description = "Error" }));
@@ -102,7 +108,7 @@ namespace AdminUIIntegration.Tests
         public async Task Register_WhenAddPasswordSuccees_ExpectUpdateToHaveBeenCalled()
         {
             //arrange
-            var controller = new AccountController(mockInteraction.Object, mockClientStore.Object, mockAccessor.Object, mockUserManager.Object, mockSchemeProvider.Object, mockEvents.Object, mockUrlHelper.Object);
+            var controller = CreateSut();
             mockUserManager.Setup(x => x.FindByNameAsync(It.IsAny<string>())).ReturnsAsync(new IdentityExpressUser());
             mockUserManager.Setup(x => x.UpdateAsync(It.IsAny<IdentityExpressUser>())).ReturnsAsync(IdentityResult.Success);
             mockUserManager.Setup(x => x.AddPasswordAsync(It.IsAny<IdentityExpressUser>(), It.IsAny<string>())).ReturnsAsync(IdentityResult.Success);
