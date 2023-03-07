@@ -1,5 +1,6 @@
 ﻿using System.Collections.Generic;
 using System.Security.Claims;
+using System.Threading.Tasks;
 using IdentityModel;
 using Duende.IdentityServer.Models;
 using Duende.IdentityServer.Services;
@@ -33,6 +34,19 @@ namespace AdminUIIntegration.Tests
         private AccountService CreateSut()
         {
             return new AccountService(mockInteraction.Object, mockAccessor.Object, mockSchemeProvider.Object, mockClientStore.Object, mockIdentityProviderStore.Object);
+        }
+
+        [Fact]
+        public async Task BuildLinkLoginViewModel_WithUrl_ShouldReturnLoginModelForLinkSetup()
+        {
+            var testUrl = "https://test.com";
+            var sut = CreateSut();
+
+            var actual = await sut.BuildLinkLoginViewModel(testUrl);
+            
+            Assert.Equal(testUrl, actual.ReturnUrl);
+            Assert.True(actual.EnableLocalLogin);
+            Assert.True(actual.LinkSetup);
         }
 
         [Fact]

@@ -201,6 +201,8 @@ namespace Rsk.Samples.IdentityServer4.AdminUiIntegration
 
 			services.AddSingleton<IEventSink, CustomEventSink>();
             services.AddSingleton<IEventStore, ErrorEventStore>();
+
+            services.AddSingleton<IAccountService, AccountService>();
         }
 
         public void Configure(IApplicationBuilder app)

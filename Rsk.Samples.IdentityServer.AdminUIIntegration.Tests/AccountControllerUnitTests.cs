@@ -1,4 +1,5 @@
 ﻿using System.Threading.Tasks;
+using Duende.IdentityServer.Models;
 using IdentityExpress.Identity;
 using Duende.IdentityServer.Services;
 using Duende.IdentityServer.Stores;
@@ -10,6 +11,7 @@ using Microsoft.AspNetCore.Mvc.Routing;
 using Moq;
 using Rsk.Samples.IdentityServer4.AdminUiIntegration.Controllers;
 using Rsk.Samples.IdentityServer4.AdminUiIntegration.Models;
+using Rsk.Samples.IdentityServer4.AdminUiIntegration.Services;
 using Xunit;
 
 namespace AdminUIIntegration.Tests
@@ -22,8 +24,12 @@ namespace AdminUIIntegration.Tests
         private readonly Mock<IHttpContextAccessor> mockAccessor;
         private readonly Mock<IAuthenticationSchemeProvider> mockSchemeProvider;
         private readonly Mock<IEventService> mockEvents;
+        private readonly Mock<IAccountService> mockAccountService;
         private readonly Mock<IUrlHelperFactory> mockUrlHelper;
         private readonly Mock<IIdentityProviderStore> mockIdentityProviderStore;
+
+        private readonly Mock<HttpContext> mockHttpContext;
+        private readonly Mock<IRequestCookieCollection> mockRequestCookies;
 
         public AccountControllerUnitTests()
         {
@@ -34,15 +40,137 @@ namespace AdminUIIntegration.Tests
             mockUserManager = new Mock<UserManager<IdentityExpressUser>>(userStoreMock.Object, null, null, null, null, null, null, null, null);
             mockSchemeProvider = new Mock<IAuthenticationSchemeProvider>();
             mockEvents = new Mock<IEventService>();
+            mockAccountService = new Mock<IAccountService>();
             mockUrlHelper = new Mock<IUrlHelperFactory>();
             mockIdentityProviderStore = new Mock<IIdentityProviderStore>();
+            mockHttpContext = new Mock<HttpContext>();
+            mockRequestCookies = new Mock<IRequestCookieCollection>();
         }
 
-        private AccountController CreateSut()
+        private AccountController CreateSut(bool withExternalCookie = false)
+        { 
+            if (withExternalCookie)
+            {
+                mockRequestCookies.Setup(x => x["Identity.External"]).Returns("FakeCookie");
+            }
+
+            mockHttpContext.Setup(x => x.Request.Cookies).Returns(mockRequestCookies.Object);
+            
+            var sut = new AccountController(
+                mockInteraction.Object, 
+                mockClientStore.Object, 
+                mockAccessor.Object, 
+                mockUserManager.Object, 
+                mockSchemeProvider.Object, 
+                mockEvents.Object, 
+                mockAccountService.Object, 
+                mockUrlHelper.Object, 
+                mockIdentityProviderStore.Object
+                );
+
+            sut.ControllerContext = new ControllerContext
+            {
+                HttpContext = mockHttpContext.Object,
+            };
+            
+            return sut;
+        }
+
+        [Fact]
+        public async Task Login_WhenNotExternal_ShouldCallBuildLoginViewModelAsync()
         {
-            return new AccountController(mockInteraction.Object, mockClientStore.Object, mockAccessor.Object, mockUserManager.Object, mockSchemeProvider.Object, mockEvents.Object, mockUrlHelper.Object, mockIdentityProviderStore.Object);
+            var testReturnUrl = "";
+            var testLoginViewModel = new LoginViewModel
+            {
+                EnableLocalLogin = true,
+                ReturnUrl = testReturnUrl,
+                Username = "LoginHunt",
+            };
+            
+            mockAccountService.Setup(x => x.BuildLoginViewModelAsync(It.IsAny<string>()))
+                .ReturnsAsync(testLoginViewModel);
+            
+            var sut = CreateSut();
+
+            var actual = await sut.Login(testReturnUrl);
+
+            mockAccountService.Verify(x => x.BuildLoginViewModelAsync(testReturnUrl));
+
+            var viewResult = Assert.IsType<ViewResult>(actual);
+            Assert.Equal(viewResult.Model, testLoginViewModel);
         }
 
+        [Fact]
+        public async Task Login_WhenExternal_ShouldCallBuildLinkLoginViewModel()
+        {
+            var testReturnUrl = "";
+            var testLoginViewModel = new LoginViewModel
+            {
+                EnableLocalLogin = true,
+                LinkSetup = true,
+                ReturnUrl = testReturnUrl,
+                Username = "LoginHunt",
+            };
+            
+            mockAccountService.Setup(x => x.BuildLinkLoginViewModel(It.IsAny<string>()))
+                .ReturnsAsync(testLoginViewModel);
+            
+            var sut = CreateSut(withExternalCookie: true);
+
+            var actual = await sut.Login(testReturnUrl);
+
+            mockAccountService.Verify(x => x.BuildLinkLoginViewModel(testReturnUrl));
+
+            var viewResult = Assert.IsType<ViewResult>(actual);
+            Assert.Equal(viewResult.Model, testLoginViewModel);
+        }
+
+        [Fact]
+        public async Task Login_WhenModelPassedIn_WithButtonNotLogin_AndNullAuthContext_ShouldRedirectToBase()
+        {
+            var testLoginModel = new LoginInputModel
+            {
+                Username = "tuser",
+                Password = "somepassword",
+                RememberLogin = true,
+                ReturnUrl = "https://some.return.com",
+            };
+
+            mockInteraction.Setup(x => x.GetAuthorizationContextAsync(It.IsAny<string>()))
+                .ReturnsAsync(() => null);
+            
+            var sut = CreateSut();
+            var actual = await sut.Login(testLoginModel, "cancel");
+
+            var viewResult = Assert.IsType<RedirectResult>(actual);
+            Assert.Equal("~/", viewResult.Url);
+        }
+
+        [Fact]
+        public async Task Login_WhenModelPassedIn_WithButtonNotLogin_AndAuthContextReturned_ShouldRedirectToReturnUrl()
+        {
+            var testLoginModel = new LoginInputModel
+            {
+                Username = "tuser",
+                Password = "somepassword",
+                RememberLogin = true,
+                ReturnUrl = "https://some.return.com",
+            };
+
+            var authRequest = new AuthorizationRequest();
+
+            mockInteraction.Setup(x => x.GetAuthorizationContextAsync(It.IsAny<string>()))
+                .ReturnsAsync(() => authRequest);
+
+            var sut = CreateSut();
+            var actual = await sut.Login(testLoginModel, "cancel");
+            
+            mockInteraction.Verify(x => x.DenyAuthorizationAsync(authRequest, AuthorizationError.AccessDenied, null));
+
+            var viewResult = Assert.IsType<RedirectResult>(actual);
+            Assert.Equal(testLoginModel.ReturnUrl, viewResult.Url);
+        }
+        
         //Returns view when modelState is invalid.
         [Fact]
         public async Task Register_WhenModelStateIsInvalid_()

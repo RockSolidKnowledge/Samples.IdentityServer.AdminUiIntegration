@@ -15,7 +15,7 @@ using Rsk.Samples.IdentityServer4.AdminUiIntegration.Models;
 
 namespace Rsk.Samples.IdentityServer4.AdminUiIntegration.Services
 {
-    public class AccountService
+    public class AccountService: IAccountService
     {
         private readonly IClientStore clientStore;
         private readonly IIdentityServerInteractionService interaction;

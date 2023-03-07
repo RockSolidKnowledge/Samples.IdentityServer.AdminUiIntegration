@@ -38,7 +38,7 @@ namespace Rsk.Samples.IdentityServer4.AdminUiIntegration.Controllers
         private readonly UserManager<IdentityExpressUser> userManager;
         private readonly IIdentityServerInteractionService interaction;
         private readonly IEventService events;
-        private readonly AccountService accountService;
+        private readonly IAccountService accountService;
         private readonly IUrlHelperFactory urlHelperFactory;
         private readonly IIdentityProviderStore identityProviderStore;
 
@@ -49,13 +49,14 @@ namespace Rsk.Samples.IdentityServer4.AdminUiIntegration.Controllers
             UserManager<IdentityExpressUser> userManager,
             IAuthenticationSchemeProvider schemeProvider,
             IEventService events,
+            IAccountService accountService,
             IUrlHelperFactory urlHelperFactory,
             IIdentityProviderStore identityProviderStore)
         {
             this.interaction = interaction;
             this.events = events;
             this.urlHelperFactory = urlHelperFactory;
-            accountService = new AccountService(interaction, httpContextAccessor, schemeProvider, clientStore, identityProviderStore);
+            this.accountService = accountService;
             this.userManager = userManager;
             this.identityProviderStore = identityProviderStore;
         }
@@ -73,7 +74,7 @@ namespace Rsk.Samples.IdentityServer4.AdminUiIntegration.Controllers
             var vm = !externalLogin ? await accountService.BuildLoginViewModelAsync(returnUrl)
                     : await accountService.BuildLinkLoginViewModel(returnUrl);
 
-            if (vm.IsExternalLoginOnly)
+            if (!externalLogin && vm.IsExternalLoginOnly)
             {
                 // we only have one option for logging in and it's an external provider
                 return ExternalLogin(vm.ExternalLoginScheme, returnUrl);
@@ -143,6 +144,7 @@ namespace Rsk.Samples.IdentityServer4.AdminUiIntegration.Controllers
                     await events.RaiseAsync(new UserLoginSuccessEvent(user.UserName, user.Id, user.UserName));
                     await HttpContext.SignInAsync(isuser, props);
 
+                    // link external login if cookie exists
                     await LinkIfExternalLogin(user);
 
                     // make sure the returnUrl is still valid, and if so redirect back to authorize endpoint or a local page
