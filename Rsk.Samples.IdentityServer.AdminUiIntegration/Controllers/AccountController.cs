@@ -5,6 +5,7 @@
 using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Net;
 using System.Security.Claims;
 using System.Threading.Tasks;
 using IdentityExpress.Identity;
@@ -37,8 +38,9 @@ namespace Rsk.Samples.IdentityServer4.AdminUiIntegration.Controllers
         private readonly UserManager<IdentityExpressUser> userManager;
         private readonly IIdentityServerInteractionService interaction;
         private readonly IEventService events;
-        private readonly AccountService accountService;
+        private readonly IAccountService accountService;
         private readonly IUrlHelperFactory urlHelperFactory;
+        private readonly IIdentityProviderStore identityProviderStore;
 
         public AccountController(
             IIdentityServerInteractionService interaction,
@@ -46,13 +48,17 @@ namespace Rsk.Samples.IdentityServer4.AdminUiIntegration.Controllers
             IHttpContextAccessor httpContextAccessor,
             UserManager<IdentityExpressUser> userManager,
             IAuthenticationSchemeProvider schemeProvider,
-            IEventService events, IUrlHelperFactory urlHelperFactory)
+            IEventService events,
+            IAccountService accountService,
+            IUrlHelperFactory urlHelperFactory,
+            IIdentityProviderStore identityProviderStore)
         {
             this.interaction = interaction;
             this.events = events;
             this.urlHelperFactory = urlHelperFactory;
-            accountService = new AccountService(interaction, httpContextAccessor, schemeProvider, clientStore);
+            this.accountService = accountService;
             this.userManager = userManager;
+            this.identityProviderStore = identityProviderStore;
         }
 
         /// <summary>
@@ -61,10 +67,14 @@ namespace Rsk.Samples.IdentityServer4.AdminUiIntegration.Controllers
         [HttpGet]
         public async Task<IActionResult> Login(string returnUrl)
         {
+            bool externalLogin = Request.Cookies["Identity.External"] != null;
+            
             // build a model so we know what to show on the login page
-            var vm = await accountService.BuildLoginViewModelAsync(returnUrl);
+            // if were told we a linking an external login then then we build a model 
+            var vm = !externalLogin ? await accountService.BuildLoginViewModelAsync(returnUrl)
+                    : await accountService.BuildLinkLoginViewModel(returnUrl);
 
-            if (vm.IsExternalLoginOnly)
+            if (!externalLogin && vm.IsExternalLoginOnly)
             {
                 // we only have one option for logging in and it's an external provider
                 return ExternalLogin(vm.ExternalLoginScheme, returnUrl);
@@ -134,6 +144,9 @@ namespace Rsk.Samples.IdentityServer4.AdminUiIntegration.Controllers
                     await events.RaiseAsync(new UserLoginSuccessEvent(user.UserName, user.Id, user.UserName));
                     await HttpContext.SignInAsync(isuser, props);
 
+                    // link external login if cookie exists
+                    await LinkIfExternalLogin(user);
+
                     // make sure the returnUrl is still valid, and if so redirect back to authorize endpoint or a local page
                     if (interaction.IsValidReturnUrl(model.ReturnUrl) || Url.IsLocalUrl(model.ReturnUrl))
                     {
@@ -150,6 +163,7 @@ namespace Rsk.Samples.IdentityServer4.AdminUiIntegration.Controllers
 
             // something went wrong, show form with error
             var vm = await accountService.BuildLoginViewModelAsync(model);
+            vm.LinkSetup = Request.Cookies["Identity.External"] != null;
             return View(vm);
         }
 
@@ -194,13 +208,19 @@ namespace Rsk.Samples.IdentityServer4.AdminUiIntegration.Controllers
             claims.Remove(userIdClaim);
             var userId = userIdClaim.Value;
             var provider = result.Properties.Items["scheme"];
+            
+            var returnUrl = result.Properties.Items["returnUrl"];
+            if (!interaction.IsValidReturnUrl(returnUrl) || !Url.IsLocalUrl(returnUrl))
+            {
+                returnUrl = "~/";
+            }
 
             // check if the external user is already provisioned
             var user = await userManager.FindByLoginAsync(provider, userId);
+
             if (user == null)
             {
-                // auto provision new user or return error
-                throw new Exception("external login does not have a linked local account");
+                return RedirectToAction("Login", new { returnUrl });
             }
 
             var additionalClaims = new List<Claim>();
@@ -231,11 +251,7 @@ namespace Rsk.Samples.IdentityServer4.AdminUiIntegration.Controllers
             // delete temporary cookie used during external authentication
             await HttpContext.SignOutAsync("Identity.External");
 
-            var returnUrl = result.Properties.Items["returnUrl"];
-            if (interaction.IsValidReturnUrl(returnUrl) || Url.IsLocalUrl(returnUrl))
-                return Redirect(returnUrl);
-
-            return Redirect("~/");
+            return Redirect(returnUrl);
         }
 
         /// <summary>
@@ -337,7 +353,29 @@ namespace Rsk.Samples.IdentityServer4.AdminUiIntegration.Controllers
 
             return View(vm);
         }
-        
+
+        private async Task<IdentityResult> LinkIfExternalLogin(IdentityExpressUser localUser)
+        {
+            // get external identity from external scheme cookie
+            var result = await HttpContext.AuthenticateAsync("Identity.External");
+            if (result?.Succeeded != true) return null;
+
+            var externalUser = result.Principal;
+            var claims = externalUser.Claims.ToList();
+
+            // try to determine the unique id of the external user
+            var userIdClaim = claims.FirstOrDefault(x => x.Type == JwtClaimTypes.Subject) ?? claims.FirstOrDefault(x => x.Type == ClaimTypes.NameIdentifier);
+            if (userIdClaim == null) throw new Exception("Unknown userid");
+
+            claims.Remove(userIdClaim);
+            var userId = userIdClaim.Value;
+            var providerScheme = result.Properties.Items["scheme"];
+            
+            var provider = await identityProviderStore.GetBySchemeAsync(providerScheme);
+            var outcome =  await userManager.AddLoginAsync(localUser, new UserLoginInfo(provider.Scheme, userId, provider.DisplayName));
+            await HttpContext.SignOutAsync("Identity.External");
+            return outcome;
+        }
         
     }
 }

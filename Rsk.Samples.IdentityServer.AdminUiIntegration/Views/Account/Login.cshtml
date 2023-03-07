@@ -15,6 +15,19 @@
 
 @await Html.PartialAsync("_ValidationSummary")
 
+@if (Model.LinkSetup)
+{
+	<div class="message message-warning" role="alert">
+		<div>
+			<h2 class="text-base">No Linked User for External Login</h2>
+			<ul class="mt-1">
+				<li>There were no users connected to this external login, please now login with you local credentials to
+					create a link.</li>
+			</ul>
+		</div>
+	</div>
+}
+
 @if (Model.EnableLocalLogin)
 {
 	<form asp-route="Login">
@@ -44,7 +57,7 @@
 	</form>
 }
 
-@if (Model.VisibleExternalProviders.Any())
+@if (!Model.LinkSetup && Model.VisibleExternalProviders.Any())
 {
 	<section class="border-t border-navy-lightest mt-6 pt-6 first-child:border-0 first-child:mt-0 first-child:pt-0">
 		<h3 class="font-semibold text-base mb-3">External Login</h3>
@@ -64,7 +77,7 @@
 	</section>
 }
 
-@if (!Model.EnableLocalLogin && !Model.VisibleExternalProviders.Any())
+@if (!Model.LinkSetup && !Model.EnableLocalLogin && !Model.VisibleExternalProviders.Any())
 {
 	<div class="message message-warning" role="alert">
 		<div>

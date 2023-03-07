@@ -15,28 +15,31 @@ using Rsk.Samples.IdentityServer4.AdminUiIntegration.Models;
 
 namespace Rsk.Samples.IdentityServer4.AdminUiIntegration.Services
 {
-    public class AccountService
+    public class AccountService: IAccountService
     {
         private readonly IClientStore clientStore;
         private readonly IIdentityServerInteractionService interaction;
         private readonly IHttpContextAccessor httpContextAccessor;
         private readonly IAuthenticationSchemeProvider schemeProvider;
+        private readonly IIdentityProviderStore identityProviderStore;
 
         public AccountService(
             IIdentityServerInteractionService interaction,
             IHttpContextAccessor httpContextAccessor,
             IAuthenticationSchemeProvider schemeProvider,
-            IClientStore clientStore)
+            IClientStore clientStore,
+            IIdentityProviderStore identityProviderStore)
         {
             this.interaction = interaction;
             this.httpContextAccessor = httpContextAccessor;
             this.schemeProvider = schemeProvider;
             this.clientStore = clientStore;
+            this.identityProviderStore = identityProviderStore;
         }
-
+        
         public async Task<LoginViewModel> BuildLoginViewModelAsync(string returnUrl)
         {
-             var context = await interaction.GetAuthorizationContextAsync(returnUrl);
+            var context = await interaction.GetAuthorizationContextAsync(returnUrl);
             if (context?.IdP != null && await schemeProvider.GetSchemeAsync(context.IdP) != null)
             {
                 var local = context.IdP == IdentityServerConstants.LocalIdentityProvider;
@@ -67,6 +70,16 @@ namespace Rsk.Samples.IdentityServer4.AdminUiIntegration.Services
                     AuthenticationScheme = x.Name
                 }).ToList();
 
+            var dyanmicSchemes = (await identityProviderStore.GetAllSchemeNamesAsync())
+                .Where(x => x.Enabled)
+                .Select(x => new ExternalProvider
+                {
+                    AuthenticationScheme = x.Scheme,
+                    DisplayName = x.DisplayName
+                });
+
+            providers.AddRange(dyanmicSchemes);
+
             var allowLocal = true;
             if (context?.Client.ClientId != null)
             {
@@ -88,6 +101,16 @@ namespace Rsk.Samples.IdentityServer4.AdminUiIntegration.Services
                 ReturnUrl = returnUrl,
                 Username = context?.LoginHint,
                 ExternalProviders = providers.ToArray()
+            };
+        }
+
+        public async Task<LoginViewModel> BuildLinkLoginViewModel(string returnUrl)
+        {
+            return new LoginViewModel
+            {
+                EnableLocalLogin = true,
+                LinkSetup = true,
+                ReturnUrl = returnUrl,
             };
         }
 

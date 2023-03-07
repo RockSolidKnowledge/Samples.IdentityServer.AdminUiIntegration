@@ -124,6 +124,8 @@ namespace Rsk.Samples.IdentityServer4.AdminUiIntegration
                     options.Events.RaiseErrorEvents = true;
                     options.Events.RaiseFailureEvents = true;
                     options.Events.RaiseSuccessEvents = true;
+                    options.DynamicProviders.SignInScheme = "Identity.External";
+                    options.DynamicProviders.SignOutScheme = "Identity.External";
                 })
                 .AddOperationalStore(
                     options => {
@@ -199,6 +201,8 @@ namespace Rsk.Samples.IdentityServer4.AdminUiIntegration
 
 			services.AddSingleton<IEventSink, CustomEventSink>();
             services.AddSingleton<IEventStore, ErrorEventStore>();
+
+            services.AddSingleton<IAccountService, AccountService>();
         }
 
         public void Configure(IApplicationBuilder app)
