@@ -6,7 +6,7 @@ using System;
 using System.Collections.Generic;
 using System.Linq;
 
-namespace Rsk.Samples.IdentityServer4.AdminUiIntegration.Models
+namespace Rsk.Samples.IdentityServer.AdminUiIntegration.Models
 {
     public class LoginViewModel : LoginInputModel
     {

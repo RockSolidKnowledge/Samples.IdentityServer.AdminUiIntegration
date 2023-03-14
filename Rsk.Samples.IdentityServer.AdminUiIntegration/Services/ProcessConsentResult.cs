@@ -3,9 +3,9 @@
 
 
 using Duende.IdentityServer.Models;
-using Rsk.Samples.IdentityServer4.AdminUiIntegration.Models;
+using Rsk.Samples.IdentityServer.AdminUiIntegration.Models;
 
-namespace Rsk.Samples.IdentityServer4.AdminUiIntegration.Services
+namespace Rsk.Samples.IdentityServer.AdminUiIntegration.Services
 {
     public class ProcessConsentResult
     {

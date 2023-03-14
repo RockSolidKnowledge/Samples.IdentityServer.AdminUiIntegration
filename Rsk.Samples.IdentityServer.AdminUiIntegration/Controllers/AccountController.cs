@@ -5,27 +5,26 @@
 using System;
 using System.Collections.Generic;
 using System.Linq;
-using System.Net;
 using System.Security.Claims;
 using System.Threading.Tasks;
-using IdentityExpress.Identity;
-using IdentityModel;
 using Duende.IdentityServer;
 using Duende.IdentityServer.Events;
 using Duende.IdentityServer.Extensions;
 using Duende.IdentityServer.Models;
 using Duende.IdentityServer.Services;
 using Duende.IdentityServer.Stores;
+using IdentityExpress.Identity;
+using IdentityModel;
 using Microsoft.AspNetCore.Authentication;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.Routing;
-using Rsk.Samples.IdentityServer4.AdminUiIntegration.Middleware;
-using Rsk.Samples.IdentityServer4.AdminUiIntegration.Models;
-using Rsk.Samples.IdentityServer4.AdminUiIntegration.Services;
+using Rsk.Samples.IdentityServer.AdminUiIntegration.Middleware;
+using Rsk.Samples.IdentityServer.AdminUiIntegration.Models;
+using Rsk.Samples.IdentityServer.AdminUiIntegration.Services;
 
-namespace Rsk.Samples.IdentityServer4.AdminUiIntegration.Controllers
+namespace Rsk.Samples.IdentityServer.AdminUiIntegration.Controllers
 {
     /// <summary>
     /// This sample controller implements a typical login/logout/provision workflow for local and external accounts.

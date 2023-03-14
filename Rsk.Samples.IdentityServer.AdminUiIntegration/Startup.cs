@@ -5,7 +5,6 @@ using Duende.Bff.EntityFramework;
 using Duende.IdentityServer.Services;
 using Duende.IdentityServer.Validation;
 using IdentityExpress.Identity;
-using IdentityExpress.Manager.Api.AccessTokenValidation;
 using Microsoft.AspNetCore.Authentication.Cookies;
 using Microsoft.AspNetCore.Authentication.JwtBearer;
 using Microsoft.AspNetCore.Authorization;
@@ -18,11 +17,12 @@ using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.HttpOverrides;
 using Microsoft.AspNetCore.Http;
 using Microsoft.IdentityModel.Logging;
-using Rsk.Samples.IdentityServer4.AdminUiIntegration.Demo;
-using Rsk.Samples.IdentityServer4.AdminUiIntegration.Middleware;
-using Rsk.Samples.IdentityServer4.AdminUiIntegration.Services;
+using Rsk.Samples.IdentityServer.AdminUiIntegration.AccessTokenValidation;
+using Rsk.Samples.IdentityServer.AdminUiIntegration.Demo;
+using Rsk.Samples.IdentityServer.AdminUiIntegration.Middleware;
+using Rsk.Samples.IdentityServer.AdminUiIntegration.Services;
 
-namespace Rsk.Samples.IdentityServer4.AdminUiIntegration
+namespace Rsk.Samples.IdentityServer.AdminUiIntegration
 {
     public class Startup
     {

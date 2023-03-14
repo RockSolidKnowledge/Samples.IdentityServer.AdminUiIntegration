@@ -4,7 +4,7 @@
 
 using Duende.IdentityServer.Models;
 
-namespace Rsk.Samples.IdentityServer4.AdminUiIntegration.Models
+namespace Rsk.Samples.IdentityServer.AdminUiIntegration.Models
 {
     public class ErrorViewModel
     {

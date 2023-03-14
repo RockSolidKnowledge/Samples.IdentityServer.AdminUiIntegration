@@ -1,7 +1,7 @@
 using System.Threading.Tasks;
 using Duende.IdentityServer.Services;
 
-namespace Rsk.Samples.IdentityServer4.AdminUiIntegration.Demo
+namespace Rsk.Samples.IdentityServer.AdminUiIntegration.Demo
 {
     /// <summary>
     /// Allows any CORS origin - DO NOT USE IN PRODUCTION

@@ -2,7 +2,7 @@
 using System.Threading.Tasks;
 using Microsoft.AspNetCore.Http;
 
-namespace Rsk.Samples.IdentityServer4.AdminUiIntegration.Middleware
+namespace Rsk.Samples.IdentityServer.AdminUiIntegration.Middleware
 {
     public class XForwardedPrefixMiddleware : IMiddleware
     {

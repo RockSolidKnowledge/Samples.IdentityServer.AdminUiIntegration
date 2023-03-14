@@ -4,16 +4,16 @@
 
 using System.Linq;
 using System.Threading.Tasks;
-using IdentityModel;
 using Duende.IdentityServer;
 using Duende.IdentityServer.Extensions;
 using Duende.IdentityServer.Services;
 using Duende.IdentityServer.Stores;
+using IdentityModel;
 using Microsoft.AspNetCore.Authentication;
 using Microsoft.AspNetCore.Http;
-using Rsk.Samples.IdentityServer4.AdminUiIntegration.Models;
+using Rsk.Samples.IdentityServer.AdminUiIntegration.Models;
 
-namespace Rsk.Samples.IdentityServer4.AdminUiIntegration.Services
+namespace Rsk.Samples.IdentityServer.AdminUiIntegration.Services
 {
     public class AccountService: IAccountService
     {

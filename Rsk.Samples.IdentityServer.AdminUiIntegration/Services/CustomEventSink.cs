@@ -6,7 +6,7 @@ using Duende.IdentityServer.Services;
 using Microsoft.Extensions.Caching.Memory;
 using Microsoft.Extensions.Logging;
 
-namespace Rsk.Samples.IdentityServer4.AdminUiIntegration.Services
+namespace Rsk.Samples.IdentityServer.AdminUiIntegration.Services
 {
     /// <summary>
     /// Implements the DefaultEventSink functionality, but in addition, when event types are error or failure, will add the event to the custom event store cache

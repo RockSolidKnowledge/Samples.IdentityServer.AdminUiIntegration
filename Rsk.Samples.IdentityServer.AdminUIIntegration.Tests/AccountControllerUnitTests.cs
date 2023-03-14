@@ -9,9 +9,9 @@ using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.Routing;
 using Moq;
-using Rsk.Samples.IdentityServer4.AdminUiIntegration.Controllers;
-using Rsk.Samples.IdentityServer4.AdminUiIntegration.Models;
-using Rsk.Samples.IdentityServer4.AdminUiIntegration.Services;
+using Rsk.Samples.IdentityServer.AdminUiIntegration.Controllers;
+using Rsk.Samples.IdentityServer.AdminUiIntegration.Models;
+using Rsk.Samples.IdentityServer.AdminUiIntegration.Services;
 using Xunit;
 
 namespace AdminUIIntegration.Tests

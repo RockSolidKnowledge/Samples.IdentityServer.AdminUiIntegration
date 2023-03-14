@@ -7,11 +7,11 @@ using Duende.IdentityServer.Extensions;
 using Duende.IdentityServer.Services;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.Extensions.Logging;
-using Rsk.Samples.IdentityServer4.AdminUiIntegration.Middleware;
-using Rsk.Samples.IdentityServer4.AdminUiIntegration.Models;
-using Rsk.Samples.IdentityServer4.AdminUiIntegration.Services;
+using Rsk.Samples.IdentityServer.AdminUiIntegration.Middleware;
+using Rsk.Samples.IdentityServer.AdminUiIntegration.Models;
+using Rsk.Samples.IdentityServer.AdminUiIntegration.Services;
 
-namespace Rsk.Samples.IdentityServer4.AdminUiIntegration.Controllers
+namespace Rsk.Samples.IdentityServer.AdminUiIntegration.Controllers
 {
     /// <summary>
     /// This controller processes the consent UI

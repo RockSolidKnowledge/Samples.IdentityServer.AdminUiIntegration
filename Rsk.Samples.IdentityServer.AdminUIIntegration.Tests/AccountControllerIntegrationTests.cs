@@ -9,7 +9,7 @@ using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.TestHost;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Configuration;
-using Rsk.Samples.IdentityServer4.AdminUiIntegration;
+using Rsk.Samples.IdentityServer.AdminUiIntegration;
 using Xunit;
 
 namespace AdminUIIntegration.Tests

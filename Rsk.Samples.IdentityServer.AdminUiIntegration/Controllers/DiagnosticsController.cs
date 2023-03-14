@@ -2,10 +2,10 @@ using System.Threading.Tasks;
 using Microsoft.AspNetCore.Authentication;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
-using Rsk.Samples.IdentityServer4.AdminUiIntegration.Middleware;
-using Rsk.Samples.IdentityServer4.AdminUiIntegration.Models;
+using Rsk.Samples.IdentityServer.AdminUiIntegration.Middleware;
+using Rsk.Samples.IdentityServer.AdminUiIntegration.Models;
 
-namespace Rsk.Samples.IdentityServer4.AdminUiIntegration.Controllers
+namespace Rsk.Samples.IdentityServer.AdminUiIntegration.Controllers
 {
     [Authorize]
     [SecurityHeaders]
