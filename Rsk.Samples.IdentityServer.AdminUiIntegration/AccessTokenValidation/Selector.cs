@@ -2,7 +2,7 @@
 using System.Linq;
 using Microsoft.AspNetCore.Http;
 
-namespace IdentityExpress.Manager.Api.AccessTokenValidation
+namespace Rsk.Samples.IdentityServer.AdminUiIntegration.AccessTokenValidation
 {
     /// <summary>
     /// Provides helper functions for forwarding logic

@@ -1,17 +1,15 @@
 ﻿using System;
-using System.Linq;
 using System.Threading.Tasks;
 using Duende.IdentityServer.Services;
-using Duende.IdentityServer.Stores;
 using IdentityExpress.Identity;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.Extensions.Logging;
-using Rsk.Samples.IdentityServer4.AdminUiIntegration.Models;
-using Rsk.Samples.IdentityServer4.AdminUiIntegration.Services;
+using Rsk.Samples.IdentityServer.AdminUiIntegration.Models;
+using Rsk.Samples.IdentityServer.AdminUiIntegration.Services;
 
-namespace Rsk.Samples.IdentityServer4.AdminUiIntegration.Controllers
+namespace Rsk.Samples.IdentityServer.AdminUiIntegration.Controllers
 {
     [Route("[controller]")]
     public class WebhookController : Controller

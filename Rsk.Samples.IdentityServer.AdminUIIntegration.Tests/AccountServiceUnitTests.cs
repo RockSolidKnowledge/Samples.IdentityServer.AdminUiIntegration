@@ -8,7 +8,7 @@ using Duende.IdentityServer.Stores;
 using Microsoft.AspNetCore.Authentication;
 using Microsoft.AspNetCore.Http;
 using Moq;
-using Rsk.Samples.IdentityServer4.AdminUiIntegration.Services;
+using Rsk.Samples.IdentityServer.AdminUiIntegration.Services;
 using Xunit;
 
 namespace AdminUIIntegration.Tests

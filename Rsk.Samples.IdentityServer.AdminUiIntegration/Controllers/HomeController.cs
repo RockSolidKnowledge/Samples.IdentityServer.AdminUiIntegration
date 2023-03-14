@@ -3,16 +3,13 @@
 
 
 using System.Threading.Tasks;
-using Duende.IdentityServer.Events;
-using Duende.IdentityServer.Models;
 using Duende.IdentityServer.Services;
-using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
-using Rsk.Samples.IdentityServer4.AdminUiIntegration.Middleware;
-using Rsk.Samples.IdentityServer4.AdminUiIntegration.Models;
-using Rsk.Samples.IdentityServer4.AdminUiIntegration.Services;
+using Rsk.Samples.IdentityServer.AdminUiIntegration.Middleware;
+using Rsk.Samples.IdentityServer.AdminUiIntegration.Models;
+using Rsk.Samples.IdentityServer.AdminUiIntegration.Services;
 
-namespace Rsk.Samples.IdentityServer4.AdminUiIntegration.Controllers
+namespace Rsk.Samples.IdentityServer.AdminUiIntegration.Controllers
 {
     [SecurityHeaders]
     public class HomeController : Controller

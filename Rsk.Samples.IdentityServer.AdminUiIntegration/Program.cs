@@ -13,7 +13,7 @@ using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
 using Microsoft.Extensions.Logging;
 
-namespace Rsk.Samples.IdentityServer4.AdminUiIntegration
+namespace Rsk.Samples.IdentityServer.AdminUiIntegration
 {
     public class Program
     {

@@ -5,7 +5,7 @@
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.Filters;
 
-namespace Rsk.Samples.IdentityServer4.AdminUiIntegration.Middleware
+namespace Rsk.Samples.IdentityServer.AdminUiIntegration.Middleware
 {
     public class SecurityHeadersAttribute : ActionFilterAttribute
     {

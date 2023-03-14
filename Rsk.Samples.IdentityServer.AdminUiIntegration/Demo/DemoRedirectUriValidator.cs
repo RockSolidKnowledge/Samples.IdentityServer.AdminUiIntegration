@@ -2,7 +2,7 @@ using System.Threading.Tasks;
 using Duende.IdentityServer.Models;
 using Duende.IdentityServer.Validation;
 
-namespace Rsk.Samples.IdentityServer4.AdminUiIntegration.Demo
+namespace Rsk.Samples.IdentityServer.AdminUiIntegration.Demo
 {
     /// <summary>
     /// Disables redirect URI validation - DO NOT USE IN PRODUCTION
