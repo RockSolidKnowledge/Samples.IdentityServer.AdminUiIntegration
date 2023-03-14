@@ -91,6 +91,11 @@ namespace Rsk.Samples.IdentityServer.AdminUiIntegration.Controllers
         {
             if (button != "login")
             {
+                if (Request.Cookies["Identity.External"] != null)
+                {
+                    await HttpContext.SignOutAsync("Identity.External");
+                }
+                
                 // the user clicked the "cancel" button
                 var context = await interaction.GetAuthorizationContextAsync(model.ReturnUrl);
                 if (context != null)
