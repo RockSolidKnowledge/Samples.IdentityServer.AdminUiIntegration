@@ -1,5 +1,5 @@
 # Stage 1 - Build
-FROM mcr.microsoft.com/dotnet/sdk:6.0 AS build
+FROM mcr.microsoft.com/dotnet/sdk:6.0-alpine AS build
 WORKDIR /app
 
 # Copy csproj and restore as distinct layers
