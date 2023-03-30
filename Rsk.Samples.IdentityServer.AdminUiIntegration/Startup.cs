@@ -16,7 +16,6 @@ using Microsoft.Extensions.DependencyInjection;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.HttpOverrides;
 using Microsoft.AspNetCore.Http;
-using Microsoft.IdentityModel.Logging;
 using Rsk.Samples.IdentityServer.AdminUiIntegration.AccessTokenValidation;
 using Rsk.Samples.IdentityServer.AdminUiIntegration.Demo;
 using Rsk.Samples.IdentityServer.AdminUiIntegration.Middleware;
@@ -36,10 +35,12 @@ namespace Rsk.Samples.IdentityServer.AdminUiIntegration
             Configuration = builder.Build();
 
             IsDemo = Configuration.GetValue("IsDemo", false);
+            IsHttps = Configuration.GetValue("ASPNETCORE_URLS", "").Contains("https://");
         }
 
         public IConfigurationRoot Configuration { get; }
         private bool IsDemo { get; }
+        private bool IsHttps { get; }
 
         public void ConfigureServices(IServiceCollection services)
         {
@@ -150,10 +151,27 @@ namespace Rsk.Samples.IdentityServer.AdminUiIntegration
             // configure the ASP.NET Identity cookie to work on HTTP for testing only
             services.Configure<CookieAuthenticationOptions>(IdentityConstants.ApplicationScheme, options =>
             {
-                options.Cookie.SameSite = SameSiteMode.Lax;
-                options.Cookie.SecurePolicy = CookieSecurePolicy.SameAsRequest;
+                options.Cookie.SameSite = IsHttps ? SameSiteMode.None : SameSiteMode.Lax;
+                options.Cookie.SecurePolicy = IsHttps ? CookieSecurePolicy.SameAsRequest : CookieSecurePolicy.None;
                 options.Cookie.IsEssential = true;
             });
+
+            if (!IsHttps)
+            {
+                services.ConfigureApplicationCookie(options =>
+                {
+                    options.Cookie.SameSite = SameSiteMode.Lax;
+                    options.Cookie.SecurePolicy = CookieSecurePolicy.None;
+                    options.Cookie.IsEssential = true;
+                });
+
+                services.ConfigureExternalCookie(options =>
+                {
+                    options.Cookie.SameSite = SameSiteMode.Lax;
+                    options.Cookie.SecurePolicy = CookieSecurePolicy.None;
+                    options.Cookie.IsEssential = true;
+                });
+            }
 
             // optional Google authentication
             var googleClientId = Configuration.GetValue<string>("Google_ClientId");
@@ -203,6 +221,11 @@ namespace Rsk.Samples.IdentityServer.AdminUiIntegration
             services.AddSingleton<IEventStore, ErrorEventStore>();
 
             services.AddSingleton<IAccountService, AccountService>();
+            
+            if (!IsHttps)
+            {
+                services.ConfigureOptions<CustomOidcConfigureOptions>();
+            }
         }
 
         public void Configure(IApplicationBuilder app)
