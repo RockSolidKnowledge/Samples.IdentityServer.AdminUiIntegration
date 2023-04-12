@@ -3,6 +3,7 @@ using System.Reflection;
 using System.Security.Cryptography.X509Certificates;
 using Duende.Bff.EntityFramework;
 using Duende.IdentityServer.Services;
+using Duende.IdentityServer.Stores;
 using Duende.IdentityServer.Validation;
 using IdentityExpress.Identity;
 using Microsoft.AspNetCore.Authentication.Cookies;
@@ -20,6 +21,7 @@ using Rsk.Samples.IdentityServer.AdminUiIntegration.AccessTokenValidation;
 using Rsk.Samples.IdentityServer.AdminUiIntegration.Demo;
 using Rsk.Samples.IdentityServer.AdminUiIntegration.Middleware;
 using Rsk.Samples.IdentityServer.AdminUiIntegration.Services;
+using Rsk.Samples.IdentityServer.AdminUiIntegration.Stores;
 
 namespace Rsk.Samples.IdentityServer.AdminUiIntegration
 {
@@ -128,6 +130,13 @@ namespace Rsk.Samples.IdentityServer.AdminUiIntegration
                     options.DynamicProviders.SignInScheme = "Identity.External";
                     options.DynamicProviders.SignOutScheme = "Identity.External";
                 })
+                .AddSamlDynamicProvider(options =>
+                {
+                    options.Licensee = "DEMO";
+                    options.LicenseKey = "***YOUR LICENSE KEY***";
+                    options.SignInScheme = "Identity.External";
+                    options.SignOutScheme = "Identity.External";
+                })
                 .AddOperationalStore(
                     options => {
                         options.ConfigureDbContext = identityServerBuilder;
@@ -142,7 +151,11 @@ namespace Rsk.Samples.IdentityServer.AdminUiIntegration
                 .AddAspNetIdentity<IdentityExpressUser>() // configure IdentityServer to use ASP.NET Identity
                 .AddSigningCredential(GetEmbeddedCertificate()) // embedded test cert for testing only
                 .AddServerSideSessions();
+            
+            services.AddScoped<IIdentityProviderStore, CustomSamlIdentityProviderStore>();
            
+            services.AddMemoryCache(o => o.SizeLimit = null);
+            
             // Demo services - DO NOT USE IN PRODUCTION
             if (IsDemo)
             {
