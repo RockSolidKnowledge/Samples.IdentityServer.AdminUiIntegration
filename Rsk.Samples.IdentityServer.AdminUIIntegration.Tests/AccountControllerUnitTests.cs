@@ -113,7 +113,7 @@ namespace AdminUIIntegration.Tests
             };
             
             mockAccountService.Setup(x => x.BuildLinkLoginViewModel(It.IsAny<string>()))
-                .ReturnsAsync(testLoginViewModel);
+                .Returns(testLoginViewModel);
             
             var sut = CreateSut(withExternalCookie: true);
 

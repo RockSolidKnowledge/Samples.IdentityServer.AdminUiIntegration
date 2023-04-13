@@ -11,6 +11,7 @@ using Duende.IdentityServer.Stores;
 using IdentityModel;
 using Microsoft.AspNetCore.Authentication;
 using Microsoft.AspNetCore.Http;
+using Microsoft.Extensions.DependencyInjection;
 using Rsk.Samples.IdentityServer.AdminUiIntegration.Models;
 
 namespace Rsk.Samples.IdentityServer.AdminUiIntegration.Services
@@ -104,7 +105,7 @@ namespace Rsk.Samples.IdentityServer.AdminUiIntegration.Services
             };
         }
 
-        public async Task<LoginViewModel> BuildLinkLoginViewModel(string returnUrl)
+        public LoginViewModel BuildLinkLoginViewModel(string returnUrl)
         {
             return new LoginViewModel
             {
@@ -166,7 +167,11 @@ namespace Rsk.Samples.IdentityServer.AdminUiIntegration.Services
                 var idp = user.FindFirst(JwtClaimTypes.IdentityProvider)?.Value;
                 if (idp != null && idp != IdentityServerConstants.LocalIdentityProvider)
                 {
-                    var providerSupportsSignout = await httpContextAccessor.HttpContext.GetSchemeSupportsSignOutAsync(idp);
+                    var provider = httpContextAccessor.HttpContext.RequestServices.GetRequiredService<IAuthenticationHandlerProvider>();
+                    var handler = await provider.GetHandlerAsync(httpContextAccessor.HttpContext, idp);
+                    var providerSupportsSignout = handler is IAuthenticationSignOutHandler;
+                    //var providerSupportsSignout = await httpContextAccessor.HttpContext.GetSchemeSupportsSignOutAsync(idp);
+
                     if (providerSupportsSignout)
                     {
                         if (vm.LogoutId == null)

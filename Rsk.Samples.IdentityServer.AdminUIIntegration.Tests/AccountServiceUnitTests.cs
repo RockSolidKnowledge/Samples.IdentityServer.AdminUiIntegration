@@ -37,12 +37,12 @@ namespace AdminUIIntegration.Tests
         }
 
         [Fact]
-        public async Task BuildLinkLoginViewModel_WithUrl_ShouldReturnLoginModelForLinkSetup()
+        public void BuildLinkLoginViewModel_WithUrl_ShouldReturnLoginModelForLinkSetup()
         {
             var testUrl = "https://test.com";
             var sut = CreateSut();
 
-            var actual = await sut.BuildLinkLoginViewModel(testUrl);
+            var actual = sut.BuildLinkLoginViewModel(testUrl);
             
             Assert.Equal(testUrl, actual.ReturnUrl);
             Assert.True(actual.EnableLocalLogin);

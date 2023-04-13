@@ -6,7 +6,7 @@ namespace Rsk.Samples.IdentityServer.AdminUiIntegration.Services;
 public interface IAccountService
 {
     Task<LoginViewModel> BuildLoginViewModelAsync(string returnUrl);
-    Task<LoginViewModel> BuildLinkLoginViewModel(string returnUrl);
+    LoginViewModel BuildLinkLoginViewModel(string returnUrl);
     Task<LoginViewModel> BuildLoginViewModelAsync(LoginInputModel model);
     Task<LogoutViewModel> BuildLogoutViewModelAsync(string logoutId);
     Task<LoggedOutViewModel> BuildLoggedOutViewModelAsync(string logoutId);
