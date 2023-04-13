@@ -170,7 +170,6 @@ namespace Rsk.Samples.IdentityServer.AdminUiIntegration.Services
                     var provider = httpContextAccessor.HttpContext.RequestServices.GetRequiredService<IAuthenticationHandlerProvider>();
                     var handler = await provider.GetHandlerAsync(httpContextAccessor.HttpContext, idp);
                     var providerSupportsSignout = handler is IAuthenticationSignOutHandler;
-                    //var providerSupportsSignout = await httpContextAccessor.HttpContext.GetSchemeSupportsSignOutAsync(idp);
 
                     if (providerSupportsSignout)
                     {
