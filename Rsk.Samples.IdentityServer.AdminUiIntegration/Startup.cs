@@ -132,8 +132,8 @@ namespace Rsk.Samples.IdentityServer.AdminUiIntegration
                 })
                 .AddSamlDynamicProvider(options =>
                 {
-                    options.Licensee = "DEMO";
-                    options.LicenseKey = "***YOUR LICENSE KEY***";
+                    options.Licensee = Configuration.GetValue<string>("SamlLicense");
+                    options.LicenseKey = Configuration.GetValue<string>("SamlLicenseKey");
                     options.SignInScheme = "Identity.External";
                     options.SignOutScheme = "Identity.External";
                 })

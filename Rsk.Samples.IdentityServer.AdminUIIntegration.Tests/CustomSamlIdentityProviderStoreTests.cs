@@ -90,11 +90,6 @@ public class CustomSamlIdentityProviderStoreTests
         var optionsToString = JsonConvert.SerializeObject(samlOptions, SamlDynamicIdentityProvider.SerializerSettings);
         
         Assert.Equal(optionsToString, identityProviderEfEntity.Properties);
-        
-        // Assert.Equal(samlOptions.ServiceProviderOptions.EntityId, SpEntityId);
-        // Assert.Equal(samlOptions.IdentityProviderMetadataAddress, MetadataAddress);
-        // Assert.Equal(samlOptions.CallbackPath, CallbackPath);
-        // Assert.Equal(samlOptions.SignInScheme, SignInScheme);
     }
     
     private TestCustomSamlIdentityProviderStore CreateSut()
