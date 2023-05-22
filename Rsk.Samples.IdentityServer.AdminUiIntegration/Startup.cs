@@ -17,11 +17,11 @@ using Microsoft.Extensions.DependencyInjection;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.HttpOverrides;
 using Microsoft.AspNetCore.Http;
+using Rsk.Saml.DuendeIdentityServer.EntityFramework.Stores;
 using Rsk.Samples.IdentityServer.AdminUiIntegration.AccessTokenValidation;
 using Rsk.Samples.IdentityServer.AdminUiIntegration.Demo;
 using Rsk.Samples.IdentityServer.AdminUiIntegration.Middleware;
 using Rsk.Samples.IdentityServer.AdminUiIntegration.Services;
-using Rsk.Samples.IdentityServer.AdminUiIntegration.Stores;
 
 namespace Rsk.Samples.IdentityServer.AdminUiIntegration
 {
@@ -152,7 +152,7 @@ namespace Rsk.Samples.IdentityServer.AdminUiIntegration
                 .AddSigningCredential(GetEmbeddedCertificate()) // embedded test cert for testing only
                 .AddServerSideSessions();
             
-            services.AddScoped<IIdentityProviderStore, CustomSamlIdentityProviderStore>();
+            services.AddScoped<IIdentityProviderStore, SamlIdentityProviderStore>();
            
             services.AddMemoryCache(o => o.SizeLimit = null);
             
