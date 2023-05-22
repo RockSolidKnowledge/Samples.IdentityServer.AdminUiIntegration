@@ -43,10 +43,7 @@ namespace Rsk.Samples.IdentityServer.AdminUiIntegration.Controllers
 
         public AccountController(
             IIdentityServerInteractionService interaction,
-            IClientStore clientStore,
-            IHttpContextAccessor httpContextAccessor,
             UserManager<IdentityExpressUser> userManager,
-            IAuthenticationSchemeProvider schemeProvider,
             IEventService events,
             IAccountService accountService,
             IUrlHelperFactory urlHelperFactory,
@@ -71,7 +68,7 @@ namespace Rsk.Samples.IdentityServer.AdminUiIntegration.Controllers
             // build a model so we know what to show on the login page
             // if were told we a linking an external login then then we build a model 
             var vm = !externalLogin ? await accountService.BuildLoginViewModelAsync(returnUrl)
-                    : await accountService.BuildLinkLoginViewModel(returnUrl);
+                    : accountService.BuildLinkLoginViewModel(returnUrl);
 
             if (!externalLogin && vm.IsExternalLoginOnly)
             {
