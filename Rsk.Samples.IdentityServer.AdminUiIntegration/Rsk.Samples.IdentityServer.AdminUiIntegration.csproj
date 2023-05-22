@@ -32,6 +32,7 @@
     <PackageReference Include="Microsoft.EntityFrameworkCore.Sqlite" Version="6.0.16" />
     <PackageReference Include="Pomelo.EntityFrameworkCore.MySql" Version="6.0.2" />
     <PackageReference Include="System.Drawing.Common" Version="4.7.3" />
+    <PackageReference Include="System.IdentityModel.Tokens.Jwt" Version="6.30.1" />
 	<PackageReference Include="Rsk.Saml.DuendeIdentityServer" Version="7.0.3" />
 	<PackageReference Include="Rsk.Saml.DuendeIdentityServer.EntityFramework" Version="7.0.1" />
   </ItemGroup>
