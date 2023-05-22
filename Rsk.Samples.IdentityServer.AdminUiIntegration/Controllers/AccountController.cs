@@ -43,10 +43,7 @@ namespace Rsk.Samples.IdentityServer.AdminUiIntegration.Controllers
 
         public AccountController(
             IIdentityServerInteractionService interaction,
-            IClientStore clientStore,
-            IHttpContextAccessor httpContextAccessor,
             UserManager<IdentityExpressUser> userManager,
-            IAuthenticationSchemeProvider schemeProvider,
             IEventService events,
             IAccountService accountService,
             IUrlHelperFactory urlHelperFactory,

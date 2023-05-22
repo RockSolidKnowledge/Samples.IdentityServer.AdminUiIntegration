@@ -57,16 +57,12 @@ namespace AdminUIIntegration.Tests
             mockHttpContext.Setup(x => x.Request.Cookies).Returns(mockRequestCookies.Object);
             
             var sut = new AccountController(
-                mockInteraction.Object, 
-                mockClientStore.Object, 
-                mockAccessor.Object, 
-                mockUserManager.Object, 
-                mockSchemeProvider.Object, 
-                mockEvents.Object, 
-                mockAccountService.Object, 
-                mockUrlHelper.Object, 
-                mockIdentityProviderStore.Object
-                );
+                mockInteraction.Object,
+                mockUserManager.Object,
+                mockEvents.Object,
+                mockAccountService.Object,
+                mockUrlHelper.Object,
+                mockIdentityProviderStore.Object);
 
             sut.ControllerContext = new ControllerContext
             {

@@ -20,7 +20,8 @@ namespace AdminUIIntegration.Tests
         private readonly Mock<IHttpContextAccessor> mockAccessor;
         private readonly Mock<IAuthenticationSchemeProvider> mockSchemeProvider;
         private readonly Mock<IIdentityProviderStore> mockIdentityProviderStore;
-        
+        private readonly Mock<IAuthenticationHandlerProvider> mockAuthenticationHandlerProvider;
+
 
         public AccountServiceUnitTests()
         {
@@ -29,11 +30,18 @@ namespace AdminUIIntegration.Tests
             mockAccessor = new Mock<IHttpContextAccessor>();
             mockSchemeProvider = new Mock<IAuthenticationSchemeProvider>();
             mockIdentityProviderStore = new Mock<IIdentityProviderStore>();
+            mockAuthenticationHandlerProvider = new Mock<IAuthenticationHandlerProvider>();
         }
 
         private AccountService CreateSut()
         {
-            return new AccountService(mockInteraction.Object, mockAccessor.Object, mockSchemeProvider.Object, mockClientStore.Object, mockIdentityProviderStore.Object);
+            return new AccountService(
+                mockInteraction.Object, 
+                mockAccessor.Object, 
+                mockSchemeProvider.Object, 
+                mockClientStore.Object, 
+                mockIdentityProviderStore.Object, 
+                mockAuthenticationHandlerProvider?.Object);
         }
 
         [Fact]

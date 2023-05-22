@@ -23,19 +23,22 @@ namespace Rsk.Samples.IdentityServer.AdminUiIntegration.Services
         private readonly IHttpContextAccessor httpContextAccessor;
         private readonly IAuthenticationSchemeProvider schemeProvider;
         private readonly IIdentityProviderStore identityProviderStore;
+        private readonly IAuthenticationHandlerProvider authenticationHandlerProvider;
 
         public AccountService(
             IIdentityServerInteractionService interaction,
             IHttpContextAccessor httpContextAccessor,
             IAuthenticationSchemeProvider schemeProvider,
             IClientStore clientStore,
-            IIdentityProviderStore identityProviderStore)
+            IIdentityProviderStore identityProviderStore,
+            IAuthenticationHandlerProvider authenticationHandlerProvider)
         {
             this.interaction = interaction;
             this.httpContextAccessor = httpContextAccessor;
             this.schemeProvider = schemeProvider;
             this.clientStore = clientStore;
             this.identityProviderStore = identityProviderStore;
+            this.authenticationHandlerProvider = authenticationHandlerProvider;
         }
         
         public async Task<LoginViewModel> BuildLoginViewModelAsync(string returnUrl)
@@ -161,17 +164,15 @@ namespace Rsk.Samples.IdentityServer.AdminUiIntegration.Services
                 LogoutId = logoutId
             };
 
-            var user = httpContextAccessor.HttpContext.User;
-            if (user?.Identity.IsAuthenticated == true)
+            var user = httpContextAccessor?.HttpContext?.User;
+            if (user?.Identity?.IsAuthenticated == true)
             {
                 var idp = user.FindFirst(JwtClaimTypes.IdentityProvider)?.Value;
                 if (idp != null && idp != IdentityServerConstants.LocalIdentityProvider)
                 {
-                    var provider = httpContextAccessor.HttpContext.RequestServices.GetRequiredService<IAuthenticationHandlerProvider>();
-                    var handler = await provider.GetHandlerAsync(httpContextAccessor.HttpContext, idp);
-                    var providerSupportsSignout = handler is IAuthenticationSignOutHandler;
+                    var authenticationHandler = await authenticationHandlerProvider.GetHandlerAsync(this.httpContextAccessor.HttpContext, idp);
 
-                    if (providerSupportsSignout)
+                    if (authenticationHandler != null)
                     {
                         if (vm.LogoutId == null)
                         {
@@ -180,7 +181,7 @@ namespace Rsk.Samples.IdentityServer.AdminUiIntegration.Services
                             // before we signout and redirect away to the external IdP for signout
                             vm.LogoutId = await interaction.CreateLogoutContextAsync();
                         }
-
+                        
                         vm.ExternalAuthenticationScheme = idp;
                     }
                 }
