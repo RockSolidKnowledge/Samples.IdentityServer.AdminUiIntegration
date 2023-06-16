@@ -134,8 +134,9 @@ namespace Rsk.Samples.IdentityServer.AdminUiIntegration
                 {
                     options.Licensee = Configuration.GetValue<string>("SamlLicense");
                     options.LicenseKey = Configuration.GetValue<string>("SamlLicenseKey");
-                    options.SignInScheme = "Identity.External";
-                    options.SignOutScheme = "Identity.External";
+                    // Uncommenting these lines will overwrite at runtime the SignInScheme and SignOutScheme configured on any Saml Dynamic Authentication
+                    // options.SignInScheme = "Identity.External";
+                    // options.SignOutScheme = "Identity.External";
                 })
                 .AddOperationalStore(
                     options => {
