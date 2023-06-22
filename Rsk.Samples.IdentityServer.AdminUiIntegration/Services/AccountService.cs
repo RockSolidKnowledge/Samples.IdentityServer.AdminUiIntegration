@@ -11,6 +11,7 @@ using Duende.IdentityServer.Stores;
 using IdentityModel;
 using Microsoft.AspNetCore.Authentication;
 using Microsoft.AspNetCore.Http;
+using Microsoft.Extensions.DependencyInjection;
 using Rsk.Samples.IdentityServer.AdminUiIntegration.Models;
 
 namespace Rsk.Samples.IdentityServer.AdminUiIntegration.Services

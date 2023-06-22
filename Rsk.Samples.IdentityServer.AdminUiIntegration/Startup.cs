@@ -3,6 +3,7 @@ using System.Reflection;
 using System.Security.Cryptography.X509Certificates;
 using Duende.Bff.EntityFramework;
 using Duende.IdentityServer.Services;
+using Duende.IdentityServer.Stores;
 using Duende.IdentityServer.Validation;
 using IdentityExpress.Identity;
 using Microsoft.AspNetCore.Authentication.Cookies;
@@ -16,6 +17,7 @@ using Microsoft.Extensions.DependencyInjection;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.HttpOverrides;
 using Microsoft.AspNetCore.Http;
+using Rsk.Saml.DuendeIdentityServer.EntityFramework.Stores;
 using Rsk.Samples.IdentityServer.AdminUiIntegration.AccessTokenValidation;
 using Rsk.Samples.IdentityServer.AdminUiIntegration.Demo;
 using Rsk.Samples.IdentityServer.AdminUiIntegration.Middleware;
@@ -128,6 +130,14 @@ namespace Rsk.Samples.IdentityServer.AdminUiIntegration
                     options.DynamicProviders.SignInScheme = "Identity.External";
                     options.DynamicProviders.SignOutScheme = "Identity.External";
                 })
+                .AddSamlDynamicProvider(options =>
+                {
+                    options.Licensee = Configuration.GetValue<string>("SamlLicense");
+                    options.LicenseKey = Configuration.GetValue<string>("SamlLicenseKey");
+                    // Uncommenting these lines will overwrite at runtime the SignInScheme and SignOutScheme configured on any Saml Dynamic Authentication
+                    // options.SignInScheme = "Identity.External";
+                    // options.SignOutScheme = "Identity.External";
+                })
                 .AddOperationalStore(
                     options => {
                         options.ConfigureDbContext = identityServerBuilder;
@@ -142,7 +152,11 @@ namespace Rsk.Samples.IdentityServer.AdminUiIntegration
                 .AddAspNetIdentity<IdentityExpressUser>() // configure IdentityServer to use ASP.NET Identity
                 .AddSigningCredential(GetEmbeddedCertificate()) // embedded test cert for testing only
                 .AddServerSideSessions();
+            
+            services.AddScoped<IIdentityProviderStore, SamlIdentityProviderStore>();
            
+            services.AddMemoryCache(o => o.SizeLimit = null);
+            
             // Demo services - DO NOT USE IN PRODUCTION
             if (IsDemo)
             {
