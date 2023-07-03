@@ -3,7 +3,6 @@ using System.Reflection;
 using System.Security.Cryptography.X509Certificates;
 using Duende.Bff.EntityFramework;
 using Duende.IdentityServer.Services;
-using Duende.IdentityServer.Stores;
 using Duende.IdentityServer.Validation;
 using IdentityExpress.Identity;
 using Microsoft.AspNetCore.Authentication.Cookies;
@@ -46,13 +45,6 @@ namespace Rsk.Samples.IdentityServer.AdminUiIntegration
 
         public void ConfigureServices(IServiceCollection services)
         {
-            //add memory cache for custom identity server event sink
-            //limit cache to preserving the last 10 error or failure identity server events
-            services.AddMemoryCache(options =>
-            {
-                options.SizeLimit = 10;
-            });
-
             // configure databases
             Action<DbContextOptionsBuilder> identityBuilder;
             Action<DbContextOptionsBuilder> identityServerBuilder;
@@ -151,12 +143,9 @@ namespace Rsk.Samples.IdentityServer.AdminUiIntegration
                 })
                 .AddAspNetIdentity<IdentityExpressUser>() // configure IdentityServer to use ASP.NET Identity
                 .AddSigningCredential(GetEmbeddedCertificate()) // embedded test cert for testing only
-                .AddServerSideSessions();
-            
-            services.AddScoped<IIdentityProviderStore, SamlIdentityProviderStore>();
-           
-            services.AddMemoryCache(o => o.SizeLimit = null);
-            
+                .AddServerSideSessions()
+                .AddIdentityProviderStore<SamlIdentityProviderStore>();
+
             // Demo services - DO NOT USE IN PRODUCTION
             if (IsDemo)
             {
