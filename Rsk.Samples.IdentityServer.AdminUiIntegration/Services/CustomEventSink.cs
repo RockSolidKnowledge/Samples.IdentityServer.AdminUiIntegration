@@ -34,9 +34,9 @@ namespace Rsk.Samples.IdentityServer.AdminUiIntegration.Services
 
                 return Task.CompletedTask;
             }
-            catch(Exception)
+            catch(Exception err)
             {
-                logger.LogError("An error occurred while logging and storing an event");
+                logger.LogError(err, "An error occurred while logging and storing an event");
                 return Task.CompletedTask;
             }
         }
