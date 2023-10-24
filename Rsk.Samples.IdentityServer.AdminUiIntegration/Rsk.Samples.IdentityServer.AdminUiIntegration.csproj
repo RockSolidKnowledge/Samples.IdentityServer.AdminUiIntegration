@@ -20,9 +20,9 @@
     <PackageReference Include="IdentityExpress.Identity" Version="6.0.1" />
     <PackageReference Include="IdentityModel.AspNetCore.OAuth2Introspection" Version="6.2.0" />
     <PackageReference Include="IdentityServer4.AccessTokenValidation" Version="3.0.1" />
-    <PackageReference Include="Duende.IdentityServer" Version="6.3.4" />
-    <PackageReference Include="Duende.IdentityServer.AspNetIdentity" Version="6.3.4" />
-    <PackageReference Include="Duende.IdentityServer.EntityFramework" Version="6.3.4" />
+    <PackageReference Include="Duende.IdentityServer" Version="6.3.5" />
+    <PackageReference Include="Duende.IdentityServer.AspNetIdentity" Version="6.3.5" />
+    <PackageReference Include="Duende.IdentityServer.EntityFramework" Version="6.3.5" />
     <PackageReference Include="Microsoft.AspNetCore.Authentication.Google" Version="6.0.23" />
     <PackageReference Include="Microsoft.AspNetCore.Authentication.JwtBearer" Version="6.0.23" />
     <PackageReference Include="Microsoft.Extensions.Logging" Version="7.0.0" />
