@@ -24,13 +24,20 @@ namespace Rsk.Samples.IdentityServer.AdminUiIntegration.Services
 
         public Task PersistAsync(Event evt)
         {
-            if (evt == null) throw new ArgumentNullException(nameof(evt));
+            try
+            {
+                if (evt == null) throw new ArgumentNullException(nameof(evt));
 
-            logger.LogInformation("{@event}", evt);
-            
-            if (evt.EventType == EventTypes.Error || evt.EventType == EventTypes.Failure) eventStore.AddEvent(evt); 
-            
-            return Task.CompletedTask;
+                logger.LogInformation("{@event}", evt);
+
+                if (evt.EventType == EventTypes.Error || evt.EventType == EventTypes.Failure) eventStore.AddEvent(evt);
+
+                return Task.CompletedTask;
+            }
+            catch(Exception)
+            {
+                return Task.CompletedTask;
+            }
         }
     }
 
