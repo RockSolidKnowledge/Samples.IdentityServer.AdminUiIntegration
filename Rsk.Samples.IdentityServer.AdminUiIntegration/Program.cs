@@ -144,7 +144,8 @@ namespace Rsk.Samples.IdentityServer.AdminUiIntegration
                     ClientSecrets = {new Secret("secret".Sha256())},
                     Description = "Demo client credentials app. Client secret = 'secret'.",
                     AllowedGrantTypes = GrantTypes.ClientCredentials,
-                    AllowedScopes = {"api1"}
+                    AllowedScopes = {"api1"},
+                    RequireDPoP = false,
                 },
 
                 // interactive ASP.NET Core MVC client
@@ -163,7 +164,8 @@ namespace Rsk.Samples.IdentityServer.AdminUiIntegration
                         IdentityServerConstants.StandardScopes.Profile,
                         "verification",
                         "api1"
-                    }
+                    },
+                    RequireDPoP = false,
                 }
             };
     }
