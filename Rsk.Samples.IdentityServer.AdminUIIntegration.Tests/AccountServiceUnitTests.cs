@@ -15,23 +15,13 @@ namespace AdminUIIntegration.Tests
 {
     public class AccountServiceUnitTests
     {
-        private readonly Mock<IIdentityServerInteractionService> mockInteraction;
-        private readonly Mock<IClientStore> mockClientStore;
-        private readonly Mock<IHttpContextAccessor> mockAccessor;
-        private readonly Mock<IAuthenticationSchemeProvider> mockSchemeProvider;
-        private readonly Mock<IIdentityProviderStore> mockIdentityProviderStore;
-        private readonly Mock<IAuthenticationHandlerProvider> mockAuthenticationHandlerProvider;
+        private readonly Mock<IIdentityServerInteractionService> mockInteraction = new();
+        private readonly Mock<IClientStore> mockClientStore = new();
+        private readonly Mock<IHttpContextAccessor> mockAccessor = new();
+        private readonly Mock<IAuthenticationSchemeProvider> mockSchemeProvider = new();
+        private readonly Mock<IExternalProviderService> mockExternalProviderService = new();
+        private readonly Mock<IAuthenticationHandlerProvider> mockAuthenticationHandlerProvider = new();
 
-
-        public AccountServiceUnitTests()
-        {
-            mockInteraction = new Mock<IIdentityServerInteractionService>();
-            mockClientStore = new Mock<IClientStore>();
-            mockAccessor = new Mock<IHttpContextAccessor>();
-            mockSchemeProvider = new Mock<IAuthenticationSchemeProvider>();
-            mockIdentityProviderStore = new Mock<IIdentityProviderStore>();
-            mockAuthenticationHandlerProvider = new Mock<IAuthenticationHandlerProvider>();
-        }
 
         private AccountService CreateSut()
         {
@@ -40,7 +30,7 @@ namespace AdminUIIntegration.Tests
                 mockAccessor.Object, 
                 mockSchemeProvider.Object, 
                 mockClientStore.Object, 
-                mockIdentityProviderStore.Object, 
+                mockExternalProviderService.Object, 
                 mockAuthenticationHandlerProvider?.Object);
         }
 

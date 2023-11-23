@@ -26,7 +26,7 @@ namespace AdminUIIntegration.Tests
         private readonly Mock<IEventService> mockEvents;
         private readonly Mock<IAccountService> mockAccountService;
         private readonly Mock<IUrlHelperFactory> mockUrlHelper;
-        private readonly Mock<IIdentityProviderStore> mockIdentityProviderStore;
+        private readonly Mock<IExternalProviderService> mockExternalProviderService;
 
         private readonly Mock<HttpContext> mockHttpContext;
         private readonly Mock<IRequestCookieCollection> mockRequestCookies;
@@ -42,7 +42,7 @@ namespace AdminUIIntegration.Tests
             mockEvents = new Mock<IEventService>();
             mockAccountService = new Mock<IAccountService>();
             mockUrlHelper = new Mock<IUrlHelperFactory>();
-            mockIdentityProviderStore = new Mock<IIdentityProviderStore>();
+            mockExternalProviderService = new Mock<IExternalProviderService>();
             mockHttpContext = new Mock<HttpContext>();
             mockRequestCookies = new Mock<IRequestCookieCollection>();
         }
@@ -62,7 +62,7 @@ namespace AdminUIIntegration.Tests
                 mockEvents.Object,
                 mockAccountService.Object,
                 mockUrlHelper.Object,
-                mockIdentityProviderStore.Object);
+                mockExternalProviderService.Object);
 
             sut.ControllerContext = new ControllerContext
             {

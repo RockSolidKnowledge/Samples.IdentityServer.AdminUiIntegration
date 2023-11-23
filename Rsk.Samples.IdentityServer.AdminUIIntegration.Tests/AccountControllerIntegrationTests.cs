@@ -50,10 +50,10 @@ namespace AdminUIIntegration.Tests
                 NormalizedUserName = normalizer.NormalizeName(username)
             };
 
-            using (var context = new IdentityExpressDbContext(options))
+            await using (var context = new IdentityExpressDbContext(options))
             {
                 context.Users.Add(user);
-                context.SaveChanges();
+                await context.SaveChangesAsync();
             }
 
             var registerInputModel = new List<KeyValuePair<string, string>> {
@@ -69,7 +69,7 @@ namespace AdminUIIntegration.Tests
             Assert.True(result.IsSuccessStatusCode);
 
             IdentityExpressUser foundUser;
-            using (var context = new IdentityExpressDbContext(options))
+            await using (var context = new IdentityExpressDbContext(options))
             {
                 foundUser = await context.Users.FirstOrDefaultAsync(x => x.UserName == username);
             }
@@ -95,10 +95,10 @@ namespace AdminUIIntegration.Tests
             var hash = passwordHasher.HashPassword(user, "hello");
             user.PasswordHash = hash;
 
-            using (var context = new IdentityExpressDbContext(options))
+            await using (var context = new IdentityExpressDbContext(options))
             {
                 context.Users.Add(user);
-                context.SaveChanges();
+                await context.SaveChangesAsync();
             }
 
             var registerInputModel = new List<KeyValuePair<string, string>> {
@@ -114,7 +114,7 @@ namespace AdminUIIntegration.Tests
             Assert.True(result.IsSuccessStatusCode);
 
             IdentityExpressUser foundUser;
-            using (var context = new IdentityExpressDbContext(options))
+            await using (var context = new IdentityExpressDbContext(options))
             {
                 foundUser = await context.Users.FirstOrDefaultAsync(x => x.UserName == username);
             }

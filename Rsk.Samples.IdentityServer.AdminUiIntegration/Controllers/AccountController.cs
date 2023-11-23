@@ -20,6 +20,7 @@ using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.Routing;
+using Rsk.DynamicAuthenticationProviders.Stores;
 using Rsk.Samples.IdentityServer.AdminUiIntegration.Middleware;
 using Rsk.Samples.IdentityServer.AdminUiIntegration.Models;
 using Rsk.Samples.IdentityServer.AdminUiIntegration.Services;
@@ -39,7 +40,7 @@ namespace Rsk.Samples.IdentityServer.AdminUiIntegration.Controllers
         private readonly IEventService events;
         private readonly IAccountService accountService;
         private readonly IUrlHelperFactory urlHelperFactory;
-        private readonly IIdentityProviderStore identityProviderStore;
+        private readonly IExternalProviderService externalProviderService;
 
         public AccountController(
             IIdentityServerInteractionService interaction,
@@ -47,14 +48,14 @@ namespace Rsk.Samples.IdentityServer.AdminUiIntegration.Controllers
             IEventService events,
             IAccountService accountService,
             IUrlHelperFactory urlHelperFactory,
-            IIdentityProviderStore identityProviderStore)
+            IExternalProviderService externalProviderService)
         {
             this.interaction = interaction;
             this.events = events;
             this.urlHelperFactory = urlHelperFactory;
             this.accountService = accountService;
             this.userManager = userManager;
-            this.identityProviderStore = identityProviderStore;
+            this.externalProviderService = externalProviderService;
         }
 
         /// <summary>
@@ -372,8 +373,8 @@ namespace Rsk.Samples.IdentityServer.AdminUiIntegration.Controllers
             var userId = userIdClaim.Value;
             var providerScheme = result.Properties.Items["scheme"];
             
-            var provider = await identityProviderStore.GetBySchemeAsync(providerScheme);
-            var outcome =  await userManager.AddLoginAsync(localUser, new UserLoginInfo(provider.Scheme, userId, provider.DisplayName));
+            var provider = await externalProviderService.GetScheme(providerScheme);
+            var outcome =  await userManager.AddLoginAsync(localUser, new UserLoginInfo(provider.AuthenticationScheme, userId, provider.DisplayName));
             await HttpContext.SignOutAsync("Identity.External");
             return outcome;
         }
