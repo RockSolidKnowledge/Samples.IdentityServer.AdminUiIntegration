@@ -23,14 +23,18 @@
     <PackageReference Include="Duende.IdentityServer" Version="6.3.5" />
     <PackageReference Include="Duende.IdentityServer.AspNetIdentity" Version="6.3.5" />
     <PackageReference Include="Duende.IdentityServer.EntityFramework" Version="6.3.5" />
-    <PackageReference Include="Microsoft.AspNetCore.Authentication.Google" Version="6.0.23" />
-    <PackageReference Include="Microsoft.AspNetCore.Authentication.JwtBearer" Version="6.0.23" />
+    <PackageReference Include="Microsoft.AspNetCore.Authentication.Google" Version="6.0.25" />
+    <PackageReference Include="Microsoft.AspNetCore.Authentication.JwtBearer" Version="6.0.25" />
+    <PackageReference Include="Microsoft.AspNetCore.Authentication.OpenIdConnect" Version="6.0.25" />
     <PackageReference Include="Microsoft.Extensions.Logging" Version="7.0.0" />
     <PackageReference Include="Microsoft.Extensions.Logging.Console" Version="7.0.0" />
     <PackageReference Include="Microsoft.EntityFrameworkCore.SqlServer" Version="7.0.12" />
     <PackageReference Include="Npgsql.EntityFrameworkCore.PostgreSQL" Version="7.0.11" />
     <PackageReference Include="Microsoft.EntityFrameworkCore.Sqlite" Version="7.0.12" />
     <PackageReference Include="Pomelo.EntityFrameworkCore.MySql" Version="7.0.0" />
+    <PackageReference Include="Rsk.DynamicAuthenticationProviders" Version="1.5.2" />
+    <PackageReference Include="Rsk.DynamicAuthenticationProviders.EntityFramework" Version="1.4.2" />
+    <PackageReference Include="Rsk.DynamicAuthenticationProviders.Saml" Version="1.7.2" />
     <PackageReference Include="System.IdentityModel.Tokens.Jwt" Version="6.33.0" />
     <PackageReference Include="Rsk.Saml.DuendeIdentityServer" Version="7.2.2" />
     <PackageReference Include="Rsk.Saml.DuendeIdentityServer.EntityFramework" Version="7.2.2" />

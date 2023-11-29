@@ -112,23 +112,17 @@ namespace Rsk.Samples.IdentityServer.AdminUiIntegration
                 });
             
             // configure IdentityServer
-            services.AddIdentityServer(options =>
+            var idsBuilder = services.AddIdentityServer(options =>
                 {
+                    
                     options.KeyManagement.Enabled = false; // disabled to only use test cert
                     options.LicenseKey = null; // for development only
                     options.Events.RaiseErrorEvents = true;
                     options.Events.RaiseFailureEvents = true;
                     options.Events.RaiseSuccessEvents = true;
-                    options.DynamicProviders.SignInScheme = "Identity.External";
-                    options.DynamicProviders.SignOutScheme = "Identity.External";
-                })
-                .AddSamlDynamicProvider(options =>
-                {
-                    options.Licensee = Configuration.GetValue<string>("SamlLicense");
-                    options.LicenseKey = Configuration.GetValue<string>("SamlLicenseKey");
-                    // Uncommenting these lines will overwrite at runtime the SignInScheme and SignOutScheme configured on any Saml Dynamic Authentication
-                    // options.SignInScheme = "Identity.External";
-                    // options.SignOutScheme = "Identity.External";
+                    // options.DynamicProviders.
+                    // options.DynamicProviders.SignInScheme = "Identity.External";
+                    // options.DynamicProviders.SignOutScheme = "Identity.External";
                 })
                 .AddOperationalStore(
                     options => {
@@ -143,8 +137,40 @@ namespace Rsk.Samples.IdentityServer.AdminUiIntegration
                 })
                 .AddAspNetIdentity<IdentityExpressUser>() // configure IdentityServer to use ASP.NET Identity
                 .AddSigningCredential(GetEmbeddedCertificate()) // embedded test cert for testing only
-                .AddServerSideSessions()
-                .AddIdentityProviderStore<SamlIdentityProviderStore>();
+                .AddServerSideSessions();
+            
+            // Configure Dynamic Authentication
+            var dynamicAuthMode = Configuration.GetValue<string>("DynamicAuth:Mode");
+
+            switch (dynamicAuthMode)
+            {
+                case "Duende":
+                    idsBuilder.AddSamlDynamicProvider(options =>
+                        {
+                            options.Licensee = Configuration.GetValue<string>("DynamicAuth:SamlLicensee");
+                            options.LicenseKey = Configuration.GetValue<string>("DynamicAuth:SamlLicenseKey");
+                            // Uncommenting these lines will overwrite at runtime the SignInScheme and SignOutScheme configured on any Saml Dynamic Authentication
+                            // options.SignInScheme = "Identity.External";
+                            // options.SignOutScheme = "Identity.External";
+                        })
+                        .AddIdentityProviderStore<SamlIdentityProviderStore>();
+                    break;
+                case "Rsk":
+                    services.AddDynamicProviders(options =>
+                        {
+                            // Component setup
+                            options.Licensee = Configuration.GetValue<string>("DynamicAuth:RskComponentLicensee");
+                            options.LicenseKey = Configuration.GetValue<string>("DynamicAuth:RskComponentLicenseKey");
+                        })
+                        .AddEntityFrameworkStore(options => options.UseSqlServer(identityServerConnectionString))
+                        .AddOpenIdConnect()
+                        .AddSaml(o =>
+                        {
+                            o.Licensee = Configuration.GetValue<string>("DynamicAuth:SamlLicensee");
+                            o.LicenseKey = Configuration.GetValue<string>("DynamicAuth:SamlLicenseKey");
+                        });
+                    break;
+            }
 
             // Demo services - DO NOT USE IN PRODUCTION
             if (IsDemo)
@@ -225,7 +251,8 @@ namespace Rsk.Samples.IdentityServer.AdminUiIntegration
 			services.AddSingleton<IEventSink, CustomEventSink>();
             services.AddSingleton<IEventStore, ErrorEventStore>();
 
-            services.AddSingleton<IAccountService, AccountService>();
+            services.AddScoped<IAccountService, AccountService>();
+            services.AddScoped<IExternalProviderService, ExternalProviderService>();
             
             if (!IsHttps)
             {

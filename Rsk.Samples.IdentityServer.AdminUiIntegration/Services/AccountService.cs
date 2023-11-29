@@ -22,7 +22,7 @@ namespace Rsk.Samples.IdentityServer.AdminUiIntegration.Services
         private readonly IIdentityServerInteractionService interaction;
         private readonly IHttpContextAccessor httpContextAccessor;
         private readonly IAuthenticationSchemeProvider schemeProvider;
-        private readonly IIdentityProviderStore identityProviderStore;
+        private readonly IExternalProviderService externalProviderService;
         private readonly IAuthenticationHandlerProvider authenticationHandlerProvider;
 
         public AccountService(
@@ -30,14 +30,14 @@ namespace Rsk.Samples.IdentityServer.AdminUiIntegration.Services
             IHttpContextAccessor httpContextAccessor,
             IAuthenticationSchemeProvider schemeProvider,
             IClientStore clientStore,
-            IIdentityProviderStore identityProviderStore,
+            IExternalProviderService externalProviderService,
             IAuthenticationHandlerProvider authenticationHandlerProvider)
         {
             this.interaction = interaction;
             this.httpContextAccessor = httpContextAccessor;
             this.schemeProvider = schemeProvider;
             this.clientStore = clientStore;
-            this.identityProviderStore = identityProviderStore;
+            this.externalProviderService = externalProviderService;
             this.authenticationHandlerProvider = authenticationHandlerProvider;
         }
         
@@ -64,25 +64,7 @@ namespace Rsk.Samples.IdentityServer.AdminUiIntegration.Services
                 return vm;
             }
 
-            var schemes = await schemeProvider.GetAllSchemesAsync();
-
-            var providers = schemes
-                .Where(x => x.DisplayName != null)
-                .Select(x => new ExternalProvider
-                {
-                    DisplayName = x.DisplayName ?? x.Name,
-                    AuthenticationScheme = x.Name
-                }).ToList();
-
-            var dyanmicSchemes = (await identityProviderStore.GetAllSchemeNamesAsync())
-                .Where(x => x.Enabled)
-                .Select(x => new ExternalProvider
-                {
-                    AuthenticationScheme = x.Scheme,
-                    DisplayName = x.DisplayName
-                });
-
-            providers.AddRange(dyanmicSchemes);
+            var providers = await externalProviderService.GetAll();
 
             var allowLocal = true;
             if (context?.Client.ClientId != null)
