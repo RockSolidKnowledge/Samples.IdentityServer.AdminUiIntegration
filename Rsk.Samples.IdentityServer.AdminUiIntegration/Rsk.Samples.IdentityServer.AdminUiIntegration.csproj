@@ -34,6 +34,7 @@
     <PackageReference Include="Rsk.DynamicAuthenticationProviders" Version="1.5.2" />
     <PackageReference Include="Rsk.DynamicAuthenticationProviders.EntityFramework" Version="1.4.2" />
     <PackageReference Include="Rsk.DynamicAuthenticationProviders.Saml" Version="1.7.2" />
+    <PackageReference Include="Rsk.Saml" Version="6.2.2" />
     <PackageReference Include="System.Drawing.Common" Version="6.0.0" />
     <PackageReference Include="System.IdentityModel.Tokens.Jwt" Version="6.34.0" />
     <PackageReference Include="Rsk.Saml.DuendeIdentityServer" Version="7.0.3" />
