@@ -13,6 +13,12 @@ RUN dotnet publish -c Release -o out
 # Stage 2 - Runtime
 FROM mcr.microsoft.com/dotnet/aspnet:6.0-alpine AS runtime
 
+# Ensuring latest openssl is installed as the one in base
+# is out of date and vulnerable
+RUN apk update && \
+        apk upgrade && \
+        apk upgrade openssl
+
 ENV ASPNETCORE_ENVIRONMENT Production
 ENV ASPNETCORE_HTTP_PORT=5003
 ENV ASPNETCORE_URLS http://*:5003
