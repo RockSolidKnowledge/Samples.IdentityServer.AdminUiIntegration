@@ -1,5 +1,5 @@
 # Stage 1 - Build
-FROM mcr.microsoft.com/dotnet/sdk:6.0-alpine AS build
+FROM mcr.microsoft.com/dotnet/sdk:8.0-alpine AS build
 WORKDIR /app
 
 # Copy csproj and restore as distinct layers
@@ -11,7 +11,13 @@ COPY . .
 RUN dotnet publish -c Release -o out
 
 # Stage 2 - Runtime
-FROM mcr.microsoft.com/dotnet/aspnet:6.0-alpine AS runtime
+FROM mcr.microsoft.com/dotnet/aspnet:8.0-alpine AS runtime
+
+# Ensuring latest openssl is installed as the one in base
+# is out of date and vulnerable
+RUN apk update && \
+        apk upgrade && \
+        apk upgrade openssl
 
 # Ensuring latest openssl is installed as the one in base
 # is out of date and vulnerable
