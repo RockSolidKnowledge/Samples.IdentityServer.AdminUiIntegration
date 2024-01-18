@@ -23,22 +23,23 @@
     <PackageReference Include="Duende.IdentityServer" Version="6.1.7" />
     <PackageReference Include="Duende.IdentityServer.AspNetIdentity" Version="6.1.7" />
     <PackageReference Include="Duende.IdentityServer.EntityFramework" Version="6.1.7" />
-    <PackageReference Include="Microsoft.AspNetCore.Authentication.Google" Version="6.0.24" />
-    <PackageReference Include="Microsoft.AspNetCore.Authentication.JwtBearer" Version="6.0.24" />
-    <PackageReference Include="Microsoft.Extensions.Logging" Version="7.0.0" />
-    <PackageReference Include="Microsoft.Extensions.Logging.Console" Version="7.0.0" />
-    <PackageReference Include="Microsoft.EntityFrameworkCore.SqlServer" Version="6.0.24" />
+    <PackageReference Include="Microsoft.Data.SqlClient" Version="5.1.4" />
+    <PackageReference Include="Microsoft.AspNetCore.Authentication.Google" Version="6.0.26" />
+    <PackageReference Include="Microsoft.AspNetCore.Authentication.JwtBearer" Version="6.0.26" />
+    <PackageReference Include="Microsoft.Extensions.Logging" Version="8.0.0" />
+    <PackageReference Include="Microsoft.Extensions.Logging.Console" Version="8.0.0" />
+    <PackageReference Include="Microsoft.EntityFrameworkCore.SqlServer" Version="6.0.26" />
     <PackageReference Include="Npgsql.EntityFrameworkCore.PostgreSQL" Version="6.0.22" />
-    <PackageReference Include="Microsoft.EntityFrameworkCore.Sqlite" Version="6.0.24" />
+    <PackageReference Include="Microsoft.EntityFrameworkCore.Sqlite" Version="6.0.26" />
     <PackageReference Include="Pomelo.EntityFrameworkCore.MySql" Version="6.0.2" />
     <PackageReference Include="Rsk.DynamicAuthenticationProviders" Version="1.5.2" />
     <PackageReference Include="Rsk.DynamicAuthenticationProviders.EntityFramework" Version="1.4.2" />
     <PackageReference Include="Rsk.DynamicAuthenticationProviders.Saml" Version="1.7.2" />
     <PackageReference Include="Rsk.Saml" Version="6.2.2" />
     <PackageReference Include="System.Drawing.Common" Version="6.0.0" />
-    <PackageReference Include="System.IdentityModel.Tokens.Jwt" Version="6.34.0" />
+    <PackageReference Include="System.IdentityModel.Tokens.Jwt" Version="6.35.0" />
     <PackageReference Include="Rsk.Saml.DuendeIdentityServer" Version="7.0.3" />
     <PackageReference Include="Rsk.Saml.DuendeIdentityServer.EntityFramework" Version="7.0.1" />
-    <PackageReference Include="System.Security.Cryptography.Pkcs" Version="7.0.3" />
+    <PackageReference Include="System.Security.Cryptography.Pkcs" Version="8.0.0" />
   </ItemGroup>
 </Project>
