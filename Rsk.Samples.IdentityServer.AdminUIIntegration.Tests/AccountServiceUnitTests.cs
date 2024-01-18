@@ -48,7 +48,7 @@ namespace AdminUIIntegration.Tests
         }
 
         [Fact]
-        public void BuildLoggedOutViewModelAsync_WhenSuccessfulLogout_ShowCorrectLogoutView()
+        public async Task BuildLoggedOutViewModelAsync_WhenSuccessfulLogout_ShowCorrectLogoutView()
         {
             //arrange
             const string logoutId = "logoutId";
@@ -88,7 +88,7 @@ namespace AdminUIIntegration.Tests
             mockAccessor.SetupGet(x => x.HttpContext.User).Returns(user).Verifiable();
 
             //act
-            var result = CreateSut().BuildLoggedOutViewModelAsync(logoutId).Result;
+            var result = await CreateSut().BuildLoggedOutViewModelAsync(logoutId);
 
             //assert
             Assert.True(result.AutomaticRedirectAfterSignOut);
