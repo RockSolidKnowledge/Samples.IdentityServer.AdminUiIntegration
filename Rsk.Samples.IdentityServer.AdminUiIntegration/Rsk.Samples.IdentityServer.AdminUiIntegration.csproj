@@ -33,6 +33,8 @@
     <PackageReference Include="Npgsql.EntityFrameworkCore.PostgreSQL" Version="8.0.0" />
     <PackageReference Include="Microsoft.EntityFrameworkCore.Sqlite" Version="8.0.1" />
     <PackageReference Include="Pomelo.EntityFrameworkCore.MySql" Version="8.0.0-beta.2" />
+    <PackageReference Include="Rsk.DuendeIdentityServer.AuditEventSink" Version="3.0.0" />
+    <PackageReference Include="Rsk.Audit.EF" Version="2.0.0" />
     <PackageReference Include="Rsk.DynamicAuthenticationProviders" Version="2.0.0" />
     <PackageReference Include="Rsk.DynamicAuthenticationProviders.EntityFramework" Version="2.0.0" />
     <PackageReference Include="Rsk.DynamicAuthenticationProviders.Saml" Version="2.0.0" />
