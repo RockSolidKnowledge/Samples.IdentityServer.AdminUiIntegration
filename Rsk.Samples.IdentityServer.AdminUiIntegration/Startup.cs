@@ -1,7 +1,6 @@
 using System;
 using System.Reflection;
 using System.Security.Cryptography.X509Certificates;
-using Duende.Bff.EntityFramework;
 using Duende.IdentityServer.Services;
 using Duende.IdentityServer.Validation;
 using IdentityExpress.Identity;
@@ -16,9 +15,11 @@ using Microsoft.Extensions.DependencyInjection;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.HttpOverrides;
 using Microsoft.AspNetCore.Http;
+using RSK.Audit.EF;
 using Rsk.Saml.DuendeIdentityServer.EntityFramework.Stores;
 using Rsk.Samples.IdentityServer.AdminUiIntegration.AccessTokenValidation;
 using Rsk.Samples.IdentityServer.AdminUiIntegration.Demo;
+using Rsk.Samples.IdentityServer.AdminUiIntegration.Extensions;
 using Rsk.Samples.IdentityServer.AdminUiIntegration.Middleware;
 using Rsk.Samples.IdentityServer.AdminUiIntegration.Services;
 
@@ -48,8 +49,12 @@ namespace Rsk.Samples.IdentityServer.AdminUiIntegration
             // configure databases
             Action<DbContextOptionsBuilder> identityBuilder;
             Action<DbContextOptionsBuilder> identityServerBuilder;
+            DbContextOptionsBuilder<AuditDatabaseContext> auditDbBuilder = new DbContextOptionsBuilder<AuditDatabaseContext>();
+            
             var identityConnectionString = Configuration.GetValue("IdentityConnectionString", Configuration.GetValue<string>("DbConnectionString"));
-            var identityServerConnectionString = Configuration.GetValue("IdentityServerConnectionString", Configuration.GetValue<string>("DbConnectionString"));
+            var identityServerConnectionString = Configuration.GetValue("IdentityServerConnectionString", identityConnectionString);
+            var auditConnectionString = Configuration.GetValue("AuditConnectionString", identityConnectionString);
+            
             var migrationAssembly = typeof(Startup).GetTypeInfo().Assembly.GetName().Name;
             var operationalStoreSchemaName = Configuration.GetValue<string>("OperationalStoreSchemaName");
             var configurationStoreSchemaName = Configuration.GetValue<string>("ConfigurationStoreSchemaName");
@@ -59,20 +64,27 @@ namespace Rsk.Samples.IdentityServer.AdminUiIntegration
                 case "SqlServer":
                     identityBuilder = x => x.UseSqlServer(identityConnectionString, options => options.MigrationsAssembly(migrationAssembly));
                     identityServerBuilder = x => x.UseSqlServer(identityServerConnectionString, options => options.MigrationsAssembly(migrationAssembly));
+                    auditDbBuilder = auditDbBuilder.UseSqlServer(auditConnectionString, options => options.MigrationsAssembly(migrationAssembly));
                     break;
                 case "MySql":
                     identityBuilder = x => x.UseMySql(identityConnectionString,  new MySqlServerVersion(new Version(5, 6, 49)), options => options.MigrationsAssembly(migrationAssembly));
                     identityServerBuilder = x => x.UseMySql(identityServerConnectionString, new MySqlServerVersion(new Version(5, 6, 49)),options => options.MigrationsAssembly(migrationAssembly));
+                    auditDbBuilder = auditDbBuilder.UseMySql(auditConnectionString, new MySqlServerVersion(new Version(5, 6, 49)),options => options.MigrationsAssembly(migrationAssembly));
                     break;
                 case "PostgreSql":
                     identityBuilder = x => x.UseNpgsql(identityConnectionString, options => options.MigrationsAssembly(migrationAssembly));
                     identityServerBuilder = x => x.UseNpgsql(identityServerConnectionString, options => options.MigrationsAssembly(migrationAssembly));
+                    auditDbBuilder = auditDbBuilder.UseNpgsql(auditConnectionString, options => options.MigrationsAssembly(migrationAssembly));
                     break;
                 default:
                     identityBuilder = x => x.UseSqlite(identityConnectionString, options => options.MigrationsAssembly(migrationAssembly));
                     identityServerBuilder = x => x.UseSqlite(identityServerConnectionString, options => options.MigrationsAssembly(migrationAssembly));
+                    auditDbBuilder = auditDbBuilder.UseSqlite(auditConnectionString, options => options.MigrationsAssembly(migrationAssembly));
                     break;
             }
+            
+            // Add Auditing
+            services.AddAuditProviderFactory(auditDbBuilder);
 			
             // configure test-suitable X-Forwarded headers and CORS policy
             services.AddSingleton<XForwardedPrefixMiddleware>();
@@ -123,6 +135,7 @@ namespace Rsk.Samples.IdentityServer.AdminUiIntegration
                     // options.DynamicProviders.
                     // options.DynamicProviders.SignInScheme = "Identity.External";
                     // options.DynamicProviders.SignOutScheme = "Identity.External";
+                    options.Endpoints.EnablePushedAuthorizationEndpoint = true;
                 })
                 .AddOperationalStore(
                     options => {
@@ -248,8 +261,8 @@ namespace Rsk.Samples.IdentityServer.AdminUiIntegration
                 });
             });
 
-			services.AddSingleton<IEventSink, CustomEventSink>();
             services.AddSingleton<IEventStore, ErrorEventStore>();
+            services.AddEventSinks();
 
             services.AddScoped<IAccountService, AccountService>();
             services.AddScoped<IExternalProviderService, ExternalProviderService>();
