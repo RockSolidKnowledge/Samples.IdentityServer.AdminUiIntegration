@@ -53,7 +53,7 @@ namespace Rsk.Samples.IdentityServer.AdminUiIntegration
             
             var identityConnectionString = Configuration.GetValue("IdentityConnectionString", Configuration.GetValue<string>("DbConnectionString"));
             var identityServerConnectionString = Configuration.GetValue("IdentityServerConnectionString", identityConnectionString);
-            var auditConnectionString = Configuration.GetValue("AuditConnectionString", identityConnectionString);
+            var auditConnectionString = Configuration.GetValue("AuditConnectionString", identityServerConnectionString);
             
             var migrationAssembly = typeof(Startup).GetTypeInfo().Assembly.GetName().Name;
             var operationalStoreSchemaName = Configuration.GetValue<string>("OperationalStoreSchemaName");
