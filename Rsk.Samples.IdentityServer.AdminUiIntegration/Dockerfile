@@ -1,5 +1,5 @@
 # Stage 1 - Build
-FROM --platform=$BUILDPLATFORM mcr.microsoft.com/dotnet/sdk:8.0-alpine AS build
+FROM --platform=$TARGETPLATFORM mcr.microsoft.com/dotnet/sdk:8.0-alpine AS build
 WORKDIR /app
 
 # packages installed
@@ -15,7 +15,7 @@ COPY . .
 RUN dotnet publish -c Release -o out
 
 # Stage 2 - Runtime
-FROM --platform=$BUILDPLATFORM mcr.microsoft.com/dotnet/aspnet:8.0-alpine AS runtime
+FROM --platform=$TARGETPLATFORM mcr.microsoft.com/dotnet/aspnet:8.0-alpine AS runtime
 
 # Ensuring latest openssl is installed as the one in base
 # is out of date and vulnerable
