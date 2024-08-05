@@ -4,8 +4,13 @@ WORKDIR /app
 
 # packages installed
 RUN apk update && \
-    apk upgrade
+    apk upgrade 
 
+RUN wget https://dot.net/v1/dotnet-install.sh -O dotnet-install.sh && \
+    chmod +x ./dotnet-install.sh && \
+    ./dotnet-install.sh --version latest
+
+# Copy csproj and restore as distinct layers
 # Copy csproj and restore as distinct layers
 COPY *.csproj .
 RUN dotnet restore
