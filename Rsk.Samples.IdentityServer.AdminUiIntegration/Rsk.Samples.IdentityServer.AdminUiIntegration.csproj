@@ -36,7 +36,7 @@
     <PackageReference Include="Rsk.DynamicAuthenticationProviders.EntityFramework" Version="2.0.0" />
     <PackageReference Include="Rsk.DynamicAuthenticationProviders.Saml" Version="2.0.0" />
     <PackageReference Include="System.IdentityModel.Tokens.Jwt" Version="6.36.0" />
-    <PackageReference Include="Rsk.Saml.DuendeIdentityServer" Version="8.1.0" />
-    <PackageReference Include="Rsk.Saml.DuendeIdentityServer.EntityFramework" Version="8.1.0" />
+    <PackageReference Include="Rsk.Saml.DuendeIdentityServer" Version="7.2.2" />
+    <PackageReference Include="Rsk.Saml.DuendeIdentityServer.EntityFramework" Version="7.2.2" />
   </ItemGroup>
 </Project>
