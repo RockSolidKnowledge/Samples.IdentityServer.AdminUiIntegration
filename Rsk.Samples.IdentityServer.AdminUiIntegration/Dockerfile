@@ -19,20 +19,12 @@ RUN dotnet publish -a $TARGETARCH -o out
 # Stage 2 - Runtime
 FROM mcr.microsoft.com/dotnet/aspnet:8.0-alpine AS runtime
 
-# Ensuring latest openssl is installed as the one in base
-# is out of date and vulnerable
-RUN apk update && \
-    apk upgrade && \
-    apk upgrade openssl
-
 ENV ASPNETCORE_ENVIRONMENT=Production
 ENV ASPNETCORE_HTTP_PORT=5003
 ENV ASPNETCORE_URLS=http://*:5003
 ENV DOTNET_SYSTEM_GLOBALIZATION_INVARIANT=false
 
 EXPOSE 5003
-
-RUN apk add --no-cache icu-libs
 
 WORKDIR /app
 COPY --from=build /app/out .
