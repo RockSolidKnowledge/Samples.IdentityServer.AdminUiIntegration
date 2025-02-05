@@ -17,7 +17,7 @@ COPY . .
 RUN dotnet publish -a $TARGETARCH -o out
 
 # Stage 2 - Runtime
-FROM mcr.microsoft.com/dotnet/aspnet:8.0-alpine AS runtime
+FROM mcr.microsoft.com/dotnet/aspnet:8.0 AS runtime
 
 ENV ASPNETCORE_ENVIRONMENT=Production
 ENV ASPNETCORE_HTTP_PORT=5003
