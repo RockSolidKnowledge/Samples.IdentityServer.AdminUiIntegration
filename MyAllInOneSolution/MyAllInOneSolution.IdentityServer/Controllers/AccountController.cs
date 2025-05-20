@@ -39,22 +39,22 @@ namespace MyAllInOneSolution.IdentityServer.Controllers
         private readonly IEventService events;
         private readonly IAccountService accountService;
         private readonly IUrlHelperFactory urlHelperFactory;
-        private readonly IIdentityProviderStore identityProviderStore;
-
+        private readonly IAuthenticationSchemeProvider schemeProvider;
+        
         public AccountController(
             IIdentityServerInteractionService interaction,
             UserManager<IdentityExpressUser> userManager,
             IEventService events,
             IAccountService accountService,
             IUrlHelperFactory urlHelperFactory,
-            IIdentityProviderStore identityProviderStore)
+            IAuthenticationSchemeProvider schemeProvider)
         {
             this.interaction = interaction;
             this.events = events;
             this.urlHelperFactory = urlHelperFactory;
             this.accountService = accountService;
             this.userManager = userManager;
-            this.identityProviderStore = identityProviderStore;
+            this.schemeProvider = schemeProvider;
         }
 
         /// <summary>
@@ -372,12 +372,25 @@ namespace MyAllInOneSolution.IdentityServer.Controllers
             var userId = userIdClaim.Value;
             var providerScheme = result.Properties.Items["scheme"];
             
-            // TODO: call the scheme from RSK DynamicAuth like in later versions
-            var provider = await identityProviderStore.GetBySchemeAsync(providerScheme);
-            var outcome =  await userManager.AddLoginAsync(localUser, new UserLoginInfo(provider.Scheme, userId, provider.DisplayName));
+            var provider = await GetRskSchemes(providerScheme);
+            var outcome =  await userManager.AddLoginAsync(localUser, new UserLoginInfo(provider.AuthenticationScheme, userId, provider.DisplayName));
             await HttpContext.SignOutAsync("Identity.External");
             return outcome;
         }
         
+        private async Task<ExternalProvider> GetRskSchemes(string scheme)
+        {
+            var schemes = await schemeProvider.GetAllSchemesAsync();
+        
+            var externalProviders = schemes
+                .Where(x => x.DisplayName != null)
+                .Select(x => new ExternalProvider
+                {
+                    DisplayName = x.DisplayName ?? x.Name,
+                    AuthenticationScheme = x.Name
+                }).ToList();
+
+            return externalProviders.FirstOrDefault(x => x.AuthenticationScheme == scheme);
+        }
     }
 }
