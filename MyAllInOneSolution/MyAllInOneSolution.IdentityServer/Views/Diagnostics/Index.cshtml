@@ -1,0 +1,54 @@
+@model MyAllInOneSolution.IdentityServer.Models.DiagnosticsViewModel
+
+@section banner
+{
+	<div class="bg-navy text-white px-6 py-8 md:py-12 lg:py-16 relative z-10">
+		<div class="container w-full text-left mx-auto self-center">
+			<div class="max-w-lg">
+				<div class="flex flex-wrap items-center">
+					<h1 class="font-bold w-full text-3xl lg:text-4xl leading-tight">Cookie Details</h1>
+				</div>
+			</div>
+		</div>
+	</div>
+}
+
+<div class="cms mb-6">
+	<p><strong>Below are the claims and properties present in your authentication cookie.</strong></p>
+</div>
+
+
+<h2>Claims</h2>
+<dl>
+    @foreach (var claim in Model.AuthenticateResult.Principal.Claims)
+    {
+        <dt>@claim.Type</dt>
+        <dd>@claim.Value</dd>
+    }
+</dl>
+
+<h2>Properties</h2>
+<dl>
+    @foreach (var prop in Model.AuthenticateResult.Properties.Items)
+    {
+        <dt>@prop.Key</dt>
+        <dd>@prop.Value</dd>
+    }
+    @if (Model.Clients.Any())
+    {
+        <dt>Clients</dt>
+        <dd>
+            @{
+                var clients = Model.Clients.ToArray();
+                for(var i = 0; i < clients.Length; i++)
+                {
+                    <text>@clients[i]</text>
+                    if (i < clients.Length - 1)
+                    {
+                        <text>, </text>
+                    }
+                }
+            }
+        </dd>
+    }
+</dl>

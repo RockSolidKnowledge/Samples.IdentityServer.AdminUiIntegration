@@ -1,0 +1,1723 @@
+{
+  "Common": {
+    "ID": "ID",
+    "Add": "Add",
+    "AddAndAdd": "Add & Add Another",
+    "Password": "Password",
+    "SaveAndConfigure": "Save & Configure",
+    "True": "true",
+    "False": "false",
+    "Edit": "Edit",
+    "Cancel": "Cancel",
+    "Confirm": "Confirm",
+    "Clear": "Clear",
+    "Reset": "Reset",
+    "Save": "Save",
+    "Update": "Update",
+    "SaveAndAdd": "Save & Add Another",
+    "SaveAll": "Save All",
+    "Saved": "Saved",
+    "Scheme": "Scheme",
+    "DontSave": "Don't Save",
+    "Enabled": "Enabled",
+    "Disabled": "Disabled",
+    "Required": "Required",
+    "Removed": "Removed",
+    "Advanced": "Advanced",
+    "Custom": "Custom",
+    "Test": "Test",
+    "ValidateCert": "Validate Certificate",
+    "ValidateMetadata": "Validate Metadata",
+    "Or": "Or",
+    "DisplayName": "Display Name",
+    "DisplayURL": "Display URL",
+    "LogoURL": "Logo URL",
+    "LogoutURL": "Logout URL",
+    "Callback": "Callback",
+    "CallbackURL": "Callback URL",
+    "CIBA": "CIBA", 
+    "CIBALifetime": "CIBA Lifetime",
+    "PollingInterval": "Polling Interval", 
+    "CORSUrl": "CORS URL",
+    "CORS": "CORS",
+    "RedirectUris": "Redirect URIs",
+    "Description": "Description",
+    "ExpirationDate": "Expiration Date",
+    "Expiration": "Expiration",
+    "Invalid": "Invalid",
+    "Emphasize": "Emphasize",
+    "EmphasizeReadOnly": "Is Resource Emphasized On Consent Screen",
+    "MustBeHttpsInProduction": "These protocols rely upon TLS in production",
+    "LicenseIsInGracePeriod": "Your license has expired, please renew your subscription by {0} in order to keep using AdminUI",
+    "QuotaLimit": "You have reached/exceeded the {{limit}} \"{{type}}\" limit with AdminUI Starter. <a class=\"tw-inline-block tw-text-blue-500 hover:tw-text-body trans\" href=\"{{href}}\" target=\"_blank\">Upgrade</a> to manage unlimited \"{{type}}\".",
+    "Back": "Back",
+    "Next": "Next",
+    "Submit": "Submit",
+    "Start": "Start",
+    "Status": "Status",
+    "URL": "URL",
+    "LogoutUri": "Logout Url",
+    "Close": "Close",
+    "Change": "Change",
+    "Logo": "Logo",
+    "Info": "Info",
+    "Email": "email",
+    "Phone": "phone",
+    "Name": "Name",
+    "Created": "Created",
+    "Added": "Added",
+    "Expires": "Expires",
+    "Reserved": "Reserved",
+    "OverQuota": "Over quota, in order to use please reduce below, ",
+    "Secrets": "Secrets",
+    "GenerateRandom": "Generate a random 32char string",
+    "Restrictions": "Restrictions",
+    "GrantTypes": "Grant Types",
+    "Properties": "Properties",
+    "Actions": "Actions",
+    "Never": "Never",
+    "OK": "OK",
+    "Yes": "Yes",
+    "No": "No",
+    "Assign": "Assign",
+    "Unassign": "Unassign",
+    "Note": "Note",
+    "Signout": "Signout",
+    "Revoke": "Revoke",
+    "String": "string",
+    "Number": "number",
+    "Date": "date",
+    "Error": "Error",
+    "Warning": "Warning",
+    "Type": "Type",
+    "Value": "Value",
+    "Button": "button",
+    "DatePicker": "datepicker",
+    "Boolean": "boolean",
+    "Text": "text",
+    "Search": "Search term",
+    "Authenticating": "Authenticating",
+    "Loading": "Loading",
+    "LoadingPleaseWait": "Loading, please wait...",
+    "Saving": "Saving",
+    "AreYouSureContinue": "Are you sure you want to continue?",
+    "CompanyName": "Rock Solid Knowledge Ltd",
+    "AppName": "IdentityExpress AdminUI",
+    "Policy": "Access Policy",
+    "PolicyWithUTCNotice": "Access Policy<br/>Dates selected are in UTC",
+    "ShowMore": "Show more",
+    "ShowLess": "Show less",
+    "Minute": "min",
+    "Hour": "hr",
+    "Hours": "hr(s)",
+    "Day": "Day",
+    "Days": "Day(s)",
+    "Weeks": "Week",
+    "Month": "Month",
+    "Months": "Month(s)",
+    "Year": "Year",
+    "Years": "Year(s)",
+    "Unlimited": "Unlimited",
+    "Audits": "Audits",
+    "Thumbprint": "Thumbprint",
+    "Subject": "Subject",
+    "UntilExpiry": "day(s)",
+    "ExpiresOn": "Expires On",
+    "ExpiresIn": "Expires In",
+    "ReadCertificate": "Read from certificate",
+    "Consent": "Consent",
+    "IdentityProviders": "Identity Providers",
+    "PKCE": "PKCE",
+    "DeviceFlow": "Device Flow",
+    "SingeSignOut": "Single Sign-Out",
+    "RefreshTokens": "Refresh Tokens",
+    "Use": "Use",
+    "Continue": "Continue",
+    "Other": "Other",
+    "NoDateSet": "No Date Set",
+    "Remove": {
+      "Title": "Remove",
+      "Confirm": "Confirm Remove",
+      "No": "No, don't remove"
+    },
+    "Delete": {
+      "Title": "Delete",
+      "TitleUndo": "Restore",
+      "Deleted": "Deleted",
+      "Confirm": "Confirm Delete",
+      "UndoDelete": "Restore",
+      "ConfirmUndoDelete": "Are you sure you want to restore the user",
+      "AreYouSure": "Are you sure you want to delete the value for",
+      "AreYouSureSimple": "Are you sure you want to delete",
+      "AreYouSureSimple2": "Are you sure you want to delete the",
+      "AreYouSureSimple3": "Are you sure you want to delete this?",
+      "Warning": "Warning: This action cannot be undone",
+      "FinalScopeOnResourceWarning": "Warning: Deleting this scope will remove it from the database. This action cannot be undone.",
+      "No": "No, don't delete"
+    },
+    "Types": {
+      "String": "String",
+      "Int": "Int",
+      "DateTime": "DateTime",
+      "Boolean": "Boolean",
+      "Name": "Type Name",
+      "Description": "Type Description",
+      "Enum": "Enum"
+    },
+    "ResetPassword": {
+      "Confirm": "Confirm Reset",
+      "AreYouSureSimple": "Are you sure you want to reset the password for",
+      "Title": "Reset Password",
+      "HowToSetupTitle": "Setup User Password Reset Webhook",
+      "HowToSetup": "The Password Reset Webhook needs to be configured before you can use this feature. Read the AdminUI Webhook documentation for more information."
+    },
+    "ResetMfa": {
+      "Confirm": "Confirm Reset",
+      "AreYouSureSimple": "Are you sure you want to reset multi-factor authentication for",
+      "Title": "Reset Multi-Factor Authentication",
+      "HowToSetupTitle": "Setup User Mfa Reset Webhook",
+      "HowToSetup": "The Mfa Reset Webhook needs to be configured before you can use this feature. Read the AdminUI Webhook documentation for more information."
+    },
+    "UserEditable": "User Editable",
+    "Key": "Key",
+    "CommunityEditionBanner": "Welcome to AdminUI Community Edition. This is a free version of the AdminUI tool for administering IdentityServer configuration and users. It is limited to 10 users and 2 clients. Find out more about the full AdminUI product:",
+    "CommunityPolicyNotice": "This is a preview of the Access Policy screen. In Community Edition the Access Policy features have been removed. You can use the screen but none of the policies will take effect. Find out more about the full AdminUI product:",
+    "ReadOnly": "Read Only",
+    "UserTOTPEnabled": "User has TOTP enabled", 
+    "NoValue": "No value",
+    "NoValues": "No values",
+    "SameSiteCookiesError": "Your browser does not support SameSite cookies. AdminUI's security model relies on the use of SameSite cookies to defend against Cross-Site Request Forgery (CSRF). For more information <a href='{{link}}' target='_blank'>read about SameSite cookies</a>.",
+    "SameSiteCookiesBannerError": "Your browser does not support SameSite cookies. AdminUI's security model relies on the use of SameSite cookies to defend against Cross-Site Request Forgery (CSRF). Please consider upgrading your browser to a browser with the latest technologies. ",
+    "Dates": {
+      "UTCWarning": "Dates selected are in UTC"
+    },
+    "Wizards": {
+      "Review": "A chance to review before submitting",
+      "Empty": "Oops... Seems like an unexpected error has occurred"
+    },
+    "ComingSoon": "Coming Soon",
+    "DPoP": "DPoP",
+    "Request": "Request",
+    "Claims": "Claims",
+    "SignOut": "Sign Out",
+    "Metadata": "Metadata",
+    "Tokens": "Tokens",
+    "None": "None",
+    "Help": "Help"
+  },
+  "Nav": {
+    "SkipToContent": "Skip to content",
+    "Breadcrumbs": "Breadcrumbs",
+    "Menu": "Menu",
+    "SubMenu": "Sub menu",
+    "SubMenuPlaceholder": "Sub menu...",
+    "Active": "Active",
+    "Login": "Login",
+    "Logout": "Logout",
+    "Start": "Start",
+    "Home": "Home",
+    "Users": "Users",
+    "Roles": "Roles",
+    "Logins": "Logins",
+    "ClaimTypes": "Claim Types",
+    "Clients": "Clients",
+    "Resources": "Resources",
+    "IdentityResources": "Identity Resources",
+    "ProtectedResources": "Protected Resources",
+    "Claims": "Claims",
+    "Secrets": "Secrets",
+    "Advanced": "Advanced",
+    "Auditing": "Auditing",
+    "Audits": "Audits",
+    "Account": "Account",
+    "ToTop": "Jump to Top",
+    "Support": "Support",
+    "MobileListInfo": "Tapping on a row will redirect you to the user details",
+    "PerPage": "per page",
+    "Displaying": "Displaying",
+    "Found": "found",
+    "ResultsFound": "result(s) found",
+    "Page": "Page",
+    "of": "of",
+    "PageXofX": "Page {0} of {1}",
+    "First": "First",
+    "Previous": "Previous",
+    "Next": "Next",
+    "Last": "Last",
+    "Details": "Details",
+    "Request": "Request",
+    "Response": "Response",
+    "Scopes": "Scopes",
+    "Authentication": "Authentication",
+    "Applications": "Applications",
+    "Additional Details": "Additional Details",
+    "External Logins": "External Logins",
+    "ToggleNavigation": "Toggle navigation",
+    "Settings": "Settings",
+    "AccessPolicy": "Access Policy",
+    "IdentityServer": "IdentityServer Management",
+    "UserManagement": "User Management",
+    "SessionManagement": "Session Management",
+    "Saml": "SAML",
+    "WsFed": "WS-Fed",
+    "Properties": "Properties",
+    "Keys": "Keys",
+    "Webhooks": "Webhooks",
+    "DynamicAuth": "Dynamic Authentication",
+    "SP": "Service Provider (SP)",
+    "IdP": "Identity Provider (IdP)"
+  },
+  "Errors": {
+    "NotFoundTitle": "Error 404",
+    "NotFoundDescription": "That page or resource could not be found.",
+    "ForbiddenTitle": "Error 403",
+    "ForbiddenDescription": "You are forbidden from viewing this resource.",
+    "UnauthenticatedTitle": "Unauthenticated",
+    "UnauthenticatedDescription": "Redirecting you to login page...",
+    "Unauthorized": "Unauthorized",
+    "UnableToCompilePolicy": "Unable to compile authorization policy, please view the logs or contact an administrator",
+    "ContactAdmin": "You do not have the required permissions to use AdminUI, please contact an administrator",
+    "ResourceNotFound": "Not Found",
+    "ResourceNotFoundDescription": "This resource cannot be found",
+    "RssUnavailable": "RSS feed unavailable",
+    "ValidateImportError": {
+      "ImportNull": "Error occured while attempting to read import json",
+      "WrongVersion": "Sorry, the export file is from an incompatible version of AdminUI ({0}). Only versions 2.6.0 - {1} are supported",
+      "ValidateImport": "Sorry, there was a problem when importing. Please try again."
+    },
+    "CloneClientError": {
+      "ClientIdConflict": "A client already exists with this ID",
+      "ClientNameConflict": "A client already exists with this name",
+      "QuotaReached": "Client quota Reached",
+      "Default": "Error occured while attempting to clone client"
+    },
+    "LoginLoopError": "You are stuck in a login redirect loop.  More help can be found <a href='{{link}}' target='_blank'>here</a>.",
+    "PathValidation": "Must be a valid path, starting with '/'",
+    "PillListLimitReached": "Too many values to display assigned, {0}/{1}",
+    "ValidateAbsoluteUri": {
+      "NullOrUndefined": "Must be set",
+      "MustBeAbsolute": "URI must be absolute",
+      "MustNotContainQueryFragmeant": "URI must not contain query or fragment"
+    },
+    "DynamicAuthentication": {
+      "SchemeHealthHttp": "Dynamic Authentication database check failed with status code: {{status}}",
+      "SchemaHealth": "There is a problem with RSK Dynamic Authentication. It seems the database is not setup correctly. Go <a class=\"tw-inline-block tw-text-blue-500 hover:tw-text-body trans\" href=\"{{href}}\" target=\"_blank\">here</a> to get more information on how to fix this."
+    }
+  },
+  "Index": {
+    "Title": "Dashboard",
+    "LicensedTo": "Licensed to",
+    "LicenseType": "License type",
+    "Users": {
+      "Title": "User Management",
+      "Body": "Manage IdentityServer Users with ease."
+    },
+    "Claims": {
+      "Heading": "Claims",
+      "Title": "Claims & Role Management",
+      "Body": "Manage Claim Types and Roles available to Users and Applications"
+    },
+    "IdentityServer": {
+      "Title": "IdentityServer Configuration",
+      "Body": " Manage IdentityServer Client Applications and Protected Resources in the Clients and Resources sections"
+    }
+  },
+  "Users": {
+    "Title": "Users",
+    "Singular": "User",
+    "SearchPlaceholder": "Username, full name, or email starts with...",
+    "AddUser": "Add User",
+    "NewUser": "New User",
+    "SearchUser": "Search for a user...",
+    "AssignedRoles": "Assigned Roles",
+    "MinimumSearchLength": "Minimum Search Length is 2 Characters",
+    "Filter": {
+      "Label": "Show only users that are",
+      "Active": "Active",
+      "Blocked": "Blocked",
+      "Deleted": "Deleted",
+	  "IncludeClaims": "Include claim values",
+      "IncludeClaimsHelp": "Will search on user claim values. May affect performance.",
+      "StoredProcedureErrorMessage": "An error occured when filtering, please verify you have the AdminUI stored procedures in your database."
+    },
+    "Username": "Username",
+    "FullName": "Full Name",
+    "Email": "Email Address",
+    "FirstName": "First Name",
+    "LastName": "Last Name",
+    "Details": {
+      "AddClaim": "Add Claim",
+      "AdditionalDetailsBody": "Configure optional details about the user. To create new types, please visit the Claim Types section of the UI."
+    },
+    "CopyValue": "Copy value from Details",
+    "NoUsersFound": "No users found",
+    "AddAnother": "Add another user after submit",
+    "CloseBox": "<strong>Add</strong> will close this box and take you back to the user list.",
+    "Password": {
+      "Requirements": {
+        "1": "At least one uppercase letter",
+        "2": "At least one lowercase letter",
+        "3": "At least one digit",
+        "4": "At least one special character (# ? ! @ $ % ^ & * -)",
+        "5": "At least eight characters in length"
+      },
+      "Title": "Password",
+      "DemoTitle": "Enabled for demo use",
+      "DemoLink": "What is this?"      
+    },
+    "Delete": {
+      "DeletedUser": "This user has been deleted.",
+      "Confirmation": "{0} was deleted. User data remains accessible for auditing purposes",
+      "AuditingPurposes": "User data remains accessible for auditing purposes."
+    },
+    "First page of results": "First page of results",
+    "Previous page of results": "Previous page of results",
+    "Last page of results": "Last page of results",
+    "Next page of results": "Next page of results",
+    "Applications": {
+      "Access": "Applications the user has given consent to or currently has IdentityServer side tokens for.",
+      "None": "No applications found for this user",
+      "DataEncrypted": "Scopes may not show here due to IdentityServer data protection configuration",
+      "Revoke": "Revoke",
+      "DontRevoke": "No, don't revoke",
+      "RevokeApp": "Revoke Application",
+      "RevokeAll": "Revoke All",
+      "DontRevokeAll": "No, don't revoke all",
+      "RevokeConfirm": "Do you want to revoke access for all applications on this account?",
+      "Accessible": "Resources/scopes accessible by application:",
+      "RevokeUserConfirm": "This will revoke the access of",
+      "ForUser": "for user",
+      "RevokeYes": "Yes, Revoke Application"
+    },
+    "LockoutEnabled": "Lockout Enabled",
+    "LockoutEnd": "Lockout End"
+  },
+  "UserDetails": {
+    "EnabledTwoFactor": "Enable ASP.NET Identity two-factor authentication",
+    "EnabledTwoFactorReadOnly": "Is ASP.NET Identity two-factor authentication enabled",
+    "EnabledTwoFactorHelp": "Depending on your IdentityServer implementation, this may not have any effect",
+    "AdditionalDetailsBlurb": "",
+    "Active": "Active",
+    "Blocked": "Blocked",
+    "Title": "User Data",
+    "Assigned": "Assigned",
+    "Available": "Available",
+    "Search Roles": "Search Roles...",
+    "NoRolesFoundWarning": "No Roles Found For This User",
+    "Select Type": "Select Type",
+    "NoClaimsMessage": "No additional details found for this user",
+    "Value": "Value",
+    "Name": "Name",
+    "Search for apps": "Search for apps",
+    "Password": "Password",
+    "New Password": "New Password",
+    "Confirm Password": "Confirm Password",
+    "Two Step": "Two Step",
+    "Copy Value": "Copy Value From Details",
+    "Phone Number": "Phone Number",
+    "Email Address": "Email Address",
+    "MisMatchPasswordWarning": "Passwords <u>do not</u> match",
+    "PasswordMatchMessage": " Passwords match",
+    "ChangePassword": "Reset Password",
+    "ResetMfa": "Reset MFA",
+    "UnauthorizedWarning": "You do not have the required permissions to assign this user this claim",
+    "UnauthorizedWarningEdit": "You do not have the required permissions to modify this claim for this user",
+    "UnauthorizedWarningDelete": "You do not have the required permissions to delete this claim from this user"
+  },
+  "UserLogins": {
+    "ProviderDisplayName": "Provider Display Name",
+    "LoginProvider": "Login Provider",
+    "ProviderKey": "User Identity",
+    "NoLogins": "No external logins found for this user",
+    "RevokeExternalLogin": "Revoke External Login",
+    "RevokeLoginConfirmationText": "Are you sure you want to revoke this External Login"
+  },
+  "Roles": {
+    "SearchPlaceholder": "Role name contains...",
+    "Role": "Role",
+    "NewRole": "New Role",
+    "AddRole": "Add Role",
+    "TrimWhitespaceHelp":  "Any whitespace will be trimmed from the start and end of the name", 
+    "AddAnother": "Add another role after submit",
+    "AddAnotherInfo": "Selecting <strong>Add another role after submit</strong> will leave this dialogue box open after creating a role so you can easily add another.",
+    "CloseReturnsRoleList": "<strong>Add</strong> will close this box and take you back to the role list.",
+    "RoleRemoved": "Role has been removed",
+    "Search": "Search for a role...",
+    "ReservedHelp": "This role is reserved and cannot be edited",
+    "Reserved": "reserved",
+    "NoRolesFound": "No roles found",
+    "RoleCreated": "Role Created",
+    "Success": "Updated Roles Successfully",
+    "AreYouSureDelete": "Are you sure you want to delete?",
+    "AreYouSureRemove": "Are you sure you want to remove <b>{0}</b> from <b>{1}</b>?",
+    "AssignUnauthorized": "You do not have the permissions required to assign this role",
+    "UnassignUnauthorized": "You do not have the permissions required to unassign this role",
+    "UpdateUnauthorized": "You do not have the permissions required to update this role",
+    "DeleteUnauthorized": "You do not have the permissions required to delete this role",
+    "UpdateBadRequest": "It was not possible to process your request",
+    "ManageUsers": "Manage Users",
+    "AddUsers": "Add Users",
+    "AddRemoveUsersFromRole": "Add or remove users from <b>{0}</b>",
+    "User": "User",
+    "InRole": "In role",
+    "SearchAllUsers": "Search all users",
+    "Adding": "Adding",
+    "Removing": "Removing",
+    "CancelAdding": "Cancel adding",
+    "CancelRemoving": "Cancel removing",
+    "NoUsersAdding": "No users will be added",
+    "NoUsersRemoving": "No users will be removed",
+    "RoleUserManagement": "Role User Management",
+    "AddRemoveUserFromRole": "Add or remove users from",
+    "NoResults": "No matching users found",
+    "NotSelected": "Search for users to add or remove from this role (2 chars min)",
+    "SavingPleaseWait": "Saving, please wait..."
+  },
+  "Claims": {
+    "Title": "Claim type",
+    "New": "New Claim Type",
+    "Add": "Add Claim Type",
+    "ClaimTypeName": "Claim Type Name",
+    "ClaimTypeDescription": "",
+    "ClaimTypeRule": "Claim Type Rule",
+    "RegexRule": "Regex Rule",
+    "RuleValidationFailureDescription": "Rule Validation Failure Description",
+    "Required": "Required Claim",
+    "FutureUsers": "Value must be present to create future users",
+    "AddAnother": "Selecting <strong>Add Another</strong> will leave this dialogue box open after submitting so you can easily add another.",
+    "AddAnotherClaimType": "Add another claim type after submit",
+    "DeleteConfirmation": "Are you sure you want to delete the claim type",
+    "Search": "Search for a claim type...",
+    "UserEditable": "Value will be editable by a user if exposed through the public API",
+    "AssignUnassignUnauthorized": "You do not have the permissions required to assign or unassign this claim",
+    "NoClaimsFound": "No claims found",
+    "AllowedValues": "Allowed Values"
+  },
+  "Resources": {
+    "SearchPlaceholder": "Resource name or id contains...",
+    "AddResource": "Add Resource",
+    "ResourceID": "Resource ID",
+    "ResourceStatus": "Resource Status",
+    "RemovedResource": "Removed Resource",
+    "RemovedResourceScope": "Removed Resource Scope",
+    "EnterBasicDetails": "Enter some basic details",
+    "DescriptionHelp": "Resource description that will be seen on consent screens",
+    "ResourceAddedSuccess": "Resource Added Successfully",
+    "AssignClaims": "Assign user claim types to be included in tokens",
+    "UniqueIdentifier": "The unique identifier for this resource",
+    "ResourceName": "Resource name used within AdminUI",
+    "RequireResourceIndicator": "Require Resource Indicator",
+    "RequireResourceIndicatorHelp": "Ensures that this resource can only be requested when the request includes the resource parameter. Ensures that tokens will only contain this resource as the audience",
+    "ResourceDescription": "Resource description used within AdminUI",
+    "UpdatedSuccess": "Updated Resource Successfully",
+    "AllowedAccessTokenSigningAlgorithms": "Allowed Access Token Signing Algorithms",
+    "Required": "Is Consent Required",
+    "AssignedClaims": "Assigned Claims",
+    "AssignedResources": "Assigned Resources",
+    "Failed": "Failed to update resource",
+    "Scope": {
+      "NewScope": "New Scope for",
+      "DisplayName": "Scope name that will be seen on consent screens",
+      "Description": "Scope description that will be seen on consent screens",
+      "ScopeFor": "scope for the",
+      "Updated": "Updated scope successfully",
+      "Failed": "Failed to update scope",
+      "ScopeID": "Scope ID",
+      "Consent": "Consent to use scope is required to complete authentication",
+      "DiscoveryDocumentDescription": "Scope appears within Discovery Document (/.well-known/openid-configuration)",
+      "EmphasiseScope": "Emphasize scope name on consent screen",
+      "UserClaimTypes": "User claim types to be included in tokens. Claims types will be added to the list of claim types for the parent resource.",
+      "ScopeAdded": "Scope Added"
+    }
+  },
+  "ClaimTypes": {
+    "SearchPlaceholder": "Claim type name contains...",
+    "NameHelp": "The name used to identify the claim type",
+    "DisplayNameHelp": "A friendly name for the claim type",
+    "TooManyAllowedValues": "Too many values to display",
+    "TypeaheadHelp": "Too many options, type to filter...",
+    "AllowedValuesFiltering": {
+      "FilteringAllowedValues": "An error occured when filtering allowed values for claim type.",
+      "NothingFound": "Nothing found!",
+      "TooManyFound": "Found too many possible values, please continue filtering."
+    }
+  },
+  "IdentityResources": {
+    "Title": "Identity Resources",
+    "Singular": "Identity Resource",
+    "Create": "Create an Identity Resource",
+    "UserClaimTypes": "User claim types to be included in tokens",
+    "IDHelp": "The unique identifier for this resource. Used in requests",
+    "DisplayNameHelp": "Resource name that will be seen on consent screens",
+    "ConsentResource": "Consent to use resource is required to complete authentication",
+    "DiscoveryDocumentDescription": "Resource appears within Discovery Document (/.well-known/openid-configuration)",
+    "ShowInDiscoveryDocument": "Show In Discovery Document",
+    "ShowInDiscoveryDocumentReadOnly": "Is Resource In Discovery Document",
+    "ConsentScreen": "Emphasize resource name on consent screen",
+    "UpdatedResource": "Updated Resource Successfully",
+    "ResourceReservedHelp": "This resource is reserved and cannot be edited",
+    "NoIdentityResources": "No identity resources found",
+    "Reserved": "This claimtype is reserved and cannot be edited"
+  },
+  "ProtectedResources": {
+    "Title": "Protected Resource",
+    "TitlePlural": "Protected Resources",
+    "Create": "Create Protected Resource",
+    "AssignClaims": "Assign user claim types to be included in the token",
+    "Secrets": "Enter some secrets for introspection (optional)",
+    "UserClaimTypes": "User claim types to be included in tokens. Applies to all scopes for the resource.",
+    "AddScope": "Add Scope",
+    "AddSharedScope": "Assign Shared Scopes",
+    "ProtectedResource": "protected resource?",
+    "ClientAccess": "Select the Protected Resources this client can access",
+    "NoneFound": "No protected resources found",
+    "UpdatedResource": "Updated Resource Successfully"
+  },
+  "Clients": {
+    "SearchPlaceholder": "Client name starts with...",
+    "ID": "Client ID",
+    "EntityId": "Entity ID",
+    "Realm": "Realm",
+    "Title": "Client",
+    "Add": "Add Client",
+    "EnterBasicDetails": "Enter some basic details",
+    "IDHelp": "The unique identifier for this application",
+    "Secrets": "Enter some secrets",
+    "DisplayNameHelp": "Friendly name for this client application",
+    "DisplayURLHelp": "Application URL that will be seen on consent screens",
+    "LogoURLHelp": "Application logo that will be seen on consent screens. These protocols rely upon TLS in production",
+    "DescriptionHelp": "Application description for use within AdminUI",
+    "CallbackURL": "Enter a callback URL<br/><small>Tokens will be sent to this endpoint (you can configure more after setup)</small>",
+    "CIBAConfiguration": "Enter the CIBA lifetime and polling interval values",
+    "PostLogoutURL": "Enter a post-logout URL<br /><small>Optional (you can configure more after setup)</small>",
+    "RedirectURLDescription": "Full path of redirect URL. These protocols rely upon TLS in production",
+    "CIBALifetimeDescription": "The lifetime of a CIBA Authentication Request in seconds",
+    "CIBAPollingIntervalDescription": "The number of seconds that the client must wait between two polling requests",
+    "LogoutURLDescription": "Users can be returned to this URL after logging out. These protocols rely upon TLS in production",
+    "IdentityResourcesAccess": "Select the Identity Resources this client can access",
+    "ProtectedResourcesAccess": "Select the Protected Resources this client can access",
+    "ScopePickerSharedScopeWarning": "(*) Used by more than one Protected Resource",
+    "Setup": "Setup a Client Application",
+    "SelectType": "Select the type of application you want to create",
+    "NoClaims": "No claims found for this client",
+    "AddClaim": "Add Claim",
+    "EditClaim": "Edit Claim",
+    "SendClaimsHelp": "Allow client claims to be sent for all grant types",
+    "SendClaims": "Always Send Claims",
+    "PrefixClaimsHelp": "Optional. Choose the text to prefix the claim types for this client",
+    "PrefixClaims": "Prefix Claims",
+    "AddRestriction": "Add Restriction",
+    "ProviderName": "Provider Name",
+    "NoRestrictions": "No restrictions found for this client",
+    "DuplicateProvider": "Provider already added",
+    "AddedSecret": "Added Secret Successfully",
+    "UnableToAddSecret": "Unable To Add Secret",
+    "UnableToAddProperty": "Unable to add property. Key already exists",
+    "RemovedSecret": "Removed Secret Successfully",
+    "UnableToRemoveSecret": "Unable To Remove Secret",
+    "UpdatedClient": "Updated Client Successfully",
+    "Deleted": "Client Deleted",
+    "Search": "Search for a client...",
+    "Reserved": "This client is reserved and cannot be edited",
+    "None": "No clients found",
+    "NoSecrets": "No secrets have been set. Use the form above to add one and it'll show up here.",
+    "EnableLocalLogin": "Enable Local Login",
+    "EnableLocalLoginHelp": "Allow IdentityServer local credentials (e.g. username and password)",
+    "CORSUrl": "This Url is a path and cannot be a CORS Url",
+    "NullURL": "URL is null or empty",
+    "UrlIsPath": "This Url is a path and cannot be a CORS Url",
+    "UrlNotValid": "This Url may not valid",
+    "NoCertificates": "No certificates found",
+    "Export": {
+      "ExportAll": "Export all",
+      "ExportAllClients": "Export all clients",
+      "ExportSelected": "Export selected",
+      "ExportSelectedClients": "Export selected clients"
+    },
+    "Clone": {
+      "Label": "Clone",
+      "Title": "Clone Client",
+      "CopyOf": "Copy of \"{0}\"",
+      "CloneSecrets": "Clone Secrets",
+      "CloneSecretsDescription": "Copy any secrets configured for this client to the cloned client",
+      "CloneCerts": "Clone Certificates",
+      "CloneCertsDescription": "Copy any encryption or signing certificates to the cloned client"
+    },
+    "Import": {
+      "Import": "Import",
+      "ImportClients": "Import clients",
+      "ImportExportClients": "Import/Export Clients",
+      "Wizard": {
+        "Setup": {
+          "Title": "Import Clients",
+          "Summary": "Import clients and their resources from another AdminUI solution.",
+          "ChooseFile": "Choose File",
+          "ChooseFileHelp": "Exported JSON file from another AdminUI solution",
+          "CheckImportPleaseWait": "Validating file, please wait...",
+          "Errors": {
+            "Default": "Sorry, there was a problem when importing. Please try again.",
+            "InvalidFile": "Sorry, there was a problem reading the file. Please try again.",
+            "InvalidData": "Sorry, there was invalid data in the file. Please review and try again.",
+            "CompleteImportFailed": "Sorry, there was an error during import. Please try again. "
+          }
+        },
+        "Secrets": {
+          "Title": "Secrets",
+          "ChooseWhatToDo": "Choose what to do with previously created secrets.",
+          "DoNotSet": "Do not set a secret",
+          "Generate": "Generate a random secret",
+          "ManuallyCreate": "Manually create secrets",
+          "RememberMyDecision": "Remember my decisions and apply to all remaining secrets",
+          "UseExistingSecrets": "Use existing secrets",
+          "Note": {
+            "Note": "New secrets will be available to download after import",
+            "Title": "Note"
+          },
+          "ProtectedResource": "Protected Resource",
+          "IdentityResource": "Identity Resource",
+          "Client": "Client",
+          "ClaimType": "Claim Type"
+        },
+        "Certificates": {
+          "Title": "Certificates",
+          "ChooseWhatToDo": "Choose what to do with previously associated certificates.",
+          "DoNotSet": "Do not add certificate",
+          "UploadNewCertificates": "Upload new certificate",
+          "RememberMyDecision": "Remember my decisions and apply to all remaining certificates",
+          "UseExistingCertificates": "Use existing certificate",
+          "AddCertificate": "Add Certificate",
+          "FailedToParseCertificate": "Failed to parse certificate",
+          "TryAgainDifferentFile": "Please try again with a different certificate",
+          "DuplicateCertificate": "Certificate has already been added",
+          "InvalidCertificate": "Duplicate Certificate"
+        },
+        "Warning": {
+          "Title": "Warning",
+          "Text1": "You have not finished importing clients.",
+          "Text2": "Are you sure you want to exit?",
+          "DownloadSecrets": "You have generated new secrets.",
+          "Yes": "Yes",
+          "No": "No"
+        },
+        "Summary": {
+          "LinkedClients": "Which clients depend on this resource?",
+          "EffectsImportClients": "Importing",
+          "EffectsExistingClients": "Existing",
+          "NewClients": "New Clients",
+          "ExistingClients": "Existing Clients",
+          "Clients": "Clients",
+          "ClientsHelp": "Number of clients that will be affected by importing this resource",
+          "DependencyConflicts": "Dependencies",
+          "Title": {
+            "All": "Import Summary",
+            "Client": "Client Summary",
+            "Resource": "Resources Summary",
+            "ClaimType": "Claim Type Summary",
+            "Final": "Final Import Summary"
+          },
+          "Name": {
+            "Client": "Client Name",
+            "Resource": "Resource Name",
+            "ClaimType": "Claim Type Name"
+          },
+          "Identifier": {
+            "Client": "Client ID",
+            "Resource": "Resource ID",
+            "ClaimType": "Claim Type Name"
+          },
+          "Type": {
+            "Client": "Client Type",
+            "Resource": "Resource Type",
+            "ClaimType": "Value Type"
+          },
+          "Intro": {
+            "Client": "Choose which clients you would like to import.",
+            "Resource": "The following resources will be updated during import.",
+            "ClaimType": "The following claim types will be updated during import."
+          },
+          "ClientName": "Client Name",
+          "ClientId": "Client ID",
+          "ClientType": "Client Type",
+          "Change": "change",
+          "Changes": "changes",
+          "Conflicts": {
+            "ReviewChanges": "Review Changes",
+            "ConflictedServiceProvider": "Service Provider Conflicts",
+            "ConflictedRelyingParty": "Relying Party Conflicts",
+            "ConflictedScopes": "Conflicted Scopes",
+            "ConfirmationText": {
+              "Client": "The following changes will be made when importing this client. Do you accept the changes?",
+              "Resource": "The following changes will be made when importing this resource. Do you accept the changes?",
+              "ClaimType": "The following changes will be made when importing this claim type. Do you accept the changes?"
+            },
+            "Property": "Property",
+            "Key": "Key",
+            "OldValue": "Current Value",
+            "NewValue": "New Value",
+            "NoValue": "No value",
+            "Deleted": "Deleted",
+            "Accept": "Accept",
+            "Decline": "Decline",
+            "Cancel": "Cancel",
+            "Confirmation": {
+              "AreYouSure": "Are you sure you do not want to import changes for",
+              "Client": "This client will not be imported",
+              "Resource": "Any associated clients will be removed from this import"
+            }
+          },
+          "ResourceTypes": {
+            "Unknown": "Unknown",
+            "ServerSide": "Web App",
+            "Machine": "Machine",
+            "Native": "Native",
+            "Device": "Device",
+            "Saml": "SAML Service Provider",
+            "WsFed": "WS-Fed Relying Party",
+            "BrowserBased": "Single Page App",
+            "LegacyClientSide": "Single Page App (Legacy)",
+            "Identity": "Identity",
+            "Protected": "Protected",
+            "String": "String",
+            "Int": "Int",
+            "DateTime": "DateTime",
+            "Boolean": "Boolean"
+          },
+          "FinalSummary": "Review the clients and resources that will be imported. Duplicates will not be imported."
+        },
+        "CompleteImport": {
+          "ImportInProgress": "Import in progress...",
+          "ImportComplete": "Import Complete",
+          "ImportSuccess": "Your selected client and its associated resources were imported successfully",
+          "ImportSuccessMultiple": "{0} clients and their associated resources were imported successfully",
+          "ImportFailure": "Import failed",
+          "FinishImport": "Finish",
+          "DownloadSecrets": "Download Secrets"
+        }
+      }
+    },
+    "RelyingParty": {
+      "Heading": "Relying Party",
+      "General": "General",
+      "TokenType": "Token Type",
+      "SignatureAlgorithm": "Signature Algorithm",
+      "DigestAlgorithm": "Digest Algorithm",
+      "SAMLNameIdFormat": "SAML Name ID Format"
+    },
+    "ClaimMappings": {
+      "Heading": "Claim Mappings",
+      "ClaimType": "Claim Type",
+      "AssertionType": "Assertion Type",
+      "None": "No claim mappings found",
+      "AssertionTypeHeading": "Claim Type Mapping",
+      "AssertionTypeHeadingHelp": "Add a well-known claim type mapping, or add your own",
+      "AssertionTypeAlias": "Alias",
+      "AssertionTypeValue": "Value",
+      "AssertionTypeSearch": "Search well-known claim type mappings",
+      "ExisitingMappingWarning": "Claim Type is already mapped:",
+      "AssertionTypeValues": {
+        "Actor": "Actor",
+        "Anonymous": "Anonymous",
+        "Authentication": "Authentication",
+        "AuthenticationInstant": "Authentication Instant",
+        "AuthenticationMethod": "Authentication Method",
+        "AuthorizationDecision": "Authorization Decision",
+        "CookiePath": "Cookie Path",
+        "Country": "Country",
+        "DateOfBirth": "Date of Birth",
+        "DenyOnlyPrimaryGroupSid": "Deny Only Primary Group Sid",
+        "DenyOnlyPrimarySid": "Deny Only Primary Sid",
+        "DenyOnlySid": "Deny Only Sid",
+        "DenyOnlyWindowsDeviceGroup": "Deny Only Windows Device Group",
+        "Dns": "Dns",
+        "Dsa": "Dsa",
+        "Email": "Email",
+        "Expiration": "Expiration",
+        "Expired": "Expired",
+        "Gender": "Gender",
+        "GivenName": "Given Name",
+        "GroupSid": "Group Sid",
+        "Hash": "Hash",
+        "HomePhone": "Home Phone",
+        "IsPersistent": "Is Persistent",
+        "Locality": "Locality",
+        "MobilePhone": "Mobile Phone",
+        "Name": "Name",
+        "NameIdentifier": "Name Identifier",
+        "OtherPhone": "Other Phone",
+        "PostalCode": "Postal Code",
+        "PrimaryGroupSid": "Primary Group Sid",
+        "PrimarySid": "Primary Sid",
+        "Role": "Role",
+        "Rsa": "Rsa",
+        "SerialNumber": "Serial Number",
+        "Sid": "Sid",
+        "Spn": "Spn",
+        "StateOrProvince": "State or Province",
+        "StreetAddress": "Street Address",
+        "Surname": "Surname",
+        "System": "System",
+        "Thumbprint": "Thumbprint",
+        "Upn": "Upn",
+        "Uri": "Uri",
+        "UserData": "UserData",
+        "Version": "Version",
+        "Webpage": "Webpage",
+        "WindowsAccountName": "Windows Account Name",
+        "WindowsDeviceClaim": "Windows Device Claim",
+        "WindowsDeviceGroup": "Windows Device Group",
+        "WindowsFqbnVersion": "Windows Fqbn Version",
+        "WindowsSubAuthority": "Windows Sub Authority",
+        "WindowsUserClaim": "Windows User Claim",
+        "X500DistinguishedName": "X500 Distinguished Name"
+      }
+    },
+    "GrantTypes": {
+      "Implicit": "implicit",
+      "AuthCode": "authorization_code",
+      "Hybrid": "hybrid",
+      "Password": "password",
+      "DeviceFlow": "device_flow",
+      "CIBA": "ciba",
+      "Custom": "Custom",
+      "ClientCredentials": "client_credentials",
+      "None": "No grant types found",
+      "AddGrantType": "Add Grant Type",
+      "DuplicateGrantType": "Grant type already added"
+    },
+    "Properties": {
+      "None": "No properties found",
+      "AddProperty": "Add Property",
+      "EditProperty": "Edit Property"
+    },
+    "IdentityProviders": {
+      "AddProvider": "Add Provider",
+      "EditProvider": "Edit Provider"
+    },
+    "RequireConsent": {
+      "Title": "Require Consent",
+      "Help": "Specifies if a consent screen is required",
+      "Summary": "Require Consent"
+    },
+    "AllowRememberConsent": {
+      "Title": "Remember Consent",
+      "Help": "Specifies if the consent screen is remembered after consent is given"
+    },
+    "RequireSecret": {
+      "Title": "Require Secret",
+      "Help": "Specifies if a secret is required"
+    },
+    "Tokens": {
+      "Title": "Tokens",
+      "LifetimeInSeconds": "Lifetime in seconds",
+      "ClientTokenLifetime": "Identity Token Lifetime",
+      "AccessTokenLifetime": "Access Token Lifetime",
+      "ConsentLifetime": "Consent Token Lifetime",
+      "UserSSOLifetime": "SSO Lifetime",
+      "UserSSOLifetimeHelp": "Lifetime in seconds between user authentication challenges. Defaults to IdentityServer session lifetime",
+      "FrontChannelLogoutUri": "Front Channel Logout URI",
+      "FrontChannelLogoutUriHelp": "Endpoint IdentityServer will call in a browser iframe when single sign-out is triggered",
+      "PairWiseSubjectSalt": "Pairwise Subject Salt",
+      "PairWiseSubjectSaltHelp": "The salt value used when generating pairwise subject IDs",
+      "FrontChannelLogoutSessionRequired": "Front Channel Logout Session Required",
+      "FrontChannelLogoutSessionRequiredHelp": "Enable to send the session ID during single sign-out",
+      "AuthCodeLifetime": "Authorization Code Lifetime",
+      "RefreshTokenLifetime": "Absolute Refresh Token Lifetime",
+      "AccessTokenType": "Access Token Type",
+      "AllowedIdentityTokenSigningAlgorithms": "Allowed Identity Token Signing Algorithms",
+      "Jwt": "JWT",
+      "Reference": "Reference",
+      "Refresh": "Refresh Token Usage",
+      "RefreshHelp": "One time only is recommended for security best practice",
+      "OneTime": "One Time Only",
+      "ReUse": "Reuse",
+      "Expiration": "Refresh Token Expiration",
+      "Absolute": "Absolute",
+      "SlidingRefreshTokenLifetime": "Sliding Refresh Token Lifetime",
+      "Sliding": "Sliding",
+      "RequirePkce": "Require PKCE",
+      "RequirePkceHelp": "Requires client to use Proof-Key for Code Exchange",
+      "AllowPlainTextPkce": "Allow Plain Text PKCE",
+      "AllowPlainTextPkceHelp": "Allows the client to send unhashed code verifiers. Not recommended",
+      "AllowOfflineAccess": "Allow Offline Access",
+      "AllowOfflineAccessHelp": "Enables refresh tokens",
+      "UpdateAccessTokensSummary": "Update access tokens and its claims when using refresh tokens",
+      "UpdateAccessTokens": "Update Access Token Claims on Refresh",
+      "AccessTokensViaBrowser": "Allow Access Tokens to be Sent via Browser",
+      "AccessTokensViaBrowserSummary": "Enabling this exposes access tokens to the front channel",
+      "IncludeJwtId": "Include JWT ID",
+      "IncludeJwtIdHelp": "Add an ID to JWTs, which can be used to revoke JWTs",
+      "LogoutSessionRequired": "Require session to trigger logout",
+      "IncludeUserClaimsInIdToken": "Always Include User Claims in ID Token",
+      "IncludeUserClaimsInIdTokenHelp": "Enabling this can add PII to your identity token. Not recommended",
+      "BackChannelLogoutSessionRequired": "Back Channel Logout Session Required",
+      "BackChannelLogoutSessionRequiredHelp": "Enable to send the session ID during single sign-out",
+      "BackChannelLogoutUri": "Back Channel Logout URI",
+      "BackChannelLogoutUriHelp": "Endpoint IdentityServer will call via HTTP when single sign-out is triggered",
+      "UserCode": "User Code Generator Type",
+      "UserCodeHelp": "Override default type",
+      "DeviceCodeLifetime": "Device Flow Request Lifetime",
+      "DurationTitle": "Computed lifetime duration",
+      "Durations": {
+        "Seconds": "seconds",
+        "SecondsShort": "s",
+        "Second": "second",
+        "SecondShort": "s",
+        "Minutes": "minutes",
+        "MinutesShort": "mins",
+        "Minute": "minute",
+        "MinuteShort": "min",
+        "Hours": "hours",
+        "HoursShort": "hrs",
+        "Hour": "hour",
+        "HourShort": "hr",
+        "Days": "days",
+        "DaysShort": "d",
+        "Day": "day",
+        "DayShort": "d",
+        "Weeks": "weeks",
+        "WeeksShort": "wk",
+        "Week": "week",
+        "WeekShort": "wk",
+        "Months": "months",
+        "MonthsShort": "mos",
+        "Month": "month",
+        "MonthShort": "mo",
+        "Years": "years",
+        "YearsShort": "yrs",
+        "Year": "year",
+        "YearShort": "yr",
+        "Unlimited": "Unlimited",
+        "UnlimitedShort": "∞"
+      }
+    },
+    "Home": {
+      "Title": "Setup a Client Application",
+      "Description": "Choose an application type from the list to find out more.<br />Then click \"Start\" to begin setup."
+    },
+    "WizardTypes": {
+      "WebAppSelection": "Choose Supported Flow",
+      "WebApplication": "Hybrid flow with client authentication",
+      "PKCEWebApplication": "Authorization code flow + PKCE",
+      "RobotApplication": "Client Credentials",
+      "CIBARobotApplication": "Client-Initiated Backchannel Authentication",
+      "NativeApplication": "Hybrid flow with client authentication",
+      "PKCENativeApplication": "Authorization code flow + PKCE"
+    },
+    "MachineToMachine": {
+      "Setup": "Setup a Machine Application",
+      "Title": "Machine",
+      "Summary": "Client credentials",
+      "Description": "A machine-to-machine method of communication.<br />No users are involved in the process.<br />Tokens will be sent via back-channel communication.",
+      "Created": "Machine Application Created"
+    },
+    "CIBAMachineToMachine": {
+      "Setup": "Setup a Machine Application with CIBA",
+      "Title": "Machine",
+      "Summary": "CIBA",
+      "Description": "Client-Initiated Backchannel Authentication. <br />Allows users to authenticate from a Consumer Device using a decoupled Authentication device without the need for redirects via a browser on the Consumer Device. <br/>Tokens will be sent via back-channel communication."
+    },
+    "SPA": {
+      "Setup": "Setup a Single Page Application",
+      "Title": "Single Page App",
+      "Summary": "Authorization code flow + PKCE",
+      "Description": "A client-side application running in a browser.<br/>These applications cannot be trusted to keep secrets or use refresh tokens.<br/>Tokens will be sent through via the browser and will be visible to the user.",
+      "Created": "Single Page Application Created",
+      "ExtractedDomain": "Extracted from your domain"
+    },
+    "LegacySPA": {
+      "Setup": "Setup a Legacy Single Page Application",
+      "Title": "Single Page App (legacy)",
+      "Summary": "Implicit flow",
+      "Description": "A client-side application running in a browser using previous OAuth Working Group recommendations.<br/>These applications cannot be trusted to keep secrets or use refresh tokens.<br/>Tokens will be sent through via the browser and will be visible to the user.",
+      "Created": "Legacy Single Page Application Created",
+      "ExtractedDomain": "Extracted from your domain"
+    },
+    "WebApp": {
+      "Setup": "Setup a Web Application",
+      "Title": "Web App",
+      "Summary": "A server-side application",
+      "Description": "A server-side application running on your infrastructure.<br />These applications can be trusted to keep a secret and use refresh tokens.<br/>Tokens will be sent to a back-end server and will not be visible to the user.",
+      "Created": "Web Application Created",
+      "Secrets": "Enter some secrets (optional)"
+    },
+    "PKCEWebApp": {
+      "Setup": "Setup a Web Application",
+      "Title": "Web App",
+      "Summary": "Authorization code flow + PKCE",
+      "Description": "A server-side application running on your infrastructure.<br />These applications can be trusted to keep a secret and use refresh tokens.<br/>Tokens will be sent to a back-end server and will not be visible to the user.",
+      "Created": "Web Application Created",
+      "Secrets": "Enter some secrets (optional)"
+    },
+    "NativeApp": {
+      "Setup": "Setup a Native Application",
+      "Title": "Native",
+      "Summary": "Hybrid flow",
+      "Description": "A desktop or mobile application running on a user's device.<br />These applications cannot be trusted to keep a secret but can use refresh tokens.<br />Token visibility dependent on browser and redirect URI choice.",
+      "Created": "Native Application Created",
+      "Secrets": "Enter some secrets (optional)"
+    },
+    "PKCENativeApp": {
+      "Setup": "Setup a Native Application",
+      "Title": "Native",
+      "Summary": "Authorization code flow + PKCE",
+      "Description": "A desktop or mobile application running on a user's device.<br />These applications cannot be trusted to keep a secret but can use refresh tokens.<br />Token visibility dependent on browser and redirect URI choice.",
+      "Created": "Native Application Created",
+      "Secrets": "Enter some secrets (optional)"
+    },
+    "DeviceFlow": {
+      "Setup": "Setup a Device",
+      "Title": "Device",
+      "Summary": "Device flow using external browser",
+      "Description": "An IoT application or otherwise browserless or input constrained device.<br />These applications typically cannot be trusted to keep a secret but can use refresh tokens.",
+      "Created": "Device Flow Application Created"
+    },
+    "Saml": {
+      "Setup": "Setup a SAML Service Provider",
+      "Title": "SAML Service Provider",
+      "Summary": "SAML 2.0 application",
+      "Description": "A SAML 2.0 service provider commonly used by government and educational institutions.<br />Cannot be used for API access.",
+      "Created": "SAML Service Provider Created",
+      "DefaultEndpoint": "Default Endpoint",
+      "DefaultEndpointHelp": "Select an existing location URL to be the default endpoint",
+      "DefaultEndpointNotice": "You need to add an endpoint before you can set the default",
+      "EditEndpoint": "Edit Endpoint",
+      "LocationUrl": "Location URL",
+      "LocationNotValid": "Location not valid",
+      "BindingType": "Binding Type",
+      "Index": "Index",
+      "IndexNotUnique": "Index must be unique",
+      "ACSEndpoints": "ACS Endpoints",
+      "ACSEndpointHelpTitle": "Assertion Consumer Service Endpoints",
+      "ACSEndpointsHelpBody": "The service provider endpoints that SAML responses and assertions will be sent to",
+      "SLOEndpoints": "SLO Endpoints",
+      "SLOEndpointsHelpTitle": "Single Logout Service Endpoints",
+      "SLOEndpointsHelpBody": "The service provider endpoints that SAML logout requests and responses will be sent to",
+      "ARSEndpoints": "ARS Endpoints",
+      "ARSEndpointsHelpTitle": "Artifact Resolution Service Endpoints",
+      "ARSEndpointsHelpBody": "The service provider endpoints where the artifacts will be resolved when using HTTP-Artifact binding",
+      "NoEndpoints": "No endpoints found",
+      "Response": "Response",
+      "LocationBindingUnique": "Endpoint and binding type must be unique",
+      "Request": "Request",
+      "RequireRequestDestination": "Require Request Destination",
+      "RequireRequestDestinationHelp": "Incoming requests require a destination so IdentityServer can confirm it is the intended recipient",
+      "RequireSignedArtifactResolveRequests": "Require Signed Artifact Resolve Requests",
+      "RequireSignedArtifactResolveRequestsHelp": "Require signed requests from the service provider to the Artifact Resolution Service endpoint",
+      "RequireSignedArtifactResponses": "Require Signed Artifact Responses",
+      "RequireSignedArtifactResponsesHelp": "Makes IdentityServer sign Artifact Responses to the service provider",
+      "ArtifactDeliveryBindingType": "Artifact Delivery Binding Type",
+      "ArtifactDeliveryBindingTypeHelp": "How the artifact is delivered via the front channel",
+      "NameIdentifierFormat": "Name Identifier Format",
+      "NameIdentifierFormatHelp": "Control how the users at identity providers are mapped to users at service providers during single sign-on",
+      "RequireRequestsSigned": "Require Authentication Request Signing",
+      "RequireRequestsSignedHelp": "Require signed requests from the Service Provider. This overwrites the global `WantAuthenticationRequestsSigned` setting",
+      "SignAssertions": "Sign Assertions",
+      "SignAssertionsHelp": "Makes IdentityServer sign both SAML messages and assertions (recommended)",
+      "AllowIdpInitiatedSso": "Allow IdP Initiated SSO",
+      "AllowIdpInitiatedSsoHelp": "Allows single sign-on to be initiated by your Identity Provider (not recommended)",
+      "EncryptAssertions": "Encrypt assertions",
+      "EncryptAssertionsHelp": "Makes IdentityServer encrypt assertions sent to the Service Provider, using their public key",
+      "AddCert": "Add Certificate",
+      "DeleteCert": "Delete Certificate",
+      "AddCertSummary": "Upload a certificate or paste the certificate value from meta data",
+      "AddCertNote": "The certificate will be applied immediately upon saving",
+      "UploadCert": "Upload Certificate",
+      "UploadCertHelp": "Upload a valid .cer file",
+      "UploadCertViaMetadata": "Upload via meta data",
+      "ServiceProviderSigningCert": "Service provider signing certificate",
+      "ServiceProviderSigningCertHelp": "X509Certificate value of the Service Provider's public key",
+      "CertUploadSuccess": "Certificate Upload Succeeded",
+      "InvalidCert": "Certificate is Invalid",
+      "DuplicateCert": "Duplicate certificate",
+      "DuplicateCertMessage": "This certificate already exists on this service provider",
+      "IndexInvalidType": "Index should be a number",
+      "ReplaceCertificate": "Replace Certificate",
+      "CannotDeleteResponseCert": "Cannot delete encryption certificate while encrypt assertions is true",
+      "AddEndpoint": "Add Endpoint",
+      "AddClaimMapping": "Add Claim Mapping",
+      "EditClaimMapping": "Edit Claim Mapping",
+      "DefaultSamlRequestSigning": "Default/Global"
+    },
+    "WsFed": {
+      "Setup": "Setup a WS-Federation Relying Party",
+      "Title": "WS-Fed Relying Party",
+      "Summary": "WS-Federation application",
+      "Description": "A WS-Federation relying party commonly used by older Microsoft applications.<br />Cannot be used for API access.",
+      "Created": "WS-Federation Relying Party Created"
+    },
+    "URLS": {
+      "Title": "Application URLs",
+      "None": "No application URLs found",
+      "SendTokens": "Can send tokens to this URL",
+      "RedirectAfterLogout": "Can redirect to this URL after logout",
+      "CORSDomain": "Domain that can make cross-origin requests",
+      "NoURLS": "Cannot have no redirect urls",
+      "URLAddUnsuccessful": "There was a problem adding your URL",
+      "AddURL": "Add URL",
+      "EditApplicationURLs": "Edit Application URLs",
+      "EditApplicationURL": "Edit Application URL",
+      "InitiateLogin": {
+        "Label": "Initiate Login URI",
+        "Help": "Optional, must also start with 'https://'"
+      }
+    },
+    "DPoP": {
+      "ValidationMode": {
+        "Label": "Validation Mode"
+      },
+      "ClockSkew": {
+        "Label": "Clock Skew",
+        "Help": "Used when validating proof tokens 'iat' claim value for this client"
+      }
+    },
+    "Selected": "(Selected)",
+    "Endpoint": "Endpoint",
+    "Redirect": "Redirect",
+    "Post": "POST",
+    "Artifact": "Artifact",
+    "Soap": "SOAP",
+    "AcsEndpoints": "ACS endpoints",
+    "AcsEndpointHelp": "ACS endpoint URL. These protocols rely upon TLS in production",
+    "SloEndpoints": "SLO endpoints",
+    "SloEndpointHelp": "SLO endpoint URL. These protocols rely upon TLS in production",
+    "ArsEndpoints": "ARS endpoints",
+    "ArsEndpointHelp": "ARS endpoint URL. These protocols rely upon TLS in production",
+    "BindingType": "Binding Type",
+    "BindingTypeHelp": "Binding type for the endpoint",
+    "IndexHelp": "Index of the endpoint"
+  },
+  "DynamicAuth": {
+    "Title": {
+      "Generic": "Dynamic Authentication",
+      "Duende": "Duende Dynamic Authentication",
+      "RSK": "Rock Solid Knowledge Dynamic Authentication"
+    },
+    "SearchPlaceholder": "Scheme or Name start with...",
+    "Filters": {
+      "OIDC": "OIDC",
+      "SAML": "SAML",
+      "Enabled": "Enabled",
+      "Disabled": "Disabled"
+    },
+    "Scheme": {
+      "Label": "Scheme",
+      "Help": "The unique identifier for this provider"
+    },
+    "DisplayName": {
+      "Label": "Display Name",
+      "Help": "Friendly name for this provider"
+    },
+    "Authority": {
+      "Label": "Authority URL",
+      "Help": "The URL where the provider is hosted. Must start with 'https://'",
+      "ReachableWarningTitle": "Authority Validation",
+      "ReachableWarningMsg": "Unable to obtain discovery document at standard endpoint, could mean this authority is invalid."
+    },
+    "ClientId": {
+      "Label": "Client ID",
+      "Help": "Client identifier from the external provider"
+    },
+    "CallbackPath": {
+      "Label": "Callback Path",
+      "Help": "ACS endpoint"
+    },
+    "Flow": {
+      "Label": "OAuth Flow",
+      "Help": "Choose authentication flow used by provider"
+    },
+    "Flows": {
+      "AuthCode": "Authorization code flow",
+      "AuthCodePlusPkce": "Authorization code flow + PKCE"
+    },
+    "Scopes": {
+      "Label": "Scopes",
+      "Placeholder": "Enter scope...",
+      "AlreadyAdded": "This scope has already been added",
+      "MustSpecifyScope": "Scope not specified",
+      "CannotHaveSpaces": "Scopes cannot contain whitespaces",
+      "NoScopesMessage": "No scopes have been added"
+    },
+    "SignInScheme": {
+      "Label": "Sign In Scheme",
+      "Help": "This setting could be overridden, you can learn more <a class=\"tw-inline-block tw-text-blue-500 hover:tw-text-body trans\" href=\"documentation/DynamicAuthentication/Adding_a_Saml_Dynamic_Provider.html#identityserver-overriding-sign-inout-schemes\" target=\"_blank\">here</a>.",
+      "Placeholder": "Enter Sign-In scheme...",
+      "IdSExternalLogin": {
+        "Name": "IdentityServer External Login Scheme",
+        "Help": "'Idsrv.External' Use this if you are using the IdentityServer Default cookies"
+      },
+      "AspNetExternalLogin": {
+        "Name": "Asp.Identity External Login Scheme",
+        "Help": "'Identity.External' Use this if you are using the Asp.Identity Default Cookies"
+      }
+    },
+    "DifferentSignOut": {
+      "Label": "Different Sign Out Scheme",
+      "Help": "Set Different Sign Out Scheme"
+    },
+    "SignOutScheme": {
+      "Label": "Sign Out Scheme",
+      "Help": "This setting could be overridden, you can learn more <a class=\"tw-inline-block tw-text-blue-500 hover:tw-text-body trans\" href=\"documentation/DynamicAuthentication/Adding_a_Saml_Dynamic_Provider.html#identityserver-overriding-sign-inout-schemes\" target=\"_blank\">here</a>.",
+      "Placeholder": "Enter Sign-Out scheme..."
+    },
+    "ClientSecret": {
+      "Label": "Client Secret",
+      "Help": "Optional secret used when authenticating with external provider"
+    },
+    "RemoteSignOutPath": {
+      "Label": "Remote Sign Out Path"
+    },
+    "SignedOutRedirectUri": {
+      "Label": "Signed Out Redirect Uri"
+    },
+    "SignedOutCallbackPath": {
+      "Label": "Signed Out Callback Path",
+      "Help": "SLO endpoint"
+    },
+    "ResponseMode": {
+      "Label": "Response Mode",
+      "Help": "Specifies the response mode to use, which decides how parameters are encoded in the response."
+    },
+    "Prompt": {
+      "Label": "Prompt",
+      "Help": "Determines how the prompt value will be set, with the option of adding custom prompts. If 'Display no prompts' is selected, all other options are disabled.",
+      "Values": {
+        "None": "Display no prompts",
+        "Login": "Login prompt",
+        "Consent": "Consent prompt",
+        "SelectAccount": "Select account prompt",
+        "Other": "Other prompt(s)"
+      }
+    },
+    "Resource": {
+      "Label": "Resource",
+      "Help": "The resources you are requesting access to will be used in the authorisation request when using the dynamic provider. Values provided must be in absolute URI format, e.g. urn:resource:1, https://resource.com"
+    },
+    "RefreshOnIssuerKeyNotFound": {
+      "Label": "Refresh Metadata On Issuer Key Not Found",
+      "Help": "Metadata refresh will occur on key rollover"
+    },
+    "MetadataRefreshInterval": {
+      "Label": "Metadata Refresh Interval",
+      "Help": "How often an automatic metadata refresh should occur, minimum 300 seconds(5min)."
+    },
+    "GetClaimsFromUserInfoEndpoint": {
+      "Label": "Get Claims From User Info Endpoint",
+      "Help": "Retrieve additional claims from the user info endpoint after creating an identity from id_token"
+    },
+    "MapInboundClaims": {
+      "Label": "Map Inbound Claims",
+      "Help": "Map claim types that are extracted when validating a JwtSecurityToken"
+    },
+    "SaveTokens": {
+      "Label": "Save Tokens",
+      "Help": "Defines whether access and refresh tokens should be stored as a cookie in the browser after a successful authentication."
+    },
+    "UseTokenLifetime": {
+      "Label": "Use Token Lifetime",
+      "Help": "Authentication session lifetime (e.g. cookies) should match that of the authentication token."
+    },
+    "SkipUnrecognizedRequests": {
+      "Label": "Skip Unrecognized Requests",
+      "Help": "Skip requests sent to the Callback method that don't include authorization data. Disabling this and setting the CallbackPath to a dedicated endpoint may provide better error handling."
+    },
+    "DisableTelemetry": {
+      "Label": "Disable Telemetry",
+      "Help": "Send the assembly version of the IdentityModel package as an authorization/logout request parameter."
+    },
+    "EntityId": {
+      "Label": "SP Entity Id",
+      "Help": ""
+    },
+    "CallbackPathAcsEndpoint": {
+      "Label": "Callback path (ACS endpoint)",
+      "Help": ""
+    },
+    "CertFile": {
+      "Label": "Certificate",
+      "Help": "Accepts PFX and P12 formats"
+    },
+    "CertPassword": {
+      "Label": "Certificate Password",
+      "Help": ""
+    },
+    "UploadCert": "Upload Cert",
+    "ChangeCert": "Change Cert",
+    "List": {
+      "None": "No dynamic providers found"
+    },
+    "UpdateClientSecret": {
+      "Title": "Update Client Secret",
+      "Description": "Add here your new Client Secret",
+      "Confirm": "Update",
+      "No": "No, don't update"
+    },
+    "UpdateSigningCertificate": {
+      "Title": "Update Signing certificate"
+    },
+    "UpdateEncryptionCertificate": {
+      "Title": "Update Encryption certificate"
+    },
+    "FederationPathWarning": "The path must start with /federation/",
+    "Wizard": {
+      "Setup": "Setup a Dynamic Authentication provider",
+      "Title": "Add a Dynamic Authentication provider",
+      "TypeSelectStep": {
+        "OIDC": {
+          "Name": "OIDC Provider",
+          "Title": "OpenID Connect Provider",
+          "Description":  "A provider that uses OpenID Connect to authenticate a user. <br/>Documentation adding providers is <a class=\"tw-inline-block tw-text-blue-500 hover:tw-text-body trans\" href=\"documentation/DynamicAuthentication/Adding_a_Oidc_Dynamic_Provider.html\" target=\"_blank\">here</a>."
+        },
+        "SAML": {
+          "Name": "SAML Provider",
+          "Title": "Security Assertion Markup Language",
+          "Description": "A provider that uses SAML to authenticate a user. <br/>Documentation adding providers is <a class=\"tw-inline-block tw-text-blue-500 hover:tw-text-body trans\" href=\"documentation/DynamicAuthentication/Adding_a_Saml_Dynamic_Provider.html\" target=\"_blank\">here</a>."
+        },
+        "TypeLabel": "Dynamic Authentication Provider Type"
+      },
+      "NameRoleStep": {
+        "Title": "Define scheme and display name of your dynamic provider"
+      },
+      "SignInSchemeStep": {
+        "Title": "Set your sign-in scheme"
+      },
+      "SummaryStep": {
+        "Title": "A chance to review before submitting",
+        "Actions": "edit",
+        "Edit": "edit"
+      },
+      "OIDC": {
+        "Setup": "Setup an OpenID Connect Dynamic provider",
+        "Title": "OpenID Connect Provider",
+        "ConnectionStep": {
+          "Title": "Connect to your external Dynamic provider"
+        },
+        "ScopesStep": {
+          "Title": "Scopes to request"
+        },
+        "ClientSecretStep": {
+          "Title": "Set your shared client secret"
+        }
+      },
+      "SAML": {
+        "Setup": "Setup a SAML Dynamic Provider",
+        "Title": "SAML Provider",
+        "ServiceProviderStep": {
+          "Title": "Define the service provider (that's you)"
+        },
+        "SigningStep": {
+          "Title": "Select certificate to sign requests or click 'Next' to skip"
+        },
+        "ExternalProviderStep": {
+          "Title": "External IdP Setup",
+          "MetadataValidTitle": "IdP Metadata Address Validation Success",
+          "MetadataValidMsg": "External identity provider metadata address exists and returns valid IdP metadata file.",
+          "MetadataInValidTitle": "IdP Metadata Address Validation Failed",
+          "MetadataInValidMsg": "External identity provider metadata address either does not exist or is returning an invalid metadata file."
+        }
+      }
+    },
+    "Success": {
+      "Updated": "Updated DynamicAuth Successfully"
+    },
+    "SPEntityID": {
+      "Label": "SP Entity ID",
+      "Help": "Unique identifier for this Service Provider"
+    },
+    "SpMetadataAddress": {
+      "Label": "SP Metadata Path",
+      "Help": "Metadata Path of this Service Provider"
+    },
+    "SAML": {
+      "RequireEncryptedAssertions": {
+        "Label": "Require Encrypted Assertions",
+        "Help": "Sign-on Response validation will fail if the response does not contain encrypted assertions"
+      },
+      "RequireSignedAssertions": {
+        "Label": "Require Signed Assertions",
+        "Help": "Sign-on response validation will fail if the response does not contain signed assertions"
+      },
+      "SignAuthenticationRequests": {
+        "Label": "Sign Authentication Requests",
+        "Help": "The service provider will always sign generated requests"
+      },
+      "RequireValidMetadataSignature": {
+        "Label": "Require Valid Metadata Signature",
+        "Help": "Require IdP metadata to pass signature validation"
+      },
+      "IdpMetadataAddress": {
+        "Label": "IdP Metadata Address",
+        "Help": "Must start with 'https://'",
+        "ReachableWarning": "Unable to reach the address"
+      },
+      "AllowIdpInitiatedSso": {
+        "Label": "Allow IdP Initiated SSO",
+        "Help": "Allows single sign-on to be initiated by the Identity Provider (not recommended)"
+      },
+      "IdPInitiatedSsoCompletionPath": {
+        "Label": "IdP Initiated SSO Completion Path",
+        "Help": "Endpoint to redirect to upon successful IdP-initiated SSO"
+      },
+      "TimeComparisonTolerance": {
+        "Label": "Time Comparison Tolerance",
+        "Help": "In seconds"
+      }
+    },
+    "RequestSigningSignature": {
+      "Label": "Request Signing Signature",
+      "Help": "Signed Certificate of this Service Provider",
+      "Subject": {
+        "Label": "Subject"
+      },
+      "ThumbPrint": {
+        "Label": "ThumbPrint"
+      },
+      "Expiration": {
+        "Label": "Expiration date"
+      },
+      "Options": {
+        "Add": "Add Certificate",
+        "Replace": "Replace Certificate",
+        "Delete": "Delete Certificate",
+        "NoCertificate": "No Certificate found"
+      }
+    }
+  },
+  "Secret Picker": {
+    "Set Expiration Button": "Set optional expiration",
+    "HiddenValue": "Value is hidden",
+    "LastWarning": "WARNING: you will not be able to access the value of secrets after creating them",
+    "ReadCertificate": "Read Certificate",
+    "UploadCert": "Upload Certificate",
+    "UploadCertHelp": "Upload a valid .cer file",
+    "MetaData": "Certificate Meta Data",
+    "MetaDataHelp": "Enter the base64 certificate content"
+  },
+  "Notifications": {
+    "Success": "Success",
+    "Failure": "Failure",
+    "Failed": "Failed",
+    "Sorry": "Sorry",
+    "Delete Error Title": "Error Deleting",
+    "Delete User Message": "There has been a problem removing that user",
+    "Saving Error Title": "Error Saving",
+    "Saving Error Message": "There has been a problem saving your changes",
+    "Saving Success Title": "Success",
+    "Saving Success Message": "Your changes have been saved",
+    "SuccessfullyCreated": "Successfully Created",
+    "SuccessfullySaved": "Successfully Saved",
+    "SuccessfullyDeleted": "Successfully Deleted",
+    "UsernameTaken": "Username already taken",
+    "AccountCreated": "Account Created",
+    "AllAppsRevoked": "All Apps Successfully Revoked",
+    "AppRevoked": "App Successfully Revoked",
+    "UnsavedChangesTitle": "Unsaved Changes",
+    "UnsavedChanges": "You have unsaved changes.",
+    "ContinueWithoutSaving": "Do you want to navigate away without saving?",
+    "DiscardChanges": "Discard Changes",
+    "StayHere": "Stay Here",
+    "SomethingWrong": "Something went wrong",
+    "CheckLogs": "Please check logs.",
+    "Apology": "We Sent You Back To The Homepage Due To A Crash",
+    "Support": "Message Us At support@identityserver.com For More Assistance",
+    "Reset Success Message": "Password reset successful",
+    "Reset Error Message": "There has been a problem reseting the user's password",
+    "Notice": "Notice",
+    "DontForgetToSave": "Don't forget to save your changes",
+    "Error": "Error",
+    "Unauthorized": "Unauthorized",
+    "CertValidTitle": "Certificate Validation Succeeded",
+    "CertInValidTitle": "Certificate Validation Failed",
+    "CertInValidMsg": "Certificate or password are incorrect, please try again making sure to upload a .p12 or .pfx file with correct password. Or click 'Clear' and 'Next' to skip this step.",
+    "StarterModeFailed" : "Starter Mode could not be activated"
+  },
+  "Settings": {
+    "Title": "Settings",
+    "AccessPolicy": {
+      "ClaimType": "Claim Type",
+      "ClaimValue": "Claim Value",
+      "Permission": "Permission",
+      "Add": "Add Policy",
+      "NewPolicy": "New Access Policy",
+      "Save": "Save",
+      "ConfirmSave": "Are you sure you want to update your access policy with these changes?",
+      "ConfirmChanges": "Confirm access policy update",
+      "SaveYes": "Save Changes",
+      "SaveNo": "No, dont save",
+      "InvalidClaimType": "No Claim Type Selected",
+      "InvalidClaimValue": "No Value Entered",
+      "InvalidPermission": "No Permission Selected",
+      "AccessPolicyUpdated": "Access Policy Updated",
+      "AccessPolicyConflict": "Conflict: A more recent Access Policy exists"
+    },
+    "Keys": {
+      "NoKeys": "No Keys",
+      "Id": "ID",
+      "Version": "Version",
+      "Created": "Created",
+      "Algorithm": "Algorithm", 
+      "IsX509Certificate": "X509Certificate",
+      "RemovedKey": "Removed Key",
+      "DeleteKey": "Delete Key" 
+    }  
+  },
+  "LandingPage": {
+    "Welcome": "Welcome to",
+    "AdminCreation": "AdminUI Admin User Creation",
+    "LatestNews": "Latest News",
+    "IntroParagraph1": "The leading user and configuration management tool for IdentityServer.",
+    "IntroParagraph2": "For licensing enquiries, please contact:",
+    "Documentation": "Documentation",
+    "APIDocs": "API Docs",
+    "IdentityServerError": "Unable to contact IdentityServer{{error}}. More help can be found <a href='{{link}}' target='_blank'>here</a>.",
+    "APIError": "Unable to contact the API{{error}}. More help can be found <a href='{{link}}' target='_blank'>here</a>.",
+    "UIError": "Problem with the UI{{error}}.",
+    "DefaultUserRemoved": "Default Administrator Removed"
+  },
+  "Permission": {
+    "UserManager": "User Manager",
+    "UserManagerReadOnly": "User Manager Read Only",
+    "IdentityServerManager": "IdentityServer Manager",
+    "IdentityServerManagerReadOnly": "IdentityServer Manager Read Only",
+    "Auditer": "Auditer",
+    "All": "All",
+    "AllReadOnly": "All Read Only"
+  },
+  "Auditing": {
+    "Title": "Auditing",
+    "SearchAudits": "Search Audits",
+    "NoAuditsFound": "No audits found",
+    "When": "When",
+    "Subject": "Subject",
+    "Resource": "Resource",
+    "Source": "Source",
+    "Action": "Action",
+    "Description": "Description",
+    "Succeeded": "Succeeded",
+    "ToggleDetails": "Toggle details",
+    "FromDate": "From date (UTC)",
+    "FromDateWarning": "From date cannot be in the future",
+    "ToDate": "To date (UTC)",
+    "ToDateBehindWarning": "To date cannot be before from date",
+    "SetDateToday": "Set date to today",
+    "Today": "Today",
+    "SetDateLast24Hours": "Set date for last 24 hours",
+    "24Hours": "24 hours",
+    "SetDateYesterday": "Set date to yesterday",
+    "Yesterday": "Yesterday",
+    "SetDateLastWeek": "Set date to week",
+    "Week": "Week",
+    "ResultsPerPage": "Results per page",
+    "ActiveFilters": "Active filters",
+    "AddFilter": "Add filter",
+    "AddFilterTerm": "Add filter term",
+    "ShowFilters": "Show filters",
+    "HideFilters": "Hide filters",
+    "FilterTerm": "Filter term",
+    "FilterTermPlaceholder": "Filter term...",
+    "RemoveFilter": "Remove filter",
+    "Showing": "Showing",
+    "ExecuteAndDownload": "Execute and download",
+    "DownloadResults": "Export",
+    "ExecuteAndDisplay": "Update results",
+    "UpdateWarning": "Click \"Update results\" to see your changes",
+    "Reset": "Reset",
+    "Result": "Result",
+    "First page of results": "First page of results",
+    "Previous page of results": "Previous page of results",
+    "Next page of results": "Next page of results",
+    "Last page of results": "Last page of results"
+  },
+  "Resource": {
+    "Resource": "",
+    "user": "User",
+    "role": "Role",
+    "claimType": "Claim Type",
+    "client": "Client",
+    "identityResource": "Identity Resource",
+    "protectedResource": "Protected Resource",
+    "serviceProvider": "Service Provider",
+    "relyingParty": "Relying Party"
+  },
+  "Webhooks": {
+    "ResetPassword": "Reset Password",
+    "ResetMFA": "Reset MFA",
+    "UserRegistration": "User Registration",
+    "EnsureHttps": "Ensure these URLs are HTTPS",
+    "ProtectingScope": "Protecting Scope",
+    "EnableWebhook": "Enable Webhook",
+    "EnableWebhooks": "Enable All Webhooks",
+    "MultiFactorHeading": "Multi-factor Authentication Reset",
+    "PasswordResetHeading": "Password Reset",
+    "UserRegistrationHeading": "User Registration",
+    "ServerSideSessionDeleteHeading": "Server Side Session Deletion",
+    "WebhookConfigurationUpdated": "Webhook Configuration Updated",
+    "ClientCreationWarningTitle": "Client Creation",
+    "ClientCreationWarningDescription": "Enabling webhooks will create a client, do you wish to continue?",
+    "ClientDeletionWarningTitle": "Client Deletion",
+    "ClientDeletionWarningDescription": "Disabling webhooks will remove the associated client, do you wish to continue?"
+  },
+  "InitialAdminCreation": {
+    "SuccessMessage": "You have successfully created your initial administrator for AdminUI.",
+    "LoginMessage": "You can now log into AdminUI and manage your IdentityServer solution.",
+    "EmbeddedCredentialsWarning": " Before you can get started with AdminUI, you need to create a administrator as the current login uses insecure embedded credentials.",
+    "PasswordHashMessage": "User passwords are created using the default ASP.NET Identity hashing algorithm.",
+    "PermissionsInfoMessage": " For more information on the role and permissions your user will have, see our <a class='tw-inline-block tw-text-blue-500 hover:tw-text-body trans' href='documentation/adminui/Access_Policy/Access_Policy/' target='_blank'> Access Policy Docs</a>",
+    "ReminderMessage": "You database still contains the default AdminUI Administrator. Please remove.",
+    "Resolve": "Resolve"
+  },
+  "SessionManagement": {
+    "Created": "Created",
+    "Expires": "Expires",
+    "Renewed": "Renewed",
+    "Scheme": "Scheme",
+    "NoExpiration": "Sessions Has No Expiration",
+    "NotRenewed": "Session Not Renewed",
+    "NoSessionsFound": "No Sessions Found"
+  },
+  "StarterMode": {
+    "RequiresUpgrade": "Requires upgrade from starter license",
+    "UpgradeAdminUI": "Upgrade to AdminUI Enterprise",
+    "ExtendDemo": "Extend Demo License",
+    "ConfirmStarterMode": "Confirm Starter Mode",
+    "Warning": "You are now in Starter mode. Authentication is disabled.",
+    "Consent": {
+      "Title": "Your AdminUI Demo license has expired",
+      "Description": "Upon confirming Starter Mode, AdminUI will transition to a free Starter license. The following restrictions will apply:",
+      "Features": {
+        "Authentication": "Authentication will be removed",
+        "Clients": "The number of Client applications is capped at 3",
+        "ClientFlows": "Only Auth Code + PKCE and Machine to Machine client flows are supported",
+        "Users": "The number of Users is capped at 10",
+        "Import": "Import and Export of Client configuration are not supported",
+        "Audits": "Audit logs cannot be viewed or managed",
+        "DynamicAuth": "Dynamic Authentication Providers cannot be managed"
+      },
+      "NonAdminUser": "You are not an admin user. Only an admin user can activate Starter Mode."
+    },
+    "ConfirmationModal": {
+      "Title": "Confirm AdminUI Starter Mode",
+      "Description": "AdminUI will now log you out and refresh, you will then be able to simply click login to access AdminUI without authentication with the configured IdentityServer.",
+      "Warning": "WARNING: THIS SHOULD NOT BE DONE FOR PRODUCTION ENVIRONMENTS"
+    },
+    "Teaser": {
+      "Title": "Upgrade to AdminUI Enterprise",
+      "TitleWithFeature": "Upgrade to AdminUI Enterprise to benefit from {0}",
+      "Description": "Fully unlock AdminUI's potential to support your IdentityServer solution and have access to:",
+      "RedirectedDescription": "Get {0} and other benefits by fully unlocking AdminUI's potential. Support your IdentityServer solution and have access to:",
+      "Features": {
+        "Authentication": "Secure authentication into AdminUI",
+        "UsersAndClients": "Managing unlimited users and client applications",
+        "ExtraClientFlows": "Managing additional client application flows",
+        "Access": "Fine grained access control of AdminUI",
+        "Import": "Import and export of client configuration across environments",
+        "Audits": "Full auditable control of AdminUI and IdentityServer operations",
+        "DynamicAuth": "Managing Dynamic Authentication Providers"
+      }
+    },
+    "Clients": {
+      "Basic": "Basic setup",
+      "Enterprise": "Enterprise setup",
+      "ExtraClientFlows": "more Client application flows"
+    }
+  }
+}

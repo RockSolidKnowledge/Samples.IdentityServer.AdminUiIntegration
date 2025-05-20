@@ -1,0 +1,146 @@
+body {
+    margin: 1em;
+}
+
+.active a {
+    color: red;
+    font-weight: bold;
+}
+
+.btn-light {
+    background: transparent;
+    border-color: #EEE;
+}
+
+.btn-light:hover {
+    background: #EEE;
+    border-color: #EEE;
+    color: #404040;
+}
+
+.btn-line-subtle {
+    color: #404040;
+    border-color: #404040;
+}
+
+.btn-line-subtle:hover {
+    color: black;
+    border-color: black;
+}
+
+.header-overlay-colour {
+    background-color: rgba(86, 86, 85, 0.1);
+}
+
+.cms h1, .cms h2, .cms h3, .cms h4, .cms h5, .cms strong, .cms i {
+    color: #404040;
+}
+
+.cms > pre {
+    margin-bottom: 1.5rem;
+    margin-top: .5rem;
+}
+
+.cms > pre,
+.cms > .md-fenced-code-tabs .code-tabpanel > pre {
+    padding: 1rem 1.5rem;
+    overflow: auto;
+    resize: vertical;
+}
+
+.cms > pre,
+.cms > .md-fenced-code-tabs .code-tabpanel > pre,
+.cms > pre code[class*=language],
+.cms > .md-fenced-code-tabs .code-tabpanel > pre code[class*=language] {
+    background-color:#000913;
+    border-radius: 0;
+    color:#bfbfbf;
+    display: block;
+    font-family: Consolas, Monaco, Andale Mono, Courier New, monospace;
+    font-size: .875rem;
+    -webkit-hyphens: none;
+    -ms-hyphens: none;
+    hyphens: none;
+    -moz-tab-size: 4;
+    -o-tab-size: 4;
+    tab-size: 4;
+    text-align:left;
+    white-space: pre;
+    word-wrap: normal;
+    word-break: normal;
+    word-spacing: normal;
+}
+
+.cms > pre:not(:first-child),
+.cms > .md-fenced-code-tabs .code-tabpanel > pre:not(:first-child) {
+    margin-top: 1.5rem;
+}
+
+.cms > :not(pre):not(.md-fenced-code-tabs) code {
+    background: #f7f7f9;
+    border-color: #e1e1e8;
+    border-radius: .25rem;
+    border-width: 1px;
+    color: #d14;
+    display: inline-block;
+    font-family: Consolas, Monaco, Andale Mono, Courier New, monospace;
+    font-size: .875rem;
+    padding: 2px 5px;
+    word-break: break-all;
+}
+
+/* admonition */
+
+/* fenced-code-tabs */
+
+.md-fenced-code-tabs * {
+    box-sizing: border-box;
+}
+
+.md-fenced-code-tabs {
+    display: flex;
+    position: relative;
+    flex-wrap: wrap;
+    width: 100%;
+    margin: 0 0 1rem 0;
+}
+
+.md-fenced-code-tabs input {
+    position: absolute;
+    opacity: 0;
+}
+
+.md-fenced-code-tabs label {
+    border-bottom: 2px solid rgba(0,0,0,.15);
+    color: #444;
+    cursor: pointer;
+    margin: 0;
+    padding: .5rem .75rem;
+    transition: all .15s ease-in-out;
+    width: auto;
+}
+
+.md-fenced-code-tabs label:hover,
+.md-fenced-code-tabs label:focus {
+    color: #ff4136;
+}
+
+.md-fenced-code-tabs input:checked + label {
+    color: #ff4136;
+    border-bottom-color: #ff4136;
+}
+
+.md-fenced-code-tabs .code-tabpanel {
+    display: none;
+    order: 99;
+    width: 100%;
+}
+
+.md-fenced-code-tabs input:checked + label + .code-tabpanel {
+    display: block;
+}
+
+.md-fenced-code-tabs pre {
+    margin: 0;
+    width: 100%;
+}

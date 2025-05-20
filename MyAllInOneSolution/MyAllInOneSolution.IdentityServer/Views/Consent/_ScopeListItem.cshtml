@@ -1,0 +1,34 @@
+﻿@model MyAllInOneSolution.IdentityServer.Models.ScopeViewModel
+
+<li class="form-checks__item">
+	<label class="form-checks__label">
+		<input class="form-checks__input"
+					 type="checkbox"
+					 name="ScopesConsented"
+					 id="scopes_@Model.Value"
+					 value="@Model.Value"
+					 checked="@Model.Checked"
+					 disabled="@Model.Required" />
+		<span class="form-checks__text">
+			@Model.DisplayName
+			@if (Model.Required)
+			{
+				<span class="text-red" aria-label="Required">*</span>
+			}
+			@if (Model.Emphasize)
+			{
+				<span class="fas fa-exclamation-triangle text-orange text-sm ml-1"></span>
+			}
+			@if (Model.Description != null)
+			{
+				<span class="block font-normal text-navy-light text-sm mt-1">@Model.Description</span>
+			}
+		</span>
+		@if (Model.Required)
+		{
+			<input type="hidden"
+						 name="ScopesConsented"
+						 value="@Model.Value" />
+		}
+	</label>
+</li>

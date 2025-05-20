@@ -1,0 +1,1739 @@
+{
+  "Common": {
+    "Saving": "Speichern",
+    "LicenseIsInGracePeriod": "Ihre Lizenz ist abgelaufen, bitte verlängern Sie Ihr Abonnement bis {0}, um die AdminUI weiterhin zu verwenden",
+    "PolicyWithUTCNotice": "Ausgewählte<br/>ZugriffsrichtlinienDaten sind in UTC",
+    "ID": "ID",
+    "Add": "Hinzufügen",
+    "True": "wahr ",
+    "False": "falsch",
+    "Edit": "Bearbeiten",
+    "Cancel": "Abbrechen",
+    "Clear": "Löschen",
+    "Save": "Speichern",
+    "Saved": "Gespeichert",
+    "Scheme": "Programm",
+    "DontSave": "Nicht speichern",
+    "Enabled": "Aktiviert",
+    "Disabled": "Deaktiviert",
+    "Required": "Erforderlich",
+    "Removed": "Entfernt",
+    "Advanced": "Erweitert",
+    "DisplayName": "Anzeigename",
+    "DisplayURL": "Anzeige-URL\r",
+    "LogoURL": "Logo-URL",
+    "LogoutURL": "Abmelde-URL",
+    "Callback": "Rückruf",
+    "CallbackURL": "Rückruf-URL",
+    "CORSUrl": "CORS-URL",
+    "CORS": "CORS",
+    "Description": "Beschreibung",
+    "ExpirationDate": "Ablaufdatum",
+    "Expiration": "Ablauf",
+    "Invalid": "Ungültig",
+    "Emphasize": "Hervorheben",
+    "EmphasizeReadOnly": "Wird die Ressource im Einwilligungsfenster hervorgehoben",
+    "Back": "Zurück",
+    "Next": "Weiter",
+    "Submit": "Absenden",
+    "Status": "Status",
+    "URL": "URL",
+    "LogoutUri": "Logout-URL",
+    "Close": "Schließen",
+    "Change": "Ändern",
+    "Logo": "Logo",
+    "Info": "Info",
+    "Email": "E-Mail",
+    "Phone": "Telefon",
+    "Name": "Name",
+    "Created": "Erstellt",
+    "Added": "Hinzugefügt",
+    "Expires": "Läuft ab",
+    "Reserved": "reserviert",
+    "Secrets": "Geheimnisse",
+    "GenerateRandom": "Eine zufällige 32-Zeichen-Zeichenfolge generieren",
+    "Restrictions": "Einschränkungen",
+    "Never": "Nie",
+    "OK": "OK",
+    "Yes": "Ja",
+    "No": "Nein",
+    "Note": "Hinweis",
+    "Signout": "Abmelden",
+    "Revoke": "Widerrufen",
+    "String": "Zeichenfolge",
+    "Number": "Zahl",
+    "Date": "Datum",
+    "Error": "Fehler",
+    "Type": "Typ",
+    "Value": "Wert",
+    "Button": "Schaltfläche",
+    "DatePicker": "Datumsauswahl",
+    "Boolean": "boolesch",
+    "Text": "Text",
+    "Search": "Suchen ...",
+    "Authenticating": "Wird authentifiziert",
+    "Loading": "Wird geladen",
+    "AreYouSureContinue": "Möchten Sie wirklich fortfahren?",
+    "CompanyName": "Rock Solid Knowledge Ltd",
+    "AppName": "IdentityExpress AdminUI",
+    "Password": "Passwort",
+    "Policy": "Zugriffsregelung",
+    "Minute": "Min.",
+    "Hour": "Std.",
+    "Hours": "Stdn.",
+    "Day": "Tag",
+    "Week": "Woche",
+    "Month": "Monat",
+    "Year": "Jahr",
+    "Reset": "Zurücksetzen",
+    "SaveAll": "Alle speichern",
+    "Custom": "Benutzerdefiniert",
+    "Or": "Oder",
+    "Update": "Aktualisieren",
+    "Test": "Testen",
+    "ValidateCert": "Zertifikat validieren",
+    "ValidateMetadata": "Metadaten validieren",
+    "Dates": {
+      "UTCWarning": "Ausgewählte Daten sind in UTC"
+    },
+    "Wizards": {
+      "Review": "Eine Chance zur Überprüfung vor dem Absenden",
+      "Empty": "Hoppla... Es ist ein unerwarteter Fehler aufgetreten"
+    },
+    "ComingSoon": "Demnächst verfügbar",
+    "RedirectUris": "URIs weiterleiten",
+    "MustBeHttpsInProduction": "Diese Protokolle basieren auf TLS in der Produktion",
+    "Start": "Start",
+    "GrantTypes": "Typengenehmigung",
+    "Properties": "Merkmale",
+    "Warning": "Warnung",
+    "ShowMore": "Mehr anzeigen",
+    "ShowLess": "Weniger anzeigen",
+    "Thumbprint": "Daumenabdruck (Thumbprint)",
+    "Subject": "Thema",
+    "UntilExpiry": "Tag(e)",
+    "ExpiresOn": "Läuft ab am",
+    "ExpiresIn": "Läuft ab in",
+    "ReadCertificate": "Aus Zertifikat lesen",
+    "Consent": "Einwilligung",
+    "IdentityProviders": "Identitätsanbieter",
+    "PKCE": "PKCE",
+    "DeviceFlow": "Gerätefluss",
+    "SingeSignOut": "Single Sign-Out",
+    "RefreshTokens": "Token aktualisieren",
+    "Use": "Verwenden",
+    "Other": "Sonstiges",
+    "SaveAndConfigure": "Speichern & Konfigurieren",
+    "SaveAndAdd": "Speichern & einen weiteren hinzufügen",
+    "LoadingPleaseWait": "Wird geladen, bitte warten...",
+    "AddAndAdd": "Hinzufügen & Hinzufügen eines weiteren",
+    "NoDateSet": "Kein Datum festgelegt",
+    "Confirm": "Bestätigen",
+    "QuotaLimit": "Sie haben das Limit von {{limit}} für \"{{type}}\" mit AdminUI Starter erreicht/überschritten. <a class=\"tw-inline-block tw-text-blue-500 hover:tw-text-body trans\" href=\"{{href}}\" target=\"_blank\">Aktualisieren</a>, um unbegrenzt \"{{type}}\" zu verwalten.",
+    "OverQuota": "Über dem Limit, um es zu nutzen, bitte reduzieren Sie es auf",
+    "DPoP": "DPoP",
+    "Remove": {
+      "Title": "Entfernen",
+      "Confirm": "Entfernung bestätigen",
+      "No": "Nein, nicht entfernen",
+      "Continue": "Fortfahren"
+    },
+    "Delete": {
+      "Title": "Löschen",
+      "TitleUndo": "Wiederherstellen",
+      "Deleted": "Gelöscht",
+      "Confirm": "Löschen bestätigen",
+      "UndoDelete": "Wiederherstellen",
+      "ConfirmUndoDelete": "Möchten Sie wirklich den folgenden Benutzer wiederherstellen",
+      "AreYouSure": "Möchten Sie wirklich den Wert löschen für",
+      "AreYouSureSimple": "Möchten Sie wirklich das Folgende löschen",
+      "AreYouSureSimple2": "Möchten Sie wirklich das Folgende löschen",
+      "AreYouSureSimple3": "Wollen Sie dies wirklich löschen?",
+      "Warning": "Warnung: Diese Aktion kann nicht rückgängig gemacht werden.",
+      "No": "Nein, nicht löschen",
+      "FinalScopeOnResourceWarning": "Warnung: Wenn Sie diesen Bereich löschen, wird er aus der Datenbank entfernt. Diese Aktion kann nicht rückgängig gemacht werden."
+    },
+    "Types": {
+      "String": "Zeichenfolge",
+      "Int": "Int",
+      "DateTime": "DateTime",
+      "Boolean": "Boolescher Wert",
+      "Name": "Name eingeben",
+      "Description": "Beschreibung eingeben",
+      "Enum": "Aufzählung"
+    },
+    "ResetPassword": {
+      "Confirm": "Zurücksetzen bestätigen",
+      "AreYouSureSimple": "Möchten Sie wirklich das Passwort zurücksetzen für",
+      "Title": "Passwort zurücksetzen",
+      "HowToSetupTitle": "Webhook zum Zurücksetzen des Benutzerkennworts einrichten",
+      "HowToSetup": "Der Webhook zum Zurücksetzen des Kennworts muss konfiguriert werden, bevor Sie diese Funktion verwenden können. Weitere Informationen finden Sie in der AdminUI Webhook-Dokumentation."
+    },
+    "ResetMfa": {
+      "Confirm": "Zurücksetzen bestätigen",
+      "AreYouSureSimple": "Möchten Sie die Mehr-Faktor-Authentifizierung wirklich zurücksetzen für",
+      "Title": "Mehr-Faktor-Authentifizierung zurücksetzen",
+      "HowToSetupTitle": "Benutzer Mfa-Reset-Webhook einrichten",
+      "HowToSetup": "Der Mfa-Reset-Webhook muss konfiguriert werden, bevor Sie diese Funktion verwenden können. Weitere Informationen finden Sie in der Dokumentation zum AdminUI-Webhook."
+    },
+    "UserEditable": "Benutzer bearbeitbar",
+    "Key": "Schlüssel",
+    "CommunityEditionBanner": "Willkommen bei der AdminUI Community Edition. Dies ist eine kostenlose Version des AdminUI-Tools zum Verwalten der IdentityServer-Konfiguration und der Benutzer. Es ist auf 10 Benutzer und 2 Clients beschränkt. Klicken Sie auf den folgenden Link, um mehr über das vollständige AdminUI-Produkt zu erfahren",
+    "Actions": "Aktionen",
+    "Assign": "Zuweisen",
+    "Unassign": "Zuweisung aufheben",
+    "Days": "Tag(e)",
+    "Weeks": "Woche",
+    "Months": "Monat(e)",
+    "Years": "Jahr(e)",
+    "Unlimited": "Unbegrenzt",
+    "Audits": "Audits",
+    "CommunityPolicyNotice": "Dies ist eine Vorschau der Bildschirmanzeige zur Zugriffsrichtlinie. In der Community Edition wurden die Funktionen zur Zugriffsrichtlinie entfernt. Sie können den Bildschirm verwenden, aber keine der Richtlinien wird greifen. Klicken Sie auf den unten stehenden Link, um mehr über das vollständige AdminUI-Produkt zu erfahren ",
+    "UserTOTPEnabled": "Benutzer hat TOTP aktiviert",
+    "ReadOnly": "Nur lesen",
+    "NoValue": "Kein Wert",
+    "NoValues": "Keine Werte ausgewählt",
+    "SameSiteCookiesError": "Ihr Browser unterstützt keine SameSite-Cookies. Das Sicherheitsmodell von AdminUI basiert auf der Verwendung von SameSite-Cookies, um sich gegen Cross-Site Request Forgery (CSRF) zu schützen. Für weitere Informationen <a href='{{link}}' target='_blank'>lesen Sie bitte über SameSite Cookies</a>.",
+    "SameSiteCookiesBannerError": "Ihr Browser unterstützt keine SameSite-Cookies. Das Sicherheitsmodell von AdminUI basiert auf der Verwendung von SameSite-Cookies, um sich gegen Cross-Site Request Forgery (CSRF) zu schützen. Bitte erwägen Sie, Ihren Browser auf die neueste Technologie zu aktualisieren. ",
+    "CIBA": "CIBA",
+    "CIBALifetime": "CIBA-Lebensdauer",
+    "PollingInterval": "Abfrageintervall",
+    "Continue": "Fortfahren",
+    "Request": "Anfrage",
+    "Claims": "Ansprüche",
+    "SignOut": "Abmelden",
+    "Metadata": "Metadaten",
+    "Tokens": "Tokens",
+    "None": "Keine",
+    "Help": "Hilfe"
+  },
+  "Dates": {
+    "UTCWarning": "Ausgewählte Daten befinden sich in UTC"
+  },
+  "Wizards": {
+    "Review": "Eine Möglichkeit, vor dem Absenden zu überprüfen",
+    "Empty": "Ups... Es scheint ein unerwarteter Fehler aufgetreten zu sein"
+  },
+  "ComingSoon": "In Kürze verfügbar",
+  "Nav": {
+    "Breadcrumbs": "Brotkrümel",
+    "Active": "Aktiv",
+    "Account": "Konto",
+    "Found": "gefunden",
+    "ResultsFound": "gefundene(s) Ergebnis(se)",
+    "PageXofX": "Seite {0} von {1}",
+    "First": "Erste",
+    "Previous": "Vorherige",
+    "Next": "Nächste",
+    "Last": "Letzte",
+    "SkipToContent": "Zum Inhalt springen",
+    "Menu": "Menü",
+    "SubMenu": "Untermenü",
+    "Claims": "Ansprüche",
+    "Secrets": "Geheimnisse",
+    "Advanced": "Erweitert",
+    "Saml": "SAML",
+    "WsFed": "WS-Fed",
+    "Logout": "Abmelden",
+    "Home": "Startseite",
+    "Users": "Benutzer",
+    "Roles": "Rollen",
+    "ClaimTypes": "Anspruchstypen",
+    "Clients": "Clients",
+    "Resources": "Ressourcen",
+    "IdentityResources": "Identitätsressourcen",
+    "ProtectedResources": "Geschützte Ressourcen",
+    "ToTop": "Zum Seitenanfang",
+    "Support": "Support",
+    "MobileListInfo": "Wenn Sie auf eine Zeile tippen, werden Sie zu den Benutzerdetails weitergeleitet",
+    "PerPage": "pro Seite",
+    "Displaying": "Wird angezeigt",
+    "Page": "Seite",
+    "of": "von",
+    "Details": "Details",
+    "Scopes": "Bereiche",
+    "Authentication": "Authentifizierung",
+    "Applications": "Anwendungen",
+    "Additional Details": "Zusätzliche Details",
+    "ToggleNavigation": "Navigation umschalten",
+    "Login": "Login",
+    "External Logins": "Externe Logins",
+    "Settings": "Einstellungen",
+    "AccessPolicy": "Zugriffsregelung",
+    "IdentityServer": "IdentityServer-Verwaltung",
+    "UserManagement": "Benutzerverwaltung",
+    "Start": "Start",
+    "Auditing": "Auditierung",
+    "Audits": "Audits",
+    "SubMenuPlaceholder": "Untermenü ...",
+    "Logins": "Anmeldungen",
+    "Properties": "Eigenschaften",
+    "Keys": "Schlüssel",
+    "Webhooks": "Webhooks",
+    "SessionManagement": "Sitzungsverwaltung",
+    "DynamicAuth": "Dynamische Authentifizierung",
+    "Request": "Anfrage",
+    "Response": "Antwort",
+    "SP": "Dienstanbieter (SP)",
+    "IdP": "Identitätsanbieter (IdP)"
+  },
+  "Errors": {
+    "UnableToCompilePolicy": "Berechtigungsrichtlinie kann nicht kompiliert werden, bitte sehen Sie sich die Protokolle an oder wenden Sie sich an einen Administrator",
+    "NotFoundTitle": "Fehler 404",
+    "NotFoundDescription": "Diese Seite oder Ressource konnte nicht gefunden werden.",
+    "ForbiddenTitle": "Fehler 403",
+    "ForbiddenDescription": "Sie sind nicht berechtigt, diese Ressource anzusehen.",
+    "UnauthenticatedTitle": "Nicht authentifiziert",
+    "UnauthenticatedDescription": "Sie werden zur Anmeldeseite weitergeleitet...",
+    "Unauthorized": "Unerlaubt",
+    "ContactAdmin": "Sie haben nicht die erforderlichen Berechtigungen, um AdminUI zu verwenden, wenden Sie sich bitte an einen Administrator",
+    "ResourceNotFound": "RessourceNichtGefunden",
+    "ResourceNotFoundDescription": "Diese Ressource kann nicht gefunden werden.",
+    "RssUnavailable": "RSS nicht verfügbar",
+    "ValidateImportError": {
+      "ImportNull": "Beim Versuch, json-Import zu lesen, ist ein Fehler aufgetreten",
+      "WrongVersion": "Die Exportdatei stammt leider aus einer inkompatiblen Version von AdminUI ({0}). Es werden nur die Versionen 2.6.0 – {1} unterstützt",
+      "ValidateImport": "Beim Importieren ist leider ein Problem aufgetreten. Bitte noch einmal versuchen."
+    },
+    "CloneClientError": {
+      "ClientIdConflict": "Mit dieser ID existiert bereits ein Client",
+      "ClientNameConflict": "Ein Client mit diesem Namen existiert bereits",
+      "QuotaReached": "Kundenkontingent erreicht",
+      "Default": "Beim Versuch, den Client zu klonen, ist ein Fehler aufgetreten."
+    },
+    "LoginLoopError": "Sie stecken in einer Anmeldungsweiterleitungsschleife fest. Weitergehende Hilfe finden Sie <a href='{{link}}' target='_blank'>hier</a>.",
+    "PathValidation": "Muss ein gültiger Pfad sein und mit '/' beginnen",
+    "PillListLimitReached": "Zu viele Werte zum Anzeigen zugewiesen, {0}/{1}",
+    "ValidateAbsoluteUri": {
+      "NullOrUndefined": "Muss festgelegt sein",
+      "MustBeAbsolute": "URI muss absolut sein",
+      "MustNotContainQueryFragmeant": "URI darf keine Abfrage oder Fragment enthalten"
+    },
+    "DynamicAuthentication": {
+      "SchemeHealthHttp": "Die Überprüfung der Datenbank für dynamische Authentifizierung ist mit dem Statuscode fehlgeschlagen: {{status}}",
+      "SchemaHealth": "Es gibt ein Problem mit der dynamischen Authentifizierung von RSK. Es scheint, dass die Datenbank nicht richtig eingerichtet ist. Gehen Sie <a class=\"tw-inline-block tw-text-blue-500 hover:tw-text-body trans\" href=\"{{href}}\" target=\"_blank\">hier</a> hin, um weitere Informationen zur Behebung dieses Problems zu erhalten."
+    }
+  },
+  "Index": {
+    "Title": "Dashboard",
+    "LicensedTo": "Lizenziert für",
+    "LicenseType": "Lizenztyp",
+    "Users": {
+      "Title": "Benutzerverwaltung",
+      "Body": "Verwalten Sie IdentityServer-Benutzer mit Leichtigkeit."
+    },
+    "Claims": {
+      "Heading": "Ansprüche",
+      "Title": "Anspruchs- und Rollenverwaltung",
+      "Body": "Anspruchstypen und Rollen für Benutzer und Anwendungen verwalten"
+    },
+    "IdentityServer": {
+      "Title": "IdentityServer-Konfiguration",
+      "Body": " IdentityServer-Clientanwendungen und geschützte Ressourcen in den Abschnitten Clients und Ressourcen verwalten"
+    }
+  },
+  "Users": {
+    "Title": "Benutzer",
+    "Singular": "Benutzer",
+    "SearchPlaceholder": "Benutzername, vollständiger Name oder E-Mail beginnen mit...",
+    "AddUser": "Benutzer hinzufügen",
+    "NewUser": "Neuer Benutzer",
+    "SearchUser": "Nach einem Benutzer suchen ...",
+    "MinimumSearchLength":"Die minimale Suchlänge beträgt 2 Zeichen",
+    "Filter": {
+      "Active": "Aktiv",
+      "Blocked": "Gesperrt",
+      "Label": "Nur folgende Benutzer anzeigen",
+      "IncludeClaims": "Forderungswerte einschließen",
+      "IncludeClaimsHelp": "Wird nach Benutzeransprüchen suchen. Kann die Leistung beeinträchtigen.",
+      "Deleted": "Gelöscht",
+      "StoredProcedureErrorMessage": "Beim Filtern ist ein Fehler aufgetreten. Bitte überprüfen Sie, ob Sie die AdminUI Stored Procedures in Ihrer Datenbank haben."
+    },
+    "Username": "Benutzername",
+    "FullName": "Vollständiger Name",
+    "Email": "E-Mail-Adresse",
+    "FirstName": "Vorname",
+    "LastName": "Nachname",
+    "Details": {
+      "AddClaim": "Anspruch hinzufügen",
+      "AdditionalDetailsBody": "Konfigurieren Sie optionale Details zum Benutzer. Besuchen Sie bitte zum Erstellen neuer Typen den Abschnitt Anspruchstypen der UI."
+    },
+    "CopyValue": "Wert aus Details kopieren",
+    "NoUsersFound": "Keine Benutzer gefunden",
+    "AddAnother": "Nach dem Absenden einen weiteren Benutzer hinzufügen",
+    "CloseBox": "<strong>Hinzufügen<\/strong> schließt dieses Feld und bringt Sie zurück zur Benutzerliste.",
+    "Password": {
+      "Requirements": {
+        "1": "Mindestens ein Großbuchstabe",
+        "2": "Mindestens ein Kleinbuchstabe",
+        "3": "Mindestens eine Ziffer",
+        "4": "Mindestens ein Sonderzeichen (# ? ! @ $ % ^ & * -)",
+        "5": "Mindestens 8 Zeichen lang"
+      },
+      "Title": "Passwort",
+      "DemoTitle": "Aktiviert für die Demo-Verwendung",
+      "DemoLink": "Was ist das?"
+    },
+    "Delete": {
+      "DeletedUser": "Der Benutzer wurde gelöscht.",
+      "AuditingPurposes": "Die Benutzerdaten bleiben für Prüfzwecke zugänglich",
+      "Confirmation": "{0} wurde gelöscht. Die Benutzerdaten bleiben für Prüfzwecke zugänglich"
+    },
+    "First page of results": "Erste Seite der Ergebnisse",
+    "Previous page of results": "Vorherige Seite der Ergebnisse",
+    "Last page of results": "Letzte Seite der Ergebnisse",
+    "Next page of results": "Nächste Seite der Ergebnisse",
+    "Applications": {
+      "Access": "Anwendungen, für die der Benutzer seine Zustimmung gegeben hat oder derzeit für Sie über IdentityServer-Token verfügt.",
+      "None": "Keine Anwendungen für diesen Benutzer gefunden",
+      "RevokeApp": "Anwendung widerrufen",
+      "RevokeUserConfirm": "Dies widerruft den Zugriff auf",
+      "ForUser": "für Benutzer",
+      "RevokeYes": "Ja, Anwendung widerrufen",
+      "Accessible": "Ressourcen/Bereiche, die für die Anwendung zugänglich sind:",
+      "Revoke": "Widerrufen",
+      "DontRevoke": "Nein, nicht widerrufen",
+      "RevokeAll": "Alle widerrufen",
+      "DontRevokeAll": "Nein, nicht alle widerrufen",
+      "RevokeConfirm": "Möchten Sie den Zugriff für alle Anwendungen in diesem Konto widerrufen?",
+      "DataEncrypted": "Aufgrund der IdentityServer-Datenschutzkonfiguration werden die Bereiche hier möglicherweise nicht angezeigt."
+    },
+    "AssignedRoles": "Zugewiesene Rollen",
+    "LockoutEnabled": "Sperrung aktiviert",
+    "LockoutEnd": "Ende der Sperrung"
+  },
+  "UserDetails": {
+    "EnabledTwoFactor": "Aktivieren Sie die Zwei-Faktor-Authentifizierung für ASP.NET-Identität",
+    "EnabledTwoFactorHelp": "Abhängig von Ihrer IdentityServer-Implementierung hat dies möglicherweise keine Auswirkungen",
+    "EnabledTwoFactorReadOnly": "Die ASP.NET Identity Zwei-Faktor-Authentifizierung ist aktiviert",
+    "NoRolesFoundWarning": "Für diesen Benutzer wurden keine Rollen gefunden",
+    "NoClaimsMessage": "Keine zusätzlichen Details für diesen Benutzer gefunden",
+    "AdditionalDetailsBlurb": "",
+    "Active": "Aktiv",
+    "Blocked": "Gesperrt",
+    "Title": "Benutzerdaten",
+    "Assigned": "Zugewiesen",
+    "Available": "Verfügbar",
+    "Search Roles": "Nach Rollen suchen ...",
+    "Select Type": "Typ auswählen",
+    "Value": "Wert",
+    "Name": "Name",
+    "Search for apps": "Nach Apps suchen",
+    "Password": "Passwort",
+    "New Password": "Neues Passwort",
+    "Confirm Password": "Passwort bestätigen",
+    "Two Step": "Zwei Stufen",
+    "Copy Value": "Wert aus Details kopieren",
+    "Phone Number": "Telefonnummer",
+    "Email Address": "E-Mail-Adresse",
+    "MisMatchPasswordWarning": "Die Passwörter stimmen <u>nicht<\/u> überein",
+    "PasswordMatchMessage": " Passwörter stimmen überein",
+    "ChangePassword": "Passwort zurücksetzen",
+    "UnauthorizedWarning": "Sie haben nicht die erforderlichen Berechtigungen, um diesem Benutzer dieses Anrecht zuzuweisen",
+    "UnauthorizedWarningEdit": "Sie haben nicht die erforderlichen Berechtigungen, um dieses Anrecht für diesen Benutzer zu ändern",
+    "UnauthorizedWarningDelete": "Sie haben nicht die erforderlichen Berechtigungen, um dieses Anrecht dieses Benutzers zu löschen.",
+    "ResetMfa": "MFA zurücksetzen"
+  },
+  "UserLogins": {
+    "ProviderDisplayName": "Name des Anbieters anzeigen",
+    "LoginProvider": "Login des Anbieters",
+    "ProviderKey": "Benutzeridentität",
+    "NoLogins": "Keine externen Logins für diesen Benutzer gefunden",
+    "RevokeExternalLogin": "Externes Login widerrufen",
+    "RevokeLoginConfirmationText": "Sind Sie sicher, dass Sie dieses externe Login widerrufen wollen?"
+  },
+  "ClaimTypes": {
+    "SearchPlaceholder": "Name des Anspruchstyps enthält...",
+    "NameHelp": "Der Name, der zur Identifizierung der Anspruchsart verwendet wird",
+    "DisplayNameHelp": "Ein freundlicher Name für die Anspruchsart",
+    "TooManyAllowedValues": "Zu viele Werte zum Anzeigen",
+    "TypeaheadHelp": "Zu viele Optionen, zum Filtern eingeben...",
+    "AllowedValuesFiltering": {
+      "FilteringAllowedValues": "Beim Filtern zulässiger Werte für den Anspruchstyp ist ein Fehler aufgetreten.",
+      "NothingFound": "Nichts gefunden!",
+      "TooManyFound": "Zu viele mögliche Werte gefunden, bitte weiter filtern."
+    }
+  },
+  "Roles": {
+    "SearchPlaceholder": "Rollenname enthält...",
+    "AreYouSureRemove": "Sind Sie sicher, dass Sie <b>{0}</b> aus <b>{1}</b> löschen möchten?",
+    "UpdateBadRequest": "Ihre Anfrage konnte nicht bearbeitet werden",
+    "ManageUsers": "Nutzer verwalten",
+    "AddUsers": "Nutzer hinzufügen",
+    "AddRemoveUsersFromRole": "Nutzer zu <b>{0}</b> hinzufügen oder daraus entfernen",
+    "User": "Nutzer",
+    "InRole": "In Rolle",
+    "SearchAllUsers": "Alle Nutzer durchsuchen",
+    "Adding": "Wird hinzugefügt",
+    "Removing": "Wird entfernt",
+    "CancelAdding": "Hinzufügen abbrechen",
+    "CancelRemoving": "Entfernen abbrechen",
+    "NoUsersAdding": "Es werden keine Benutzer hinzugefügt",
+    "NoUsersRemoving": "Es werden keine Benutzer entfernt",
+    "RoleUserManagement": "Benutzerrollenverwaltung",
+    "AddRemoveUserFromRole": "Nutzer hinzufügen oder entfernen aus",
+    "NoResults": "Keine passenden Nutzer gefunden.",
+    "NotSelected": "Nach Benutzern suchen, die dieser Rolle hinzugefügt oder daraus entfernt werden sollen (mindestens 2 Zeichen)",
+    "SavingPleaseWait": "Speichern, bitte warten ...",
+    "AddRole": "Rolle hinzufügen",
+    "Role": "Rolle",
+    "NewRole": "Neue Rolle",
+    "AddAnother": "Nach dem Absenden eine weitere Rolle hinzufügen",
+    "AddAnotherInfo": "Wenn Sie <strong>Nach dem Absenden eine weitere Rolle hinzufügen\"<\/strong> auswählen, wird dieses Dialogfeld nach dem Erstellen einer Rolle geöffnet, sodass Sie problemlos eine weitere hinzufügen können.",
+    "CloseReturnsRoleList": "<strong>Hinzufügen<\/strong> schließt dieses Feld und bringt Sie zurück zur Rollenliste.",
+    "RoleRemoved": "Die Rolle wurde entfernt",
+    "Search": "Nach einer Rolle suchen ...",
+    "ReservedHelp": "Diese Rolle ist reserviert und kann nicht bearbeitet werden",
+    "Reserved": "reserviert",
+    "NoRolesFound": "Keine Rollen gefunden",
+    "RoleCreated": "Rolle erstellt",
+    "Success": "Rollen erfolgreich aktualisiert",
+    "AreYouSureDelete": "Sind Sie sicher, dass Sie sie löschen wollen",
+    "AssignUnauthorized": "Sie haben nicht die erforderlichen Berechtigungen, um diese Rolle zuzuweisen",
+    "UnassignUnauthorized": "Sie haben nicht die erforderlichen Berechtigungen, um diese Rolle aufzuheben",
+    "UpdateUnauthorized": "Sie haben nicht die erforderlichen Berechtigungen, um diese Rolle zu aktualisieren",
+    "DeleteUnauthorized": "Sie haben nicht die erforderlichen Berechtigungen, um diese Rolle zu löschen.",
+	"TrimWhitespaceHelp":  "Alle Leerzeichen werden vom Anfang und Ende des Namens abgeschnitten"
+  },
+  "Claims": {
+    "Add": "Anspruchstyp hinzufügen",
+    "Title": "Anspruchstyp",
+    "New": "Neuer Anspruchstyp",
+    "ClaimTypeName": "Name des Anspruchstypen",
+    "ClaimTypeDescription": "",
+    "ClaimTypeRule": "Regel des Anspruchstypen",
+    "RegexRule": "Regex-Regel",
+    "RuleValidationFailureDescription": "Beschreibung des Regelüberprüfungsfehlers",
+    "Required": "Geforderter Anspruch",
+    "FutureUsers": "Wert muss vorhanden sein, um zukünftige Benutzer zu erstellen",
+    "AddAnother": "Wenn Sie <strong>Einen weiteren hinzufügen<\/strong> auswählen, wird dieses Dialogfeld geöffnet, sodass Sie nach dem Absenden problemlos einen weiteren hinzufügen können.",
+    "DeleteConfirmation": "Sind Sie sich sicher, dass Sie den Anspruchstyp löschen möchten",
+    "Search": "Nach einem Anspruchstyp suchen ...",
+    "UserEditable": "Der Wert kann von einem Benutzer bearbeitet werden, wenn er über die öffentliche API angezeigt wird",
+    "AssignUnassignUnauthorized": "Sie haben nicht die erforderlichen Rechte, um dieses Anrecht zuzuteilen oder aufzuheben.",
+    "NoClaimsFound": "Keine Claims gefunden",
+    "AddAnotherClaimType": "Nach dem Senden einen weiteren Anspruchstyp hinzufügen",
+    "AllowedValues": "Zulässige Werte"
+  },
+  "Resources": {
+    "SearchPlaceholder": "Ressourcenname oder -ID enthält...",
+    "AddResource": "Ressource hinzufügen",
+    "ResourceID": "Ressourcen-ID",
+    "ResourceStatus": "Ressourcenstatus",
+    "RemovedResource": "Entfernte Ressource",
+    "RemovedResourceScope": "Entfernter Ressourcenbereich",
+    "EnterBasicDetails": "Einige grundlegende Details eingeben",
+    "DescriptionHelp": "Ressourcenbeschreibung, die in Zustimmungsfenstern angezeigt wird",
+    "Failed": "Ressource konnte nicht aktualisiert werden",
+    "ResourceAddedSuccess": "Ressource erfolgreich hinzugefügt",
+    "AssignClaims": "Benutzeranspruchstypen zuweisen, die in Token enthalten sein sollen",
+    "UniqueIdentifier": "Die eindeutige Kennung für diese Ressource",
+    "ResourceName": "Ressourcenname, der in der Admin-UI verwendet wird",
+    "ResourceDescription": "Ressourcenbeschreibung, die in der Admin-UI verwendet wird",
+    "UpdatedSuccess": "Ressource erfolgreich aktualisiert",
+	"RequireResourceIndicator": "Ressourcenindikator erforderlich",
+	"RequireResourceIndicatorHelp": "Stellt sicher, dass diese Ressource nur angefordert werden kann, wenn die Anforderung den Ressourcenparameter enthält. Stellt sicher, dass Token nur diese Ressource als Zielgruppe enthalten.",
+    "Required": "Ist Einwilligung erforderlich",
+    "AssignedClaims": "Zugewiesene Claims",
+    "AssignedResources": "Zugewiesene Ressourcen",
+    "AllowedAccessTokenSigningAlgorithms": "Zulässiger Unterzeichnungsalgorithmus für Zugriffstoken",
+    "Scope": {
+      "NewScope": "Neuer Bereich für",
+      "DisplayName": "Bereichsname, der in den Zustimmungsfenstern angezeigt wird",
+      "Description": "Bereichsbeschreibung, die in den Zustimmungsfenstern angezeigt wird",
+      "ScopeFor": "Bereich für",
+      "Updated": "Bereich wurde erfolgreich aktualisiert",
+      "Failed": "Der Bereich konnte nicht aktualisiert werden",
+      "ScopeID": "Bereichs-ID",
+      "Consent": "Die Zustimmung zur Verwendung des Bereichs ist zum Abschließen der Authentifizierung erforderlich",
+      "DiscoveryDocumentDescription": "Bereich wird im Discovery-Dokument angezeigt (\/.well-known\/openid-configuration)",
+      "EmphasiseScope": "Den Bereichsnamen im Zustimmungsfenster hervorheben",
+      "UserClaimTypes": "Weisen Sie Benutzeranspruchstypen zu, die in Token enthalten sein sollen. Anspruchstypen werden der Liste der Anspruchstypen für die übergeordnete Ressource hinzugefügt.",
+      "ScopeAdded": "Aufgabenbereich hinzugefügt"
+    }
+  },
+  "IdentityResources": {
+    "Title": "Identitätsressourcen",
+    "Singular": "Identitätsressource",
+    "Create": "Eine Identitätsressource erstellen",
+    "UserClaimTypes": "Benutzeranspruchstypen, die in Token enthalten sein sollen",
+    "IDHelp": "Die eindeutige Kennung für diese Ressource. In Anfragen verwendet",
+    "DisplayNameHelp": "Ressourcenname, der in den Zustimmungsfenstern angezeigt wird",
+    "ConsentResource": "Die Zustimmung zur Verwendung der Ressource ist zum Abschließen der Authentifizierung erforderlich",
+    "DiscoveryDocumentDescription": "Ressource wird im Discovery-Dokument angezeigt (\/.well-known\/openid-configuration)",
+    "ShowInDiscoveryDocument": "Im Discovery-Dokument anzeigen",
+    "ConsentScreen": "Den Ressourcennamen im Zustimmungsfenster hervorheben",
+    "UpdatedClient": "Client erfolgreich aktualisiert",
+    "ResourceReservedHelp": "Diese Ressource ist reserviert und kann nicht bearbeitet werden",
+    "NoIdentityResources": "Keine Identitätsressourcen gefunden",
+    "Reserved": "Dieser Anspruchstyp ist reserviert und kann nicht bearbeitet werden",
+    "ShowInDiscoveryDocumentReadOnly": "Ist die Ressource im Discovery-Dokument",
+    "UpdatedResource": "Ressource erfolgreich aktualisiert"
+  },
+  "ProtectedResources": {
+    "Title": "Geschützte Ressource",
+    "TitlePlural": "Geschützte Ressourcen",
+    "Create": "Geschützte Ressource erstellen",
+    "AssignClaims": "Benutzeranspruchstypen zuweisen, die im Token enthalten sein sollen",
+    "Secrets": "Einige Geheimnisse für die Introspektion eingeben (optional)",
+    "UserClaimTypes": "Weisen Sie Benutzeranspruchstypen zu, die in Token enthalten sein sollen. Gilt für alle Bereiche für die Ressource.",
+    "AddScope": "Bereich hinzufügen",
+    "AddSharedScope": "Gemeinsame Bereiche zuweisen",
+    "ProtectedResource": "geschützte Ressource?",
+    "ClientAccess": "Geschützte Ressourcen, auf die dieser Client zugreifen kann, auswählen",
+    "NoneFound": "Keine geschützten Ressourcen gefunden",
+    "UpdatedResource": "Ressource erfolgreich aktualisiert"
+  },
+  "Clients": {
+    "SearchPlaceholder": "Kundenname beginnt mit...",
+    "ScopePickerSharedScopeWarning": "(*) Von mehr als einer geschützten Ressource verwendet",
+    "Export": {
+      "ExportAll": "Alle exportieren",
+      "ExportAllClients": "Alle Clients exportieren",
+      "ExportSelected": "Ausgewählte exportieren",
+      "ExportSelectedClients": "Ausgewählte Clients exportieren"
+    },
+    "Import": {
+      "Import": "Importieren",
+      "ImportClients": "Kunden importieren",
+      "ImportExportClients": "Kunden importieren/exportieren",
+      "Wizard": {
+        "Setup": {
+          "Title": "Kunden importieren",
+          "Summary": "Importieren Sie Clients und ihre Ressourcen aus einer anderen AdminUI-Lösung.",
+          "ChooseFile": "Datei auswählen",
+          "ChooseFileHelp": "Exportierte JSON-Datei aus einer anderen AdminUI-Lösung",
+          "CheckImportPleaseWait": "Validiere Datei, bitte warten ...",
+          "Errors": {
+            "Default": "Beim Importieren ist leider ein Problem aufgetreten. Bitte versuchen Sie es erneut.",
+            "InvalidFile": "Leider ist beim Lesen der Datei ein Problem aufgetreten. Bitte versuchen Sie es erneut.",
+            "InvalidData": "Leider enthielt die Datei ungültige Daten. Bitte überprüfen Sie dies, und versuchen Sie es erneut.",
+            "CompleteImportFailed": "Beim Import ist leider ein Fehler aufgetreten. Bitte versuchen Sie es erneut. "
+          }
+        },
+        "Secrets": {
+          "Title": "Geheimnisse",
+          "ChooseWhatToDo": "Wählen Sie aus, was mit zuvor erstellten Geheimnissen geschehen soll.",
+          "DoNotSet": "Kein Geheimnis erstellen",
+          "Generate": "Ein zufälliges Geheimnis erstellen",
+          "ManuallyCreate": "Geheimnisse manuell erstellen",
+          "RememberMyDecision": "Sich an meine Entscheidungen erinnern und sie bei allen verbleibenden Geheimnissen anwenden",
+          "UseExistingSecrets": "Vorhandene Geheimnisse verwenden",
+          "Note": {
+            "Note": "Nach dem Import können neue Geheimnisse heruntergeladen werden",
+            "Title": "Anmerkung"
+          },
+          "ProtectedResource": "Geschützte Ressource",
+          "IdentityResource": "Identitätsressource",
+          "Client": "Kunde",
+          "ClaimType": "Art des Forderung"
+        },
+        "Certificates": {
+          "Title": "Zertifikate",
+          "ChooseWhatToDo": "Wählen Sie aus, was mit zuvor zugeordneten Zertifikaten geschehen soll.",
+          "DoNotSet": "Zertifikat nicht hinzufügen",
+          "UploadNewCertificates": "Neues Zertifikat hochladen",
+          "RememberMyDecision": "Sich an meine Entscheidungen erinnern und sie bei allen verbleibenden Zertifikaten anwenden",
+          "UseExistingCertificates": "Vorhandenes Zertifikat verwenden",
+          "AddCertificate": "Zertifikat hinzufügen",
+          "FailedToParseCertificate": "Fehler beim Parsen des Zertifikats",
+          "TryAgainDifferentFile": "Bitte versuchen Sie es erneut mit einem anderen Zertifikat",
+          "DuplicateCertificate": "Zertifikat wurde bereits hinzugefügt",
+          "InvalidCertificate": "Dupliziertes Zertifikat"
+        },
+        "Warning": {
+          "Title": "Warnung",
+          "Text1": "Sie haben den Import von Clients noch nicht abgeschlossen.",
+          "Text2": "Möchten Sie wirklich beenden?",
+          "DownloadSecrets": "Sie haben neue Geheimnisse generiert.",
+          "Yes": "Ja",
+          "No": "Nein"
+        },
+        "Summary": {
+          "LinkedClients": "Welche Clients sind von dieser Ressource abhängig?",
+          "EffectsImportClients": "Importieren",
+          "EffectsExistingClients": "Vorhanden",
+          "NewClients": "Neue Clients",
+          "ExistingClients": "Bestehende Clients",
+          "ClientsHelp": "Anzahl der Clients, die vom Import dieser Ressource betroffen sind",
+          "DependencyConflicts": "Abhängigkeiten",
+          "Title": {
+            "All": "Zusammenfassung importieren",
+            "Client": "Client-Zusammenfassung",
+            "Resource": "Ressourcen-Zusammenfassung",
+            "ClaimType": "Claimtyp-Zusammenfassung",
+            "Final": "Zusammenfassung des endgültigen Imports"
+          },
+          "Name": {
+            "Client": "Client-Name",
+            "Resource": "Ressourcenname",
+            "ClaimType": "Name des Claim-Typs"
+          },
+          "Identifier": {
+            "Client": "Client-ID",
+            "Resource": "Ressourcen-ID",
+            "ClaimType": "Name des Claim-Typs"
+          },
+          "Type": {
+            "Client": "Client-Typ",
+            "Resource": "Ressourcen-Typ",
+            "ClaimType": "Werttyp"
+          },
+          "Intro": {
+            "Client": "Wählen Sie aus, welche Clients Sie importieren möchten.",
+            "Resource": "Die folgenden Ressourcen werden beim Import aktualisiert.",
+            "ClaimType": "Die folgenden Claim-Types werden beim Import aktualisiert."
+          },
+          "ClientName": "Client-Name",
+          "ClientId": "Client-ID",
+          "ClientType": "Client-Typ",
+          "Change": "Änderung",
+          "Changes": "Änderungen",
+          "Conflicts": {
+            "ReviewChanges": "Änderungen überprüfen",
+            "ConflictedServiceProvider": "Konflikte zwischen Dienstanbietern",
+            "ConflictedRelyingParty": "Sich auf Parteikonflikte verlassen",
+            "ConflictedScopes": "Konfliktbereiche",
+            "ConfirmationText": {
+              "Client": "Die folgenden Änderungen werden beim Importieren dieses Clients vorgenommen. Akzeptieren Sie die Änderungen?",
+              "Resource": "Die folgenden Änderungen werden beim Importieren dieser Ressource vorgenommen. Akzeptieren Sie die Änderungen?",
+              "ClaimType": "Die folgenden Änderungen werden beim Importieren dieses Claim-Typs vorgenommen. Akzeptieren Sie die Änderungen?"
+            },
+            "Property": "Eigenschaft",
+            "Key": "Schlüssel",
+            "OldValue": "Aktueller Wert",
+            "NewValue": "Neuer Wert",
+            "NoValue": "Kein Wert",
+            "Deleted": "Gelöscht",
+            "Accept": "Akzeptieren",
+            "Decline": "Ablehnen",
+            "Cancel": "Abbrechen",
+            "Confirmation": {
+              "AreYouSure": "Sind Sie sicher, dass Sie keine Änderungen für importieren möchten?",
+              "Client": "Dieser Client wird nicht importiert",
+              "Resource": "Alle zugeordneten Clients werden aus diesem Import entfernt"
+            }
+          },
+          "ResourceTypes": {
+            "Unknown": "Unbekannt",
+            "ServerSide": "Web-App",
+            "Machine": "Maschine",
+            "Native": "Systemeigen",
+            "Device": "Gerät",
+            "Saml": "SAML Dienstleister",
+            "WsFed": "WS-Fed Relying Party",
+            "BrowserBased": "Single-Page-App",
+            "LegacyClientSide": "Single-Page-Anwendung (Legacy)",
+            "Identity": "Identität",
+            "Protected": "Geschützt",
+            "String": "String",
+            "Int": "Int",
+            "DateTime": "DateTime",
+            "Boolean": "Boolean"
+          },
+          "FinalSummary": "Überprüfen Sie die Clients und Ressourcen, die importiert werden sollen. Duplikate werden nicht importiert."
+        },
+        "CompleteImport": {
+          "ImportInProgress": "Importvorgang läuft",
+          "ImportComplete": "Import vollständig",
+          "ImportSuccess": "Ihr ausgewählter Client und die zugehörigen Ressourcen wurden erfolgreich importiert",
+          "ImportSuccessMultiple": "{0} Clients und die zugehörigen Ressourcen wurden erfolgreich importiert",
+          "ImportFailure": "Import fehlgeschlagen",
+          "FinishImport": "Beenden",
+          "DownloadSecrets": "Laden Sie Secrets herunter"
+        }
+      }
+    },
+    "EntityId": "Entitäts-ID",
+    "Realm": "Bereich",
+    "CallbackURL": "Rückruf-URL eingeben<br/><small> Tokens werden an diesen Endpunkt gesendet (Sie können nach dem Setup weitere konfigurieren)</small> ",
+    "PostLogoutURL": "Geben Sie eine post-logout URL<br /><small> Optional ein (Sie können nach dem Setup weitere konfigurieren)</small> ",
+    "NoClaims": "Für diesen Client wurden keine Ansprüche gefunden",
+    "EditClaim": "Anspruch bearbeiten",
+    "NoRestrictions": "Keine Einschränkungen für diesen Client gefunden",
+    "DuplicateProvider": "Provider bereits hinzugefügt",
+    "NoCertificates": "Keine Zertifikate gefunden",
+    "ID": "Client-ID",
+    "Title": "Client",
+    "Add": "Client hinzufügen",
+    "EnterBasicDetails": "Einige grundlegende Details eingeben",
+    "IDHelp": "Die eindeutige Kennung für diese Anwendung",
+    "Secrets": "Einige Geheimnisse eingeben",
+    "Review": "Eine Möglichkeit, vor dem Absenden zu überprüfen",
+    "DisplayNameHelp": "Anzeigename für diese Clientanwendung",
+    "DisplayURLHelp": "Anwendungs-URL, die in den Zustimmungsfenstern angezeigt wird",
+    "LogoURLHelp": "Anwendungslogo, das in den Zustimmungsfenstern angezeigt wird. Muss HTTPS sein",
+    "DescriptionHelp": "Anwendungsbeschreibung, die in der Admin-UI verwendet wird",
+    "RedirectURLDescription": "Vollständiger Pfad der URL-Umleitung. Muss HTTPS in der Entwicklung sein",
+    "LogoutURLDescription": "Benutzer können nach dem Abmelden an diese URL zurückgeleitet werden. Muss HTTPS in der Entwicklung sein",
+    "IdentityResourcesAccess": "Die Identitätsressourcen auswählen, auf die dieser Client zugreifen kann",
+    "ProtectedResourcesAccess": "Geschützte Ressourcen, auf die dieser Client zugreifen kann, auswählen",
+    "Setup": "Eine Client-Anwendung einrichten",
+    "SelectType": "Den Typ der zu erstellenden Typ der Anwendung auswählen",
+    "SendClaimsHelp": "Erlauben, dass Client-Ansprüche für alle Typgenehmigungen gesendet werden",
+    "SendClaims": "Ansprüche immer senden",
+    "PrefixClaims": "Ansprüche voranstellen",
+    "PrefixClaimsHelp": "Optional. Wählen Sie den Text aus, dem die Anspruchstypen für diesen Kunden vorangestellt werden sollen.",
+    "AddClaim": "Anspruch hinzufügen",
+    "AddRestriction": "Einschränkung erstellen",
+    "ProviderName": "Anbietername",
+    "Delete": "Client löschen",
+    "AddedSecret": "Geheimnis erfolgreich hinzugefügt",
+    "UnableToAddSecret": "Geheimnis kann nicht hinzugefügt werden",
+    "UnableToAddProperty": "Eigenschaft kann nicht hinzugefügt werden. Schlüssel existiert bereits",
+    "RemovedSecret": "Geheimnis erfolgreich entfernt",
+    "UnableToRemoveSecret": "Geheimnis kann nicht entfernt werden",
+    "UpdatedClient": "Client erfolgreich aktualisiert",
+    "Deleted": "Client gelöscht",
+    "Search": "Nach einem Client suchen ...",
+    "Reserved": "Dieser Client ist reserviert und kann nicht bearbeitet werden",
+    "None": "Keine Clients gefunden",
+    "NoSecrets": "Es wurden keine Geheimnisse festgelegt. Verwenden Sie das obige Formular, um eines hinzuzufügen und es wird hier angezeigt.",
+    "EnableLocalLogin": "Lokale Anmeldung aktivieren",
+    "EnableLocalLoginHelp": "IdentityServer-lokale Anmeldeinformationen zulassen (z. B. Benutzername und Kennwort)",
+    "CORSUrl": "Diese Url ist ein Pfad und kann keine CORS Url sein",
+    "NullURL": "URL ist null oder leer",
+    "UrlIsPath": "Diese Url ist ein Pfad und kann keine CORS Url sein",
+    "UrlNotValid": "Diese Url ist vielleicht nicht gültig",
+    "Clone": {
+      "Label": "Klonen",
+      "Title": "Client klonen",
+      "CopyOf": "Kopie von \"{0}\"",
+      "CloneSecrets": " Geheimnisse klonen",
+      "CloneSecretsDescription": "Kopieren Sie alle für diesen Client konfigurierten Geheimnisse auf den geklonten Client.",
+      "CloneCerts": "Zertifikate klonen",
+      "CloneCertsDescription": "Kopieren Sie alle Verschlüsselungs- oder Signaturzertifikate auf den geklonten Client."
+    },
+    "RelyingParty": {
+      "Heading": "Relying Party",
+      "General": "Allgemein",
+      "TokenType": "Token-Typ",
+      "SignatureAlgorithm": "Signatur-Algorithmus",
+      "DigestAlgorithm": "Authentisierungsalgorithmus",
+      "SAMLNameIdFormat": "SAML-Name-Id-Format"
+    },
+    "ClaimMappings": {
+      "Heading": "Anspruchszuordnungen",
+      "ClaimType": "Art des Anspruchs",
+      "AssertionType": "Aussagentyp",
+      "None": "Keine Anspruchszuordnungen gefunden",
+      "AssertionTypeHeading": "Zuordnung des Anspruchstyps",
+      "AssertionTypeHeadingHelp": "Eine bekannte Anspruchstypzuordnung hinzufügen, oder Ihre eigene hinzufügen",
+      "AssertionTypeAlias": "Alias",
+      "AssertionTypeValue": "Wert",
+      "AssertionTypeSearch": "bekannte Anspruchstypzuordnungen durchsuchen",
+      "ExisitingMappingWarning": "Anspruchstyp ist bereits zugeordnet:",
+      "AssertionTypeValues": {
+        "Actor": "Akteur",
+        "Anonymous": "Anonym",
+        "Authentication": "Authentifikation",
+        "AuthenticationInstant": "Sofortige Authentifizierung",
+        "AuthenticationMethod": "Authentifizierungs-Methode",
+        "AuthorizationDecision": "Authorisierungsentscheidung",
+        "CookiePath": "Cookie-Pfad",
+        "Country": "Land",
+        "DateOfBirth": "Geburtsdatum",
+        "DenyOnlyPrimaryGroupSid": "Nur primäre Gruppe verweigern Sid",
+        "DenyOnlyPrimarySid": "Nur primäre Sid verweigern",
+        "DenyOnlySid": "Verweigere nur SID",
+        "DenyOnlyWindowsDeviceGroup": "Nur Windows-Gerätegruppe verweigern",
+        "Dns": "DNS",
+        "Dsa": "DSA",
+        "Email": "E-Mail",
+        "Expiration": "Ablauf",
+        "Expired": "Abgelaufen",
+        "Gender": "Geschlecht",
+        "GivenName": "Vorname",
+        "GroupSid": "Gruppen-SID",
+        "Hash": "Hash",
+        "HomePhone": "Telefon (privat)",
+        "IsPersistent": "Permanente IS",
+        "Locality": "Stadt",
+        "MobilePhone": "Handynummer",
+        "Name": "Name",
+        "NameIdentifier": "Namensbezeichner",
+        "OtherPhone": "Andere Telefonnummer",
+        "PostalCode": "Postleitzahl",
+        "PrimaryGroupSid": "Hauptgruppe SID",
+        "PrimarySid": "Primäre SID",
+        "Role": "Rolle",
+        "Rsa": "RSA",
+        "SerialNumber": "Seriennummer",
+        "Sid": "SID",
+        "Spn": "SPN",
+        "StateOrProvince": "Bundesland",
+        "StreetAddress": "Straße und Hausnummer",
+        "Surname": "Nachname",
+        "System": "System",
+        "Thumbprint": "Daumenabdruck (Thumbprint)",
+        "Upn": "UPN",
+        "Uri": "URI",
+        "UserData": "Benutzerdaten",
+        "Version": "Version",
+        "Webpage": "Website",
+        "WindowsAccountName": "Windows-Kontoname",
+        "WindowsDeviceClaim": "Windows-Geräteanspruch",
+        "WindowsDeviceGroup": "Windows-Gerätegruppe",
+        "WindowsFqbnVersion": "Windows Fqbn Version",
+        "WindowsSubAuthority": "Windows Sub Authority",
+        "WindowsUserClaim": "Windows Benutzeranspruch",
+        "X500DistinguishedName": "X500 Ausgewählter Name"
+      }
+    },
+    "GrantTypes": {
+      "Implicit": "Implizit(implicit)",
+      "AuthCode": "Autorisierungscode(authorization_code)",
+      "Hybrid": "Hybrid(hybrid)",
+      "Password": "Passwort(password)",
+      "Custom": "Kundenspezifisch",
+      "ClientCredentials": "Kundenreferenzen(client_credentials)",
+      "DeviceFlow": "device_flow",
+      "None": "Keine Zulassungsarten gefunden",
+      "DuplicateGrantType": "Typengenehmigung wurde bereits hinzugefügt",
+      "AddGrantType": "Zuschuss-Typ hinzufügen",
+      "CIBA": "ciba"
+    },
+    "Properties": {
+      "None": "No properties found",
+      "EditProperty": "Eigenschaft bearbeiten",
+      "AddProperty": "Eigenschaft hinzufügen"
+    },
+    "IdentityProviders": {
+      "EditProvider": "Anbieter bearbeiten",
+      "AddProvider": "Anbieter hinzufügen"
+    },
+    "RequireConsent": {
+      "Title": "Zustimmung erforderlich",
+      "Summary": "Zustimmung erforderlich",
+      "Help": "Gibt an, ob ein Zustimmungsbildschirm erforderlich ist."
+    },
+    "AllowRememberConsent": {
+      "Title": "Zustimmung speichern",
+	  "Help": "Gibt an, ob der Einwilligungsbildschirm nach Erteilung der Einwilligung gespeichert wird"
+    },
+    "RequireSecret": {
+      "Title": "Geheimnis erfordern",
+      "Help": "Gibt an, ob ein Geheimnis erforderlich ist"
+    },
+    "Tokens": {
+      "RequirePkce": "PKCE erforderlich",
+      "Title": "Token",
+      "FrontChannelLogoutUri": "Front Channel Logout URI",
+      "PairWiseSubjectSalt": "Pairwise Subject Salt",
+      "FrontChannelLogoutSessionRequired": "Front Channel Logout Session Required",
+      "AccessTokenType": "Zugriffs-Tokentyp",
+	  "AllowedIdentityTokenSigningAlgorithms": "Akzeptable Identitätsalgorithmen für Zugriffstoken",
+      "Jwt": "JWT",
+      "Reference": "Referenz",
+      "Refresh": "Nutzung von Aktualisierungs-Token",
+      "OneTime": "Nur einmalig",
+      "ReUse": "Wiederverwenden",
+      "Expiration": "Ablauf von Aktualisierungs-Token",
+      "Absolute": "Absolut",
+      "Sliding": "Gleitend",
+      "AllowPlainTextPkce": "Einfache Textdatei-PKCE erlauben",
+      "AllowOfflineAccess": "Offlinezugriff erlauben",
+      "UpdateAccessTokens": "Aktualisieren von Zugriffs-Tokenansprüchen beim Aktualisieren",
+      "IncludeJwtId": "JWT-ID einschließen",
+      "LogoutSessionRequired": "Sitzung muss Abmelden auslösen",
+      "IncludeUserClaimsInIdToken": "Benutzeranrechte immer in Id-Token aufnehmen",
+      "BackChannelLogoutUri": "Back Channel Logout URI",
+      "UserSSOLifetime": "SSO Lifetime (Sekunden)",
+      "UserCode": "Art des Nutzercode-Generators",
+      "DeviceCodeLifetime": "Lebensdauer des Device Flow Requests",
+      "DurationTitle": "Berechnete Lebensdauer",
+      "LifetimeInSeconds": "Lebensdauer in Sekunden",
+      "ClientTokenLifetime": "Lebensdauer des Identitätstokens",
+      "AccessTokenLifetime": "Gültigkeitsdauer von Zugriffs-Token",
+      "ConsentLifetime": "Lebenszeit des Zustimmungs-Tokens",
+      "UserSSOLifetimeHelp": "Lebensdauer in Sekunden zwischen Benutzerauthentifizierungsproblemen. Leitet standardmäßig zur Lebensdauer der IdentityServer-Sitzung weiter",
+      "FrontChannelLogoutUriHelp": "Endpoint IdentityServer ruft einen Browser-Iframe auf, wenn die einmalige Abmeldung ausgelöst wird.",
+      "PairWiseSubjectSaltHelp": "Der Salzwert, der beim Generieren paarweiser Betreff-IDs verwendet wird",
+      "FrontChannelLogoutSessionRequiredHelp": "Aktivieren Sie das Senden der Sitzungs-ID während der einmaligen Abmeldung.",
+      "AuthCodeLifetime": "Lebensdauer des Autorisierungscodes",
+      "RefreshTokenLifetime": "\"Gültigkeitsdauer von \"Absolute-Aktualisierung\"-Token\"",
+      "RefreshHelp": "Aus Sicherheitsgründen wird nur einmal empfohlen.",
+      "SlidingRefreshTokenLifetime": "Lebensdauer des gleitenden Aktualisierungs-Tokens",
+      "RequirePkceHelp": "Der Client muss den Proof-Key für den Code-Austausch verwenden.",
+      "AllowPlainTextPkceHelp": "Ermöglicht dem Client das Senden von nicht verarbeiteten Code-Verifizierern. Nicht empfohlen",
+      "AllowOfflineAccessHelp": "Aktiviert Aktualisierungstoken",
+      "UpdateAccessTokensSummary": "Aktualisieren Sie die Zugriffstoken und ihre Ansprüche, wenn Sie Aktualisierungstoken verwenden.",
+      "AccessTokensViaBrowser": "Das Senden von Zugriffs-Token über den Browser erlauben",
+      "AccessTokensViaBrowserSummary": "Wenn Sie dies aktivieren, werden Zugriffstoken für den Frontkanal verfügbar gemacht.",
+      "IncludeJwtIdHelp": "JWTs eine ID hinzufügen, mit der JWTs widerrufen werden können",
+      "IncludeUserClaimsInIdTokenHelp": "Wenn Sie dies aktivieren, können Sie Ihrem Identitätstoken PII hinzufügen. Nicht empfohlen",
+      "BackChannelLogoutSessionRequired": "Rückkanal-Abmeldesitzung erforderlich",
+      "BackChannelLogoutSessionRequiredHelp": "Aktivieren Sie das Senden der Sitzungs-ID während der einmaligen Abmeldung.",
+      "BackChannelLogoutUriHelp": "Endpoint IdentityServer ruft über HTTP auf, wenn die einmalige Abmeldung ausgelöst wird.",
+      "UserCodeHelp": "Standardtyp überschreiben",
+      "Durations": {
+        "Seconds": "Sekunden",
+        "SecondsShort": "s",
+        "Second": "Sekunde",
+        "SecondShort": "s",
+        "Minutes": "Minuten",
+        "MinutesShort": "min",
+        "Minute": "Minute",
+        "MinuteShort": "min",
+        "Hours": "Stunden",
+        "HoursShort": "Std.",
+        "Hour": "Stunde",
+        "HourShort": "Std.",
+        "Days": "Tage",
+        "DaysShort": "d",
+        "Day": "Tag",
+        "DayShort": "d",
+        "Weeks": "Wochen",
+        "WeeksShort": "Wo.",
+        "Week": "Woche",
+        "WeekShort": "Wo.",
+        "Months": "Monate",
+        "MonthsShort": "Mon.",
+        "Month": "Monat",
+        "MonthShort": "Mo.",
+        "Years": "Jahre",
+        "YearsShort": "Jr.",
+        "Year": "Jahr",
+        "YearShort": "Jr.",
+        "Unlimited": "Unbegrenzt",
+        "UnlimitedShort": "∞"
+      }
+    },
+    "Home": {
+      "Title": "Eine Client-Anwendung einrichten",
+      "Description": "Einen Anwendungstyp aus der Liste auswählen, um weitere Informationen zu erhalten.<br />Klicken Sie anschließend auf \"Start\", um mit der Einrichtung zu beginnen."
+    },
+    "WizardTypes": {
+      "WebAppSelection": "Unterstützten Ablauf wählen",
+      "WebApplication": "Hybrider Ablauf mit Clientauthentifizierung",
+      "PKCEWebApplication": "Autorisierungscode-Ablauf + PKCE",
+      "RobotApplication": "Client-Anmeldeinformationen",
+      "CIBARobotApplication": "Vom Client initiierte Backchannel-Authentifizierung",
+      "NativeApplication": "Hybrider Fluss mit Client-Authentifizierung",
+      "PKCENativeApplication": "Autorisierungscodefluss + PKCE"
+    },
+    "MachineToMachine": {
+      "Setup": "Maschinenanwendung einrichten",
+      "Title": "Maschine",
+      "Created": "Maschinenanwendung erstellt",
+      "Summary": "Client-Zugangsdaten",
+      "Description": "Eine machine-to-machine-Kommunikationsmethode.Keine<br /> Benutzer am Prozess beteiligt.Token<br /> werden über die back-channel-Kommunikation gesendet."
+    },
+    "SPA": {
+      "Summary": "Autorisierungscode flow + PKCE",
+      "Description": "Eine clientseitige Anwendung, die in einem Browser ausgeführt<br/> wird.Diesen Anwendungen werden keine Geheimnisse oder Aktualisierungstoken<br/> anvertraut.Token werden über den Browser gesendet und sind für den Benutzer sichtbar.",
+      "Setup": "Single-Page-Application einrichten",
+      "Title": "Single-Page-App",
+      "Created": "Single-Page-Application erstellt",
+      "ExtractedDomain": "Aus Ihrer Domain extrahiert"
+    },
+    "LegacySPA": {
+      "Setup": "Single-Page-Anwendung einrichten",
+      "Title": "Single-Page-Anwendung (Legacy)",
+      "Summary": "Impliziter Fluss",
+      "Description": "Eine clientseitige Anwendung, die in einem Browser ausgeführt<br/> wird.Diesen Anwendungen werden keine Geheimnisse oder Aktualisierungstoken anvertraut.Token<br/> werden über den Browser gesendet und sind für den Benutzer sichtbar.",
+      "Created": "Legacy-Single-Page-Anwendung erstellt",
+      "ExtractedDomain": "Aus Ihrer Domain extrahiert"
+    },
+    "WebApp": {
+      "Setup": "Web-Anwendung einrichten",
+      "Title": "Web-App",
+      "Created": "Web-Anwendung erstellt",
+      "Secrets": "Einige Geheimnisse eingeben (optional)",
+      "Summary": "Hybridfluss mit Clientauthentifizierung",
+      "Description": "Eine serverseitige Anwendung, die auf Ihrer Infrastruktur ausgeführt<br /> wird.Diesen Anwendungen kann vertraut werden, um ein Geheimnis zu bewahren und<br/> Aktualisierungstoken zu verwenden.Token werden an einen Back-End-Server gesendet und sind für den Benutzer nicht sichtbar. "
+    },
+    "PKCEWebApp": {
+      "Setup": "Web-Anwendung einrichten",
+      "Title": "Web-App",
+      "Summary": "Autorisierungscode-Ablauf + PKCE",
+      "Description": "Eine serverseitige Anwendung, die auf Ihrer Infrastruktur ausgeführt wird.<br />Bei diesen Anwendungen kann darauf vertraut werden, dass sie ein Geheimnis bewahren und Refresh-Token verwenden.<br/>Token werden an einen Back-End-Server gesendet und sind für den Benutzer nicht sichtbar.",
+      "Created": "Web-Anwendung erstellt",
+      "Secrets": "Einige Geheimnisse eingeben (Optional)"
+    },
+    "NativeApp": {
+      "Setup": "Native Anwendung einrichten",
+      "Title": "Nativ",
+      "Created": "Native Anwendung erstellt",
+      "Secrets": "Einige Geheimnisse eingeben (optional)",
+      "Summary": "Autorisierungscode flow + PKCE",
+      "Description": "\"Eine Desktop- oder Mobilanwendung, die auf dem Gerät eines Benutzers ausgeführt<br /> wird.Diesen Anwendungen kann nicht vertraut werden, um ein Geheimnis zu bewahren, sie können jedoch Aktualisierungstoken verwenden<br />."
+    },
+    "PKCENativeApp": {
+      "Setup": "Einrichten einer nativen Anwendung",
+      "Title": "Nativ",
+      "Summary": "Autorisierungscodefluss + PKCE",
+      "Description": "Eine Desktop- oder mobile Anwendung, die auf dem Gerät eines Benutzers läuft.<br />Diese Anwendungen können nicht vertrauenswürdig sein, um ein Geheimnis zu bewahren, aber sie können Aktualisierungs-Token verwenden.<br />Die Sichtbarkeit der Token hängt von der Wahl des Browsers und der Redirect URI ab.",
+      "Created": "Native Anwendung erstellt",
+      "Secrets": "Geben Sie einige Geheimnummern ein (optional)"
+    },
+    "DeviceFlow": {
+      "Setup": "Ein Gerät einrichten",
+      "Created": "Device-Flow-Anwendung erstellt",
+      "Title": "Gerät",
+      "Summary": "Gerätefluss über externen Browser",
+      "Description": "Eine IoT-Anwendung oder ein anderes browserloses/eingabebeschränktes Gerät.Diesen<br /> Anwendungen kann normalerweise nicht vertraut werden, um ein Geheimnis zu bewahren, sie können jedoch Aktualisierungstoken verwenden."
+    },
+    "CIBAMachineToMachine": {
+      "Setup": "Eine Maschinenanwendung mit CIBA einrichten",
+      "Title": "Maschine",
+      "Summary": "CIBA",
+      "Description": "Vom Client initiierte Backchannel-Authentifizierung. <br />Ermöglicht Benutzern die Authentifizierung von einem Endgerät mithilfe eines entkoppelten Authentifizierungsgeräts, ohne dass eine Umleitung über einen Browser des Endgeräts erfolgen muss. <br/>Tokens werden über die Backchannel-Kommunikation gesendet."
+    },
+    "Saml": {
+      "Setup": "Einen SAML-Dienstanbieter einrichten",
+      "Title": "SAML Service Provider",
+      "Summary": "SAML-2.0-Anwendung",
+      "Description": "Ein SAML-2.0-Dienstanbieter, der häufig von Behörden und Bildungseinrichtungen verwendet<br /> wird.Kann nicht für den API-Zugriff verwendet werden.",
+      "Created": "SAML Service Provider erstellt",
+      "DefaultEndpoint": "Standard Endpunkt",
+      "LocationUrl": "Standort URL",
+      "LocationNotValid": "Standort nicht gültig",
+      "BindingType": "Bindungstyp",
+      "Index": "Index",
+      "IndexNotUnique": "Index muss eindeutig sein",
+      "ACSEndpoints": "ACS-Endpunkte",
+      "SLOEndpoints": "SLO-Endpunkte",
+      "NoEndpoints": "<strong>Kein Endpunkte-Setup</strong>",
+      "Response": "Antwort",
+      "LocationBindingUnique": "Endpunkt und Bindungstyp müssen eindeutig sein",
+      "Request": "Anfrage",
+      "SignAssertions": "Aussagen unterzeichnen",
+      "SignAssertionsHelp": "Lässt IdentityServer sowohl SAML-Nachrichten als auch Zusicherungen signieren (empfohlen)",
+      "EncryptAssertions": "Aussagen verschlüsseln",
+      "EncryptAssertionsHelp": "Lässt IdentityServer Zusicherungen verschlüsseln, die mit ihrem öffentlichen Schlüssel an den Service Provider gesendet werden",
+      "AddCert": "Zertifikat hinzufügen",
+      "DeleteCert": "Zertifikat löschen",
+      "AddCertSummary": "Zertifikat hochladen den Zertifikatswert aus den Metadaten einfügen",
+      "AddCertNote": "Das Zertifikat wird sofort nach dem Speichern angewendet",
+      "UploadCert": "Zertifikat hochladen",
+      "UploadCertHelp": "Eine gültige .cer-Datei hochladen",
+      "UploadCertViaMetadata": "Upload über Metadaten",
+      "ServiceProviderSigningCert": "Signaturzertifikat des Dienstanbieters",
+      "ServiceProviderSigningCertHelp": "X509Zertifikat-Wert des öffentlichen Schlüssels des Dienstanbieters",
+      "CertUploadSuccess": "Zertifikat-Upload erfolgreich",
+      "InvalidCert": "Das Zertifikat ist ungültig",
+      "DuplicateCert": "Dupliziertes Zertifikat",
+      "DuplicateCertMessage": "Dieses Zertifikat ist bei diesem Dienstanbieter bereits vorhanden",
+      "IndexInvalidType": "Index sollte eine Zahl sein",
+      "ReplaceCertificate": "Zertifikat ersetzen",
+      "CannotDeleteResponseCert": "Verschlüsselungszertifikat kann nicht gelöscht werden, solange die Verschlüsselungsbestätigung wahr ist",
+      "AllowIdpInitiatedSso": "IdP-initiiertes SSO zulassen",
+      "AllowIdpInitiatedSsoHelp": "Ermöglicht die Initiierung von Single Sign-On durch Ihren Identitätsanbieter (nicht empfohlen)",
+      "EditClaimMapping": "Anspruchszuordnung bearbeiten",
+      "DefaultEndpointHelp": "Wählen Sie eine vorhandene Standort-URL als Standardendpunkt aus.",
+      "DefaultEndpointNotice": "Sie müssen einen Endpunkt hinzufügen, bevor Sie den Standard festlegen können.",
+      "EditEndpoint": "Endpunkt bearbeiten",
+      "RequireRequestDestination": "Zielort anfordern",
+      "RequireRequestDestinationHelp": "Eingehende Anfragen erfordern ein Ziel, damit IdentityServer bestätigen kann, dass es sich um den beabsichtigten Empfänger handelt.",
+      "AddEndpoint": "Endpunkt hinzufügen",
+      "AddClaimMapping": "Anspruchszuordnung hinzufügen",
+	  "RequireRequestsSigned": "Signatur für Authentifizierungsanforderung erforderlich",
+      "RequireRequestsSignedHelp": "Erfordern unterzeichneten Anfragen vom Diensteanbieter. Dadurch wird die globale Einstellung 'WantAuthenticationRequestsSigned' überschrieben",
+      "ACSEndpointHelpTitle": "Endpunkte des Assertion-Verbraucher-Service",
+      "ACSEndpointsHelpBody": "Die Endpunkte der Dienstanbieter, an die SAML-Antworten und -Assertionen gesendet werden",
+      "SLOEndpointsHelpTitle": "Einzelne Abmeldedienst-Endpunkte",
+      "SLOEndpointsHelpBody": "Die Endpunkte des Dienstanbieters, an die SAML-Abmeldeanfragen und -antworten gesendet werden",
+      "ARSEndpoints": "ARS-Endpunkte",
+      "ARSEndpointsHelpTitle": "Endpunkt des Artefaktauflösungs-Services",
+      "ARSEndpointsHelpBody": "Die Endpunkte des Dienstanbieters, an denen die Artefakte bei Verwendung der HTTP-Artefaktbindung aufgelöst werden",
+      "RequireSignedArtifactResolveRequests": "Signierte Artefakt-Auflösungsanfragen verlangen",
+      "RequireSignedArtifactResolveRequestsHelp": "Signierte Anfragen vom Dienstanbieter an den Endpunkt des Artefaktauflösungs-Services verlangen",
+      "RequireSignedArtifactResponses": "Signierte Antworten auf Artefakte anfordern",
+      "RequireSignedArtifactResponsesHelp": "Bringt IdentityServer dazu, Artefaktantworten an den Dienstanbieter zu signieren",
+      "ArtifactDeliveryBindingType": "Artefaktlieferung-Bindungstyp",
+      "ArtifactDeliveryBindingTypeHelp": "Wie das Artefakt über den Frontkanal übertragen wird",
+      "NameIdentifierFormat": "Format des Namen-Bezeichners",
+      "NameIdentifierFormatHelp": "Steuern Sie, wie die Benutzer bei Identitätsanbietern während der einmaligen Anmeldung den Benutzern bei Dienstanbietern zugeordnet werden.",
+      "DefaultSamlRequestSigning": "Standard/Global"
+    },
+    "WsFed": {
+      "Setup": "Eine WS-Federation Relying Party einrichten",
+      "Title": "WS-Fed Relying Party",
+      "Summary": "WS-Federation-Anwendung",
+      "Description": "Eine vertrauende WS-Federation-Partei, die häufig von älteren Microsoft-Anwendungen verwendet wird.Kann<br /> nicht für den API-Zugriff verwendet werden.",
+      "Created": "WS-Federation Relying Party erstellt"
+    },
+    "URLS": {
+      "Title": "Anwendungs-URLs",
+      "SendTokens": "Token können an diese URL gesendet werden",
+      "RedirectAfterLogout": "Kann nach dem Abmelden zu dieser URL weitergeleitet werden",
+      "CORSDomain": "Domain, die ursprungsübergreifende Anforderungen stellen kann",
+      "NoURLS": "Darf keine Umleitung-URLs haben",
+      "URLAddUnsuccessful": "Es gab ein Problem beim Hinzufügen Ihrer URL",
+      "None": "Keine Anwendungs-URLs gefunden",
+      "AddURL": "URL hinzufügen",
+      "EditApplicationURLs": "Anwendungs-URLs bearbeiten",
+      "EditApplicationURL": "Anwendungs-URL bearbeiten",
+      "InitiateLogin": {
+        "Label": "Initiierungs-Login-URI",
+        "Help": "Optional, muss ebenfalls mit 'https://' beginnen"
+      }
+    },
+    "DPoP": {
+      "ValidationMode": {
+        "Label": "Validierungsmodus"
+      },
+      "ClockSkew": {
+        "Label": "Zeitabweichung",
+        "Help": "Wird bei der Validierung des 'iat'-Wertes in den Nachweistoken für diesen Kunden verwendet"
+      }
+    },
+    "Selected": "(Ausgewählt)",
+    "Endpoint": "Endpunkt",
+    "Redirect": "Weiterleitung",
+    "Post": "POST",
+    "AcsEndpoints": "ACS-Endpunkte",
+    "AcsEndpointHelp": "ACS-Endpunkt-URL. Diese Protokolle basieren auf TLS in der Produktion",
+    "SloEndpoints": "SLO-Endpunkte",
+    "SloEndpointHelp": "SLO-Endpunkt-URL. Diese Protokolle basieren auf TLS in der Produktion",
+    "BindingType": "Bindungstyp",
+    "BindingTypeHelp": "Bindungstyp für den Endpunkt",
+    "IndexHelp": "Index des Endpunkts",
+    "CIBAConfiguration": "Geben Sie die Werte für die CIBA-Lebensdauer und das Abfrageintervall ein",
+    "CIBALifetimeDescription": "Die Lebensdauer einer CIBA-Authentifizierungsanfrage in Sekunden",
+    "CIBAPollingIntervalDescription": "Die Anzahl an Sekunden, die der Client zwischen zwei Polling-Anforderungen abwarten muss",
+    "Artifact": "Artefakt",
+    "Soap": "SOAP",
+    "ArsEndpoints": "ARS-Endpunkte",
+    "ArsEndpointHelp": "ARS-Endpunkt-URL. Diese Protokolle verlassen sich in der Produktion auf TLS"
+  },
+  "DynamicAuth": {
+    "SearchPlaceholder": "Schema oder Name beginnen mit...",
+    "Title": {
+      "Generic": "Dynamische Authentifizierung",
+      "Duende": "Duende Dynamische Authentifizierung",
+      "RSK": "Rock Solid Knowledge Dynamische Authentifizierung"
+    },
+    "Scheme": {
+      "Label": "Programm",
+      "Help": "Die eindeutige Kennung für diesen Provider"
+    },
+    "DisplayName": {
+      "Label": "Angezeigter Name",
+      "Help": "Freundlicher Name für diesen Provider"
+    },
+    "Filters": {
+      "OIDC": "OIDC",
+      "SAML": "SAML",
+      "Enabled": "Aktiviert",
+      "Disabled": "Deaktiviert"
+    },
+    "Authority": {
+      "Label": "Autoritäts-URL",
+      "Help": "Die URL, unter der der Provider gehostet wird. Muss mit „https://“ beginnen",
+      "ReachableWarning": "Warnung: Das Ermittlungsdokument kann nicht abgerufen werden. Dies kann bedeuten, dass diese Berechtigung ungültig ist.",
+      "ReachableWarningTitle": "Autoritätsvalidierung",
+      "ReachableWarningMsg": "Das Auffinden des Discovery-Dokuments am Standardendpunkt war nicht möglich. Dies könnte bedeuten, dass diese Autorität ungültig ist."
+    },
+    "ClientId": {
+      "Label": "Client-ID",
+      "Help": "Client-Kennung vom externen Provider"
+    },
+    "CallbackPath": {
+      "Label": "Rückrufpfad",
+      "Help": "Authentifizierungshandler Callback-Pfad"
+    },
+    "Flow": {
+      "Label": "OAuth Flow",
+      "Help": "Wählen Sie den vom Provider verwendeten Authentifizierungsablauf"
+    },
+    "Flows": {
+      "AuthCode": "Autorisierungscode-Flow + PKCE",
+      "AuthCodePlusPkce": "Autorisierungscode-Flow + PKCE"
+    },
+    "Scopes": {
+      "Label": "Geltungsbereiche",
+      "Placeholder": "Geltungsbereich eingeben...",
+      "AlreadyAdded": "Dieser Geltungsbereiche wurde bereits hinzugefügt",
+      "MustSpecifyScope": "Geltungsbereiche nicht angegeben",
+      "CannotHaveSpaces": "Geltungsbereiche dürfen keine Leerzeichen enthalten",
+      "NoScopesMessage": "Es wurden keine Geltungsbereiche hinzugefügt"
+    },
+    "SignInScheme": {
+      "Label": "Anmeldeschema",
+      "Guide": {
+        "Text": "Codefragment, das die Einrichtung des Anmeldeschemas zeigt",
+        "DcosLink": "Die Dokumentation finden Sie <a class=\"tw-inline-block tw-text-blue-500 hover:tw-text-body trans\" href=\"\" target=\"_blank\">hier</a>."
+      },
+      "Placeholder": "Anmeldeschema eingeben...",
+      "Help": "Diese Einstellung kann überschrieben werden. Weitere Informationen findest du <a class=\"tw-inline-block tw-text-blue-500 hover:tw-text-body trans\" href=\"documentation/DynamicAuthentication/Adding_a_Saml_Dynamic_Provider.html#identityserver-overriding-sign-inout-schemes\" target=\"_blank\">hier</a>.",
+      "IdSExternalLogin": {
+        "Name": "IdentityServer Externes Anmeldeverfahren",
+        "Help": "'Idsrv.External' Verwende dies, wenn du die Standard-Cookies von IdentityServer verwendest"
+      },
+      "AspNetExternalLogin": {
+        "Name": "Asp.Identity Externes Anmeldeverfahren",
+        "Help": "'Identity.External' Verwende dies, wenn du die Standard-Cookies von Asp.Identity verwendest"
+      }
+    },
+    "DifferentSignOut": {
+      "Label": "Verschiedene Abmeldeverfahren",
+      "Help": "Unterschiedliches Abmeldeverfahren festlegen"
+    },
+    "SignOutScheme": {
+      "Label": "Abmeldeverfahren",
+      "Help": "Diese Einstellung kann überschrieben werden. Weitere Informationen findest du <a class=\"tw-inline-block tw-text-blue-500 hover:tw-text-body trans\" href=\"documentation/DynamicAuthentication/Adding_a_Saml_Dynamic_Provider.html#identityserver-overriding-sign-inout-schemes\" target=\"_blank\">hier</a>.",
+      "Placeholder": "Abmeldeverfahren eingeben..."
+    },
+    "SignedOutCallbackPath": {
+      "Help": "SLO-Endpunkt",
+      "Label": "SignedOutCallbackPath"
+    },
+    "EntityId": {
+      "Label": "SP-Entitäts-ID",
+      "Help": ""
+    },
+    "CallbackPathAcsEndpoint": {
+      "Label": "Callback-Pfad (ACS-Endpunkt)",
+      "Help": ""
+    },
+    "CertFile": {
+      "Label": "Zertifikat",
+      "Help": "Akzeptiert PFX- und P12-Formate"
+    },
+    "CertPassword": {
+      "Label": "Zertifikat-Passwort",
+      "Help": ""
+    },
+    "UploadCert": "Zertifikat hochladen",
+    "ChangeCert": "Zertifikat ändern",
+    "UpdateSigningCertificate": {
+      "Title": "Signaturzertifikat aktualisieren"
+    },
+    "UpdateEncryptionCertificate": {
+      "Title": "Verschlüsselungszertifikat aktualisieren"
+    },
+    "FederationPathWarning": "Der Pfad muss mit /federation/ beginnen",
+    "SPEntityID": {
+      "Label": "SP-Entitäts-ID",
+      "Help": "Eindeutiger Bezeichner für diesen Dienstanbieter"
+    },
+    "SpMetadataAddress": {
+      "Label": "SP-Metadatenpfad",
+      "Help": "Metadatenpfad für diesen Dienstanbieter"
+    },
+    "SAML": {
+      "RequireEncryptedAssertions": {
+        "Label": "Verschlüsselte Aussagen erforderlich",
+        "Help": "Die Validierung der Anmeldeantwort schlägt fehl, wenn die Antwort keine verschlüsselten Aussagen enthält"
+      },
+      "RequireSignedAssertions": {
+        "Label": "Signierte Aussagen erforderlich",
+        "Help": "Die Validierung der Anmeldeantwort schlägt fehl, wenn die Antwort keine signierten Aussagen enthält"
+      },
+      "SignAuthenticationRequests": {
+        "Label": "Anmeldeanfragen signieren",
+        "Help": "Der Dienstanbieter signiert immer generierte Anfragen"
+      },
+      "RequireValidMetadataSignature": {
+        "Label": "Gültige Metadatensignatur erforderlich",
+        "Help": "Die IdP-Metadaten müssen die Signaturvalidierung bestehen"
+      },
+      "IdpMetadataAddress": {
+        "Label": "IdP-Metadatenadresse",
+        "Help": "Muss mit 'https://' beginnen",
+        "ReachableWarning": "Die Adresse konnte nicht erreicht werden"
+      },
+      "AllowIdpInitiatedSso": {
+        "Label": "IdP-initiiertes SSO zulassen",
+        "Help": "Erlaubt das einmalige Anmelden, das vom Identitätsanbieter initiiert wird (nicht empfohlen)"
+      },
+      "IdPInitiatedSsoCompletionPath": {
+        "Label": "Pfad für den Abschluss des IdP-initiierten SSO",
+        "Help": "Endpunkt, zu dem nach erfolgreichem IdP-initiiertem SSO umgeleitet wird"
+      },
+      "TimeComparisonTolerance": {
+        "Label": "Zeitvergleichstoleranz",
+        "Help": "In Sekunden"
+      }
+    },
+    "RequestSigningSignature": {
+      "Label": "Anfragesignatur",
+      "Help": "Signiertes Zertifikat für diesen Dienstanbieter",
+      "Subject": {
+        "Label": "Thema"
+      },
+      "ThumbPrint": {
+        "Label": "Daumenabdruck"
+      },
+      "Expiration": {
+        "Label": "Ablaufdatum"
+      },
+      "Options": {
+        "Add": "Zertifikat hinzufügen",
+        "Replace": "Zertifikat ersetzen",
+        "Delete": "Zertifikat löschen",
+        "NoCertificate": "Kein Zertifikat gefunden"
+      }
+    },
+    "ClientSecret": {
+      "Label": "Client-Geheimschlüssel",
+      "Help": "Optionaler Geheimschlüssel, das bei der Authentifizierung mit einem externen Provider verwendet wird"
+    },
+    "RemoteSignOutPath": {
+      "Label": "RemoteSignOutPath"
+    },
+    "SignedOutRedirectUri": {
+      "Label": "SignedOutRedirectUri"
+    },
+    "ResponseMode": {
+      "Label": "Antwortmodus",
+      "Help": "Legt den zu verwendenden Antwortmodus fest, der entscheidet, wie Parameter in der Antwort codiert werden."
+    },
+    "Prompt": {
+      "Label": "Aufforderung",
+      "Help": "Legt fest, wie der Wert der Aufforderung festgelegt wird, mit der Möglichkeit, benutzerdefinierte Aufforderungen hinzuzufügen. Wenn 'Keine Aufforderungen anzeigen' ausgewählt ist, sind alle anderen Optionen deaktiviert.",
+      "Values": {
+        "None": "Keine Aufforderungen anzeigen",
+        "Login": "Anmeldeaufforderung",
+        "Consent": "Zustimmungsaufforderung",
+        "SelectAccount": "Kontoauswahlaufforderung",
+        "Other": "Andere Aufforderungen"
+      }
+    },
+    "Resource": {
+      "Label": "Ressource",
+      "Help": "Die Ressourcen, für die Sie Zugriff anfordern, werden bei der Verwendung des dynamischen Anbieters in der Autorisierungsanforderung verwendet. Die bereitgestellten Werte müssen im absoluten URI-Format vorliegen, z. B. urn:resource:1, https://resource.com"
+    },
+    "MetadataRefreshInterval": {
+      "Label": "Metadatenaktualisierungsintervall",
+      "Help": "Wie oft eine automatische Metadatenaktualisierung erfolgen soll, mindestens alle 300 Sekunden (5 Minuten)."
+    },
+    "MapInboundClaims": {
+      "Label": "Eingehende Ansprüche zuordnen",
+      "Help": "Zuordnen von Anspruchstypen, die beim Validieren eines JwtSecurityToken extrahiert werden"
+    },
+    "RefreshOnIssuerKeyNotFound": {
+      "Label": "Aktualisieren der Metadaten zum Ausgabeschlüssel nicht gefunden",
+      "Help": "Die Aktualisierung der Metadaten erfolgt beim Schlüssel-Rollover"
+    },
+    "GetClaimsFromUserInfoEndpoint": {
+      "Label": "Abrufen von Reklamationen vom Benutzerinfo-Endpunkt",
+      "Help": "Abrufen zusätzlicher Angaben vom Benutzerinfo-Endpunkt nach dem Erstellen einer Identität aus id_token"
+    },
+    "SaveTokens": {
+      "Label": "Token speichern",
+      "Help": "Legt fest, ob Zugangs- und Aktualisierungs-Tokens nach erfolgreicher Authentifizierung als Cookie im Browser gespeichert werden sollen."
+    },
+    "UseTokenLifetime": {
+      "Label": "Token-Lebensdauer verwenden",
+      "Help": "Die Lebensdauer der Authentifizierungssitzung (z. B. Cookies) sollte mit der des Authentifizierungs-Tokens übereinstimmen."
+    },
+    "SkipUnrecognizedRequests": {
+      "Label": "Nicht erkannte Anfragen überspringen",
+      "Help": "An die Callback-Methode gesendete Anfragen, die keine Autorisierungsdaten enthalten, werden übersprungen. Die Deaktivierung dieser Funktion und die Festlegung des CallbackPath auf einen speziellen Endpunkt kann eine bessere Fehlerbehandlung ermöglichen."
+    },
+    "DisableTelemetry": {
+      "Label": "Telemetrie deaktivieren",
+      "Help": "Die Assembly-Version des IdentityModel-Pakets als Parameter für die Autorisierungs-/Logout-Anforderung senden."
+    },
+    "List": {
+      "None": "Keine dynamischen Provider gefunden"
+    },
+    "UpdateClientSecret": {
+      "Title": "Client-Geheimschlüssel aktualisieren",
+      "Description": "Fügen Sie hier Ihre neue Client-Geheimzahl hinzu",
+      "Confirm": "Aktualisieren",
+      "No": "Nicht aktualisieren"
+    },
+    "Wizard": {
+      "Setup": "Einrichtung eines Providers für dynamische Authentifizierung",
+      "Title": "Einen Provider für dynamische Authentifizierung hinzufügen",
+      "TypeSelectStep": {
+        "OIDC": {
+          "Name": "OIDC Provider",
+          "Title": "OpenID Connect Provider",
+          "Description": "Ein Provider, der OpenID Connect verwendet, um einen Benutzer zu authentifizieren. <br/>Die Dokumentation, die Provider hinzufügt, ist <a class=\"tw-inline-block tw-text-blue-500 hover:tw-text-body trans\" href=\"documentation/DynamicAuthentication/Adding_a_Oidc_Dynamic_Provider.html\" target=\"_blank\">hier</a>."
+        },
+        "SAML": {
+          "Name": "SAML Provider",
+          "Title": "Security Assertion Markup Language",
+          "Description": "Ein Provider, der SAML verwendet, um einen Benutzer zu authentifizieren. <br/>Die Dokumentation, die Provider hinzufügt, ist <a class=\"tw-inline-block tw-text-blue-500 hover:tw-text-body trans\" href=\"documentation/DynamicAuthentication/Adding_a_Saml_Dynamic_Provider.html\" target=\"_blank\">hier</a>."
+        },
+        "TypeLabel": "Providertyp für dynamische Authentifizierung"
+      },
+      "NameRoleStep": {
+        "Title": "Schema und Anzeigename Ihres dynamischen Providers definieren "
+      },
+      "SignInSchemeStep": {
+        "Title": "Ihr Anmeldeschema festlegen"
+      },
+      "SummaryStep": {
+        "Title": "Eine Möglichkeit, vor dem Absenden zu überprüfen",
+        "Actions": "ändern",
+        "Edit": "ändern"
+      },
+      "OIDC": {
+        "Setup": "Einen OpenID Connect Dynamic Provider einrichten",
+        "Title": "OpenID Connect Provider",
+        "ConnectionStep": {
+          "Title": "Eine Verbindung zu Ihrem externen dynamischen Provider herstellen"
+        },
+        "ScopesStep": {
+          "Title": "Anzufordernde Geltungsbereiche"
+        },
+        "ClientSecretStep": {
+          "Title": "Legen Sie Ihre geteilte Client-Geheimzahl fest"
+        }
+      },
+      "SAML": {
+        "Setup": "Einen SAML Dynamic Provider einrichten",
+        "Title": "Security Assertion Markup Language",
+        "ServiceProviderStep": {
+          "Title": "Den Dienstanbieter definieren (das bist du)"
+        },
+        "SigningStep": {
+          "Title": "Zertifikat zum Signieren von Anfragen auswählen oder auf 'Weiter' klicken, um diesen Schritt zu überspringen"
+        },
+        "ExternalProviderStep": {
+          "Title": "Externer IdP-Setup",
+          "MetadataValidTitle": "IdP-Metadatenadressvalidierung erfolgreich",
+          "MetadataValidMsg": "Die externe Identitätsanbieter-Metadatenadresse existiert und gibt eine gültige IdP-Metadatendatei zurück.",
+          "MetadataInValidTitle": "IdP-Metadatenadressvalidierung fehlgeschlagen",
+          "MetadataInValidMsg": "Die externe Identitätsanbieter-Metadatenadresse existiert nicht oder gibt eine ungültige Metadatendatei zurück."
+        }
+      }
+    },
+    "Success": {
+      "Updated": "DynamicAuth erfolgreich aktualisiert"
+    }
+  },
+  "Secret Picker": {
+    "Set Expiration Button": "Optionalen Ablauf einrichten",
+    "HiddenValue": "Wert ist ausgeblendet",
+    "LastWarning": "WARNUNG: Sie können nach dem Erstellen nicht auf den Wert von Geheimnissen zugreifen",
+    "ReadCertificate": "Zertifikat lesen",
+    "UploadCert": "Zertifikat hochladen",
+    "UploadCertHelp": "Eine gültige .cer-Datei hochladen",
+    "MetaData": "Zertifikat-Metadaten",
+    "MetaDataHelp": "Geben Sie den Inhalt des base64-Zertifikats ein"
+  },
+  "Notifications": {
+    "Success": "Erfolg",
+    "Failure": "Fehler",
+    "Failed": "Fehlgeschlagen",
+    "Sorry": "Entschuldigung",
+    "Delete Error Title": "Fehler beim Löschen",
+    "Delete User Message": "Es gab ein Problem beim Löschen dieses Benutzers",
+    "Saving Error Title": "Fehler beim Speichern",
+    "Saving Error Message": "Es gab ein Problem beim Speichern Ihrer Änderungen",
+    "Saving Success Title": "Erfolg",
+    "Saving Success Message": "Ihre Änderungen wurden gespeichert",
+    "SuccessfullyCreated": "Erfolgreich erstellt",
+    "SuccessfullySaved": "Erfolgreich gespeichert",
+    "SuccessfullyDeleted": "Erfolgreich gelöscht",
+    "UsernameTaken": "Benutzername bereits vergeben",
+    "AccountCreated": "Konto erstellt",
+    "AllAppsRevoked": "Alle Apps erfolgreich widerrufen",
+    "AppRevoked": "App erfolgreich widerrufen",
+    "UnsavedChanges": "Sie haben nicht gespeicherte Änderungen",
+    "SomethingWrong": "Es ist ein Fehler aufgetreten",
+    "CheckLogs": "Bitte überprüfen Sie die Protokolle.",
+    "Apology": "Wir haben Sie zur Startseite zurückgeleitet, da die Seite abgestürzt ist",
+    "Support": "Senden Sie uns für weitere Unterstützung eine Nachricht an support@identityserver.com",
+    "Reset Success Message": "Zurücksetzen des Passworts erfolgreich",
+    "Reset Error Message": "Beim Zurücksetzen des Benutzerpassworts gab es ein Problem",
+    "Error": "Fehler",
+    "Unauthorized": "Unerlaubt",
+    "UnsavedChangesTitle": "Nicht gespeicherte Änderungen",
+    "ContinueWithoutSaving": "Möchten Sie ohne Speichern weiter navigieren?",
+    "DiscardChanges": "Änderungen verwerfen",
+    "StayHere": "Hier bleiben",
+    "Notice": "Nachricht",
+    "DontForgetToSave": "Vergessen Sie  nicht, Ihre Änderungen zu speichern",
+    "CertValidTitle": "Zertifikatvalidierung erfolgreich",
+    "CertInValidTitle": "Zertifikatvalidierung fehlgeschlagen",
+    "CertInValidMsg": "Das Zertifikat oder das Passwort sind ungültig. Bitte versuche es erneut und achte darauf, eine .p12- oder .pfx-Datei mit dem richtigen Passwort hochzuladen. Oder klicke auf 'Löschen' und 'Weiter', um diesen Schritt zu überspringen.",
+    "StarterModeFailed": "Der Startermodus konnte nicht aktiviert werden"
+  },
+  "Settings": {
+    "AccessPolicy": {
+      "Add": "Police hinzufügen",
+      "NewPolicy": "Neue Open Access Police",
+      "ClaimType": "Art des Anrechts",
+      "ClaimValue": "Wert des Anrechts",
+      "Permission": "Erlaubnis",
+      "Save": "Speichern",
+      "ConfirmSave": "Sind Sie sicher, dass Sie Ihre Zugriffsregelung mit diesen Änderungen aktualisieren wollen?",
+      "ConfirmChanges": "Bestätigen Sie die Aktualisierung der Zugriffsregelung",
+      "SaveYes": "Änderungen speichern",
+      "SaveNo": "Nein, nicht speichern",
+      "InvalidClaimType": "Keine Anrechtsart gewählt",
+      "InvalidClaimValue": "Kein Wert eingegeben",
+      "InvalidPermission": "Keine Berechtigung gewählt",
+      "AccessPolicyUpdated": "Zugriffsregelung aktualisiert",
+      "AccessPolicyConflict": "Konflikt: Es gibt eine neuere Zugriffsregelung"
+    },
+    "Title": "Einstellungen/Zugriffsrichtlinie",
+    "Keys": {
+      "NoKeys": "Keine Schlüssel",
+      "Id": "ID",
+      "Version": "Version",
+      "Created": "Erstellt",
+      "Algorithm": "Algorithmus",
+      "IsX509Certificate": "X509Zertifikat",
+      "RemovedKey": "Schlüssel entfernt",
+      "DeleteKey": "Schlüssel löschen"
+    }
+  },
+  "LandingPage": {
+    "Welcome": "Willkommen auf/bei",
+    "LatestNews": "Neueste Nachrichten",
+    "IntroParagraph1": "Dem führenden Benutzer- und Konfigurationsmanagement-Tool für IdentityServer",
+    "IntroParagraph2": "Für Lizenzanfragen wenden Sie sich bitte an:",
+    "Documentation": "Dokumentation",
+    "APIDocs": "API-Dokumente",
+    "IdentityServerError": "IdentityServer kann nicht kontaktiert werden{{error}}. Weitere Hilfe finden <a href='{{link}}' target='_blank'>Sie hier</a>.",
+    "APIError": "Die API kann nicht kontaktiert werden{{error}}. Weitere Hilfe finden <a href='{{link}}' target='_blank'>Sie hier</a>.",
+    "UIError": "Problem mit der Benutzeroberfläche{{error}}.",
+    "AdminCreation": "AdminUI Admin-Benutzer erstellen",
+    "DefaultUserRemoved": "Standardadministrator entfernt"
+  },
+  "Permission": {
+    "UserManager": "Benutzer-Manager",
+    "IdentityServerManager": "IdentityServer Manager",
+    "All": "Alle[s]",
+    "Auditer": "Auditor",
+    "UserManagerReadOnly": "Benutzer-Manager schreibgeschützt",
+    "IdentityServerManagerReadOnly": "IdentityServer Manager schreibgeschützt",
+    "AllReadOnly": "Alle schreibgeschützt"
+  },
+  "Auditing": {
+    "ToggleDetails": "Details umschalten",
+    "Title": "Auditing",
+    "SearchAudits": "Nach Audits suchen",
+    "NoAuditsFound": "Keine Audits gefunden",
+    "When": "Wenn",
+    "Subject": "Betreff",
+    "Resource": "Ressource",
+    "Source": "Quelle",
+    "Action": "Aktion",
+    "Description": "Beschreibung",
+    "Succeeded": "Erfolgreich",
+    "FromDate": "Ab Datum",
+    "ToDate": "Bis Datum",
+    "SetDateToday": "Datum auf heute einstellen",
+    "Today": "Heute",
+    "SetDateLast24Hours": "Datum für die letzten 24 Stunden einstellen",
+    "24Hours": "24 Stunden",
+    "SetDateYesterday": "Datum auf gestern einstellen",
+    "Yesterday": "Gestern",
+    "SetDateLastWeek": "Datum auf Woche einstellen",
+    "Week": "Woche",
+    "ResultsPerPage": "Ergebnisse pro Seite",
+    "AddFilter": "Filter hinzufügen",
+    "ShowFilters": "Filter anzeigen",
+    "HideFilters": "Filter ausblenden",
+    "FilterTerm": "Filterbegriff",
+    "FilterTermPlaceholder": "Filterbegriff ...",
+    "RemoveFilter": "Filter entfernen",
+    "Showing": "Anzeigen",
+    "ExecuteAndDownload": "Ausführen und Herunterladen",
+    "ExecuteAndDisplay": "Ausführen und Anzeigen",
+    "UpdateWarning": "Klicken Sie auf \"Ergebnisse aktualisieren\", um Ihre Änderungen anzuzeigen",
+    "Reset": "Zurücksetzen",
+    "Result": "Ergebnis",
+    "First page of results": "Erste Seite der Ergebnisse",
+    "Previous page of results": "Vorherige Seite der Ergebnisse",
+    "Next page of results": "Nächste Seite der Ergebnisse",
+    "Last page of results": "Letzte Seite der Ergebnisse",
+    "DownloadResults": "Exportieren",
+    "FromDateWarning": "Datum „von“ kann nicht in der Zukunft liegen",
+    "ToDateBehindWarning": "Datum „bis“ kann nicht vor dem Datum „von“ liegen",
+    "ActiveFilters": "Aktive Filter",
+    "AddFilterTerm": "Filterbegriff hinzufügen"
+  },
+  "Resource": {
+    "user": "Benutzer",
+    "role": "Position",
+    "claimType": "ClaimType",
+    "client": "Client",
+    "identityResource": "Identitätsressource",
+    "protectedResource": "Geschützte Ressource",
+    "serviceProvider": "Service Provider",
+    "relyingParty": "Relying Party"
+  },
+  "Webhooks": {
+    "ResetPassword": "Passwort zurücksetzen",
+    "ResetMFA": "MFA zurücksetzen",
+    "UserRegistration": "Benutzerregistrierung",
+    "EnsureHttps": "Stellen Sie sicher, dass diese URLs HTTPS sind",
+    "ProtectingScope": "Schutzbereich",
+    "EnableWebhook": "Webhook aktivieren",
+    "EnableWebhooks": "Alle Webhooks aktivieren",
+    "MultiFactorHeading": "Zurücksetzen der Mehr-Faktor-Authentifizierung",
+    "PasswordResetHeading": "Passwort zurücksetzen",
+    "UserRegistrationHeading": "Benutzerregistrierung",
+    "ServerSideSessionDeleteHeading": "Serverseitige Sitzungslöschung",
+    "WebhookConfigurationUpdated": "Webhook-Konfiguration aktualisiert",
+    "ClientCreationWarningTitle": "Client-Erstellung",
+    "ClientCreationWarningDescription": "Wenn Sie Webhooks aktivieren, wird ein Client erstellt. Möchten Sie fortfahren?",
+    "ClientDeletionWarningTitle": "Client-Löschung",
+    "ClientDeletionWarningDescription": "Durch das Deaktivieren von Webhooks wird der zugehörige Client entfernt. Möchten Sie fortfahren?"
+  },
+  "InitialAdminCreation": {
+    "SuccessMessage": "Sie haben Ihren anfänglichen Administrator für AdminUI erfolgreich erstellt.",
+    "LoginMessage": "Sie können sich jetzt in die AdminUI einloggen und Ihre IdentityServer-Lösung verwalten.",
+    "EmbeddedCredentialsWarning": "Bevor Sie mit AdminUI beginnen können, müssen Sie einen Administrator erstellen, da die aktuelle Anmeldung unsichere eingebettete Anmeldeinformationen verwendet",
+    "PasswordHashMessage": "Benutzerkennwörter werden mit dem standardmäßigen ASP.NET Identity-Hashing-Algorithmus erstellt.",
+    "PermissionsInfoMessage": "Weitere Informationen zu den Rollen und Berechtigungen Ihres Benutzers finden Sie in <a class='tw-inline-block tw-text-blue-500 hover:tw-text-body trans' href='https://www.identityserver.com/documentation/adminui/Access_Policy/Access_Policy/' target='_blank'> unseren Zugriffsrichtlinien-Dokumenten</a>",
+    "ReminderMessage": "Ihre Datenbank enthält immer noch den Standard-AdminUI-Administrator. Bitte entfernen Sie diesen.",
+    "Resolve": "Beheben"
+  },
+  "SessionManagement": {
+    "Created": "Erstellt",
+    "Expires": "Läuft ab",
+    "Renewed": "Erneuert",
+    "Scheme": "Schema",
+    "NoExpiration": "Sitzungen haben keinen Ablauf",
+    "NotRenewed": "Sitzung nicht erneuert",
+    "NoSessionsFound": "Keine Sitzungen gefunden"
+  },
+  "StarterMode": {
+    "RequiresUpgrade": "Erfordert ein Upgrade von der Starterlizenz",
+    "UpgradeAdminUI": "Auf AdminUI Enterprise aktualisieren",
+    "ExtendDemo": "Demo-Lizenz verlängern",
+    "ConfirmStarterMode": "Startermodus bestätigen",
+    "Warning": "Sie befinden sich jetzt im Startermodus. Die Authentifizierung ist deaktiviert.",
+    "Consent": {
+      "Title": "Ihre AdminUI-Demolizenz ist abgelaufen",
+      "Description": "Nach Bestätigung des Startermodus wechselt AdminUI zu einer kostenlosen Starterlizenz. Es gelten folgende Einschränkungen:",
+      "Features": {
+        "Authentication": "Die Authentifizierung wird entfernt",
+        "Clients": "Die Anzahl der Client-Anwendungen ist auf 3 begrenzt",
+        "ClientFlows": "Es werden nur Authentifizierungscode + PKCE und Maschine-zu-Maschine-Clientflüsse unterstützt",
+        "Users": "Die Anzahl der Benutzer ist auf 10 begrenzt",
+        "Import": "Die Import- und Exportfunktionen der Clientkonfiguration werden nicht unterstützt",
+        "Audits": "Audit-Protokolle können nicht eingesehen oder verwaltet werden",
+        "DynamicAuth": "Dynamische Authentifizierungsanbieter können nicht verwaltet werden"
+      },
+      "NonAdminUser": "Sie sind kein Administrator. Nur ein Administrator kann den Startermodus aktivieren."
+    },
+    "ConfirmationModal": {
+      "Title": "AdminUI Startermodus bestätigen",
+      "Description": "AdminUI wird Sie nun ausloggen und aktualisieren. Anschließend können Sie sich einfach anmelden, um auf AdminUI ohne Authentifizierung mit dem konfigurierten IdentityServer zuzugreifen.",
+      "Warning": "WARNUNG: DAS SOLLTE NICHT IN PRODUKTIONSUMGEBUNGEN DURCHGEFÜHRT WERDEN"
+    },
+    "Teaser": {
+      "Title": "Upgrade auf AdminUI Enterprise",
+      "TitleWithFeature": "Upgrade auf AdminUI Enterprise, um von {0} zu profitieren",
+      "Description": "Schalten Sie das volle Potenzial von AdminUI frei, um Ihre IdentityServer-Lösung zu unterstützen und zugriff auf:",
+      "RedirectedDescription": "Erhalten Sie {0} und andere Vorteile, indem Sie das volle Potenzial von AdminUI freischalten. Unterstützen Sie Ihre IdentityServer-Lösung und erhalten Sie Zugriff auf:",
+      "Features": {
+        "Authentication": "Sichere Authentifizierung in AdminUI",
+        "UsersAndClients": "Unbegrenzte Verwaltung von Benutzern und Client-Anwendungen",
+        "ExtraClientFlows": "Zusätzliche Client-Anwendungsflüsse verwalten",
+        "Access": "Feinkörnige Zugriffssteuerung in AdminUI",
+        "Import": "Import und Export von Clientkonfigurationen zwischen Umgebungen",
+        "Audits": "Vollständige revisionssichere Kontrolle von AdminUI- und IdentityServer-Vorgängen",
+        "DynamicAuth": "Verwaltung dynamischer Authentifizierungsanbieter"
+      }
+    },
+    "Clients": {
+      "Basic": "Grundlegende Konfiguration",
+      "Enterprise": "Unternehmenskonfiguration",
+      "ExtraClientFlows": "weitere Client-Anwendungsflüsse"
+    }
+  }
+}

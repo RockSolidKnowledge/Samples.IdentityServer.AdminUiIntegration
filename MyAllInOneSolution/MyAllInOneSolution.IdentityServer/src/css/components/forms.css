@@ -1,0 +1,60 @@
+﻿.form-group {
+	@apply mb-5;
+}
+
+.form-label {
+	@apply block text-navy font-semibold cursor-pointer mb-2;
+}
+
+.form-control {
+	@apply block bg-white text-navy border-2 border-grey-lighter shadow-inner h-12 p-3 w-full max-w-md rounded trans;
+}
+
+.form-control:focus {
+	@apply outline-none border-grey-light shadow-md;
+}
+
+select.form-control {
+	@apply pr-6;
+}
+
+.form-checks {
+	@apply flex flex-wrap items-start list-reset -mt-2 -ml-6;
+}
+
+.form-checks__item {
+	@apply pt-2 pl-6;
+}
+
+.form-checks__label {
+	@apply block flex items-start w-full cursor-pointer;
+}
+
+.form-checks__input {
+	@apply flex-no-shrink mt-1 mr-2 cursor-pointer;
+}
+
+.form-checks__input:focus {
+	@apply outline-none shadow-outline;
+}
+
+.form-checks__text {
+	@apply block text-navy font-semibold leading-tight w-full;
+}
+
+.form-actions {
+	@apply flex flex-wrap items-center mt-8;
+}
+
+.form-text {
+	@apply block text-grey text-sm mt-2;
+}
+
+.form-error {
+	@apply block text-red-dark text-sm mt-2;
+}
+
+.form-error:before {
+	@apply font-icons font-bold;
+	content: "\f06a";
+}

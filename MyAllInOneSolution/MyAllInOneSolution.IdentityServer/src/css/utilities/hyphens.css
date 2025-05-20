@@ -1,0 +1,23 @@
+﻿@responsive {
+
+	.hyphens-none {
+		hyphens: none;
+	}
+
+	.hyphens-manual {
+		hyphens: manual;
+	}
+
+	.hyphens-auto {
+		hyphens: auto;
+	}
+
+	.hyphens-initial {
+		hyphens: initial;
+	}
+
+	.hyphens-inherit {
+		hyphens: inherit;
+	}
+
+}

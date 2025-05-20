@@ -1,0 +1,131 @@
+﻿@using Duende.IdentityServer.Extensions
+@{
+	string name = null;
+	if (!true.Equals(ViewData["signed-out"]))
+	{
+		name = Context.User?.GetDisplayName();
+	}
+	bool signedIn = !string.IsNullOrWhiteSpace(name);
+}
+
+@section banner
+{
+	<div class="bg-navy text-white px-6 py-8 md:py-12 lg:py-16 relative z-10">
+		<div class="container w-full text-left mx-auto self-center">
+			<div class="max-w-lg">
+				<div class="flex flex-wrap items-center">
+					<h1 class="font-bold w-full text-3xl lg:text-4xl leading-tight">Welcome to IdentityServer</h1>
+				</div>
+			</div>
+		</div>
+	</div>
+}
+
+<div class="no-print">
+
+	<section class="mb-6 lg:mb-10">
+		<h2 class="text-xl mb-1">Let's get started...</h2>
+		<p class="text-navy-light text-sm mb-5">IdentityServer publishes a <a class="underline hover:no-underline" href="~/.well-known/openid-configuration" target="_blank">discovery document</a> where you can find metadata and links to all the endpoints, key material, etc.</p>
+		<ul class="flex flex-wrap list-reset -mt-4 -ml-4">
+			@if (signedIn)
+			{
+				<li class="w-full pt-4 pl-4 sm:w-1/2 md:w-full lg:w-1/4">
+					<a class="flex items-center justify-center h-32 bg-navy-lightest shadow-inner-md font-semibold text-center leading-tight text-navy p-2 rounded hover:bg-navy hover:text-white trans" asp-action="Logout" asp-controller="Account">
+						<span class="block">
+							<span class="fas fa-sign-out-alt block text-4xl" aria-hidden="true"></span>
+							<span class="block mt-3">Logout</span>
+						</span>
+					</a>
+				</li>
+			}
+			else
+			{
+				<li class="w-full pt-4 pl-4 sm:w-1/2 md:w-full lg:w-1/4">
+					<a class="flex items-center justify-center h-32 bg-navy-lightest shadow-inner-md font-semibold text-center leading-tight text-navy p-2 rounded hover:bg-navy hover:text-white trans" asp-action="Login" asp-controller="Account">
+						<span class="block">
+							<span class="fas fa-user block text-4xl" aria-hidden="true"></span>
+							<span class="block mt-3">Login</span>
+						</span>
+					</a>
+				</li>
+			}
+			<li class="w-full pt-4 pl-4 sm:w-1/2 md:w-full lg:w-1/4">
+				<a class="flex items-center justify-center h-32 bg-navy-lightest shadow-inner-md font-semibold text-center leading-tight text-navy p-2 rounded hover:bg-navy hover:text-white trans" asp-action="Index" asp-controller="Grants">
+					<span class="block">
+						<span class="fas fa-globe-europe block text-4xl" aria-hidden="true"></span>
+						<span class="block mt-3">Grants</span>
+					</span>
+				</a>
+			</li>
+		</ul>
+	</section>
+
+	<section class="mb-6 lg:mb-10">
+		<h2 class="text-xl mb-3">Documentation</h2>
+		<ul class="flex flex-wrap list-reset -mt-4 -ml-4">
+			<li class="w-full pt-4 pl-4 sm:w-1/2 md:w-full lg:w-1/4">
+				<a class="flex items-center justify-center h-32 bg-navy-lightest shadow-inner-md font-semibold text-center leading-tight text-navy p-2 rounded hover:bg-navy hover:text-white trans" href="https://github.com/DuendeSoftware/IdentityServer" target="_blank">
+					<span class="block">
+						<span class="fab fa-github block text-4xl" aria-hidden="true"></span>
+						<span class="block mt-3">IdentityServer<span class="block">on GitHub</span></span>
+					</span>
+				</a>
+			</li>
+			<li class="w-full pt-4 pl-4 sm:w-1/2 md:w-full lg:w-1/4">
+				<a class="flex items-center justify-center h-32 bg-navy-lightest shadow-inner-md font-semibold text-center leading-tight text-navy p-2 rounded hover:bg-navy hover:text-white trans" href="https://www.identityserver.com/documentation/adminui" target="_blank">
+					<span class="block">
+						<span class="fas fa-file-alt block text-4xl" aria-hidden="true"></span>
+						<span class="block mt-3">AdminUI <span class="block">documentation</span></span>
+					</span>
+				</a>
+			</li>
+			<li class="w-full pt-4 pl-4 sm:w-1/2 md:w-full lg:w-1/4">
+				<a class="flex items-center justify-center h-32 bg-navy-lightest shadow-inner-md font-semibold text-center leading-tight text-navy p-2 rounded hover:bg-navy hover:text-white trans" href="https://www.identityserver.com/documentation/saml2p" target="_blank">
+					<span class="block">
+						<span class="fas fa-file-alt block text-4xl" aria-hidden="true"></span>
+						<span class="block mt-3">SAML2P <span class="block">documentation</span></span>
+					</span>
+				</a>
+			</li>
+			<li class="w-full pt-4 pl-4 sm:w-1/2 md:w-full lg:w-1/4">
+				<a class="flex items-center justify-center h-32 bg-navy-lightest shadow-inner-md font-semibold text-center leading-tight text-navy p-2 rounded hover:bg-navy hover:text-white trans" href="https://www.identityserver.com/documentation/wsfed" target="_blank">
+					<span class="block">
+						<span class="fas fa-file-alt block text-4xl" aria-hidden="true"></span>
+						<span class="block mt-3">WS-Fed <span class="block">documentation</span></span>
+					</span>
+				</a>
+			</li>
+		</ul>
+	</section>
+
+	<section>
+		<h2 class="text-xl mb-3">Flexible support plans</h2>
+		<ul class="flex flex-wrap list-reset -mt-4 -ml-4">
+			<li class="w-full pt-4 pl-4 sm:w-1/2 md:w-full lg:w-1/4">
+				<a class="flex items-center justify-center h-32 bg-navy-lightest shadow-inner-md font-semibold text-center leading-tight text-navy p-2 rounded hover:bg-navy hover:text-white trans" href="https://www.identityserver.com/services/developer-support" target="_blank">
+					<span class="block">
+						<span class="fas fa-laptop-code block text-4xl" aria-hidden="true"></span>
+						<span class="block mt-3">Developer <span class="block">support</span></span>
+					</span>
+				</a>
+			</li>
+			<li class="w-full pt-4 pl-4 sm:w-1/2 md:w-full lg:w-1/4">
+				<a class="flex items-center justify-center h-32 bg-navy-lightest shadow-inner-md font-semibold text-center leading-tight text-navy p-2 rounded hover:bg-navy hover:text-white trans" href="https://www.identityserver.com/services/production-support" target="_blank">
+					<span class="block">
+						<span class="fas fa-headset block text-4xl" aria-hidden="true"></span>
+						<span class="block mt-3">Production <span class="block">support</span></span>
+					</span>
+				</a>
+			</li>
+			<li class="w-full pt-4 pl-4 sm:w-1/2 md:w-full lg:w-1/4">
+				<a class="flex items-center justify-center h-32 bg-navy-lightest shadow-inner-md font-semibold text-center leading-tight text-navy p-2 rounded hover:bg-navy hover:text-white trans" href="https://www.identityserver.com/services/bespoke-development" target="_blank">
+					<span class="block">
+						<span class="fas fa-code block text-4xl" aria-hidden="true"></span>
+						<span class="block mt-3">Bespoke <span class="block">development</span></span>
+					</span>
+				</a>
+			</li>
+		</ul>
+	</section>
+
+</div>

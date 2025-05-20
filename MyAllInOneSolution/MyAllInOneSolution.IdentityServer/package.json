@@ -1,0 +1,21 @@
+{
+	"name": "identityserver",
+	"version": "1.0.0",
+	"description": "IdentityServer",
+	"author": "@karltynan for Rock Solid Knowledge Ltd (https://www.rocksolidknowledge.com/)",
+	"private": true,
+	"license": "UNLICENSED",
+	"devDependencies": {
+		"autoprefixer": "^8.6.5",
+		"gulp": "^4.0.2",
+		"gulp-cssimport": "^7.0.0",
+		"gulp-if": "^2.0.2",
+		"gulp-postcss": "^8.0.0",
+		"gulp-purgecss": "^1.2.0",
+		"gulp-rename": "^1.4.0",
+		"gulp-uglify": "^3.0.2",
+		"gulp-uglifycss": "^1.1.0",
+		"postcss-nested": "^4.2.3",
+		"tailwindcss": "^0.7.4"
+	}
+}

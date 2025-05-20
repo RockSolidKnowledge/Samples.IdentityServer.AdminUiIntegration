@@ -1,0 +1,25 @@
+﻿@model MyAllInOneSolution.IdentityServer.Models.LogoutViewModel
+
+@section banner
+{
+	<div class="bg-navy text-white px-6 py-8 md:py-12 lg:py-16 relative z-10">
+		<div class="container w-full text-left mx-auto self-center">
+			<div class="max-w-lg">
+				<div class="flex flex-wrap items-center">
+					<h1 class="font-bold w-full text-3xl lg:text-4xl leading-tight">Logout</h1>
+				</div>
+			</div>
+		</div>
+	</div>
+}
+
+<div class="cms">
+	<p><strong>Are you sure you want to logout of IdentityServer?</strong></p>
+</div>
+
+<form asp-action="Logout">
+	<input type="hidden" name="logoutId" value="@Model.LogoutId"  />
+	<div class="form-actions">
+		<button class="btn btn-primary">Yes</button>
+	</div>
+</form>

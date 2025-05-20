@@ -1,0 +1,987 @@
+<!doctype html>
+<html lang="en" class="tw-bg-primary-500 tw-h-full">
+<head>
+    <base href="./">
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>UI Styleguide | AdminUI</title>
+    <link href="assets/fonts/roboto/roboto.css" rel="stylesheet" type="text/css" />
+    <link href="assets/fonts/fontawesome/css/all.min.css" rel="stylesheet" type="text/css" />
+    <link href="assets/styles/app.min.css?v=2-6" rel="stylesheet" type="text/css" />
+    <link href="assets/favicon.ico" rel="shortcut icon" type="image/x-icon" />
+    <meta name="theme-color" content="#4C5C68" />
+    <meta name="format-detection" content="telephone=no" />
+</head>
+<body class="tw-bg-grey-100 tw-text-body tw-font-sans tw-text-base tw-leading-normal tw-min-h-full tw-pb-24 tw-relative no-focus-outline">
+    <a class="sr-only sr-only-focusable tw-block tw-bg-grey-200 tw-px-4 tw-py-3 tw-font-semibold tw-left-0 tw-top-0 tw-z-40 focus:tw-m-1 focus:tw-text-blue-500 focus:tw-fixed" href="#main-content">Skip to content</a>
+    <nav class="tw-bg-primary-500 tw-border-b tw-border-primary-400 tw-text-white tw-text-xs tw-px-4" aria-label="Account">
+        <div class="tw-container tw-mx-auto tw-text-left">
+            <div class="tw-flex tw-items-center tw-h-8">
+                <div class="tw-opacity-75">No license</div>
+                <div class="tw-hidden tw-items-center tw-ml-auto sm:tw-flex">
+                    <span class="fad fa-user-lock tw-mr-2" style="--fa-secondary-color: #cc0000; --fa-secondary-opacity: 1.0;" aria-hidden="true"></span>
+                    <span class="tw-font-semibold">UI Styleguide</span>
+                </div>
+            </div>
+        </div>
+    </nav>
+    <header class="tw-bg-primary-500 tw-text-primary-100 tw-relative tw-z-30" role="banner" *ngIf="securityService.loggedIn" (window:resize)="detectSize()">
+        <div class="tw-container tw-text-left tw-mx-auto">
+            <div class="lg:tw-flex">
+                <div class="tw-flex tw-justify-between tw-h-header tw-ml-4 xl:tw-mr-4 max:tw-ml-0">
+                    <a class="tw-flex tw-items-center tw-justify-center tw-shrink-0" href="/ui.html">
+                        <img class="tw-w-8" src="/assets/img/logo-persimmon.png" alt="" aria-hidden="true" />
+                        <span class="sr-only">Home</span>
+                    </a>
+                </div>
+            </div>
+        </div>
+    </header>
+    <main id="main-content" class="tw-bg-grey-100 tw-px-4 tw-pt-5 tw-pb-10 focus:tw-shadow-none" role="main" tabindex="-1">
+        <div class="tw-container tw-mx-auto">
+            <div class="tw-flex-grid tw-flex-wrap tw-flex-row-reverse">
+                <div class="tw-flex-grid-col md:tw-w-2/3 lg:tw-w-3/4">
+                    <div class="tw-bg-white tw-shadow tw-p-4">
+                        <h1 class="sr-only">UI Styleguide</h1>
+                        <h2 class="tw-border-b tw-border-grey-300 tw-text-2xl tw-font-semibold tw-mb-4 tw-pb-2">General</h2>
+                        <h3 id="general-classes" class="tw-text-xl tw-font-semibold tw-mb-3">CSS Classes</h3>
+                        <div class="cms">
+                            <p>All CSS classes used in AdminUI are generated using the <a href="https://tailwindcss.com/" target="_blank">Tailwind CSS</a> utility-first CSS framework.</p>
+                            <p class="tw-alert-warning"><span>Note: Classes are prefixed with <code>tw-</code> whilst we are still sharing some classes with the legacy Bootstrap CSS framework.</span></p>
+                            <p>Classes can be found using the Tailwind CSS documentation, or by reviewing the Tailwind config file, located at: <code>/UI/AdminUI/src/tailwind/tailwind.config.js</code>.</p>
+                        </div>
+                        <div class="tw-bg-grey-100 tw-border tw-border-grey-200 tw-mb-4 tw-p-4">
+                            <p class="tw-text-xs tw-text-grey-600 tw-mb-2">Example:</p>
+                            <p class="tw-text-green-500 tw-text-xl tw-mb-4">Lorem ipsum dolar sit amet</p>
+                            <p class="tw-text-xs tw-text-grey-600 tw-mb-2">Code:</p>
+                            <div class="cms tw--mb-4">
+                                <pre class="scrollbars">&lt;p id="test-id" class="<span class="tw-text-white">tw-text-green-500 tw-text-xl</span>"&gt;...&lt;/p&gt;</pre>
+                            </div>
+                        </div>
+                        <div class="cms">
+                            <p>Where possible, attributes should be added in order of: <code>id</code>, <code>class</code>, and <code>for/name</code>, followed by remaining attributes.</p>
+                        </div>
+                        <h3 id="general-responsive" class="tw-text-xl tw-font-semibold tw-mb-3">Responsive</h3>
+                        <div class="cms">
+                            <p>Tailwind CSS also generates responsive classes for CSS.</p>
+                        </div>
+                        <div class="tw-bg-grey-100 tw-border tw-border-grey-200 tw-mb-4 tw-p-4">
+                            <p class="tw-text-xs tw-text-grey-600 tw-mb-2">Example:</p>
+                            <p class="tw-text-orange-500 tw-text-xl tw-mb-4 md:tw-text-green-500">Lorem ipsum dolar sit amet</p>
+                            <p class="tw-text-xs tw-text-grey-600 tw-mb-2">Code:</p>
+                            <div class="cms tw--mb-4">
+                                <pre class="scrollbars">&lt;p class="tw-text-orange-500 tw-text-xl <span class="tw-text-white">md:tw-text-green-500</span>"&gt;...&lt;/p&gt;</pre>
+                            </div>
+                        </div>
+                        <h2 class="tw-border-b tw-border-grey-300 tw-text-2xl tw-font-semibold tw-mb-4 tw-pb-2">Layout</h2>
+                        <h3 id="layout-containers" class="tw-text-xl tw-font-semibold tw-mb-3">Containers</h3>
+                        <div class="cms">
+                            <p>There are two CSS container classes in use.</p>
+                            <ol>
+                                <li><code>tw-content</code> - sets the max-width to a decent reading width</li>
+                                <li><code>tw-container</code> - sets the max-width to max site width</li>
+                            </ol>
+                            <p>However, it is easy to use Tailwind CSS to restrict your own content. To set a max-width of <code>24rem</code> (based on the Tailwind CSS config settings), you can use the following class: <code>tw-max-w-sm</code></p>
+                        </div>
+                        <h3 id="layout-grid" class="tw-text-xl tw-font-semibold tw-mb-3">Grid</h3>
+                        <div class="cms">
+                            <p>There is a basic grid that shortcuts some <b>flexbox</b> setup. You can use responsive classes to disable wrapping and to set the widths of columns.</p>
+                        </div>
+                        <div class="tw-bg-grey-100 tw-border tw-border-grey-200 tw-mb-4 tw-p-4">
+                            <p class="tw-text-xs tw-text-grey-600 tw-mb-2">Example:</p>
+                            <div class="tw-flex-grid tw-mb-4 md:tw-flex-nowrap">
+                                <div class="tw-flex-grid-col md:tw-w-1/3">
+                                    <div class="tw-bg-white tw-shadow tw-px-4 tw-py-3">First col</div>
+                                </div>
+                                <div class="tw-flex-grid-col md:tw-w-2/3">
+                                    <div class="tw-bg-white tw-shadow tw-px-4 tw-py-3">Second col</div>
+                                </div>
+                            </div>
+                            <div class="tw-flex-grid tw-mb-4 md:tw-flex-nowrap">
+                                <div class="tw-flex-grid-col md:tw-w-1/2">
+                                    <div class="tw-bg-white tw-shadow tw-px-4 tw-py-3">First col</div>
+                                </div>
+                                <div class="tw-flex-grid-col md:tw-w-1/2">
+                                    <div class="tw-bg-white tw-shadow tw-px-4 tw-py-3">Second col</div>
+                                </div>
+                            </div>
+                            <div class="tw-flex-grid tw-mb-4 md:tw-flex-nowrap">
+                                <div class="tw-flex-grid-col md:tw-w-1/3">
+                                    <div class="tw-bg-white tw-shadow tw-px-4 tw-py-3">First col</div>
+                                </div>
+                                <div class="tw-flex-grid-col md:tw-w-1/3">
+                                    <div class="tw-bg-white tw-shadow tw-px-4 tw-py-3">Second col</div>
+                                </div>
+                                <div class="tw-flex-grid-col md:tw-w-1/3">
+                                    <div class="tw-bg-white tw-shadow tw-px-4 tw-py-3">Third col</div>
+                                </div>
+                            </div>
+                            <p class="tw-text-xs tw-text-grey-600 tw-mb-2">Code:</p>
+                            <div class="cms tw--mb-4">
+                                <pre class="scrollbars">&lt;div class="<span class="tw-text-white">tw-flex-grid md:tw-flex-nowrap</span>"&gt;
+    &lt;div class="<span class="tw-text-white">tw-flex-grid-col md:tw-w-1/3</span>"&gt;...&lt;/div&gt;
+    &lt;div class="<span class="tw-text-white">tw-flex-grid-col md:tw-w-2/3</span>"&gt;...&lt;/div&gt;
+&lt;/div&gt;
+&lt;div class="<span class="tw-text-white">tw-flex-grid md:tw-flex-nowrap</span>"&gt;
+    &lt;div class="<span class="tw-text-white">tw-flex-grid-col md:tw-w-1/2</span>"&gt;...&lt;/div&gt;
+    &lt;div class="<span class="tw-text-white">tw-flex-grid-col md:tw-w-1/2</span>"&gt;...&lt;/div&gt;
+&lt;/div&gt;
+&lt;div class="<span class="tw-text-white">tw-flex-grid md:tw-flex-nowrap</span>"&gt;
+    &lt;div class="<span class="tw-text-white">tw-flex-grid-col md:tw-w-1/3</span>"&gt;...&lt;/div&gt;
+    &lt;div class="<span class="tw-text-white">tw-flex-grid-col md:tw-w-1/3</span>"&gt;...&lt;/div&gt;
+    &lt;div class="<span class="tw-text-white">tw-flex-grid-col md:tw-w-1/3</span>"&gt;...&lt;/div&gt;
+&lt;/div&gt;</pre>
+                            </div>
+                        </div>
+                        <h2 class="tw-border-b tw-border-grey-300 tw-text-2xl tw-font-semibold tw-mb-4 tw-pb-2">Components</h2>
+                        <h3 id="components-alerts" class="tw-text-xl tw-font-semibold tw-mb-3">Alerts</h3>
+                        <div class="cms">
+                            <p>There are several different options for alerts.</p>
+                            <p class="tw-alert-warning"><span>Note: Alerts use flexbox. If you are using child HTML elements in an alert, you will also need to wrap the inner content in another HTML element (i.e. <code>span</code>)</span></p>
+                        </div>
+                        <div class="tw-bg-grey-100 tw-border tw-border-grey-200 tw-mb-4 tw-p-4">
+                            <p class="tw-text-xs tw-text-grey-600 tw-mb-2">Example:</p>
+                            <p class="tw-alert tw-mb-4" role="alert">Info</p>
+                            <p class="tw-alert-success tw-mb-4" role="alert">Success</p>
+                            <p class="tw-alert-warning tw-mb-4" role="alert">Warning</p>
+                            <p class="tw-alert-danger tw-mb-4" role="alert">Danger</p>
+                            <p class="tw-text-xs tw-text-grey-600 tw-mb-2">Code:</p>
+                            <div class="cms tw--mb-4">
+                                <pre class="scrollbars">&lt;p class="<span class="tw-text-white">tw-alert tw-mb-4</span>" role="<span class="tw-text-white">alert</span>"&gt;&lt;span&gt;...&lt;/span&gt;&lt;/p&gt;
+&lt;p class="<span class="tw-text-white">tw-alert-success tw-mb-4</span>" role="<span class="tw-text-white">alert</span>"&gt;&lt;span&gt;...&lt;/span&gt;&lt;/p&gt;
+&lt;p class="<span class="tw-text-white">tw-alert-warning tw-mb-4</span>" role="<span class="tw-text-white">alert</span>"&gt;&lt;span&gt;...&lt;/span&gt;&lt;/p&gt;
+&lt;p class="<span class="tw-text-white">tw-alert-danger tw-mb-4</span>" role="<span class="tw-text-white">alert</span>"&gt;&lt;span&gt;...&lt;/span&gt;&lt;/p&gt;</pre>
+                            </div>
+                        </div>
+                        <h3 id="components-buttons" class="tw-text-xl tw-font-semibold tw-mb-3">Buttons</h3>
+                        <div class="cms">
+                            <p>There are several different options for buttons.</p>
+                        </div>
+                        <div class="tw-bg-grey-100 tw-border tw-border-grey-200 tw-mb-4 tw-p-4">
+                            <p class="tw-text-xs tw-text-grey-600 tw-mb-2">Example:</p>
+                            <div class="tw-flex tw-flex-wrap tw-items-center tw-mb-2">
+                                <button class="tw-btn tw-mr-2 tw-mb-2">Default</button>
+                                <button class="tw-btn-success tw-mr-2 tw-mb-2">Success</button>
+                                <button class="tw-btn-warning tw-mr-2 tw-mb-2">Warning</button>
+                                <button class="tw-btn-danger tw-mr-2 tw-mb-2">Danger</button>
+                                <button class="tw-btn-blue tw-mr-2 tw-mb-2">Blue</button>
+                                <button class="tw-btn-white tw-mr-2 tw-mb-2">White</button>
+                                <button class="tw-btn-link tw-mr-2 tw-mb-2">Link</button>
+                            </div>
+                            <p class="tw-text-xs tw-text-grey-600 tw-mb-2">Code:</p>
+                            <div class="cms tw--mb-4">
+                                <pre class="scrollbars">&lt;button class="<span class="tw-text-white">tw-btn</span>"&gt;...&lt;/button&gt;
+&lt;button class="<span class="tw-text-white">tw-btn-success</span>"&gt;...&lt;/button&gt;
+&lt;button class="<span class="tw-text-white">tw-btn-warning</span>"&gt;...&lt;/button&gt;
+&lt;button class="<span class="tw-text-white">tw-btn-danger</span>"&gt;...&lt;/button&gt;
+&lt;button class="<span class="tw-text-white">tw-btn-blue</span>"&gt;...&lt;/button&gt;
+&lt;button class="<span class="tw-text-white">tw-btn-white</span>"&gt;...&lt;/button&gt;
+&lt;button class="<span class="tw-text-white">tw-btn-link</span>"&gt;...&lt;/button&gt;</pre>
+                            </div>
+                        </div>
+                        <div class="cms">
+                            <p>All button styles can be made smaller or larger.</p>
+                        </div>
+                        <div class="tw-bg-grey-100 tw-border tw-border-grey-200 tw-mb-4 tw-p-4">
+                            <p class="tw-text-xs tw-text-grey-600 tw-mb-2">Example:</p>
+                            <div class="tw-flex tw-flex-wrap tw-items-center tw-mb-2">
+                                <button class="tw-btn tw-btn-small tw-mr-2 tw-mb-2">Default</button>
+                                <button class="tw-btn-success tw-btn-small tw-mr-2 tw-mb-2">Success</button>
+                                <button class="tw-btn-warning tw-btn-small tw-mr-2 tw-mb-2">Warning</button>
+                            </div>
+                            <p class="tw-text-xs tw-text-grey-600 tw-mb-2">Code:</p>
+                            <div class="cms tw--mb-4">
+                                <pre class="scrollbars">&lt;button class="<span class="tw-text-white">tw-btn tw-btn-small</span>"&gt;...&lt;/button&gt;
+&lt;button class="<span class="tw-text-white">tw-btn-success tw-btn-small</span>"&gt;...&lt;/button&gt;
+&lt;button class="<span class="tw-text-white">tw-btn-warning tw-btn-small</span>"&gt;...&lt;/button&gt;</pre>
+                            </div>
+                        </div>
+                        <div class="tw-bg-grey-100 tw-border tw-border-grey-200 tw-mb-4 tw-p-4">
+                            <p class="tw-text-xs tw-text-grey-600 tw-mb-2">Example:</p>
+                            <div class="tw-flex tw-flex-wrap tw-items-center tw-mb-2">
+                                <button class="tw-btn tw-btn-large tw-mr-2 tw-mb-2">Default</button>
+                                <button class="tw-btn-success tw-btn-large tw-mr-2 tw-mb-2">Success</button>
+                                <button class="tw-btn-warning tw-btn-large tw-mr-2 tw-mb-2">Warning</button>
+                            </div>
+                            <p class="tw-text-xs tw-text-grey-600 tw-mb-2">Code:</p>
+                            <div class="cms tw--mb-4">
+                                <pre class="scrollbars">&lt;button class="<span class="tw-text-white">tw-btn tw-btn-large</span>"&gt;...&lt;/button&gt;
+&lt;button class="<span class="tw-text-white">tw-btn-success tw-btn-large</span>"&gt;...&lt;/button&gt;
+&lt;button class="<span class="tw-text-white">tw-btn-warning tw-btn-large</span>"&gt;...&lt;/button&gt;</pre>
+                            </div>
+                        </div>
+                        <div class="cms">
+                            <p>All button styles can also be disabled.</p>
+                        </div>
+                        <div class="tw-bg-grey-100 tw-border tw-border-grey-200 tw-mb-4 tw-p-4">
+                            <p class="tw-text-xs tw-text-grey-600 tw-mb-2">Example:</p>
+                            <div class="tw-flex tw-flex-wrap tw-items-center tw-mb-2">
+                                <button class="tw-btn tw-mr-2 tw-mb-2" disabled>Default</button>
+                                <button class="tw-btn-success tw-mr-2 tw-mb-2" disabled>Success</button>
+                                <button class="tw-btn-warning tw-mr-2 tw-mb-2" disabled>Warning</button>
+                            </div>
+                            <p class="tw-text-xs tw-text-grey-600 tw-mb-2">Code:</p>
+                            <div class="cms tw--mb-4">
+                                <pre class="scrollbars">&lt;button class="<span class="tw-text-white">tw-btn</span>" <span class="tw-text-white">disabled</span>&gt;...&lt;/button&gt;
+&lt;button class="<span class="tw-text-white">tw-btn-success</span>" <span class="tw-text-white">disabled</span>&gt;...&lt;/button&gt;
+&lt;button class="<span class="tw-text-white">tw-btn-warning</span>" <span class="tw-text-white">disabled</span>&gt;...&lt;/button&gt;</pre>
+                            </div>
+                        </div>
+                        <h3 id="components-datatable" class="tw-text-xl tw-font-semibold tw-mb-3">Datatable</h3>
+                        <div class="cms">
+                            <p>Datatables are contructed using regular HTML table markup.</p>
+                        </div>
+                        <div class="tw-bg-grey-100 tw-border tw-border-grey-200 tw-mb-4 tw-p-4">
+                            <p class="tw-text-xs tw-text-grey-600 tw-mb-2">Example:</p>
+                            <div class="tw-mb-4">
+                                <table class="datatable">
+                                    <thead>
+                                        <tr>
+                                            <th class="tw-text-left">Col</th>
+                                            <th class="tw-text-left">Col</th>
+                                            <th class="tw-text-left">Col</th>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        <tr>
+                                            <td>Col</td>
+                                            <td>Col</td>
+                                            <td>Col</td>
+                                        </tr>
+                                        <tr>
+                                            <td>Col</td>
+                                            <td>Col</td>
+                                            <td>Col</td>
+                                        </tr>
+                                    </tbody>
+                                </table>
+                                <div class="tw-flex tw-flex-wrap tw-items-center tw-justify-between tw-mt-2">
+                                    <div class="tw-flex tw-items-center tw-justify-center tw-w-full tw-text-xs tw-text-grey-700 tw-px-3 tw-py-2 sm:tw-w-auto">
+                                        <span id="pager-total-results">2 result(s) found</span>
+                                    </div>
+                                </div>
+                            </div>
+                            <p class="tw-text-xs tw-text-grey-600 tw-mb-2">Code:</p>
+                            <div class="cms tw--mb-4">
+                                <pre class="scrollbars">&lt;table class="<span class="tw-text-white">datatable</span>"&gt;...&lt;/table&gt;</pre>
+                            </div>
+                        </div>
+                        <div class="cms">
+                            <p>Datatables can also have a row hover state.</p>
+                        </div>
+                        <div class="tw-bg-grey-100 tw-border tw-border-grey-200 tw-mb-4 tw-p-4">
+                            <p class="tw-text-xs tw-text-grey-600 tw-mb-2">Example:</p>
+                            <div class="tw-mb-4">
+                                <table class="datatable hover">
+                                    <thead>
+                                        <tr>
+                                            <th class="tw-text-left">Col</th>
+                                            <th class="tw-text-left">Col</th>
+                                            <th class="tw-text-left">Col</th>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        <tr>
+                                            <td>Col</td>
+                                            <td>Col</td>
+                                            <td>Col</td>
+                                        </tr>
+                                        <tr>
+                                            <td>Col</td>
+                                            <td>Col</td>
+                                            <td>Col</td>
+                                        </tr>
+                                    </tbody>
+                                </table>
+                                <div class="tw-flex tw-flex-wrap tw-items-center tw-justify-between tw-mt-2">
+                                    <div class="tw-flex tw-items-center tw-justify-center tw-w-full tw-text-xs tw-text-grey-700 tw-px-3 tw-py-2 sm:tw-w-auto">
+                                        <span id="pager-total-results">2 result(s) found</span>
+                                    </div>
+                                </div>
+                            </div>
+                            <p class="tw-text-xs tw-text-grey-600 tw-mb-2">Code:</p>
+                            <div class="cms tw--mb-4">
+                                <pre class="scrollbars">&lt;table class="<span class="tw-text-white">datatable hover</span>"&gt;...&lt;/table&gt;</pre>
+                            </div>
+                        </div>
+                        <div class="cms">
+                            <p>Datatables can also be styled as "selectable".</p>
+                        </div>
+                        <div class="tw-bg-grey-100 tw-border tw-border-grey-200 tw-mb-4 tw-p-4">
+                            <p class="tw-text-xs tw-text-grey-600 tw-mb-2">Example:</p>
+                            <div class="tw-mb-4">
+                                <table class="datatable hover selectable">
+                                    <thead>
+                                        <tr>
+                                            <th class="tw-text-left">Col</th>
+                                            <th class="tw-text-left">Col</th>
+                                            <th class="tw-w-1"></th>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        <tr class="group">
+                                            <td>Col</td>
+                                            <td>Col</td>
+                                            <td class="tw-text-right">
+                                                <button class="tw-btn-link tw-btn-small group-hover:tw-text-blue-500" type="button">
+                                                    <span class="fad fa-pencil" aria-hidden="true"></span>
+                                                    <span class="sr-only">Edit</span>
+                                                </button>
+                                            </td>
+                                        </tr>
+                                        <tr class="group">
+                                            <td>Col</td>
+                                            <td>Col</td>
+                                            <td class="tw-text-right">
+                                                <button class="tw-btn-link tw-btn-small group-hover:tw-text-blue-500" type="button">
+                                                    <span class="fad fa-pencil" aria-hidden="true"></span>
+                                                    <span class="sr-only">Edit</span>
+                                                </button>
+                                            </td>
+                                        </tr>
+                                    </tbody>
+                                </table>
+                                <div class="tw-flex tw-flex-wrap tw-items-center tw-justify-between tw-mt-2">
+                                    <div class="tw-flex tw-items-center tw-justify-center tw-w-full tw-text-xs tw-text-grey-700 tw-px-3 tw-py-2 sm:tw-w-auto">
+                                        <span id="pager-total-results">2 result(s) found</span>
+                                    </div>
+                                </div>
+                            </div>              
+                            <p class="tw-text-xs tw-text-grey-600 tw-mb-2">Code:</p>
+                            <div class="cms tw--mb-4">
+                                <pre class="scrollbars">&lt;table class="<span class="tw-text-white">datatable hover selectable</span>"&gt;...&lt;/table&gt;</pre>
+                            </div>
+                        </div>
+                        <h3 id="components-forms" class="tw-text-xl tw-font-semibold tw-mb-3">Forms</h3>
+                        <div class="cms">
+                            <p>Form controls include: <code>input</code>, <code>select</code> and <code>textarea</code>. All form controls <b>must</b> have an ID and associated label.</p>
+                            <p class="tw-alert-warning"><span>Note: Do not use the <code>placeholder</code> attribute with form controls. It causes duplicate labelling with screen readers.</span></p>
+                        </div>
+                        <h4 class="tw-text-lg tw-font-semibold tw-mb-3">Stacked Controls</h4>
+                        <div class="tw-bg-grey-100 tw-border tw-border-grey-200 tw-mb-4 tw-p-4">
+                            <p class="tw-text-xs tw-text-grey-600 tw-mb-2">Example:</p>
+                            <div class="tw-form-group">  
+                                <label class="tw-form-label" for="test-controls-input">Email Address</label>
+                                <input id="test-controls-input" class="tw-form-control" name="email" type="email" />
+                            </div>
+                            <div class="tw-form-group">  
+                                <label class="tw-form-label" for="test-controls-select">Options</label>
+                                <div class="tw-form-select">
+                                    <select id="test-controls-select" class="tw-form-control" name="options">
+                                        <option value="">Select...</option>
+                                        <option>Test option 1</option>
+                                        <option>Test option 2</option>
+                                    </select>
+                                </div>
+                            </div>
+                            <div class="tw-form-group">  
+                                <label class="tw-form-label" for="test-controls-textarea">Message</label>
+                                <textarea id="test-controls-textarea" class="tw-form-control" name="message"></textarea>
+                            </div>
+                            <p class="tw-text-xs tw-text-grey-600 tw-mb-2">Code:</p>
+                            <div class="cms tw--mb-4">
+                                <pre class="scrollbars">&lt;form&gt;
+    &lt;div class="<span class="tw-text-white">tw-form-group</span>"&gt;
+        &lt;label class="<span class="tw-text-white">tw-form-label</span>" for="<span class="tw-text-white">input-email</span>"&gt;Email Address&lt;/label&gt;
+        &lt;input id="<span class="tw-text-white">input-email</span>" class="<span class="tw-text-white">tw-form-control</span>" name="<span class="tw-text-white">email</span>" type="<span class="tw-text-white">email</span>" /&gt;
+    &lt;/div&gt;
+    &lt;div class="<span class="tw-text-white">tw-form-group</span>"&gt;
+        &lt;label class="<span class="tw-text-white">tw-form-label</span>" for="<span class="tw-text-white">input-options</span>"&gt;Options&lt;/label&gt;
+        &lt;div class="<span class="tw-text-white">tw-form-select</span>"&gt;
+            &lt;select id="<span class="tw-text-white">input-options</span>" class="<span class="tw-text-white">tw-form-control</span>" name="<span class="tw-text-white">options</span>"&gt;...&lt;/select&gt;
+        &lt;/div&gt;
+    &lt;/div&gt;
+    &lt;div class="<span class="tw-text-white">tw-form-group</span>"&gt;
+        &lt;label class="<span class="tw-text-white">tw-form-label</span>" for="<span class="tw-text-white">input-message</span>"&gt;Message&lt;/label&gt;
+        &lt;textarea id="<span class="tw-text-white">input-message</span>" class="<span class="tw-text-white">tw-form-control</span>" name="<span class="tw-text-white">message</span>"&gt;&lt;/textarea&gt;
+    &lt;/div&gt;
+&lt;/form&gt;</pre>
+                            </div>
+                        </div>
+                        <h4 class="tw-text-lg tw-font-semibold tw-mb-3">Horizontal Controls</h4>
+                        <div class="cms">
+                            <p>Form controls can also display horizontally. Horizontal controls have borders between each form control.</p>
+                            <p class="tw-alert-warning"><span>Note: The last form control in a group <u>must not</u> have a border (see below).</span></p>
+                        </div>
+                        <div class="tw-bg-grey-100 tw-border tw-border-grey-200 tw-mb-4 tw-p-4">
+                            <p class="tw-text-xs tw-text-grey-600 tw-mb-2">Example:</p>
+                            <div class="tw-form-row-border">  
+                                <label class="tw-form-label-inline" for="test-inline-controls-input">Email Address</label>
+                                <input id="test-inline-controls-input" class="tw-form-control" name="email" type="email" />
+                            </div>
+                            <div class="tw-form-row-border">  
+                                <label class="tw-form-label-inline" for="test-inline-controls-select">Options</label>
+                                <div class="tw-form-select">
+                                    <select id="test-inline-controls-select" class="tw-form-control" name="options">
+                                        <option value="">Select...</option>
+                                        <option>Test option 1</option>
+                                        <option>Test option 2</option>
+                                    </select>
+                                </div>
+                            </div>
+                            <div class="tw-form-row">  
+                                <label class="tw-form-label-inline" for="test-inline-controls-textarea">Message</label>
+                                <textarea id="test-inline-controls-textarea" class="tw-form-control" name="message"></textarea>
+                            </div>
+                            <p class="tw-text-xs tw-text-grey-600 tw-mb-2">Code:</p>
+                            <div class="cms tw--mb-4">
+                                <pre class="scrollbars">&lt;form&gt;
+    &lt;div class="<span class="tw-text-white">tw-form-row-border</span>"&gt;
+        &lt;label class="<span class="tw-text-white">tw-form-label-inline</span>" for="<span class="tw-text-white">input-email</span>"&gt;Email Address&lt;/label&gt;
+        &lt;input id="<span class="tw-text-white">input-email</span>" class="<span class="tw-text-white">tw-form-control</span>" name="<span class="tw-text-white">email</span>" type="<span class="tw-text-white">email</span>" /&gt;
+    &lt;/div&gt;
+    &lt;div class="<span class="tw-text-white">tw-form-row-border</span>"&gt;
+        &lt;label class="<span class="tw-text-white">tw-form-label-inline</span>" for="<span class="tw-text-white">input-options</span>"&gt;Options&lt;/label&gt;
+        &lt;div class="<span class="tw-text-white">tw-form-select</span>"&gt;
+            &lt;select id="<span class="tw-text-white">input-options</span>" class="<span class="tw-text-white">tw-form-control</span>" name="<span class="tw-text-white">options</span>"&gt;...&lt;/select&gt;
+        &lt;/div&gt;
+    &lt;/div&gt;
+    <span class="tw-text-green-300">&lt;-- note: last from controls must not have a border --&gt;</span>
+    &lt;div class="<span class="tw-text-white">tw-form-row</span>"&gt;
+        &lt;label class="<span class="tw-text-white">tw-form-label-inline</span>" for="<span class="tw-text-white">input-message</span>"&gt;Message&lt;/label&gt;
+        &lt;textarea id="<span class="tw-text-white">input-message</span>" class="<span class="tw-text-white">tw-form-control</span>" name="<span class="tw-text-white">message</span>"&gt;&lt;/textarea&gt;
+    &lt;/div&gt;
+&lt;/form&gt;</pre>
+                            </div>
+                        </div>
+                        <h4 class="tw-text-lg tw-font-semibold tw-mb-3">Inputs with Buttons</h4>
+                        <div class="tw-bg-grey-100 tw-border tw-border-grey-200 tw-mb-4 tw-p-4">
+                            <p class="tw-text-xs tw-text-grey-600 tw-mb-2">Example:</p>
+                            <div class="tw-form-row">  
+                                <label class="tw-form-label-inline" for="test-controls-input-with-button">Unique ID</label>
+                                <div class="tw-flex tw-w-full lg:tw-max-w-2xl">
+                                    <input id="test-controls-input-with-button" class="tw-form-control tw-rounded-r-none tw-border-r-0" name="id" type="text" />
+                                    <button class="tw-btn tw-rounded-l-none">
+                                        <span class="far fa-random" aria-hidden="true"></span>
+                                        <span class="sr-only">Random</span>
+                                    </button>
+                                </div>
+                            </div>
+                            <p class="tw-text-xs tw-text-grey-600 tw-mb-2">Code:</p>
+                            <div class="cms tw--mb-4">
+                                <pre class="scrollbars">&lt;form&gt;
+    &lt;div class="<span class="tw-text-white">tw-form-row</span>"&gt;
+        &lt;label class="<span class="tw-text-white">tw-form-label-inline</span>" for="<span class="tw-text-white">uid</span>"&gt;Unique ID&lt;/label&gt;
+        &lt;div class="<span class="tw-text-white">tw-flex tw-w-full lg:tw-max-w-2xl</span>"&gt;
+            &lt;input id="<span class="tw-text-white">uid</span>" class="<span class="tw-text-white">tw-form-control tw-rounded-r-none tw-border-r-0</span>" name="<span class="tw-text-white">id</span>" type="<span class="tw-text-white">text</span>" /&gt;
+            &lt;button class="<span class="tw-text-white">tw-btn tw-rounded-l-none</span>"&gt;
+                &lt;span class="<span class="tw-text-white">far fa-random</span>" aria-hidden="<span class="tw-text-white">true</span>"&gt;&lt;/span&gt;
+                &lt;span class="<span class="tw-text-white">sr-only</span>"&gt;Random&lt;/span&gt;
+            &lt;/button&gt;
+        &lt;/div&gt;
+    &lt;/div&gt;
+&lt;/form&gt;</pre>
+                            </div>
+                        </div>
+                        <div class="tw-bg-grey-100 tw-border tw-border-grey-200 tw-mb-4 tw-p-4">
+                            <p class="tw-text-xs tw-text-grey-600 tw-mb-2">Example:</p>
+                            <div class="tw-form-row">  
+                                <label class="tw-form-label-inline" for="test-controls-input-lifetime">Lifetime</label>
+                                <div class="tw-flex-grid tw-w-full sm:tw-flex-nowrap lg:tw-max-w-2xl">
+                                    <div class="tw-flex-grid-col">
+                                        <input id="test-controls-input-lifetime" class="tw-form-control" name="lifetime" type="text" value="300" />
+                                    </div>
+                                    <div class="tw-flex-grid-col sm:tw-w-auto">
+                                        <ul class="tw-flex tw-items-center">
+                                            <li>
+                                                <button class="tw-btn">
+                                                    <span class="tw-mr-1">5</span>
+                                                    <span>mins</span>
+                                                </button>
+                                            </li>
+                                            <li>
+                                                <button class="tw-btn-link">
+                                                    <span class="tw-mr-1">10</span>
+                                                    <span>mins</span>
+                                                </button>
+                                            </li>
+                                        </ul>
+                                    </div>
+                                </div>
+                            </div>
+                            <p class="tw-text-xs tw-text-grey-600 tw-mb-2">Code:</p>
+                            <div class="cms tw--mb-4">
+                                <pre class="scrollbars">&lt;form&gt;
+    &lt;div class="<span class="tw-text-white">tw-form-row</span>"&gt;
+        &lt;label class="<span class="tw-text-white">tw-form-label-inline</span>" for="<span class="tw-text-white">uid</span>"&gt;Lifetime&lt;/label&gt;
+        &lt;div class="<span class="tw-text-white">tw-flex-grid tw-w-full sm:tw-flex-nowrap lg:tw-max-w-2xl</span>"&gt;
+            &lt;div class="<span class="tw-text-white">tw-flex-grid-col</span>"&gt;
+                &lt;input id="<span class="tw-text-white">lifetime</span>" class="<span class="tw-text-white">tw-form-control</span>" name="<span class="tw-text-white">lifetime</span>" type="<span class="tw-text-white">text</span>" /&gt;
+            &lt;/div&gt;
+            &lt;div class="<span class="tw-text-white">tw-flex-grid-col sm:tw-w-auto</span>"&gt;
+                &lt;ul class="<span class="tw-text-white">tw-flex tw-items-center</span>""&gt;
+                    &lt;li&gt;
+                        &lt;button class="<span class="tw-text-white">tw-btn</span>"&gt;
+                            &lt;span class="<span class="tw-text-white">tw-mr-1</span>">5&lt;/span&gt;
+                            &lt;span&gt;mins&lt;/span&gt;
+                        &lt;/button&gt;
+                    &lt;/li&gt;
+                    &lt;li&gt;
+                        &lt;button class="<span class="tw-text-white">tw-btn-link</span>"&gt;
+                            &lt;span class="<span class="tw-text-white">tw-mr-1</span>">10&lt;/span&gt;
+                            &lt;span&gt;mins&lt;/span&gt;
+                        &lt;/button&gt;
+                    &lt;/li&gt;
+                &lt;/ul&gt;
+            &lt;/div&gt;
+        &lt;/div&gt;
+    &lt;/div&gt;
+&lt;/form&gt;</pre>
+                            </div>
+                        </div>
+                        <h4 class="tw-text-lg tw-font-semibold tw-mb-3">Checkboxes and Radios</h4>
+                        <div class="cms">
+                            <p>Chexkboxes and radios share the same markup, except for the <code>name</code> and <code>type</code> attributes.</p>
+                        </div>
+                        <div class="tw-bg-grey-100 tw-border tw-border-grey-200 tw-mb-4 tw-p-4">
+                            <p class="tw-text-xs tw-text-grey-600 tw-mb-2">Example:</p>
+                            <div class="tw-form-row-border" role="group" aria-labelledby="checkbox-group-label">  
+                                <p id="checkbox-group-label" class="tw-form-label-inline" for="test-">Checkboxes</p>
+                                <div class="tw-w-full">
+                                    <ul class="tw-form-checks">
+                                        <li class="tw-form-checks__item">
+                                            <label class="tw-form-checks__label" for="checkbox-group-1-1">
+                                                <input id="checkbox-group-1-1" class="tw-form-checks__input" name="checkboxes" type="checkbox" checked />
+                                                <span>Option 1</span>
+                                            </label>
+                                        </li>
+                                        <li class="tw-form-checks__item">
+                                            <label class="tw-form-checks__label" for="checkbox-group-1-2">
+                                                <input id="checkbox-group-1-2" class="tw-form-checks__input" name="checkboxes" type="checkbox" />
+                                                <span>Option 2</span>
+                                            </label>
+                                        </li>
+                                        <li class="tw-form-checks__item">
+                                            <label class="tw-form-checks__label" for="checkbox-group-1-3">
+                                                <input id="checkbox-group-1-3" class="tw-form-checks__input" name="checkboxes" type="checkbox" disabled />
+                                                <span class="tw-text-600">Option 3 (disabled)</span>
+                                            </label>
+                                        </li>
+                                    </ul>
+                                </div>
+                            </div>
+                            <div class="tw-form-row" role="group" aria-labelledby="radio-group-label">  
+                                <p id="radio-group-label" class="tw-form-label-inline" for="test-">Radios</p>
+                                <div class="tw-w-full">
+                                    <ul class="tw-form-checks">
+                                        <li class="tw-form-checks__item">
+                                            <label class="tw-form-checks__label" for="radio-group-2-1">
+                                                <input id="radio-group-2-1" class="tw-form-checks__input" name="radios" type="radio" checked />
+                                                <span>Option 1</span>
+                                            </label>
+                                        </li>
+                                        <li class="tw-form-checks__item">
+                                            <label class="tw-form-checks__label" for="radio-group-2-2">
+                                                <input id="radio-group-2-2" class="tw-form-checks__input" name="radios" type="radio" />
+                                                <span>Option 2</span>
+                                            </label>
+                                        </li>
+                                        <li class="tw-form-checks__item">
+                                            <label class="tw-form-checks__label" for="radio-group-2-3">
+                                                <input id="radio-group-2-3" class="tw-form-checks__input" name="radios" type="radio" disabled />
+                                                <span class="tw-text-grey-600">Option 3 (disabled)</span>
+                                            </label>
+                                        </li>
+                                    </ul>
+                                </div>
+                            </div>
+                            <p class="tw-text-xs tw-text-grey-600 tw-mb-2">Code:</p>
+                            <div class="cms tw--mb-4">
+                                <pre class="scrollbars">&lt;form&gt;
+    &lt;div class="<span class="tw-text-white">tw-form-row-border</span>" role="<span class="tw-text-white">group</span>" aria-labelled-by="<span class="tw-text-white">checkbox-group-label</span>"&gt;
+        &lt;p id="<span class="tw-text-white">checkbox-group-label</span>" class="<span class="tw-text-white">tw-form-label-inline</span>"&gt;Checkboxes&lt;/p&gt;
+        &lt;ul class="<span class="tw-text-white">tw-form-checks</span>"&gt;
+            &lt;li class="<span class="tw-text-white">tw-form-checks__item</span>"&gt;
+                &lt;label class="<span class="tw-text-white">tw-form-checks__label</span>" for="<span class="tw-text-white">checkbox-group-1</span>"&gt;
+                    &lt;input id="<span class="tw-text-white">checkbox-group-1</span>" class="<span class="tw-text-white">tw-form-checks__input</span>" name="<span class="tw-text-white">checkboxes</span>" /&gt;
+                &lt;/label&gt;
+            &lt;/li&gt;
+            &lt;li class="<span class="tw-text-white">tw-form-checks__item</span>"&gt;...&lt;/li&gt;
+        &lt;/ul&gt;
+    &lt;/div&gt;
+    &lt;div class="<span class="tw-text-white">tw-form-row</span>" role="<span class="tw-text-white">group</span>" aria-labelled-by="<span class="tw-text-white">radio-group-label</span>"&gt;
+        &lt;p id="<span class="tw-text-white">radio-group-label</span>" class="<span class="tw-text-white">tw-form-label-inline</span>"&gt;Radios&lt;/p&gt;
+        &lt;ul class="<span class="tw-text-white">tw-form-checks</span>"&gt;
+            &lt;li class="<span class="tw-text-white">tw-form-checks__item</span>"&gt;
+                &lt;label class="<span class="tw-text-white">tw-form-checks__label</span>" for="<span class="tw-text-white">radio-group-1</span>"&gt;
+                    &lt;input id="<span class="tw-text-white">radio-group-1</span>" class="<span class="tw-text-white">tw-form-checks__input</span>" name="<span class="tw-text-white">radios</span>" /&gt;
+                &lt;/label&gt;
+            &lt;/li&gt;
+            &lt;li class="<span class="tw-text-white">tw-form-checks__item</span>"&gt;...&lt;/li&gt;
+        &lt;/ul&gt;
+    &lt;/div&gt;
+&lt;/form&gt;</pre>
+                            </div>
+                        </div>
+                        <h4 class="tw-text-lg tw-font-semibold tw-mb-3">Switches</h4>
+                        <div class="tw-bg-grey-100 tw-border tw-border-grey-200 tw-mb-4 tw-p-4">
+                            <p class="tw-text-xs tw-text-grey-600 tw-mb-2">Example:</p>
+                            <div class="tw-form-row-border">
+                                <label class="tw-form-label-inline" for="switch-default">Default Switch</label>
+                                <div class="tw-block">
+                                    <label class="tw-form-switch" for="switch-default">
+                                        <input id="switch-default" class="tw-form-switch__input" type="checkbox" name="switch-default" value="true" />
+                                        <span class="tw-form-switch__slider">
+                                            <span class="tw-form-switch__state"></span>
+                                        </span>
+                                    </label>
+                                </div>
+                            </div>
+                            <div class="tw-form-row-border">
+                                <label class="tw-form-label-inline" for="switch-traffic">Traffic Switch</label>
+                                <div class="tw-block">
+                                    <label class="tw-form-switch" for="switch-traffic">
+                                        <input id="switch-traffic" class="tw-form-switch__input" type="checkbox" name="switch-traffic" value="true" />
+                                        <span class="tw-form-switch__slider tw-form-switch__slider--traffic">
+                                            <span class="tw-form-switch__state tw-form-switch__state--traffic"></span>
+                                        </span>
+                                    </label>
+                                </div>
+                            </div>
+                            <div class="tw-form-row-border">
+                                <label class="tw-form-label-inline" for="switch-alt">Inverted Switch</label>
+                                <div class="tw-block">
+                                    <label class="tw-form-switch" for="switch-alt">
+                                        <input id="switch-alt" class="tw-form-switch__input" type="checkbox" name="switch-alt" value="true" />
+                                        <span class="tw-form-switch__slider tw-form-switch__slider--alt">
+                                            <span class="tw-form-switch__state tw-form-switch__state--alt"></span>
+                                        </span>
+                                    </label>
+                                </div>
+                            </div>
+                            <div class="tw-form-row">
+                                <label class="tw-form-label-inline" for="switch-alt-traffic">Inverted Traffic Switch</label>
+                                <div class="tw-block">
+                                    <label class="tw-form-switch" for="switch-alt-traffic">
+                                        <input id="switch-alt-traffic" class="tw-form-switch__input" type="checkbox" name="switch-alt-traffic" value="true" />
+                                        <span class="tw-form-switch__slider tw-form-switch__slider--alt tw-form-switch__slider--traffic">
+                                            <span class="tw-form-switch__state tw-form-switch__state--alt tw-form-switch__state--traffic"></span>
+                                        </span>
+                                    </label>
+                                </div>
+                            </div>
+                            <p class="tw-text-xs tw-text-grey-600 tw-mb-2">Code:</p>
+                            <div class="cms tw--mb-4">
+                                <pre class="scrollbars">&lt;form&gt;
+    &lt;div class="<span class="tw-text-white">tw-form-row-border</span>"&gt;
+        &lt;label class="<span class="tw-text-white">tw-form-label-inline</span>" for="<span class="tw-text-white">default-switch</span>"&gt;Default Switch&lt;/p&gt;
+        &lt;div class="<span class="tw-text-white">tw-block</span>"&gt;
+            &lt;label class="<span class="tw-text-white">tw-form-switch</span>" for="<span class="tw-text-white">default-switch</span>"&gt;
+                &lt;input id="<span class="tw-text-white">default-switch</span>" class="<span class="tw-text-white">tw-form-switch__input</span>" name="<span class="tw-text-white">default-switch</span>" /&gt;
+                    &lt;span class="<span class="tw-text-white">tw-form-switch__slider</span>"&gt;
+                    &lt;span class="<span class="tw-text-white">tw-form-switch__state</span>">&lt;/span&gt;
+                &lt;/span&gt;
+            &lt;/label&gt;
+        &lt;/div&gt;
+    &lt;/div&gt;
+    &lt;div class="<span class="tw-text-white">tw-form-row-border</span>"&gt;
+        &lt;label class="<span class="tw-text-white">tw-form-label-inline</span>" for="<span class="tw-text-white">default-switch</span>"&gt;Traffic Switch&lt;/p&gt;
+        &lt;div class="<span class="tw-text-white">tw-block</span>"&gt;
+            &lt;label class="<span class="tw-text-white">tw-form-switch</span>" for="<span class="tw-text-white">default-switch</span>"&gt;
+                &lt;input id="<span class="tw-text-white">default-switch</span>" class="<span class="tw-text-white">tw-form-switch__input</span>" name="<span class="tw-text-white">default-switch</span>" /&gt;
+                    &lt;span class="<span class="tw-text-white">tw-form-switch__slider tw-form-switch__slider--traffic</span>"&gt;
+                    &lt;span class="<span class="tw-text-white">tw-form-switch__state tw-form-switch__state--traffic</span>">&lt;/span&gt;
+                &lt;/span&gt;
+            &lt;/label&gt;
+        &lt;/div&gt;
+    &lt;/div&gt;
+    &lt;div class="<span class="tw-text-white">tw-form-row-border</span>"&gt;
+        &lt;label class="<span class="tw-text-white">tw-form-label-inline</span>" for="<span class="tw-text-white">default-switch</span>"&gt;Inverted Switch&lt;/p&gt;
+        &lt;div class="<span class="tw-text-white">tw-block</span>"&gt;
+            &lt;label class="<span class="tw-text-white">tw-form-switch</span>" for="<span class="tw-text-white">default-switch</span>"&gt;
+                &lt;input id="<span class="tw-text-white">default-switch</span>" class="<span class="tw-text-white">tw-form-switch__input</span>" name="<span class="tw-text-white">default-switch</span>" /&gt;
+                    &lt;span class="<span class="tw-text-white">tw-form-switch__slider tw-form-switch__slider--alt</span>"&gt;
+                    &lt;span class="<span class="tw-text-white">tw-form-switch__state tw-form-switch__state--alt</span>">&lt;/span&gt;
+                &lt;/span&gt;
+            &lt;/label&gt;
+        &lt;/div&gt;
+    &lt;/div&gt;
+    &lt;div class="<span class="tw-text-white">tw-form-row</span>"&gt;
+        &lt;label class="<span class="tw-text-white">tw-form-label-inline</span>" for="<span class="tw-text-white">default-switch</span>"&gt;Inverted Traffic Switch&lt;/p&gt;
+        &lt;div class="<span class="tw-text-white">tw-block</span>"&gt;
+            &lt;label class="<span class="tw-text-white">tw-form-switch</span>" for="<span class="tw-text-white">default-switch</span>"&gt;
+                &lt;input id="<span class="tw-text-white">default-switch</span>" class="<span class="tw-text-white">tw-form-switch__input</span>" name="<span class="tw-text-white">default-switch</span>" /&gt;
+                    &lt;span class="<span class="tw-text-white">tw-form-switch__slider tw-form-switch__slider--alt tw-form-switch__slider--traffic</span>"&gt;
+                    &lt;span class="<span class="tw-text-white">tw-form-switch__state tw-form-switch__state--alt tw-form-switch__state--traffic</span>">&lt;/span&gt;
+                &lt;/span&gt;
+            &lt;/label&gt;
+        &lt;/div&gt;
+    &lt;/div&gt;
+&lt;/form&gt;</pre>
+                            </div>
+                        </div>
+                        <h3 id="components-pager" class="tw-text-xl tw-font-semibold tw-mb-3">Pager</h3>
+                        <div class="tw-bg-grey-100 tw-border tw-border-grey-200 tw-mb-4 tw-p-4">
+                            <p class="tw-text-xs tw-text-grey-600 tw-mb-2">Example:</p>
+                            <div class="tw-flex tw-flex-wrap tw-items-center tw-justify-between tw-mb-4">
+                                <div class="tw-flex tw-items-center tw-justify-center tw-w-full tw-text-xs tw-text-grey-700 tw-px-3 tw-py-2 sm:tw-w-auto">
+                                    <span class="tw-hidden md:tw-inline">Page 1 of 2</span>
+                                    <span class="tw-hidden tw-text-base tw-mx-2 tw-opacity-50 md:tw-inline" aria-hidden="true">&bull;</span>
+                                    <span id="pager-total-results">14 result(s) found</span>
+                                </div>
+                                <nav class="tw-mt-2 tw-mx-auto sm:mt-0 sm:tw-mr-0" aria-label="Page">
+                                    <ul class="tw-flex tw-items-center tw-justify-center tw-bg-white tw-rounded">
+                                        <li>
+                                            <button class="tw-btn-link" disabled>
+                                                <span>
+                                                    <span class="fas fa-angle-double-left" aria-hidden="true"></span>
+                                                </span>
+                                                <span class="sr-only">First</span>
+                                            </button>
+                                        </li>
+                                        <li class="tw-border-l-2 tw-border-grey-100">
+                                            <button class="tw-btn-link" disabled>
+                                                <span>
+                                                    <span class="fas fa-angle-left" aria-hidden="true"></span>
+                                                </span>
+                                                <span class="sr-only">Previous</span>
+                                            </button>
+                                        </li>
+                                        <li class="tw-border-l-2 tw-border-grey-100">
+                                            <button class="tw-btn-link">
+                                                <span>
+                                                    <span class="fas fa-angle-right" aria-hidden="true"></span>
+                                                </span>
+                                                <span class="sr-only">Next</span>
+                                            </button>
+                                        </li>
+                                        <li class="tw-border-l-2 tw-border-grey-100">
+                                            <button class="tw-btn-link">
+                                                <span>
+                                                    <span class="fas fa-angle-double-right" aria-hidden="true"></span>
+                                                </span>
+                                                <span class="sr-only">Last</span>
+                                            </button>
+                                        </li>
+                                    </ul>
+                                </nav>
+                            </div>
+                            <p class="tw-text-xs tw-text-grey-600 tw-mb-2">Code:</p>
+                            <div class="cms tw--mb-4">
+                                <pre class="scrollbars">&lt;div class="<span class="tw-text-white">tw-flex tw-flex-wrap tw-items-center tw-justify-between tw-mt-2</span>"&gt;...&lt;/p&gt;
+    <span class="tw-text-green-300">&lt;-- note: hide pages and bullet if not showing pages --&gt;</span>
+    &lt;div class="<span class="tw-text-white">tw-flex tw-items-center tw-justify-center tw-w-full tw-text-xs tw-text-grey-700 tw-px-3 tw-py-2 sm:tw-w-auto</span>"&gt;
+        &lt;span class="<span class="tw-text-white">tw-hidden md:tw-inline</span>">Page 1 of 2&lt;/span&gt;
+        &lt;span class="<span class="tw-text-white">tw-hidden tw-text-base tw-mx-2 tw-opacity-50 md:tw-inline</span>" aria-hidden="<span class="tw-text-white">true</span>">&bull;&lt;/span&gt;
+        &lt;span id="<span class="tw-text-white">pager-total-results</span>">14 result(s) found&lt;/span&gt;
+    &lt;/div&gt;
+    <span class="tw-text-green-300">&lt;-- note: hide pages if not needed --&gt;</span>
+    &lt;nav class="<span class="tw-text-white">tw-mt-2 tw-mx-auto sm:mt-0 sm:tw-mr-0</span>" aria-label="<span class="tw-text-white">Page</span>"&gt;
+        &lt;ul class="<span class="tw-text-white">tw-flex tw-items-center tw-justify-center tw-bg-white tw-rounded</span>"&gt;
+            &lt;li&gt;
+                &lt;button class="<span class="tw-text-white">tw-btn-link</span>" <span class="tw-text-white">disabled</span>&gt;
+                    &lt;span&gt;
+                        &lt;span class="<span class="tw-text-white">fas fa-angle-double-left</span>" aria-hidden="<span class="tw-text-white">true</span>"&gt;&lt;/span&gt;
+                    &lt;/span&gt;
+                    &lt;span class="<span class="tw-text-white">sr-only</span>"&gt;First&lt;/span&gt;
+                &lt;/button&gt;
+            &lt;/li&gt;
+            &lt;li class="<span class="tw-text-white">tw-border-l-2 tw-border-grey-100</span>"&gt;
+                &lt;button class="<span class="tw-text-white">tw-btn-link</span>" <span class="tw-text-white">disabled</span>&gt;
+                    &lt;span&gt;
+                        &lt;span class="<span class="tw-text-white">fas fa-angle-left</span>" aria-hidden="<span class="tw-text-white">true</span>"&gt;&lt;/span&gt;
+                    &lt;/span&gt;
+                    &lt;span class="<span class="tw-text-white">sr-only</span>"&gt;Previous&lt;/span&gt;
+                &lt;/button&gt;
+            &lt;/li&gt;
+            &lt;li class="<span class="tw-text-white">tw-border-l-2 tw-border-grey-100</span>"&gt;
+                &lt;button class="<span class="tw-text-white">tw-btn-link</span>"&gt;
+                    &lt;span&gt;
+                        &lt;span class="<span class="tw-text-white">fas fa-angle-right</span>" aria-hidden="<span class="tw-text-white">true</span>"&gt;&lt;/span&gt;
+                    &lt;/span&gt;
+                    &lt;span class="<span class="tw-text-white">sr-only</span>"&gt;Next&lt;/span&gt;
+                &lt;/button&gt;
+            &lt;/li&gt;
+            &lt;li class="<span class="tw-text-white">tw-border-l-2 tw-border-grey-100</span>"&gt;
+                &lt;button class="<span class="tw-text-white">tw-btn-link</span>"&gt;
+                    &lt;span&gt;
+                        &lt;span class="<span class="tw-text-white">fas fa-angle-double-right</span>" aria-hidden="<span class="tw-text-white">true</span>"&gt;&lt;/span&gt;
+                    &lt;/span&gt;
+                    &lt;span class="<span class="tw-text-white">sr-only</span>"&gt;Last&lt;/span&gt;
+                &lt;/button&gt;
+            &lt;/li&gt;
+        &lt;/ul&gt;
+    &lt;/nav&gt;
+&lt;/div&gt;</pre>
+                            </div>
+                        </div>
+                        <h3 id="components-pills" class="tw-text-xl tw-font-semibold tw-mb-3">Pills</h3>
+                        <div class="cms">
+                            <p>There are several different options for pills.</p>
+                        </div>
+                        <div class="tw-bg-grey-100 tw-border tw-border-grey-200 tw-mb-4 tw-p-4">
+                            <p class="tw-text-xs tw-text-grey-600 tw-mb-2">Example:</p>
+                            <div class="tw-flex tw-flex-wrap tw-items-center tw-mb-2">
+                                <p class="tw-pill tw-mr-2 tw-mb-2">Default</p>
+                                <p class="tw-pill-info tw-mr-2 tw-mb-2">Info</p>
+                                <p class="tw-pill-success tw-mr-2 tw-mb-2">Success</p>
+                                <p class="tw-pill-warning tw-mr-2 tw-mb-2">Warning</p>
+                                <p class="tw-pill-danger tw-mr-2 tw-mb-2">Danger</p>
+                            </div>
+                            <p class="tw-text-xs tw-text-grey-600 tw-mb-2">Code:</p>
+                            <div class="cms tw--mb-4">
+                                <pre class="scrollbars">&lt;p class="<span class="tw-text-white">tw-pill</span>"&gt;...&lt;/p&gt;
+&lt;p class="<span class="tw-text-white">tw-pill-info</span>"&gt;...&lt;/p&gt;
+&lt;p class="<span class="tw-text-white">tw-pill-success</span>"&gt;...&lt;/p&gt;
+&lt;p class="<span class="tw-text-white">tw-pill-warning</span>"&gt;...&lt;/p&gt;
+&lt;p class="<span class="tw-text-white">tw-pill-danger</span>"&gt;...&lt;/p&gt;</pre>
+                            </div>
+                        </div>
+                        <div class="tw-bg-grey-100 tw-border tw-border-grey-200 tw-mb-4 tw-p-4">
+                            <p class="tw-text-xs tw-text-grey-600 tw-mb-2">Example:</p>
+                            <div class="tw-flex tw-flex-wrap tw-items-center tw-mb-2">
+                                <p class="tw-pill-info tw-mr-2 tw-mb-2">
+                                    <span class="fas fa-info-circle tw-mr-1" aria-hidden="true"></span>
+                                    <span>Info</span>
+                                </p>
+                                <p class="tw-pill-warning tw-mr-2 tw-mb-2">
+                                    <span class="fas fa-exclamation-triangle tw-mr-1" aria-hidden="true"></span>
+                                    <span>Warning</span>
+                                </p>
+                                <p class="tw-pill-danger tw-mr-2 tw-mb-2">
+                                    <span class="fas fa-times tw-mr-1" aria-hidden="true"></span>
+                                    <span>Danger</span>
+                                </p>
+                            </div>
+                            <p class="tw-text-xs tw-text-grey-600 tw-mb-2">Code:</p>
+                            <div class="cms tw--mb-4">
+                                <pre class="scrollbars">&lt;p class="<span class="tw-text-white">tw-pill-info</span>"&gt;
+    &lt;span class="<span class="tw-text-white">fas fa-info-circle tw-mr-1</span>" aria-hidden="<span class="tw-text-white">true</span>"&gt;&lt;/span&gt;
+    &lt;span&gt;...&lt;/span&gt;
+&lt;/p&gt;
+&lt;p class="<span class="tw-text-white">tw-pill-warning</span>"&gt;
+    &lt;span class="<span class="tw-text-white">fas fa-exclamation-triangle tw-mr-1</span>" aria-hidden="<span class="tw-text-white">true</span>"&gt;&lt;/span&gt;
+    &lt;span&gt;...&lt;/span&gt;
+&lt;/p&gt;
+&lt;p class="<span class="tw-text-white">tw-pill-danger</span>"&gt;
+    &lt;span class="<span class="tw-text-white">fas fa-times tw-mr-1</span>" aria-hidden="<span class="tw-text-white">true</span>"&gt;&lt;/span&gt;
+    &lt;span&gt;...&lt;/span&gt;
+&lt;/p&gt;</pre>
+                            </div>
+                        </div>
+                        <h3 id="components-tabs" class="tw-text-xl tw-font-semibold tw-mb-3">Tabs</h3>
+                        <div class="tw-bg-grey-100 tw-border tw-border-grey-200 tw-mb-4 tw-p-4">
+                            <p class="tw-text-xs tw-text-grey-600 tw-mb-2">Example:</p>
+                            <div class="tw-border-b tw-border-grey-300 tw-mb-4">
+                                <ul class="tabs" role="tablist" aria-label="Sections">
+                                    <li class="tabs__item">
+                                        <button class="tabs__link active" role="tab" aria-selected="true" aria-controls="tab-1">First</button>
+                                    </li>
+                                    <li class="tabs__item">
+                                        <button class="tabs__link" role="tab" aria-selected="false" aria-controls="tab-2">Second</button>
+                                    </li>
+                                    <li class="tabs__item">
+                                        <button class="tabs__link" role="tab" aria-selected="false" aria-controls="tab-3">Third</button>
+                                    </li>
+                                </ul>
+                            </div>
+                            <p class="tw-text-xs tw-text-grey-600 tw-mb-2">Code:</p>
+                            <div class="cms tw--mb-4">
+                                <pre class="scrollbars">&lt;div class="<span class="tw-text-white">tw-border-b tw-border-grey-300 tw-mb-4</span>"&gt;
+    &lt;ul class="<span class="tw-text-white">tabs</span>" role="<span class="tw-text-white">tablist</span>" aria-label="<span class="tw-text-white">Sections</span>"&gt;
+        &lt;li class="<span class="tw-text-white">tabs__item</span>"&gt;
+            &lt;button class="<span class="tw-text-white">tabs__link active</span>" role="<span class="tw-text-white">tab</span>" aria-selected="<span class="tw-text-white">true</span>" aria-controls="<span class="tw-text-white">tab-1</span>"&gt;...&lt;/button&gt;
+        &lt;/li&gt;
+        &lt;li class="<span class="tw-text-white">tabs__item</span>"&gt;
+            &lt;button class="<span class="tw-text-white">tabs__link</span>" role="<span class="tw-text-white">tab</span>" aria-selected="<span class="tw-text-white">false</span>" aria-controls="<span class="tw-text-white">tab-2</span>"&gt;...&lt;/button&gt;
+        &lt;/li&gt;
+        &lt;li class="<span class="tw-text-white">tabs__item</span>"&gt;
+            &lt;button class="<span class="tw-text-white">tabs__link</span>" role="<span class="tw-text-white">tab</span>" aria-selected="<span class="tw-text-white">false</span>" aria-controls="<span class="tw-text-white">tab-3</span>"&gt;...&lt;/button&gt;
+        &lt;/li&gt;
+    &lt;/ul&gt;
+&lt;/div&gt;
+&lt;section id="<span class="tw-text-white">tab-1</span>" role="<span class="tw-text-white">tabpanel</span>" aria-label="<span class="tw-text-white">First tab name</span>" tabindex="<span class="tw-text-white">0</span>"&gt;...&lt;/section&gt;
+&lt;section id="<span class="tw-text-white">tab-2</span>" role="<span class="tw-text-white">tabpanel</span>" aria-label="<span class="tw-text-white">Second tab name</span>" tabindex="<span class="tw-text-white">0</span>"&gt;...&lt;/section&gt;
+&lt;section id="<span class="tw-text-white">tab-3</span>" role="<span class="tw-text-white">tabpanel</span>" aria-label="<span class="tw-text-white">Third tab name</span>" tabindex="<span class="tw-text-white">0</span>"&gt;...&lt;/section&gt;</pre>
+                            </div>
+                        </div>
+                        <h3 id="components-pill-tabs" class="tw-text-xl tw-font-semibold tw-mb-3">Pill Tabs</h3>
+                        <div class="tw-bg-grey-100 tw-border tw-border-grey-200 tw-mb-4 tw-p-4">
+                            <p class="tw-text-xs tw-text-grey-600 tw-mb-2">Example:</p>
+                            <ul class="pill-tabs tw-mb-4" role="tablist" aria-label="Sections">
+                                <li class="pill-tabs__item">
+                                    <button class="pill-tabs__link active" role="tab" aria-selected="true" aria-controls="tab-1">First</button>
+                                </li>
+                                <li class="pill-tabs__item">
+                                    <button class="pill-tabs__link" role="tab" aria-selected="false" aria-controls="tab-2">Second</button>
+                                </li>
+                                <li class="pill-tabs__item">
+                                    <button class="pill-tabs__link" role="tab" aria-selected="false" aria-controls="tab-3">Third</button>
+                                </li>
+                            </ul>
+                            <p class="tw-text-xs tw-text-grey-600 tw-mb-2">Code:</p>
+                            <div class="cms tw--mb-4">
+                                <pre class="scrollbars">&lt;ul class="<span class="tw-text-white">pill-tabs</span>" role="<span class="tw-text-white">tablist</span>" aria-label="<span class="tw-text-white">Sections</span>"&gt;
+    &lt;li class="<span class="tw-text-white">pill-tabs__item</span>"&gt;
+        &lt;button class="<span class="tw-text-white">pill-tabs__link active</span>" role="<span class="tw-text-white">tab</span>" aria-selected="<span class="tw-text-white">true</span>" aria-controls="<span class="tw-text-white">tab-1</span>"&gt;...&lt;/button&gt;
+    &lt;/li&gt;
+    &lt;li class="<span class="tw-text-white">pill-tabs__item</span>"&gt;
+        &lt;button class="<span class="tw-text-white">pill-tabs__link</span>" role="<span class="tw-text-white">tab</span>" aria-selected="<span class="tw-text-white">false</span>" aria-controls="<span class="tw-text-white">tab-2</span>"&gt;...&lt;/button&gt;
+    &lt;/li&gt;
+    &lt;li class="<span class="tw-text-white">pill-tabs__item</span>"&gt;
+        &lt;button class="<span class="tw-text-white">pill-tabs__link</span>" role="<span class="tw-text-white">tab</span>" aria-selected="<span class="tw-text-white">false</span>" aria-controls="<span class="tw-text-white">tab-3</span>"&gt;...&lt;/button&gt;
+    &lt;/li&gt;
+&lt;/ul&gt;
+&lt;section id="<span class="tw-text-white">tab-1</span>" role="<span class="tw-text-white">tabpanel</span>" aria-label="<span class="tw-text-white">First tab name</span>" tabindex="<span class="tw-text-white">0</span>"&gt;...&lt;/section&gt;
+&lt;section id="<span class="tw-text-white">tab-2</span>" role="<span class="tw-text-white">tabpanel</span>" aria-label="<span class="tw-text-white">Second tab name</span>" tabindex="<span class="tw-text-white">0</span>"&gt;...&lt;/section&gt;
+&lt;section id="<span class="tw-text-white">tab-3</span>" role="<span class="tw-text-white">tabpanel</span>" aria-label="<span class="tw-text-white">Third tab name</span>" tabindex="<span class="tw-text-white">0</span>"&gt;...&lt;/section&gt;</pre>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="tw-flex-grid-col tw-hidden tw-w-1/3 tw-sticky tw-top-0 md:tw-block lg:tw-w-1/4">
+                    <div class="tw-bg-white tw-shadow tw-p-4">
+                        <div class="tw-overflow-x-hidden scrollbars" style="max-height: calc(100vh - 170px);">
+                            <h2 class="tw-font-semibold tw-border-b tw-border-grey-200 tw-mb-3 tw-pb-2">General</h2>
+                            <ul class="tw-text-sm tw-mb-4">
+                                <li class="tw-mb-1">
+                                    <a class="tw-block tw-text-grey-600 tw-px-3 tw-py-1" href="/ui.html#general-classes">CSS Classes</a>
+                                </li>
+                                <li class="tw-mb-1">
+                                    <a class="tw-block tw-text-grey-600 tw-px-3 tw-py-1" href="/ui.html#general-responsive">Responsive</a>
+                                </li>
+                            </ul>
+                            <h2 class="tw-font-semibold tw-border-b tw-border-grey-200 tw-mb-3 tw-pb-2">Layout</h2>
+                            <ul class="tw-text-sm tw-mb-4">
+                                <li class="tw-mb-1">
+                                    <a class="tw-block tw-text-grey-600 tw-px-3 tw-py-1" href="/ui.html#layout-containers">Containers</a>
+                                </li>
+                                <li class="tw-mb-1">
+                                    <a class="tw-block tw-text-grey-600 tw-px-3 tw-py-1" href="/ui.html#layout-grid">Grid</a>
+                                </li>
+                            </ul>
+                            <h2 class="tw-font-semibold tw-border-b tw-border-grey-200 tw-mb-3 tw-pb-2">Components</h2>
+                            <ul class="tw-text-sm tw-mb-4">
+                                <li class="tw-mb-1">
+                                    <a class="tw-block tw-text-grey-600 tw-px-3 tw-py-1" href="/ui.html#components-alerts">Alerts</a>
+                                </li>
+                                <li class="tw-mb-1">
+                                    <a class="tw-block tw-text-grey-600 tw-px-3 tw-py-1" href="/ui.html#components-buttons">Buttons</a>
+                                </li>
+                                <li class="tw-mb-1">
+                                    <a class="tw-block tw-text-grey-600 tw-px-3 tw-py-1" href="/ui.html#components-datatable">Datatable</a>
+                                </li>
+                                <li class="tw-mb-1">
+                                    <a class="tw-block tw-text-grey-600 tw-px-3 tw-py-1" href="/ui.html#components-forms">Forms</a>
+                                </li>
+                                <li class="tw-mb-1">
+                                    <a class="tw-block tw-text-grey-600 tw-px-3 tw-py-1" href="/ui.html#components-pager">Pager</a>
+                                </li>
+                                <li class="tw-mb-1">
+                                    <a class="tw-block tw-text-grey-600 tw-px-3 tw-py-1" href="/ui.html#components-pills">Pills</a>
+                                </li>
+                                <li class="tw-mb-1">
+                                    <a class="tw-block tw-text-grey-600 tw-px-3 tw-py-1" href="/ui.html#components-tabs">Tabs</a>
+                                </li>
+                                <li class="tw-mb-1">
+                                    <a class="tw-block tw-text-grey-600 tw-px-3 tw-py-1" href="/ui.html#components-pill-tabs">Pill Tabs</a>
+                                </li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </main>
+</body>
+</html>

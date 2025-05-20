@@ -1,0 +1,238 @@
+/* spacing */
+
+.cms p, .cms ul, .cms ol {
+	@apply mb-4;
+}
+
+/* headers */
+
+.cms h1, .cms h2, .cms h3, .cms h4, .cms h5, .cms h6 {
+	@apply font-semibold  leading-tight text-navy mb-3;
+}
+
+.cms h2:not(:first-child), .cms h3:not(:first-child), .cms h4:not(:first-child), .cms h5:not(:first-child), .cms h6:not(:first-child) {
+	@apply mt-6;
+}
+
+.cms h1 {
+	@apply bg-orange-lightest border-dotted border-2 border-orange font-bold text-2xl text-orange px-3 py-2;
+}
+
+.cms h1:before {
+	@apply block font-semibold text-xs;
+	content: "WARNING!";
+}
+
+.cms h2 {
+	@apply text-4xl;
+}
+
+.cms h3 {
+	@apply text-3xl;
+}
+
+.cms h4 {
+	@apply text-2xl;
+}
+
+.cms h5, .cms h6 {
+	@apply mb-2;
+}
+
+.cms h5 {
+	@apply text-xl;
+}
+
+.cms h6 {
+	@apply font-bold text-lg;
+}
+
+/* links */
+
+.cms a {
+	@apply font-bold text-red trans;
+}
+
+.cms a:hover {
+	@apply text-navy;
+}
+
+/* buttons */
+
+.cms .cms-button:not(a) {
+	@apply block;
+}
+
+.cms a.cms-button,
+.cms-button a,
+a .cms-button {
+	@apply inline-block bg-red border-2 border-red text-white font-semibold px-5 py-2 rounded-full trans;
+}
+
+.cms a.cms-button:hover,
+.cms-button a:hover,
+a .cms-button:hover {
+	@apply bg-black border-black text-white;
+}
+
+/* lists */
+
+.cms ul, .cms ol {
+	@apply list-reset mb-4 pl-10;
+}
+
+.cms ul li, .cms ol li {
+	@apply mb-2 relative;
+}
+
+.cms ul ul, .cms ul ol, .cms ol ul, .cms ol ol {
+	@apply my-2;
+}
+
+.cms ul:not(.cms-checks-list) > li:before {
+	@apply bg-red block w-bullet h-bullet absolute pin-l pin-t -ml-4 mt-2 rounded-full;
+	content: "";
+}
+
+.cms ul.cms-checks-list > li:before {
+	@apply text-red text-right font-icons font-bold w-8 absolute pin-l pin-t -ml-10;
+	content: "\f058";
+}
+
+.cms ol {
+	counter-reset: cms-ol;
+}
+
+.cms ol > li:before {
+	@apply text-red font-bold absolute pin-l -ml-8 text-right w-6;
+	counter-increment: cms-ol;
+	content: counter(cms-ol)".";
+}
+
+.cms ol ol > li:before {
+	content: counter(cms-ol, lower-alpha)".";
+}
+
+/* tables */
+
+.cms table {
+	@apply border-0 border-collapse w-full mb-6;
+}
+
+.cms table:not(:first-child) {
+	@apply mt-6;
+}
+
+.cms table th, .cms table td {
+	@apply font-normal py-3 px-4 border-b-2 border-navy-lightest text-sm text-left break-words align-top;
+}
+
+.cms table thead th, .cms table thead td {
+	@apply bg-navy-lightest font-semibold text-navy text-xs uppercase border-0 tracking-wide;
+}
+
+/* rules */
+
+.cms hr {
+	@apply border-0 h-px text-navy-lighter bg-grey-lighter m-0 mx-auto my-6 p-0 text-center;
+}
+
+/* quotes */
+
+.cms blockquote {
+	@apply font-semibold text-lg text-navy mx-auto max-w-md mb-6 pl-12 relative;
+}
+
+.cms blockquote:not(:first-child) {
+	@apply mt-6;
+}
+
+.cms blockquote:before {
+	@apply text-navy-lighter font-icons font-bold text-3xl leading-none absolute pin-l pin-t;
+	content: "\f10d";
+}
+
+.cms blockquote .cms-quote-author {
+	@apply block font-normal text-sm roman text-grey-light mt-2;
+}
+
+.cms blockquote .cms-quote-author:before {
+	content: "- ";
+}
+
+/* images */
+
+.cms img {
+	@apply flex justify-center mx-auto mb-4 rounded;
+}
+
+.cms .cms-image {
+	@apply block;
+}
+
+/* figure */
+
+.cms figure {
+	@apply block mb-4;
+}
+
+.cms figure .cms-figure-image {
+	@apply block;
+}
+
+.cms figure .cms-figure-image img {
+	@apply mb-0;
+}
+
+.cms figure figcaption {
+	@apply block mt-2 text-sm text-navy-lighter text-center;
+}
+
+/* code */
+
+.cms > :not(pre) code, .cms > :not(pre) .cms-code {
+	@apply border font-mono text-sm whitespace-no-wrap wordbreak-break rounded;
+	background: #f7f7f9;
+	border-color: #e1e1e8;
+	color: #d14;
+	padding: 2px 5px;
+}
+
+.cms > pre, .cms > pre code[class*="language"] {
+	@apply block bg-navy-darkest font-mono text-grey-lighter text-left text-sm hyphens-none whitespace-pre break-normal wordbreak-normal wordspacing-normal;
+	tab-size: 4;
+}
+
+.cms > pre
+{
+	@apply max-h-700 mt-2 mb-6 px-6 py-4 overflow-auto scrolling-touch;
+	resize: vertical;
+}
+
+.cms > pre:not(:first-child)
+{
+	@apply mt-6;
+}ccc
+
+/* embed */
+
+.cms .cms-embed {
+	@apply mb-4 pt-169-ratio relative z-10;
+}
+
+.cms .cms-embed iframe {
+	@apply pin-l pin-t w-full h-full absolute z-10;
+}
+
+/* small */
+
+.cms small {
+	@apply block text-grey-lighter text-xs;
+}
+
+/* attrs */
+
+.cms abbr[title] {
+	@apply text-black no-underline border-b border-dotted border-grey;
+	cursor: help;
+}

@@ -1,0 +1,49 @@
+﻿html, body {
+	min-height: 100%;
+}
+
+::-moz-selection {
+	@apply text-white bg-red;
+}
+
+::selection {
+	@apply text-white bg-red;
+}
+
+a {
+	@apply no-underline;
+	color: inherit;
+}
+
+abbr[title] {
+	@apply no-underline;
+	cursor: help;
+}
+
+abbr[title]:hover {
+	@apply underline;
+	text-decoration: underline dotted;
+}
+
+/* forms */
+
+select {
+	@apply appearance-none;
+	background: url(/img/forms/select.png) no-repeat 98% 50%;
+}
+
+::-webkit-input-placeholder {
+	@apply text-navy-lighter;
+}
+
+::-moz-placeholder {
+	@apply text-navy-lighter;
+}
+
+:-ms-input-placeholder {
+	@apply text-navy-lighter;
+}
+
+:-moz-placeholder {
+	@apply text-navy-lighter;
+}

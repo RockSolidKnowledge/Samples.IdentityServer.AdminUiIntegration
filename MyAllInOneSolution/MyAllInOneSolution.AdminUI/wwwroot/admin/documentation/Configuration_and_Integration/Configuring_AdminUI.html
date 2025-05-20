@@ -1,0 +1,2287 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+
+    
+
+    <meta http-equiv="x-ua-compatible" content="ie=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+    <title>Configuring AdminUI | AdminUI Documentation</title>
+
+    
+
+    <link rel="shortcut icon" href="../img/favicon.png">
+    <link rel="stylesheet" href="../css/prism-okaidia.min.css">
+    <link rel="stylesheet" href="../css/prism-alfa.css">
+    <link rel="stylesheet" href="../css/fontawesome-5.7.2.min.css">
+    <link rel="stylesheet" href="../css/fonts.css">
+    <link rel="stylesheet" href="../css/site.min.css">
+    <link rel="stylesheet" href="../css/search.css">
+    <link rel="stylesheet" href="../css/theme.css">
+    <link rel="stylesheet" media="print" href="../css/print.css">
+    
+        <link rel="stylesheet" href="../css/adminui.css">
+    
+
+    
+
+    <script>var base_url = '..';</script>
+
+    
+    
+</head>
+
+<body class="preload w-100 bg-grey-darkest text-white text-center text-base font-sans leading-normal m-0 adminui">
+
+    
+
+    <header class="bg-grey-darkest text-white bg-repeat theme-header-imagebg no-print" style="background-image: url('../img/escheresque_ste.png');">
+    <div class="header-overlay-colour">
+        <div class="container mx-auto px-4 lg:pt-4 lg:px-6 flex items-center">
+            <a href=".." class="font-bold truncate py-4 lg:py-0 opacity-50">
+                AdminUI Documentation
+            </a>
+            <a id="nav-link" class="bg-transparent flex -mr-4 lg:-mr-6 ml-auto w-16 lg:hidden self-stretch items-center justify-center" href="#" aria-label="Show Menu" aria-haspopup="true" aria-controls="nav-menu">
+                <i class="fas fa-bars text-xl js-nav-icon" aria-hidden="true"></i>
+                <span class="sr-only">Open Menu</span>
+            </a>
+            
+                <div class="ml-auto hidden lg:block opacity-50 hover:opacity-100">
+                    <a href="https://www.identityserver.com/documentation" class="btn btn-small btn-light"><span class="fas fa-arrow-left mr-2"></span>Documentation</a>
+                </div>
+            
+            <nav id="nav-menu" class="bg-black overflow-y-auto fixed pin z-40 mt-header hidden lg:hidden" aria-labelledby="nav-link" aria-expanded="false" role="navigation">
+                <ul class="list-reset overflow-y-auto pin">
+                    
+                        
+<li class="lg:border-0 lg:mb-2 ">
+    <a class="flex items-start px-6 py-4 text-left lg:font-normal lg:px-0 lg:py-0" href="../index.html" style="word-break: break-word">
+      
+        <span class="flex-no-shrink hidden mt-1 lg:inline-block fas fa-fw fa-angle-right text-grey-light mr-2"></span>
+      
+      About
+    </a>
+</li>
+
+                    
+                        
+  <li class="lg:mb-2 js-has-children">
+    <span class="js-toggle cursor-pointer flex items-start px-6 py-4 font-bold text-left lg:font-normal lg:px-0 lg:py-0">
+      <span class="js-icon flex-no-shrink mt-1 lg:inline-block fas fa-fw fa-plus text-grey-lighter mr-2"></span>
+      <span>Read First</span>
+    </span>
+    <ul class="js-children hidden list-reset overflow-y-auto pl-5 lg:pl-0 lg:pl-4 lg:mt-2">
+        
+            
+<li class="lg:border-0 lg:mb-2 ">
+    <a class="flex items-start px-6 py-4 text-left lg:font-normal lg:px-0 lg:py-0" href="../IdentityServer/What_Is_IdentityServer.html" style="word-break: break-word">
+      
+        <span class="flex-no-shrink hidden mt-1 lg:inline-block fas fa-fw fa-angle-right text-grey-light mr-2"></span>
+      
+      What is IdentityServer
+    </a>
+</li>
+
+        
+            
+<li class="lg:border-0 lg:mb-2 ">
+    <a class="flex items-start px-6 py-4 text-left lg:font-normal lg:px-0 lg:py-0" href="../Read_First/Installation_Scenarios.html" style="word-break: break-word">
+      
+        <span class="flex-no-shrink hidden mt-1 lg:inline-block fas fa-fw fa-angle-right text-grey-light mr-2"></span>
+      
+      Installation Scenarios
+    </a>
+</li>
+
+        
+    </ul>
+  </li>
+
+                    
+                        
+<li class="lg:border-0 lg:mb-2 ">
+    <a class="flex items-start px-6 py-4 text-left lg:font-normal lg:px-0 lg:py-0" href="../Migrations/Migrations_Help.html" style="word-break: break-word">
+      
+        <span class="flex-no-shrink hidden mt-1 lg:inline-block fas fa-fw fa-angle-right text-grey-light mr-2"></span>
+      
+      Migrations
+    </a>
+</li>
+
+                    
+                        
+<li class="lg:border-0 lg:mb-2 ">
+    <a class="flex items-start px-6 py-4 text-left lg:font-normal lg:px-0 lg:py-0" href="../Bootstrapping/Bootstrapping_Help.html" style="word-break: break-word">
+      
+        <span class="flex-no-shrink hidden mt-1 lg:inline-block fas fa-fw fa-angle-right text-grey-light mr-2"></span>
+      
+      Bootstrapping
+    </a>
+</li>
+
+                    
+                        
+  <li class="lg:mb-2 js-has-children">
+    <span class="js-toggle cursor-pointer flex items-start px-6 py-4 font-bold text-left lg:font-normal lg:px-0 lg:py-0">
+      <span class="js-icon flex-no-shrink mt-1 lg:inline-block fas fa-fw fa-plus text-grey-lighter mr-2"></span>
+      <span>Configuration & Integration</span>
+    </span>
+    <ul class="js-children hidden list-reset overflow-y-auto pl-5 lg:pl-0 lg:pl-4 lg:mt-2">
+        
+            
+<li class="lg:border-0 lg:mb-2 active">
+    <a class="flex items-start px-6 py-4 text-left lg:font-normal lg:px-0 lg:py-0" href="Configuring_AdminUI.html" style="word-break: break-word">
+      
+        <span class="flex-no-shrink hidden mt-1 lg:inline-block fas fa-fw fa-angle-right text-grey-light mr-2"></span>
+      
+      Configuring AdminUI
+    </a>
+</li>
+
+        
+            
+<li class="lg:border-0 lg:mb-2 ">
+    <a class="flex items-start px-6 py-4 text-left lg:font-normal lg:px-0 lg:py-0" href="Integrating_with_IdentityServer.html" style="word-break: break-word">
+      
+        <span class="flex-no-shrink hidden mt-1 lg:inline-block fas fa-fw fa-angle-right text-grey-light mr-2"></span>
+      
+      Integrating with Identity Server
+    </a>
+</li>
+
+        
+            
+<li class="lg:border-0 lg:mb-2 ">
+    <a class="flex items-start px-6 py-4 text-left lg:font-normal lg:px-0 lg:py-0" href="Integrating_with_IdentityServer_Custom_Schema.html" style="word-break: break-word">
+      
+        <span class="flex-no-shrink hidden mt-1 lg:inline-block fas fa-fw fa-angle-right text-grey-light mr-2"></span>
+      
+      Integrating with Identity Server Custom Schema
+    </a>
+</li>
+
+        
+            
+<li class="lg:border-0 lg:mb-2 ">
+    <a class="flex items-start px-6 py-4 text-left lg:font-normal lg:px-0 lg:py-0" href="Integrating_with_Quickstarts.html" style="word-break: break-word">
+      
+        <span class="flex-no-shrink hidden mt-1 lg:inline-block fas fa-fw fa-angle-right text-grey-light mr-2"></span>
+      
+      Integrating with Quickstarts
+    </a>
+</li>
+
+        
+            
+<li class="lg:border-0 lg:mb-2 ">
+    <a class="flex items-start px-6 py-4 text-left lg:font-normal lg:px-0 lg:py-0" href="Enabling_Logging.html" style="word-break: break-word">
+      
+        <span class="flex-no-shrink hidden mt-1 lg:inline-block fas fa-fw fa-angle-right text-grey-light mr-2"></span>
+      
+      Enabling Logging
+    </a>
+</li>
+
+        
+    </ul>
+  </li>
+
+                    
+                        
+  <li class="lg:mb-2 js-has-children">
+    <span class="js-toggle cursor-pointer flex items-start px-6 py-4 font-bold text-left lg:font-normal lg:px-0 lg:py-0">
+      <span class="js-icon flex-no-shrink mt-1 lg:inline-block fas fa-fw fa-plus text-grey-lighter mr-2"></span>
+      <span>Installation</span>
+    </span>
+    <ul class="js-children hidden list-reset overflow-y-auto pl-5 lg:pl-0 lg:pl-4 lg:mt-2">
+        
+            
+<li class="lg:border-0 lg:mb-2 ">
+    <a class="flex items-start px-6 py-4 text-left lg:font-normal lg:px-0 lg:py-0" href="../Installation/Installer_Walkthrough.html" style="word-break: break-word">
+      
+        <span class="flex-no-shrink hidden mt-1 lg:inline-block fas fa-fw fa-angle-right text-grey-light mr-2"></span>
+      
+      Installer
+    </a>
+</li>
+
+        
+            
+<li class="lg:border-0 lg:mb-2 ">
+    <a class="flex items-start px-6 py-4 text-left lg:font-normal lg:px-0 lg:py-0" href="../Installation/Installation_IIS.html" style="word-break: break-word">
+      
+        <span class="flex-no-shrink hidden mt-1 lg:inline-block fas fa-fw fa-angle-right text-grey-light mr-2"></span>
+      
+      IIS
+    </a>
+</li>
+
+        
+            
+  <li class="lg:mb-2 js-has-children">
+    <span class="js-toggle cursor-pointer flex items-start px-6 py-4 font-bold text-left lg:font-normal lg:px-0 lg:py-0">
+      <span class="js-icon flex-no-shrink mt-1 lg:inline-block fas fa-fw fa-plus text-grey-lighter mr-2"></span>
+      <span>Azure</span>
+    </span>
+    <ul class="js-children hidden list-reset overflow-y-auto pl-5 lg:pl-0 lg:pl-4 lg:mt-2">
+        
+            
+<li class="lg:border-0 lg:mb-2 ">
+    <a class="flex items-start px-6 py-4 text-left lg:font-normal lg:px-0 lg:py-0" href="../Installation/Installation_Azure.html" style="word-break: break-word">
+      
+        <span class="flex-no-shrink hidden mt-1 lg:inline-block fas fa-fw fa-angle-right text-grey-light mr-2"></span>
+      
+      Install in Azure
+    </a>
+</li>
+
+        
+            
+<li class="lg:border-0 lg:mb-2 ">
+    <a class="flex items-start px-6 py-4 text-left lg:font-normal lg:px-0 lg:py-0" href="../Installation/Azure_Create_Web_App.html" style="word-break: break-word">
+      
+        <span class="flex-no-shrink hidden mt-1 lg:inline-block fas fa-fw fa-angle-right text-grey-light mr-2"></span>
+      
+      Create Azure Web App
+    </a>
+</li>
+
+        
+    </ul>
+  </li>
+
+        
+            
+<li class="lg:border-0 lg:mb-2 ">
+    <a class="flex items-start px-6 py-4 text-left lg:font-normal lg:px-0 lg:py-0" href="../Installation/Installation_Docker.html" style="word-break: break-word">
+      
+        <span class="flex-no-shrink hidden mt-1 lg:inline-block fas fa-fw fa-angle-right text-grey-light mr-2"></span>
+      
+      Docker
+    </a>
+</li>
+
+        
+            
+<li class="lg:border-0 lg:mb-2 ">
+    <a class="flex items-start px-6 py-4 text-left lg:font-normal lg:px-0 lg:py-0" href="../Installation/Installation_NuGet.html" style="word-break: break-word">
+      
+        <span class="flex-no-shrink hidden mt-1 lg:inline-block fas fa-fw fa-angle-right text-grey-light mr-2"></span>
+      
+      NuGet
+    </a>
+</li>
+
+        
+    </ul>
+  </li>
+
+                    
+                        
+<li class="lg:border-0 lg:mb-2 ">
+    <a class="flex items-start px-6 py-4 text-left lg:font-normal lg:px-0 lg:py-0" href="../CustomDatabaseConnections/Overview.html" style="word-break: break-word">
+      
+        <span class="flex-no-shrink hidden mt-1 lg:inline-block fas fa-fw fa-angle-right text-grey-light mr-2"></span>
+      
+      Custom Database Connections
+    </a>
+</li>
+
+                    
+                        
+  <li class="lg:mb-2 js-has-children">
+    <span class="js-toggle cursor-pointer flex items-start px-6 py-4 font-bold text-left lg:font-normal lg:px-0 lg:py-0">
+      <span class="js-icon flex-no-shrink mt-1 lg:inline-block fas fa-fw fa-plus text-grey-lighter mr-2"></span>
+      <span>Custom Identity Store</span>
+    </span>
+    <ul class="js-children hidden list-reset overflow-y-auto pl-5 lg:pl-0 lg:pl-4 lg:mt-2">
+        
+            
+<li class="lg:border-0 lg:mb-2 ">
+    <a class="flex items-start px-6 py-4 text-left lg:font-normal lg:px-0 lg:py-0" href="../CustomIdentity/Overview.html" style="word-break: break-word">
+      
+        <span class="flex-no-shrink hidden mt-1 lg:inline-block fas fa-fw fa-angle-right text-grey-light mr-2"></span>
+      
+      Overview
+    </a>
+</li>
+
+        
+            
+<li class="lg:border-0 lg:mb-2 ">
+    <a class="flex items-start px-6 py-4 text-left lg:font-normal lg:px-0 lg:py-0" href="../CustomIdentity/PartialImplementation.html" style="word-break: break-word">
+      
+        <span class="flex-no-shrink hidden mt-1 lg:inline-block fas fa-fw fa-angle-right text-grey-light mr-2"></span>
+      
+      Partial Implementation
+    </a>
+</li>
+
+        
+            
+<li class="lg:border-0 lg:mb-2 ">
+    <a class="flex items-start px-6 py-4 text-left lg:font-normal lg:px-0 lg:py-0" href="../CustomIdentity/FullOverride.html" style="word-break: break-word">
+      
+        <span class="flex-no-shrink hidden mt-1 lg:inline-block fas fa-fw fa-angle-right text-grey-light mr-2"></span>
+      
+      Full Implementation
+    </a>
+</li>
+
+        
+            
+<li class="lg:border-0 lg:mb-2 ">
+    <a class="flex items-start px-6 py-4 text-left lg:font-normal lg:px-0 lg:py-0" href="../CustomIdentity/TenancyWithEF.html" style="word-break: break-word">
+      
+        <span class="flex-no-shrink hidden mt-1 lg:inline-block fas fa-fw fa-angle-right text-grey-light mr-2"></span>
+      
+      Tenancy With Entity Framework
+    </a>
+</li>
+
+        
+            
+<li class="lg:border-0 lg:mb-2 ">
+    <a class="flex items-start px-6 py-4 text-left lg:font-normal lg:px-0 lg:py-0" href="../CustomIdentity/NoSql.html" style="word-break: break-word">
+      
+        <span class="flex-no-shrink hidden mt-1 lg:inline-block fas fa-fw fa-angle-right text-grey-light mr-2"></span>
+      
+      NoSql Implementation (MongoDB)
+    </a>
+</li>
+
+        
+    </ul>
+  </li>
+
+                    
+                        
+  <li class="lg:mb-2 js-has-children">
+    <span class="js-toggle cursor-pointer flex items-start px-6 py-4 font-bold text-left lg:font-normal lg:px-0 lg:py-0">
+      <span class="js-icon flex-no-shrink mt-1 lg:inline-block fas fa-fw fa-plus text-grey-lighter mr-2"></span>
+      <span>Users</span>
+    </span>
+    <ul class="js-children hidden list-reset overflow-y-auto pl-5 lg:pl-0 lg:pl-4 lg:mt-2">
+        
+            
+<li class="lg:border-0 lg:mb-2 ">
+    <a class="flex items-start px-6 py-4 text-left lg:font-normal lg:px-0 lg:py-0" href="../Users/Searching_for_users.html" style="word-break: break-word">
+      
+        <span class="flex-no-shrink hidden mt-1 lg:inline-block fas fa-fw fa-angle-right text-grey-light mr-2"></span>
+      
+      Searching for Users
+    </a>
+</li>
+
+        
+            
+<li class="lg:border-0 lg:mb-2 ">
+    <a class="flex items-start px-6 py-4 text-left lg:font-normal lg:px-0 lg:py-0" href="../Users/Adding_users.html" style="word-break: break-word">
+      
+        <span class="flex-no-shrink hidden mt-1 lg:inline-block fas fa-fw fa-angle-right text-grey-light mr-2"></span>
+      
+      Adding Users
+    </a>
+</li>
+
+        
+            
+<li class="lg:border-0 lg:mb-2 ">
+    <a class="flex items-start px-6 py-4 text-left lg:font-normal lg:px-0 lg:py-0" href="../Users/Editing_users.html" style="word-break: break-word">
+      
+        <span class="flex-no-shrink hidden mt-1 lg:inline-block fas fa-fw fa-angle-right text-grey-light mr-2"></span>
+      
+      Editing Users
+    </a>
+</li>
+
+        
+            
+<li class="lg:border-0 lg:mb-2 ">
+    <a class="flex items-start px-6 py-4 text-left lg:font-normal lg:px-0 lg:py-0" href="../Users/Deleting_Users.html" style="word-break: break-word">
+      
+        <span class="flex-no-shrink hidden mt-1 lg:inline-block fas fa-fw fa-angle-right text-grey-light mr-2"></span>
+      
+      Deleting Users
+    </a>
+</li>
+
+        
+            
+<li class="lg:border-0 lg:mb-2 ">
+    <a class="flex items-start px-6 py-4 text-left lg:font-normal lg:px-0 lg:py-0" href="../Users/Set_User_Password.html" style="word-break: break-word">
+      
+        <span class="flex-no-shrink hidden mt-1 lg:inline-block fas fa-fw fa-angle-right text-grey-light mr-2"></span>
+      
+      Set User Password
+    </a>
+</li>
+
+        
+            
+<li class="lg:border-0 lg:mb-2 ">
+    <a class="flex items-start px-6 py-4 text-left lg:font-normal lg:px-0 lg:py-0" href="../Users/SessionManagement.html" style="word-break: break-word">
+      
+        <span class="flex-no-shrink hidden mt-1 lg:inline-block fas fa-fw fa-angle-right text-grey-light mr-2"></span>
+      
+      Session Management
+    </a>
+</li>
+
+        
+    </ul>
+  </li>
+
+                    
+                        
+  <li class="lg:mb-2 js-has-children">
+    <span class="js-toggle cursor-pointer flex items-start px-6 py-4 font-bold text-left lg:font-normal lg:px-0 lg:py-0">
+      <span class="js-icon flex-no-shrink mt-1 lg:inline-block fas fa-fw fa-plus text-grey-lighter mr-2"></span>
+      <span>Roles</span>
+    </span>
+    <ul class="js-children hidden list-reset overflow-y-auto pl-5 lg:pl-0 lg:pl-4 lg:mt-2">
+        
+            
+<li class="lg:border-0 lg:mb-2 ">
+    <a class="flex items-start px-6 py-4 text-left lg:font-normal lg:px-0 lg:py-0" href="../Roles/Creating_roles.html" style="word-break: break-word">
+      
+        <span class="flex-no-shrink hidden mt-1 lg:inline-block fas fa-fw fa-angle-right text-grey-light mr-2"></span>
+      
+      Creating Roles
+    </a>
+</li>
+
+        
+            
+<li class="lg:border-0 lg:mb-2 ">
+    <a class="flex items-start px-6 py-4 text-left lg:font-normal lg:px-0 lg:py-0" href="../Roles/Managing_Roles.html" style="word-break: break-word">
+      
+        <span class="flex-no-shrink hidden mt-1 lg:inline-block fas fa-fw fa-angle-right text-grey-light mr-2"></span>
+      
+      Managing Roles
+    </a>
+</li>
+
+        
+            
+<li class="lg:border-0 lg:mb-2 ">
+    <a class="flex items-start px-6 py-4 text-left lg:font-normal lg:px-0 lg:py-0" href="../Roles/Users_in_Role_Management.html" style="word-break: break-word">
+      
+        <span class="flex-no-shrink hidden mt-1 lg:inline-block fas fa-fw fa-angle-right text-grey-light mr-2"></span>
+      
+      Managing Users in a Role
+    </a>
+</li>
+
+        
+    </ul>
+  </li>
+
+                    
+                        
+<li class="lg:border-0 lg:mb-2 ">
+    <a class="flex items-start px-6 py-4 text-left lg:font-normal lg:px-0 lg:py-0" href="../Claim_Types/Managing_Claimtypes.html" style="word-break: break-word">
+      
+        <span class="flex-no-shrink hidden mt-1 lg:inline-block fas fa-fw fa-angle-right text-grey-light mr-2"></span>
+      
+      Claim Types
+    </a>
+</li>
+
+                    
+                        
+  <li class="lg:mb-2 js-has-children">
+    <span class="js-toggle cursor-pointer flex items-start px-6 py-4 font-bold text-left lg:font-normal lg:px-0 lg:py-0">
+      <span class="js-icon flex-no-shrink mt-1 lg:inline-block fas fa-fw fa-plus text-grey-lighter mr-2"></span>
+      <span>Clients</span>
+    </span>
+    <ul class="js-children hidden list-reset overflow-y-auto pl-5 lg:pl-0 lg:pl-4 lg:mt-2">
+        
+            
+<li class="lg:border-0 lg:mb-2 ">
+    <a class="flex items-start px-6 py-4 text-left lg:font-normal lg:px-0 lg:py-0" href="../Clients/Searching_for_clients.html" style="word-break: break-word">
+      
+        <span class="flex-no-shrink hidden mt-1 lg:inline-block fas fa-fw fa-angle-right text-grey-light mr-2"></span>
+      
+      Searching for Clients
+    </a>
+</li>
+
+        
+            
+<li class="lg:border-0 lg:mb-2 ">
+    <a class="flex items-start px-6 py-4 text-left lg:font-normal lg:px-0 lg:py-0" href="../Clients/Adding_Clients.html" style="word-break: break-word">
+      
+        <span class="flex-no-shrink hidden mt-1 lg:inline-block fas fa-fw fa-angle-right text-grey-light mr-2"></span>
+      
+      Adding Clients
+    </a>
+</li>
+
+        
+            
+<li class="lg:border-0 lg:mb-2 ">
+    <a class="flex items-start px-6 py-4 text-left lg:font-normal lg:px-0 lg:py-0" href="../Clients/Adding_a_Saml_client.html" style="word-break: break-word">
+      
+        <span class="flex-no-shrink hidden mt-1 lg:inline-block fas fa-fw fa-angle-right text-grey-light mr-2"></span>
+      
+      Adding a SAML Client
+    </a>
+</li>
+
+        
+            
+<li class="lg:border-0 lg:mb-2 ">
+    <a class="flex items-start px-6 py-4 text-left lg:font-normal lg:px-0 lg:py-0" href="../Clients/Adding_a_WsFed_client.html" style="word-break: break-word">
+      
+        <span class="flex-no-shrink hidden mt-1 lg:inline-block fas fa-fw fa-angle-right text-grey-light mr-2"></span>
+      
+      Adding a WS-Fed Client
+    </a>
+</li>
+
+        
+            
+<li class="lg:border-0 lg:mb-2 ">
+    <a class="flex items-start px-6 py-4 text-left lg:font-normal lg:px-0 lg:py-0" href="../Clients/Editing_clients.html" style="word-break: break-word">
+      
+        <span class="flex-no-shrink hidden mt-1 lg:inline-block fas fa-fw fa-angle-right text-grey-light mr-2"></span>
+      
+      Editing Clients
+    </a>
+</li>
+
+        
+            
+<li class="lg:border-0 lg:mb-2 ">
+    <a class="flex items-start px-6 py-4 text-left lg:font-normal lg:px-0 lg:py-0" href="../Clients/Deleting_clients.html" style="word-break: break-word">
+      
+        <span class="flex-no-shrink hidden mt-1 lg:inline-block fas fa-fw fa-angle-right text-grey-light mr-2"></span>
+      
+      Deleting Clients
+    </a>
+</li>
+
+        
+            
+<li class="lg:border-0 lg:mb-2 ">
+    <a class="flex items-start px-6 py-4 text-left lg:font-normal lg:px-0 lg:py-0" href="../Clients/Clone_a_client.html" style="word-break: break-word">
+      
+        <span class="flex-no-shrink hidden mt-1 lg:inline-block fas fa-fw fa-angle-right text-grey-light mr-2"></span>
+      
+      Clone Client
+    </a>
+</li>
+
+        
+    </ul>
+  </li>
+
+                    
+                        
+  <li class="lg:mb-2 js-has-children">
+    <span class="js-toggle cursor-pointer flex items-start px-6 py-4 font-bold text-left lg:font-normal lg:px-0 lg:py-0">
+      <span class="js-icon flex-no-shrink mt-1 lg:inline-block fas fa-fw fa-plus text-grey-lighter mr-2"></span>
+      <span>Import and Export</span>
+    </span>
+    <ul class="js-children hidden list-reset overflow-y-auto pl-5 lg:pl-0 lg:pl-4 lg:mt-2">
+        
+            
+<li class="lg:border-0 lg:mb-2 ">
+    <a class="flex items-start px-6 py-4 text-left lg:font-normal lg:px-0 lg:py-0" href="../Import_and_Export/Export.html" style="word-break: break-word">
+      
+        <span class="flex-no-shrink hidden mt-1 lg:inline-block fas fa-fw fa-angle-right text-grey-light mr-2"></span>
+      
+      Exporting Clients
+    </a>
+</li>
+
+        
+            
+<li class="lg:border-0 lg:mb-2 ">
+    <a class="flex items-start px-6 py-4 text-left lg:font-normal lg:px-0 lg:py-0" href="../Import_and_Export/Import.html" style="word-break: break-word">
+      
+        <span class="flex-no-shrink hidden mt-1 lg:inline-block fas fa-fw fa-angle-right text-grey-light mr-2"></span>
+      
+      Importing Clients
+    </a>
+</li>
+
+        
+            
+<li class="lg:border-0 lg:mb-2 ">
+    <a class="flex items-start px-6 py-4 text-left lg:font-normal lg:px-0 lg:py-0" href="../Import_and_Export/Secrets.html" style="word-break: break-word">
+      
+        <span class="flex-no-shrink hidden mt-1 lg:inline-block fas fa-fw fa-angle-right text-grey-light mr-2"></span>
+      
+      Importing Client Configuration with Secrets
+    </a>
+</li>
+
+        
+            
+<li class="lg:border-0 lg:mb-2 ">
+    <a class="flex items-start px-6 py-4 text-left lg:font-normal lg:px-0 lg:py-0" href="../Import_and_Export/Certificates.html" style="word-break: break-word">
+      
+        <span class="flex-no-shrink hidden mt-1 lg:inline-block fas fa-fw fa-angle-right text-grey-light mr-2"></span>
+      
+      Importing SAML Clients with Certificates
+    </a>
+</li>
+
+        
+            
+<li class="lg:border-0 lg:mb-2 ">
+    <a class="flex items-start px-6 py-4 text-left lg:font-normal lg:px-0 lg:py-0" href="../Import_and_Export/Import_and_Export_Via_API.html" style="word-break: break-word">
+      
+        <span class="flex-no-shrink hidden mt-1 lg:inline-block fas fa-fw fa-angle-right text-grey-light mr-2"></span>
+      
+      Import and Export Via the API
+    </a>
+</li>
+
+        
+    </ul>
+  </li>
+
+                    
+                        
+  <li class="lg:mb-2 js-has-children">
+    <span class="js-toggle cursor-pointer flex items-start px-6 py-4 font-bold text-left lg:font-normal lg:px-0 lg:py-0">
+      <span class="js-icon flex-no-shrink mt-1 lg:inline-block fas fa-fw fa-plus text-grey-lighter mr-2"></span>
+      <span>Dynamic Authentication Providers</span>
+    </span>
+    <ul class="js-children hidden list-reset overflow-y-auto pl-5 lg:pl-0 lg:pl-4 lg:mt-2">
+        
+            
+<li class="lg:border-0 lg:mb-2 ">
+    <a class="flex items-start px-6 py-4 text-left lg:font-normal lg:px-0 lg:py-0" href="../DynamicAuthentication/Enabling_Dynamic_Authentication.html" style="word-break: break-word">
+      
+        <span class="flex-no-shrink hidden mt-1 lg:inline-block fas fa-fw fa-angle-right text-grey-light mr-2"></span>
+      
+      Enabling Dynamic Authentication
+    </a>
+</li>
+
+        
+            
+  <li class="lg:mb-2 js-has-children">
+    <span class="js-toggle cursor-pointer flex items-start px-6 py-4 font-bold text-left lg:font-normal lg:px-0 lg:py-0">
+      <span class="js-icon flex-no-shrink mt-1 lg:inline-block fas fa-fw fa-plus text-grey-lighter mr-2"></span>
+      <span>Add a Dynamic Provider</span>
+    </span>
+    <ul class="js-children hidden list-reset overflow-y-auto pl-5 lg:pl-0 lg:pl-4 lg:mt-2">
+        
+            
+<li class="lg:border-0 lg:mb-2 ">
+    <a class="flex items-start px-6 py-4 text-left lg:font-normal lg:px-0 lg:py-0" href="../DynamicAuthentication/First_Steps_Adding_Dynamic_Provider.html" style="word-break: break-word">
+      
+        <span class="flex-no-shrink hidden mt-1 lg:inline-block fas fa-fw fa-angle-right text-grey-light mr-2"></span>
+      
+      First Steps
+    </a>
+</li>
+
+        
+            
+<li class="lg:border-0 lg:mb-2 ">
+    <a class="flex items-start px-6 py-4 text-left lg:font-normal lg:px-0 lg:py-0" href="../DynamicAuthentication/Adding_a_Oidc_Dynamic_Provider.html" style="word-break: break-word">
+      
+        <span class="flex-no-shrink hidden mt-1 lg:inline-block fas fa-fw fa-angle-right text-grey-light mr-2"></span>
+      
+      Adding OIDC Provider
+    </a>
+</li>
+
+        
+            
+<li class="lg:border-0 lg:mb-2 ">
+    <a class="flex items-start px-6 py-4 text-left lg:font-normal lg:px-0 lg:py-0" href="../DynamicAuthentication/Adding_a_Saml_Dynamic_Provider.html" style="word-break: break-word">
+      
+        <span class="flex-no-shrink hidden mt-1 lg:inline-block fas fa-fw fa-angle-right text-grey-light mr-2"></span>
+      
+      Adding SAML Provider
+    </a>
+</li>
+
+        
+    </ul>
+  </li>
+
+        
+            
+  <li class="lg:mb-2 js-has-children">
+    <span class="js-toggle cursor-pointer flex items-start px-6 py-4 font-bold text-left lg:font-normal lg:px-0 lg:py-0">
+      <span class="js-icon flex-no-shrink mt-1 lg:inline-block fas fa-fw fa-plus text-grey-lighter mr-2"></span>
+      <span>Edit a Dynamic Provider</span>
+    </span>
+    <ul class="js-children hidden list-reset overflow-y-auto pl-5 lg:pl-0 lg:pl-4 lg:mt-2">
+        
+            
+<li class="lg:border-0 lg:mb-2 ">
+    <a class="flex items-start px-6 py-4 text-left lg:font-normal lg:px-0 lg:py-0" href="../DynamicAuthentication/Accessing_edit_view_to_Dynamic_Provider.html" style="word-break: break-word">
+      
+        <span class="flex-no-shrink hidden mt-1 lg:inline-block fas fa-fw fa-angle-right text-grey-light mr-2"></span>
+      
+      Accessing edit view
+    </a>
+</li>
+
+        
+            
+<li class="lg:border-0 lg:mb-2 ">
+    <a class="flex items-start px-6 py-4 text-left lg:font-normal lg:px-0 lg:py-0" href="../DynamicAuthentication/Editing_a_Oidc_Dynamic_Provider.html" style="word-break: break-word">
+      
+        <span class="flex-no-shrink hidden mt-1 lg:inline-block fas fa-fw fa-angle-right text-grey-light mr-2"></span>
+      
+      Editing a OIDC Provider
+    </a>
+</li>
+
+        
+            
+<li class="lg:border-0 lg:mb-2 ">
+    <a class="flex items-start px-6 py-4 text-left lg:font-normal lg:px-0 lg:py-0" href="../DynamicAuthentication/Editing_a_Saml_Dynamic_Provider.html" style="word-break: break-word">
+      
+        <span class="flex-no-shrink hidden mt-1 lg:inline-block fas fa-fw fa-angle-right text-grey-light mr-2"></span>
+      
+      Editing a SAML Provider
+    </a>
+</li>
+
+        
+    </ul>
+  </li>
+
+        
+            
+<li class="lg:border-0 lg:mb-2 ">
+    <a class="flex items-start px-6 py-4 text-left lg:font-normal lg:px-0 lg:py-0" href="../DynamicAuthentication/Deleting_a_Dynamic_Provider.html" style="word-break: break-word">
+      
+        <span class="flex-no-shrink hidden mt-1 lg:inline-block fas fa-fw fa-angle-right text-grey-light mr-2"></span>
+      
+      Deleting a Provider
+    </a>
+</li>
+
+        
+            
+<li class="lg:border-0 lg:mb-2 ">
+    <a class="flex items-start px-6 py-4 text-left lg:font-normal lg:px-0 lg:py-0" href="../DynamicAuthentication/Searching_for_a_Dynamic_Provider.html" style="word-break: break-word">
+      
+        <span class="flex-no-shrink hidden mt-1 lg:inline-block fas fa-fw fa-angle-right text-grey-light mr-2"></span>
+      
+      Searching for Provider
+    </a>
+</li>
+
+        
+    </ul>
+  </li>
+
+                    
+                        
+  <li class="lg:mb-2 js-has-children">
+    <span class="js-toggle cursor-pointer flex items-start px-6 py-4 font-bold text-left lg:font-normal lg:px-0 lg:py-0">
+      <span class="js-icon flex-no-shrink mt-1 lg:inline-block fas fa-fw fa-plus text-grey-lighter mr-2"></span>
+      <span>Resources</span>
+    </span>
+    <ul class="js-children hidden list-reset overflow-y-auto pl-5 lg:pl-0 lg:pl-4 lg:mt-2">
+        
+            
+<li class="lg:border-0 lg:mb-2 ">
+    <a class="flex items-start px-6 py-4 text-left lg:font-normal lg:px-0 lg:py-0" href="../Resources/searching_for_resources.html" style="word-break: break-word">
+      
+        <span class="flex-no-shrink hidden mt-1 lg:inline-block fas fa-fw fa-angle-right text-grey-light mr-2"></span>
+      
+      Searching for Resources
+    </a>
+</li>
+
+        
+            
+<li class="lg:border-0 lg:mb-2 ">
+    <a class="flex items-start px-6 py-4 text-left lg:font-normal lg:px-0 lg:py-0" href="../Resources/creating_resources.html" style="word-break: break-word">
+      
+        <span class="flex-no-shrink hidden mt-1 lg:inline-block fas fa-fw fa-angle-right text-grey-light mr-2"></span>
+      
+      Creating Resources
+    </a>
+</li>
+
+        
+            
+<li class="lg:border-0 lg:mb-2 ">
+    <a class="flex items-start px-6 py-4 text-left lg:font-normal lg:px-0 lg:py-0" href="../Resources/editing_resources.html" style="word-break: break-word">
+      
+        <span class="flex-no-shrink hidden mt-1 lg:inline-block fas fa-fw fa-angle-right text-grey-light mr-2"></span>
+      
+      Editing resources
+    </a>
+</li>
+
+        
+    </ul>
+  </li>
+
+                    
+                        
+  <li class="lg:mb-2 js-has-children">
+    <span class="js-toggle cursor-pointer flex items-start px-6 py-4 font-bold text-left lg:font-normal lg:px-0 lg:py-0">
+      <span class="js-icon flex-no-shrink mt-1 lg:inline-block fas fa-fw fa-plus text-grey-lighter mr-2"></span>
+      <span>Webhooks</span>
+    </span>
+    <ul class="js-children hidden list-reset overflow-y-auto pl-5 lg:pl-0 lg:pl-4 lg:mt-2">
+        
+            
+<li class="lg:border-0 lg:mb-2 ">
+    <a class="flex items-start px-6 py-4 text-left lg:font-normal lg:px-0 lg:py-0" href="../Webhooks/webhooks.html" style="word-break: break-word">
+      
+        <span class="flex-no-shrink hidden mt-1 lg:inline-block fas fa-fw fa-angle-right text-grey-light mr-2"></span>
+      
+      Webhooks
+    </a>
+</li>
+
+        
+            
+<li class="lg:border-0 lg:mb-2 ">
+    <a class="flex items-start px-6 py-4 text-left lg:font-normal lg:px-0 lg:py-0" href="../Webhooks/webhook_endpoint_configuration.html" style="word-break: break-word">
+      
+        <span class="flex-no-shrink hidden mt-1 lg:inline-block fas fa-fw fa-angle-right text-grey-light mr-2"></span>
+      
+      Endpoint Configuration
+    </a>
+</li>
+
+        
+    </ul>
+  </li>
+
+                    
+                        
+<li class="lg:border-0 lg:mb-2 ">
+    <a class="flex items-start px-6 py-4 text-left lg:font-normal lg:px-0 lg:py-0" href="../User_settings_endpoints/User_settings.html" style="word-break: break-word">
+      
+        <span class="flex-no-shrink hidden mt-1 lg:inline-block fas fa-fw fa-angle-right text-grey-light mr-2"></span>
+      
+      User Settings Endpoints
+    </a>
+</li>
+
+                    
+                        
+<li class="lg:border-0 lg:mb-2 ">
+    <a class="flex items-start px-6 py-4 text-left lg:font-normal lg:px-0 lg:py-0" href="../Access_Policy/Access_Policy.html" style="word-break: break-word">
+      
+        <span class="flex-no-shrink hidden mt-1 lg:inline-block fas fa-fw fa-angle-right text-grey-light mr-2"></span>
+      
+      Access Policy
+    </a>
+</li>
+
+                    
+                        
+<li class="lg:border-0 lg:mb-2 ">
+    <a class="flex items-start px-6 py-4 text-left lg:font-normal lg:px-0 lg:py-0" href="../Audit/Auditing.html" style="word-break: break-word">
+      
+        <span class="flex-no-shrink hidden mt-1 lg:inline-block fas fa-fw fa-angle-right text-grey-light mr-2"></span>
+      
+      Auditing
+    </a>
+</li>
+
+                    
+                        
+<li class="lg:border-0 lg:mb-2 ">
+    <a class="flex items-start px-6 py-4 text-left lg:font-normal lg:px-0 lg:py-0" href="../FAQs/FAQs.html" style="word-break: break-word">
+      
+        <span class="flex-no-shrink hidden mt-1 lg:inline-block fas fa-fw fa-angle-right text-grey-light mr-2"></span>
+      
+      FAQs
+    </a>
+</li>
+
+                    
+                        
+  <li class="lg:mb-2 js-has-children">
+    <span class="js-toggle cursor-pointer flex items-start px-6 py-4 font-bold text-left lg:font-normal lg:px-0 lg:py-0">
+      <span class="js-icon flex-no-shrink mt-1 lg:inline-block fas fa-fw fa-plus text-grey-lighter mr-2"></span>
+      <span>Troubleshooting</span>
+    </span>
+    <ul class="js-children hidden list-reset overflow-y-auto pl-5 lg:pl-0 lg:pl-4 lg:mt-2">
+        
+            
+<li class="lg:border-0 lg:mb-2 ">
+    <a class="flex items-start px-6 py-4 text-left lg:font-normal lg:px-0 lg:py-0" href="../Troubleshooting/Unable_to_load_AdminUI_web.html" style="word-break: break-word">
+      
+        <span class="flex-no-shrink hidden mt-1 lg:inline-block fas fa-fw fa-angle-right text-grey-light mr-2"></span>
+      
+      Unable to load AdminUI web page
+    </a>
+</li>
+
+        
+            
+<li class="lg:border-0 lg:mb-2 ">
+    <a class="flex items-start px-6 py-4 text-left lg:font-normal lg:px-0 lg:py-0" href="../Troubleshooting/Unable_to_contact_IdentityServer.html" style="word-break: break-word">
+      
+        <span class="flex-no-shrink hidden mt-1 lg:inline-block fas fa-fw fa-angle-right text-grey-light mr-2"></span>
+      
+      Unable to contact IdentityServer
+    </a>
+</li>
+
+        
+            
+<li class="lg:border-0 lg:mb-2 ">
+    <a class="flex items-start px-6 py-4 text-left lg:font-normal lg:px-0 lg:py-0" href="../Troubleshooting/Unable_to_contact_API.html" style="word-break: break-word">
+      
+        <span class="flex-no-shrink hidden mt-1 lg:inline-block fas fa-fw fa-angle-right text-grey-light mr-2"></span>
+      
+      Unable to contact API
+    </a>
+</li>
+
+        
+            
+<li class="lg:border-0 lg:mb-2 ">
+    <a class="flex items-start px-6 py-4 text-left lg:font-normal lg:px-0 lg:py-0" href="../Troubleshooting/Unable_to_log_in.html" style="word-break: break-word">
+      
+        <span class="flex-no-shrink hidden mt-1 lg:inline-block fas fa-fw fa-angle-right text-grey-light mr-2"></span>
+      
+      Unable to log in
+    </a>
+</li>
+
+        
+    </ul>
+  </li>
+
+                    
+                    
+                        <li>
+                            <a class="flex items-start px-6 py-4 text-left" href="https://www.identityserver.com/documentation">
+                                <span class="flex-no-shrink mt-1 lg:inline-block fas fa-fw fa-arrow-left text-navy-lighter mr-2"></span>
+                                Documentation
+                            </a>
+                        </li>
+                    
+                </ul>
+            </nav>
+        </div>
+        <div class="text-white pt-4 pb-8 flex">
+    <div class="container px-4 lg:px-6 w-full text-left mx-auto self-center relative z-10">
+        <div class="max-w-lg">
+            <h1 class="font-bold w-full text-3xl lg:text-4xl leading-tight">Configuring AdminUI</h1>
+        </div>
+    </div>
+</div>
+    </div>
+</header>
+    <main class="bg-grey-lightest text-copy">
+        <div id="skip">
+            <div id="content">
+                <div class="container p-4 lg:p-6 lg:flex items-start text-left mx-auto">
+                    <div class="lg:hidden no-print">
+                        
+    <div role="search">
+        <form action="../search.html" method="get">
+            <div class="flex group items-center trans shadow-md lg:shadow-none bg-white lg:bg-white-75 overflow-hidden rounded-lg mb-4 lg:mb-8 focus-within:bg-white">
+                <span class="fas fa-search pl-3"></span>
+                <input id="mkdocs-search-query" type="search" name="q" placeholder="" class="w-full bg-transparent p-3 focus:outline-none" aria-label="Search" />
+            </div>
+        </form>
+    </div>
+
+                    </div>
+                    <aside class="w-64 flex-no-shrink hidden lg:block no-print">
+    
+    <div role="search">
+        <form action="../search.html" method="get">
+            <div class="flex group items-center trans shadow-md lg:shadow-none bg-white lg:bg-white-75 overflow-hidden rounded-lg mb-4 lg:mb-8 focus-within:bg-white">
+                <span class="fas fa-search pl-3"></span>
+                <input id="mkdocs-search-query" type="search" name="q" placeholder="" class="w-full bg-transparent p-3 focus:outline-none" aria-label="Search" />
+            </div>
+        </form>
+    </div>
+
+    <div class="flex mb-2 justify-between items-center">
+        <h2>Documentation</h2>
+        <span class="js-expand-all text-grey-light cursor-pointer fas fa-plus-square"></span>
+    </div>
+    <ul class="pl-4 list-reset">
+        
+            
+<li class="lg:border-0 lg:mb-2 ">
+    <a class="flex items-start px-6 py-4 text-left lg:font-normal lg:px-0 lg:py-0" href="../index.html" style="word-break: break-word">
+      
+        <span class="flex-no-shrink hidden mt-1 lg:inline-block fas fa-fw fa-angle-right text-grey-light mr-2"></span>
+      
+      About
+    </a>
+</li>
+
+        
+            
+  <li class="lg:mb-2 js-has-children">
+    <span class="js-toggle cursor-pointer flex items-start px-6 py-4 font-bold text-left lg:font-normal lg:px-0 lg:py-0">
+      <span class="js-icon flex-no-shrink mt-1 lg:inline-block fas fa-fw fa-plus text-grey-lighter mr-2"></span>
+      <span>Read First</span>
+    </span>
+    <ul class="js-children hidden list-reset overflow-y-auto pl-5 lg:pl-0 lg:pl-4 lg:mt-2">
+        
+            
+<li class="lg:border-0 lg:mb-2 ">
+    <a class="flex items-start px-6 py-4 text-left lg:font-normal lg:px-0 lg:py-0" href="../IdentityServer/What_Is_IdentityServer.html" style="word-break: break-word">
+      
+        <span class="flex-no-shrink hidden mt-1 lg:inline-block fas fa-fw fa-angle-right text-grey-light mr-2"></span>
+      
+      What is IdentityServer
+    </a>
+</li>
+
+        
+            
+<li class="lg:border-0 lg:mb-2 ">
+    <a class="flex items-start px-6 py-4 text-left lg:font-normal lg:px-0 lg:py-0" href="../Read_First/Installation_Scenarios.html" style="word-break: break-word">
+      
+        <span class="flex-no-shrink hidden mt-1 lg:inline-block fas fa-fw fa-angle-right text-grey-light mr-2"></span>
+      
+      Installation Scenarios
+    </a>
+</li>
+
+        
+    </ul>
+  </li>
+
+        
+            
+<li class="lg:border-0 lg:mb-2 ">
+    <a class="flex items-start px-6 py-4 text-left lg:font-normal lg:px-0 lg:py-0" href="../Migrations/Migrations_Help.html" style="word-break: break-word">
+      
+        <span class="flex-no-shrink hidden mt-1 lg:inline-block fas fa-fw fa-angle-right text-grey-light mr-2"></span>
+      
+      Migrations
+    </a>
+</li>
+
+        
+            
+<li class="lg:border-0 lg:mb-2 ">
+    <a class="flex items-start px-6 py-4 text-left lg:font-normal lg:px-0 lg:py-0" href="../Bootstrapping/Bootstrapping_Help.html" style="word-break: break-word">
+      
+        <span class="flex-no-shrink hidden mt-1 lg:inline-block fas fa-fw fa-angle-right text-grey-light mr-2"></span>
+      
+      Bootstrapping
+    </a>
+</li>
+
+        
+            
+  <li class="lg:mb-2 js-has-children">
+    <span class="js-toggle cursor-pointer flex items-start px-6 py-4 font-bold text-left lg:font-normal lg:px-0 lg:py-0">
+      <span class="js-icon flex-no-shrink mt-1 lg:inline-block fas fa-fw fa-plus text-grey-lighter mr-2"></span>
+      <span>Configuration & Integration</span>
+    </span>
+    <ul class="js-children hidden list-reset overflow-y-auto pl-5 lg:pl-0 lg:pl-4 lg:mt-2">
+        
+            
+<li class="lg:border-0 lg:mb-2 active">
+    <a class="flex items-start px-6 py-4 text-left lg:font-normal lg:px-0 lg:py-0" href="Configuring_AdminUI.html" style="word-break: break-word">
+      
+        <span class="flex-no-shrink hidden mt-1 lg:inline-block fas fa-fw fa-angle-right text-grey-light mr-2"></span>
+      
+      Configuring AdminUI
+    </a>
+</li>
+
+        
+            
+<li class="lg:border-0 lg:mb-2 ">
+    <a class="flex items-start px-6 py-4 text-left lg:font-normal lg:px-0 lg:py-0" href="Integrating_with_IdentityServer.html" style="word-break: break-word">
+      
+        <span class="flex-no-shrink hidden mt-1 lg:inline-block fas fa-fw fa-angle-right text-grey-light mr-2"></span>
+      
+      Integrating with Identity Server
+    </a>
+</li>
+
+        
+            
+<li class="lg:border-0 lg:mb-2 ">
+    <a class="flex items-start px-6 py-4 text-left lg:font-normal lg:px-0 lg:py-0" href="Integrating_with_IdentityServer_Custom_Schema.html" style="word-break: break-word">
+      
+        <span class="flex-no-shrink hidden mt-1 lg:inline-block fas fa-fw fa-angle-right text-grey-light mr-2"></span>
+      
+      Integrating with Identity Server Custom Schema
+    </a>
+</li>
+
+        
+            
+<li class="lg:border-0 lg:mb-2 ">
+    <a class="flex items-start px-6 py-4 text-left lg:font-normal lg:px-0 lg:py-0" href="Integrating_with_Quickstarts.html" style="word-break: break-word">
+      
+        <span class="flex-no-shrink hidden mt-1 lg:inline-block fas fa-fw fa-angle-right text-grey-light mr-2"></span>
+      
+      Integrating with Quickstarts
+    </a>
+</li>
+
+        
+            
+<li class="lg:border-0 lg:mb-2 ">
+    <a class="flex items-start px-6 py-4 text-left lg:font-normal lg:px-0 lg:py-0" href="Enabling_Logging.html" style="word-break: break-word">
+      
+        <span class="flex-no-shrink hidden mt-1 lg:inline-block fas fa-fw fa-angle-right text-grey-light mr-2"></span>
+      
+      Enabling Logging
+    </a>
+</li>
+
+        
+    </ul>
+  </li>
+
+        
+            
+  <li class="lg:mb-2 js-has-children">
+    <span class="js-toggle cursor-pointer flex items-start px-6 py-4 font-bold text-left lg:font-normal lg:px-0 lg:py-0">
+      <span class="js-icon flex-no-shrink mt-1 lg:inline-block fas fa-fw fa-plus text-grey-lighter mr-2"></span>
+      <span>Installation</span>
+    </span>
+    <ul class="js-children hidden list-reset overflow-y-auto pl-5 lg:pl-0 lg:pl-4 lg:mt-2">
+        
+            
+<li class="lg:border-0 lg:mb-2 ">
+    <a class="flex items-start px-6 py-4 text-left lg:font-normal lg:px-0 lg:py-0" href="../Installation/Installer_Walkthrough.html" style="word-break: break-word">
+      
+        <span class="flex-no-shrink hidden mt-1 lg:inline-block fas fa-fw fa-angle-right text-grey-light mr-2"></span>
+      
+      Installer
+    </a>
+</li>
+
+        
+            
+<li class="lg:border-0 lg:mb-2 ">
+    <a class="flex items-start px-6 py-4 text-left lg:font-normal lg:px-0 lg:py-0" href="../Installation/Installation_IIS.html" style="word-break: break-word">
+      
+        <span class="flex-no-shrink hidden mt-1 lg:inline-block fas fa-fw fa-angle-right text-grey-light mr-2"></span>
+      
+      IIS
+    </a>
+</li>
+
+        
+            
+  <li class="lg:mb-2 js-has-children">
+    <span class="js-toggle cursor-pointer flex items-start px-6 py-4 font-bold text-left lg:font-normal lg:px-0 lg:py-0">
+      <span class="js-icon flex-no-shrink mt-1 lg:inline-block fas fa-fw fa-plus text-grey-lighter mr-2"></span>
+      <span>Azure</span>
+    </span>
+    <ul class="js-children hidden list-reset overflow-y-auto pl-5 lg:pl-0 lg:pl-4 lg:mt-2">
+        
+            
+<li class="lg:border-0 lg:mb-2 ">
+    <a class="flex items-start px-6 py-4 text-left lg:font-normal lg:px-0 lg:py-0" href="../Installation/Installation_Azure.html" style="word-break: break-word">
+      
+        <span class="flex-no-shrink hidden mt-1 lg:inline-block fas fa-fw fa-angle-right text-grey-light mr-2"></span>
+      
+      Install in Azure
+    </a>
+</li>
+
+        
+            
+<li class="lg:border-0 lg:mb-2 ">
+    <a class="flex items-start px-6 py-4 text-left lg:font-normal lg:px-0 lg:py-0" href="../Installation/Azure_Create_Web_App.html" style="word-break: break-word">
+      
+        <span class="flex-no-shrink hidden mt-1 lg:inline-block fas fa-fw fa-angle-right text-grey-light mr-2"></span>
+      
+      Create Azure Web App
+    </a>
+</li>
+
+        
+    </ul>
+  </li>
+
+        
+            
+<li class="lg:border-0 lg:mb-2 ">
+    <a class="flex items-start px-6 py-4 text-left lg:font-normal lg:px-0 lg:py-0" href="../Installation/Installation_Docker.html" style="word-break: break-word">
+      
+        <span class="flex-no-shrink hidden mt-1 lg:inline-block fas fa-fw fa-angle-right text-grey-light mr-2"></span>
+      
+      Docker
+    </a>
+</li>
+
+        
+            
+<li class="lg:border-0 lg:mb-2 ">
+    <a class="flex items-start px-6 py-4 text-left lg:font-normal lg:px-0 lg:py-0" href="../Installation/Installation_NuGet.html" style="word-break: break-word">
+      
+        <span class="flex-no-shrink hidden mt-1 lg:inline-block fas fa-fw fa-angle-right text-grey-light mr-2"></span>
+      
+      NuGet
+    </a>
+</li>
+
+        
+    </ul>
+  </li>
+
+        
+            
+<li class="lg:border-0 lg:mb-2 ">
+    <a class="flex items-start px-6 py-4 text-left lg:font-normal lg:px-0 lg:py-0" href="../CustomDatabaseConnections/Overview.html" style="word-break: break-word">
+      
+        <span class="flex-no-shrink hidden mt-1 lg:inline-block fas fa-fw fa-angle-right text-grey-light mr-2"></span>
+      
+      Custom Database Connections
+    </a>
+</li>
+
+        
+            
+  <li class="lg:mb-2 js-has-children">
+    <span class="js-toggle cursor-pointer flex items-start px-6 py-4 font-bold text-left lg:font-normal lg:px-0 lg:py-0">
+      <span class="js-icon flex-no-shrink mt-1 lg:inline-block fas fa-fw fa-plus text-grey-lighter mr-2"></span>
+      <span>Custom Identity Store</span>
+    </span>
+    <ul class="js-children hidden list-reset overflow-y-auto pl-5 lg:pl-0 lg:pl-4 lg:mt-2">
+        
+            
+<li class="lg:border-0 lg:mb-2 ">
+    <a class="flex items-start px-6 py-4 text-left lg:font-normal lg:px-0 lg:py-0" href="../CustomIdentity/Overview.html" style="word-break: break-word">
+      
+        <span class="flex-no-shrink hidden mt-1 lg:inline-block fas fa-fw fa-angle-right text-grey-light mr-2"></span>
+      
+      Overview
+    </a>
+</li>
+
+        
+            
+<li class="lg:border-0 lg:mb-2 ">
+    <a class="flex items-start px-6 py-4 text-left lg:font-normal lg:px-0 lg:py-0" href="../CustomIdentity/PartialImplementation.html" style="word-break: break-word">
+      
+        <span class="flex-no-shrink hidden mt-1 lg:inline-block fas fa-fw fa-angle-right text-grey-light mr-2"></span>
+      
+      Partial Implementation
+    </a>
+</li>
+
+        
+            
+<li class="lg:border-0 lg:mb-2 ">
+    <a class="flex items-start px-6 py-4 text-left lg:font-normal lg:px-0 lg:py-0" href="../CustomIdentity/FullOverride.html" style="word-break: break-word">
+      
+        <span class="flex-no-shrink hidden mt-1 lg:inline-block fas fa-fw fa-angle-right text-grey-light mr-2"></span>
+      
+      Full Implementation
+    </a>
+</li>
+
+        
+            
+<li class="lg:border-0 lg:mb-2 ">
+    <a class="flex items-start px-6 py-4 text-left lg:font-normal lg:px-0 lg:py-0" href="../CustomIdentity/TenancyWithEF.html" style="word-break: break-word">
+      
+        <span class="flex-no-shrink hidden mt-1 lg:inline-block fas fa-fw fa-angle-right text-grey-light mr-2"></span>
+      
+      Tenancy With Entity Framework
+    </a>
+</li>
+
+        
+            
+<li class="lg:border-0 lg:mb-2 ">
+    <a class="flex items-start px-6 py-4 text-left lg:font-normal lg:px-0 lg:py-0" href="../CustomIdentity/NoSql.html" style="word-break: break-word">
+      
+        <span class="flex-no-shrink hidden mt-1 lg:inline-block fas fa-fw fa-angle-right text-grey-light mr-2"></span>
+      
+      NoSql Implementation (MongoDB)
+    </a>
+</li>
+
+        
+    </ul>
+  </li>
+
+        
+            
+  <li class="lg:mb-2 js-has-children">
+    <span class="js-toggle cursor-pointer flex items-start px-6 py-4 font-bold text-left lg:font-normal lg:px-0 lg:py-0">
+      <span class="js-icon flex-no-shrink mt-1 lg:inline-block fas fa-fw fa-plus text-grey-lighter mr-2"></span>
+      <span>Users</span>
+    </span>
+    <ul class="js-children hidden list-reset overflow-y-auto pl-5 lg:pl-0 lg:pl-4 lg:mt-2">
+        
+            
+<li class="lg:border-0 lg:mb-2 ">
+    <a class="flex items-start px-6 py-4 text-left lg:font-normal lg:px-0 lg:py-0" href="../Users/Searching_for_users.html" style="word-break: break-word">
+      
+        <span class="flex-no-shrink hidden mt-1 lg:inline-block fas fa-fw fa-angle-right text-grey-light mr-2"></span>
+      
+      Searching for Users
+    </a>
+</li>
+
+        
+            
+<li class="lg:border-0 lg:mb-2 ">
+    <a class="flex items-start px-6 py-4 text-left lg:font-normal lg:px-0 lg:py-0" href="../Users/Adding_users.html" style="word-break: break-word">
+      
+        <span class="flex-no-shrink hidden mt-1 lg:inline-block fas fa-fw fa-angle-right text-grey-light mr-2"></span>
+      
+      Adding Users
+    </a>
+</li>
+
+        
+            
+<li class="lg:border-0 lg:mb-2 ">
+    <a class="flex items-start px-6 py-4 text-left lg:font-normal lg:px-0 lg:py-0" href="../Users/Editing_users.html" style="word-break: break-word">
+      
+        <span class="flex-no-shrink hidden mt-1 lg:inline-block fas fa-fw fa-angle-right text-grey-light mr-2"></span>
+      
+      Editing Users
+    </a>
+</li>
+
+        
+            
+<li class="lg:border-0 lg:mb-2 ">
+    <a class="flex items-start px-6 py-4 text-left lg:font-normal lg:px-0 lg:py-0" href="../Users/Deleting_Users.html" style="word-break: break-word">
+      
+        <span class="flex-no-shrink hidden mt-1 lg:inline-block fas fa-fw fa-angle-right text-grey-light mr-2"></span>
+      
+      Deleting Users
+    </a>
+</li>
+
+        
+            
+<li class="lg:border-0 lg:mb-2 ">
+    <a class="flex items-start px-6 py-4 text-left lg:font-normal lg:px-0 lg:py-0" href="../Users/Set_User_Password.html" style="word-break: break-word">
+      
+        <span class="flex-no-shrink hidden mt-1 lg:inline-block fas fa-fw fa-angle-right text-grey-light mr-2"></span>
+      
+      Set User Password
+    </a>
+</li>
+
+        
+            
+<li class="lg:border-0 lg:mb-2 ">
+    <a class="flex items-start px-6 py-4 text-left lg:font-normal lg:px-0 lg:py-0" href="../Users/SessionManagement.html" style="word-break: break-word">
+      
+        <span class="flex-no-shrink hidden mt-1 lg:inline-block fas fa-fw fa-angle-right text-grey-light mr-2"></span>
+      
+      Session Management
+    </a>
+</li>
+
+        
+    </ul>
+  </li>
+
+        
+            
+  <li class="lg:mb-2 js-has-children">
+    <span class="js-toggle cursor-pointer flex items-start px-6 py-4 font-bold text-left lg:font-normal lg:px-0 lg:py-0">
+      <span class="js-icon flex-no-shrink mt-1 lg:inline-block fas fa-fw fa-plus text-grey-lighter mr-2"></span>
+      <span>Roles</span>
+    </span>
+    <ul class="js-children hidden list-reset overflow-y-auto pl-5 lg:pl-0 lg:pl-4 lg:mt-2">
+        
+            
+<li class="lg:border-0 lg:mb-2 ">
+    <a class="flex items-start px-6 py-4 text-left lg:font-normal lg:px-0 lg:py-0" href="../Roles/Creating_roles.html" style="word-break: break-word">
+      
+        <span class="flex-no-shrink hidden mt-1 lg:inline-block fas fa-fw fa-angle-right text-grey-light mr-2"></span>
+      
+      Creating Roles
+    </a>
+</li>
+
+        
+            
+<li class="lg:border-0 lg:mb-2 ">
+    <a class="flex items-start px-6 py-4 text-left lg:font-normal lg:px-0 lg:py-0" href="../Roles/Managing_Roles.html" style="word-break: break-word">
+      
+        <span class="flex-no-shrink hidden mt-1 lg:inline-block fas fa-fw fa-angle-right text-grey-light mr-2"></span>
+      
+      Managing Roles
+    </a>
+</li>
+
+        
+            
+<li class="lg:border-0 lg:mb-2 ">
+    <a class="flex items-start px-6 py-4 text-left lg:font-normal lg:px-0 lg:py-0" href="../Roles/Users_in_Role_Management.html" style="word-break: break-word">
+      
+        <span class="flex-no-shrink hidden mt-1 lg:inline-block fas fa-fw fa-angle-right text-grey-light mr-2"></span>
+      
+      Managing Users in a Role
+    </a>
+</li>
+
+        
+    </ul>
+  </li>
+
+        
+            
+<li class="lg:border-0 lg:mb-2 ">
+    <a class="flex items-start px-6 py-4 text-left lg:font-normal lg:px-0 lg:py-0" href="../Claim_Types/Managing_Claimtypes.html" style="word-break: break-word">
+      
+        <span class="flex-no-shrink hidden mt-1 lg:inline-block fas fa-fw fa-angle-right text-grey-light mr-2"></span>
+      
+      Claim Types
+    </a>
+</li>
+
+        
+            
+  <li class="lg:mb-2 js-has-children">
+    <span class="js-toggle cursor-pointer flex items-start px-6 py-4 font-bold text-left lg:font-normal lg:px-0 lg:py-0">
+      <span class="js-icon flex-no-shrink mt-1 lg:inline-block fas fa-fw fa-plus text-grey-lighter mr-2"></span>
+      <span>Clients</span>
+    </span>
+    <ul class="js-children hidden list-reset overflow-y-auto pl-5 lg:pl-0 lg:pl-4 lg:mt-2">
+        
+            
+<li class="lg:border-0 lg:mb-2 ">
+    <a class="flex items-start px-6 py-4 text-left lg:font-normal lg:px-0 lg:py-0" href="../Clients/Searching_for_clients.html" style="word-break: break-word">
+      
+        <span class="flex-no-shrink hidden mt-1 lg:inline-block fas fa-fw fa-angle-right text-grey-light mr-2"></span>
+      
+      Searching for Clients
+    </a>
+</li>
+
+        
+            
+<li class="lg:border-0 lg:mb-2 ">
+    <a class="flex items-start px-6 py-4 text-left lg:font-normal lg:px-0 lg:py-0" href="../Clients/Adding_Clients.html" style="word-break: break-word">
+      
+        <span class="flex-no-shrink hidden mt-1 lg:inline-block fas fa-fw fa-angle-right text-grey-light mr-2"></span>
+      
+      Adding Clients
+    </a>
+</li>
+
+        
+            
+<li class="lg:border-0 lg:mb-2 ">
+    <a class="flex items-start px-6 py-4 text-left lg:font-normal lg:px-0 lg:py-0" href="../Clients/Adding_a_Saml_client.html" style="word-break: break-word">
+      
+        <span class="flex-no-shrink hidden mt-1 lg:inline-block fas fa-fw fa-angle-right text-grey-light mr-2"></span>
+      
+      Adding a SAML Client
+    </a>
+</li>
+
+        
+            
+<li class="lg:border-0 lg:mb-2 ">
+    <a class="flex items-start px-6 py-4 text-left lg:font-normal lg:px-0 lg:py-0" href="../Clients/Adding_a_WsFed_client.html" style="word-break: break-word">
+      
+        <span class="flex-no-shrink hidden mt-1 lg:inline-block fas fa-fw fa-angle-right text-grey-light mr-2"></span>
+      
+      Adding a WS-Fed Client
+    </a>
+</li>
+
+        
+            
+<li class="lg:border-0 lg:mb-2 ">
+    <a class="flex items-start px-6 py-4 text-left lg:font-normal lg:px-0 lg:py-0" href="../Clients/Editing_clients.html" style="word-break: break-word">
+      
+        <span class="flex-no-shrink hidden mt-1 lg:inline-block fas fa-fw fa-angle-right text-grey-light mr-2"></span>
+      
+      Editing Clients
+    </a>
+</li>
+
+        
+            
+<li class="lg:border-0 lg:mb-2 ">
+    <a class="flex items-start px-6 py-4 text-left lg:font-normal lg:px-0 lg:py-0" href="../Clients/Deleting_clients.html" style="word-break: break-word">
+      
+        <span class="flex-no-shrink hidden mt-1 lg:inline-block fas fa-fw fa-angle-right text-grey-light mr-2"></span>
+      
+      Deleting Clients
+    </a>
+</li>
+
+        
+            
+<li class="lg:border-0 lg:mb-2 ">
+    <a class="flex items-start px-6 py-4 text-left lg:font-normal lg:px-0 lg:py-0" href="../Clients/Clone_a_client.html" style="word-break: break-word">
+      
+        <span class="flex-no-shrink hidden mt-1 lg:inline-block fas fa-fw fa-angle-right text-grey-light mr-2"></span>
+      
+      Clone Client
+    </a>
+</li>
+
+        
+    </ul>
+  </li>
+
+        
+            
+  <li class="lg:mb-2 js-has-children">
+    <span class="js-toggle cursor-pointer flex items-start px-6 py-4 font-bold text-left lg:font-normal lg:px-0 lg:py-0">
+      <span class="js-icon flex-no-shrink mt-1 lg:inline-block fas fa-fw fa-plus text-grey-lighter mr-2"></span>
+      <span>Import and Export</span>
+    </span>
+    <ul class="js-children hidden list-reset overflow-y-auto pl-5 lg:pl-0 lg:pl-4 lg:mt-2">
+        
+            
+<li class="lg:border-0 lg:mb-2 ">
+    <a class="flex items-start px-6 py-4 text-left lg:font-normal lg:px-0 lg:py-0" href="../Import_and_Export/Export.html" style="word-break: break-word">
+      
+        <span class="flex-no-shrink hidden mt-1 lg:inline-block fas fa-fw fa-angle-right text-grey-light mr-2"></span>
+      
+      Exporting Clients
+    </a>
+</li>
+
+        
+            
+<li class="lg:border-0 lg:mb-2 ">
+    <a class="flex items-start px-6 py-4 text-left lg:font-normal lg:px-0 lg:py-0" href="../Import_and_Export/Import.html" style="word-break: break-word">
+      
+        <span class="flex-no-shrink hidden mt-1 lg:inline-block fas fa-fw fa-angle-right text-grey-light mr-2"></span>
+      
+      Importing Clients
+    </a>
+</li>
+
+        
+            
+<li class="lg:border-0 lg:mb-2 ">
+    <a class="flex items-start px-6 py-4 text-left lg:font-normal lg:px-0 lg:py-0" href="../Import_and_Export/Secrets.html" style="word-break: break-word">
+      
+        <span class="flex-no-shrink hidden mt-1 lg:inline-block fas fa-fw fa-angle-right text-grey-light mr-2"></span>
+      
+      Importing Client Configuration with Secrets
+    </a>
+</li>
+
+        
+            
+<li class="lg:border-0 lg:mb-2 ">
+    <a class="flex items-start px-6 py-4 text-left lg:font-normal lg:px-0 lg:py-0" href="../Import_and_Export/Certificates.html" style="word-break: break-word">
+      
+        <span class="flex-no-shrink hidden mt-1 lg:inline-block fas fa-fw fa-angle-right text-grey-light mr-2"></span>
+      
+      Importing SAML Clients with Certificates
+    </a>
+</li>
+
+        
+            
+<li class="lg:border-0 lg:mb-2 ">
+    <a class="flex items-start px-6 py-4 text-left lg:font-normal lg:px-0 lg:py-0" href="../Import_and_Export/Import_and_Export_Via_API.html" style="word-break: break-word">
+      
+        <span class="flex-no-shrink hidden mt-1 lg:inline-block fas fa-fw fa-angle-right text-grey-light mr-2"></span>
+      
+      Import and Export Via the API
+    </a>
+</li>
+
+        
+    </ul>
+  </li>
+
+        
+            
+  <li class="lg:mb-2 js-has-children">
+    <span class="js-toggle cursor-pointer flex items-start px-6 py-4 font-bold text-left lg:font-normal lg:px-0 lg:py-0">
+      <span class="js-icon flex-no-shrink mt-1 lg:inline-block fas fa-fw fa-plus text-grey-lighter mr-2"></span>
+      <span>Dynamic Authentication Providers</span>
+    </span>
+    <ul class="js-children hidden list-reset overflow-y-auto pl-5 lg:pl-0 lg:pl-4 lg:mt-2">
+        
+            
+<li class="lg:border-0 lg:mb-2 ">
+    <a class="flex items-start px-6 py-4 text-left lg:font-normal lg:px-0 lg:py-0" href="../DynamicAuthentication/Enabling_Dynamic_Authentication.html" style="word-break: break-word">
+      
+        <span class="flex-no-shrink hidden mt-1 lg:inline-block fas fa-fw fa-angle-right text-grey-light mr-2"></span>
+      
+      Enabling Dynamic Authentication
+    </a>
+</li>
+
+        
+            
+  <li class="lg:mb-2 js-has-children">
+    <span class="js-toggle cursor-pointer flex items-start px-6 py-4 font-bold text-left lg:font-normal lg:px-0 lg:py-0">
+      <span class="js-icon flex-no-shrink mt-1 lg:inline-block fas fa-fw fa-plus text-grey-lighter mr-2"></span>
+      <span>Add a Dynamic Provider</span>
+    </span>
+    <ul class="js-children hidden list-reset overflow-y-auto pl-5 lg:pl-0 lg:pl-4 lg:mt-2">
+        
+            
+<li class="lg:border-0 lg:mb-2 ">
+    <a class="flex items-start px-6 py-4 text-left lg:font-normal lg:px-0 lg:py-0" href="../DynamicAuthentication/First_Steps_Adding_Dynamic_Provider.html" style="word-break: break-word">
+      
+        <span class="flex-no-shrink hidden mt-1 lg:inline-block fas fa-fw fa-angle-right text-grey-light mr-2"></span>
+      
+      First Steps
+    </a>
+</li>
+
+        
+            
+<li class="lg:border-0 lg:mb-2 ">
+    <a class="flex items-start px-6 py-4 text-left lg:font-normal lg:px-0 lg:py-0" href="../DynamicAuthentication/Adding_a_Oidc_Dynamic_Provider.html" style="word-break: break-word">
+      
+        <span class="flex-no-shrink hidden mt-1 lg:inline-block fas fa-fw fa-angle-right text-grey-light mr-2"></span>
+      
+      Adding OIDC Provider
+    </a>
+</li>
+
+        
+            
+<li class="lg:border-0 lg:mb-2 ">
+    <a class="flex items-start px-6 py-4 text-left lg:font-normal lg:px-0 lg:py-0" href="../DynamicAuthentication/Adding_a_Saml_Dynamic_Provider.html" style="word-break: break-word">
+      
+        <span class="flex-no-shrink hidden mt-1 lg:inline-block fas fa-fw fa-angle-right text-grey-light mr-2"></span>
+      
+      Adding SAML Provider
+    </a>
+</li>
+
+        
+    </ul>
+  </li>
+
+        
+            
+  <li class="lg:mb-2 js-has-children">
+    <span class="js-toggle cursor-pointer flex items-start px-6 py-4 font-bold text-left lg:font-normal lg:px-0 lg:py-0">
+      <span class="js-icon flex-no-shrink mt-1 lg:inline-block fas fa-fw fa-plus text-grey-lighter mr-2"></span>
+      <span>Edit a Dynamic Provider</span>
+    </span>
+    <ul class="js-children hidden list-reset overflow-y-auto pl-5 lg:pl-0 lg:pl-4 lg:mt-2">
+        
+            
+<li class="lg:border-0 lg:mb-2 ">
+    <a class="flex items-start px-6 py-4 text-left lg:font-normal lg:px-0 lg:py-0" href="../DynamicAuthentication/Accessing_edit_view_to_Dynamic_Provider.html" style="word-break: break-word">
+      
+        <span class="flex-no-shrink hidden mt-1 lg:inline-block fas fa-fw fa-angle-right text-grey-light mr-2"></span>
+      
+      Accessing edit view
+    </a>
+</li>
+
+        
+            
+<li class="lg:border-0 lg:mb-2 ">
+    <a class="flex items-start px-6 py-4 text-left lg:font-normal lg:px-0 lg:py-0" href="../DynamicAuthentication/Editing_a_Oidc_Dynamic_Provider.html" style="word-break: break-word">
+      
+        <span class="flex-no-shrink hidden mt-1 lg:inline-block fas fa-fw fa-angle-right text-grey-light mr-2"></span>
+      
+      Editing a OIDC Provider
+    </a>
+</li>
+
+        
+            
+<li class="lg:border-0 lg:mb-2 ">
+    <a class="flex items-start px-6 py-4 text-left lg:font-normal lg:px-0 lg:py-0" href="../DynamicAuthentication/Editing_a_Saml_Dynamic_Provider.html" style="word-break: break-word">
+      
+        <span class="flex-no-shrink hidden mt-1 lg:inline-block fas fa-fw fa-angle-right text-grey-light mr-2"></span>
+      
+      Editing a SAML Provider
+    </a>
+</li>
+
+        
+    </ul>
+  </li>
+
+        
+            
+<li class="lg:border-0 lg:mb-2 ">
+    <a class="flex items-start px-6 py-4 text-left lg:font-normal lg:px-0 lg:py-0" href="../DynamicAuthentication/Deleting_a_Dynamic_Provider.html" style="word-break: break-word">
+      
+        <span class="flex-no-shrink hidden mt-1 lg:inline-block fas fa-fw fa-angle-right text-grey-light mr-2"></span>
+      
+      Deleting a Provider
+    </a>
+</li>
+
+        
+            
+<li class="lg:border-0 lg:mb-2 ">
+    <a class="flex items-start px-6 py-4 text-left lg:font-normal lg:px-0 lg:py-0" href="../DynamicAuthentication/Searching_for_a_Dynamic_Provider.html" style="word-break: break-word">
+      
+        <span class="flex-no-shrink hidden mt-1 lg:inline-block fas fa-fw fa-angle-right text-grey-light mr-2"></span>
+      
+      Searching for Provider
+    </a>
+</li>
+
+        
+    </ul>
+  </li>
+
+        
+            
+  <li class="lg:mb-2 js-has-children">
+    <span class="js-toggle cursor-pointer flex items-start px-6 py-4 font-bold text-left lg:font-normal lg:px-0 lg:py-0">
+      <span class="js-icon flex-no-shrink mt-1 lg:inline-block fas fa-fw fa-plus text-grey-lighter mr-2"></span>
+      <span>Resources</span>
+    </span>
+    <ul class="js-children hidden list-reset overflow-y-auto pl-5 lg:pl-0 lg:pl-4 lg:mt-2">
+        
+            
+<li class="lg:border-0 lg:mb-2 ">
+    <a class="flex items-start px-6 py-4 text-left lg:font-normal lg:px-0 lg:py-0" href="../Resources/searching_for_resources.html" style="word-break: break-word">
+      
+        <span class="flex-no-shrink hidden mt-1 lg:inline-block fas fa-fw fa-angle-right text-grey-light mr-2"></span>
+      
+      Searching for Resources
+    </a>
+</li>
+
+        
+            
+<li class="lg:border-0 lg:mb-2 ">
+    <a class="flex items-start px-6 py-4 text-left lg:font-normal lg:px-0 lg:py-0" href="../Resources/creating_resources.html" style="word-break: break-word">
+      
+        <span class="flex-no-shrink hidden mt-1 lg:inline-block fas fa-fw fa-angle-right text-grey-light mr-2"></span>
+      
+      Creating Resources
+    </a>
+</li>
+
+        
+            
+<li class="lg:border-0 lg:mb-2 ">
+    <a class="flex items-start px-6 py-4 text-left lg:font-normal lg:px-0 lg:py-0" href="../Resources/editing_resources.html" style="word-break: break-word">
+      
+        <span class="flex-no-shrink hidden mt-1 lg:inline-block fas fa-fw fa-angle-right text-grey-light mr-2"></span>
+      
+      Editing resources
+    </a>
+</li>
+
+        
+    </ul>
+  </li>
+
+        
+            
+  <li class="lg:mb-2 js-has-children">
+    <span class="js-toggle cursor-pointer flex items-start px-6 py-4 font-bold text-left lg:font-normal lg:px-0 lg:py-0">
+      <span class="js-icon flex-no-shrink mt-1 lg:inline-block fas fa-fw fa-plus text-grey-lighter mr-2"></span>
+      <span>Webhooks</span>
+    </span>
+    <ul class="js-children hidden list-reset overflow-y-auto pl-5 lg:pl-0 lg:pl-4 lg:mt-2">
+        
+            
+<li class="lg:border-0 lg:mb-2 ">
+    <a class="flex items-start px-6 py-4 text-left lg:font-normal lg:px-0 lg:py-0" href="../Webhooks/webhooks.html" style="word-break: break-word">
+      
+        <span class="flex-no-shrink hidden mt-1 lg:inline-block fas fa-fw fa-angle-right text-grey-light mr-2"></span>
+      
+      Webhooks
+    </a>
+</li>
+
+        
+            
+<li class="lg:border-0 lg:mb-2 ">
+    <a class="flex items-start px-6 py-4 text-left lg:font-normal lg:px-0 lg:py-0" href="../Webhooks/webhook_endpoint_configuration.html" style="word-break: break-word">
+      
+        <span class="flex-no-shrink hidden mt-1 lg:inline-block fas fa-fw fa-angle-right text-grey-light mr-2"></span>
+      
+      Endpoint Configuration
+    </a>
+</li>
+
+        
+    </ul>
+  </li>
+
+        
+            
+<li class="lg:border-0 lg:mb-2 ">
+    <a class="flex items-start px-6 py-4 text-left lg:font-normal lg:px-0 lg:py-0" href="../User_settings_endpoints/User_settings.html" style="word-break: break-word">
+      
+        <span class="flex-no-shrink hidden mt-1 lg:inline-block fas fa-fw fa-angle-right text-grey-light mr-2"></span>
+      
+      User Settings Endpoints
+    </a>
+</li>
+
+        
+            
+<li class="lg:border-0 lg:mb-2 ">
+    <a class="flex items-start px-6 py-4 text-left lg:font-normal lg:px-0 lg:py-0" href="../Access_Policy/Access_Policy.html" style="word-break: break-word">
+      
+        <span class="flex-no-shrink hidden mt-1 lg:inline-block fas fa-fw fa-angle-right text-grey-light mr-2"></span>
+      
+      Access Policy
+    </a>
+</li>
+
+        
+            
+<li class="lg:border-0 lg:mb-2 ">
+    <a class="flex items-start px-6 py-4 text-left lg:font-normal lg:px-0 lg:py-0" href="../Audit/Auditing.html" style="word-break: break-word">
+      
+        <span class="flex-no-shrink hidden mt-1 lg:inline-block fas fa-fw fa-angle-right text-grey-light mr-2"></span>
+      
+      Auditing
+    </a>
+</li>
+
+        
+            
+<li class="lg:border-0 lg:mb-2 ">
+    <a class="flex items-start px-6 py-4 text-left lg:font-normal lg:px-0 lg:py-0" href="../FAQs/FAQs.html" style="word-break: break-word">
+      
+        <span class="flex-no-shrink hidden mt-1 lg:inline-block fas fa-fw fa-angle-right text-grey-light mr-2"></span>
+      
+      FAQs
+    </a>
+</li>
+
+        
+            
+  <li class="lg:mb-2 js-has-children">
+    <span class="js-toggle cursor-pointer flex items-start px-6 py-4 font-bold text-left lg:font-normal lg:px-0 lg:py-0">
+      <span class="js-icon flex-no-shrink mt-1 lg:inline-block fas fa-fw fa-plus text-grey-lighter mr-2"></span>
+      <span>Troubleshooting</span>
+    </span>
+    <ul class="js-children hidden list-reset overflow-y-auto pl-5 lg:pl-0 lg:pl-4 lg:mt-2">
+        
+            
+<li class="lg:border-0 lg:mb-2 ">
+    <a class="flex items-start px-6 py-4 text-left lg:font-normal lg:px-0 lg:py-0" href="../Troubleshooting/Unable_to_load_AdminUI_web.html" style="word-break: break-word">
+      
+        <span class="flex-no-shrink hidden mt-1 lg:inline-block fas fa-fw fa-angle-right text-grey-light mr-2"></span>
+      
+      Unable to load AdminUI web page
+    </a>
+</li>
+
+        
+            
+<li class="lg:border-0 lg:mb-2 ">
+    <a class="flex items-start px-6 py-4 text-left lg:font-normal lg:px-0 lg:py-0" href="../Troubleshooting/Unable_to_contact_IdentityServer.html" style="word-break: break-word">
+      
+        <span class="flex-no-shrink hidden mt-1 lg:inline-block fas fa-fw fa-angle-right text-grey-light mr-2"></span>
+      
+      Unable to contact IdentityServer
+    </a>
+</li>
+
+        
+            
+<li class="lg:border-0 lg:mb-2 ">
+    <a class="flex items-start px-6 py-4 text-left lg:font-normal lg:px-0 lg:py-0" href="../Troubleshooting/Unable_to_contact_API.html" style="word-break: break-word">
+      
+        <span class="flex-no-shrink hidden mt-1 lg:inline-block fas fa-fw fa-angle-right text-grey-light mr-2"></span>
+      
+      Unable to contact API
+    </a>
+</li>
+
+        
+            
+<li class="lg:border-0 lg:mb-2 ">
+    <a class="flex items-start px-6 py-4 text-left lg:font-normal lg:px-0 lg:py-0" href="../Troubleshooting/Unable_to_log_in.html" style="word-break: break-word">
+      
+        <span class="flex-no-shrink hidden mt-1 lg:inline-block fas fa-fw fa-angle-right text-grey-light mr-2"></span>
+      
+      Unable to log in
+    </a>
+</li>
+
+        
+    </ul>
+  </li>
+
+        
+    </ul>
+    
+        <h3 class="mt-8 mb-2">Configuring AdminUI</h3>
+        <ul class="pl-4 list-reset">
+            
+                <li class="flex mb-2"><span class="font-bold mr-2">-</span><a class="break-words max-w-full" href="#running-adminui-on-a-different-port">Running AdminUI On a Different Port</a></li>
+                
+            
+                <li class="flex mb-2"><span class="font-bold mr-2">-</span><a class="break-words max-w-full" href="#running-adminui-on-a-different-path">Running AdminUI On a Different Path</a></li>
+                
+                    <li class="flex mb-1"><span class="font-bold mr-2">-</span><a class="break-words max-w-full" href="#using-nuget-package">Using Nuget package</a></li>
+                
+                    <li class="flex mb-1"><span class="font-bold mr-2">-</span><a class="break-words max-w-full" href="#using-zips-or-installer">Using Zips or installer</a></li>
+                
+                    <li class="flex mb-1"><span class="font-bold mr-2">-</span><a class="break-words max-w-full" href="#using-docker">Using Docker</a></li>
+                
+            
+                <li class="flex mb-2"><span class="font-bold mr-2">-</span><a class="break-words max-w-full" href="#adminui-configuration-settings">AdminUI Configuration Settings</a></li>
+                
+            
+                <li class="flex mb-2"><span class="font-bold mr-2">-</span><a class="break-words max-w-full" href="#targetidentityserver4-flag-deprecated-from-v70">TargetIdentityServer4 Flag Deprecated from v7.0</a></li>
+                
+            
+                <li class="flex mb-2"><span class="font-bold mr-2">-</span><a class="break-words max-w-full" href="#example-configurations">Example Configurations</a></li>
+                
+                    <li class="flex mb-1"><span class="font-bold mr-2">-</span><a class="break-words max-w-full" href="#appsettingsjson">appsettings.json:</a></li>
+                
+                    <li class="flex mb-1"><span class="font-bold mr-2">-</span><a class="break-words max-w-full" href="#new-settings-model">New settings model</a></li>
+                
+            
+        </ul>
+    
+</aside>
+                    <section class="flex-grow w-full p-4 lg:w-1 lg:p-8 lg:ml-10 bg-white rounded-lg shadow-lg">
+                        
+                            <div class="cms">
+                                <p>AdminUI configuration is set using environment variables. These can be setup in different forms, including a <code>web.config</code> file, a <code>docker-compose.yml</code> file or Azure appsettings.</p>
+<p>Note: In Azure or IIS environments variables are nested with either __ (Linux environments) or : (Windows environments). E.g: <code>DataProtection:Persistence:Type</code></p>
+<h2 id="running-adminui-on-a-different-port">Running AdminUI On a Different Port</h2>
+<p>If you need to configure the ports for the website you can add the following section to your appsettings.json file:</p>
+<p> <pre><code class>  &quot;Kestrel&quot;: {
+    &quot;Endpoints&quot;: {
+      &quot;Http&quot;: {
+        //Your new Url Here
+        &quot;Url&quot;: &quot;http://localhost:5020&quot;
+      }
+    }
+  }
+</code></pre></p>
+<p>If you would like to see all possible config options for the Kestrel property you can find them <a href="https://docs.microsoft.com/en-us/aspnet/core/fundamentals/servers/kestrel/endpoints?view=aspnetcore-5.0&amp;viewFallbackFrom=aspnetcore-3.1#replace-the-default-certificate-from-configuration">here</a>.</p>
+<h2 id="running-adminui-on-a-different-path">Running AdminUI On a Different Path</h2>
+<p>If you are not running AdminUI from the root URL (e.g., using a path like https://generalweb/myadminui), an additional step is required. This is necessary because the index.html file, from which the SPA starts running, has a default reference to the root of the URL:</p>
+<p> <pre><code class>&lt;base href=&quot;/&quot;&gt;
+</code></pre></p>
+<p>This refers to an HTML path, so adding a full stop before the slash will not work in all the cases. Instead, you need to update the href with the AdminUI path. The specific steps for this vary depending on how you deploy AdminUI:</p>
+<h3 id="using-nuget-package">Using Nuget package</h3>
+<p>You need to include the <AdminUiPath> property in your csproj file. This property will overwrite the base href after building the index.html file. Using the example mentioned earlier (https://generalweb/myadminui), the configuration would follow this schema:</p>
+<p> <pre><code class>&lt;Project&gt;
+  &lt;PropertyGroup&gt;
+      &lt;AdminUiPath&gt;/myadminui/&lt;/AdminUiPath&gt;
+  &lt;/PropertyGroup&gt;
+&lt;/Project&gt;
+</code></pre></p>
+<p>Remember to include a slash at the end of the path.
+This has to be done from the csproj (build pipeline) as the Nuget AdminUI will replace the html files on build.</p>
+<h3 id="using-zips-or-installer">Using Zips or installer</h3>
+<p>In this case, manually change the path in the index.html file located in the wwwroot folder of your AdminUI. Do not confuse it with the parent wwwroot that holds the AdminUI folder and other apps. Following the example (https://generalweb/myadminui), the updated line should be:</p>
+<p> <pre><code class>&lt;base href=&quot;/myadminui/&quot;&gt;
+</code></pre></p>
+<p>Remember to include a slash at the end of the path.</p>
+<h3 id="using-docker">Using Docker</h3>
+<p>In the AdminUI Dockerfile, include the following command changing "myadminui" with your own path:</p>
+<p> <pre><code class>sed -i 's/&lt;base href=&quot;\/&quot;&gt;/&lt;base href=&quot;\/myadminui\/&quot;&gt;/' /wwwroot/admin/index.html
+</code></pre></p>
+<p>This has to be done from Docker as the Nuget AdminUI will replace the html files on build.
+Remember to include a slash at the end of the path. Also, notice the forward slashes are escaped with a backslash.</p>
+<h2 id="adminui-configuration-settings">AdminUI Configuration Settings</h2>
+<p>Note: In AdminUI 4.2.0 and 5.1.0 onwards, the env.js file is no longer used for configuration and changes do not need to be made to this file. It can be removed if you choose.</p>
+<ul>
+<li><code>AuthorityUrl</code> The IdentityServer installation protecting AdminUI</li>
+<li><code>UiUrl</code> The AdminUI website</li>
+<li><code>AzureAppServiceLogging (optional)</code> Used for debugging - see the <a href="Enabling_Logging.html">enable logging</a> page for more details.</li>
+<li><code>AdminUIClientSecret</code> The AdminUI client shared secret value in plain text</li>
+<li><code>AdminUIJwtTypes</code> Configures supported JWT types in AdminUI, possible values:<ul>
+<li><code>All</code> (Default) Suppports both Bearer and DPoP tokens</li>
+<li><code>Bearer</code> Supports only Bearer tokens</li>
+<li><code>DPoP</code> Supports only DPoP tokens</li>
+</ul>
+</li>
+<li><code>DbProvider</code> Supported types and their values are:<ul>
+<li><code>SqlServer</code></li>
+<li><code>MySql</code> (Note: AdminUI requires the MySQL setting <code>lower_case_table_names</code> to be <code>false</code>)</li>
+<li><code>PostgreSql</code></li>
+</ul>
+</li>
+<li><code>IdentityConnectionString</code> The connection string for the Identity database (Users, Claim Types, Roles etc.)</li>
+<li><code>IdentityServerConnectionString</code> The connection string for the IdentityServer database (Clients, Resources, Persited Grants etc.)</li>
+<li><code>OperationalConnectionString</code> <strong>(Optional)</strong> The connection string for the Persisted Grants DbContext. If not supplied, AdminUI will use the <code>IdentityServerConnectionString</code> </li>
+<li><code>DataProtectionConnectionString</code> <strong>(Optional)</strong> The connection string for the DataProtectionKey DbContext. If not supplied, AdminUI will use the <code>IdentityServerConnectionString</code>. Only needs configuring if you 
+are using a database to store protection keys.</li>
+<li><code>RequireHttpsMetadata</code> When <code>true</code> ensures IdentityServer discovery endpoint uses TLS. Should be true for production</li>
+<li><code>LicenseKey</code> A valid license key for AdminUI</li>
+<li><code>AdminUIClientSecret</code> The AdminUI client shared secret value in plain text</li>
+<li><code>TargetIdentityServer4</code> <strong>(Deprecated from version 7.0)</strong>  If set to <code>true</code>, AdminUI will target IdentityServer4 schema. If set to false, AdminUI will target Duende IdentityServer schema. Defaults to <code>false</code>.</li>
+<li><code>DisableBootstrap</code> If <code>true</code>, bootstrapping will not run on app startup. More information about bootstrapping can be found <a href="../Bootstrapping/Bootstrapping_Help.html">here.</a> Defaults to <code>false</code>.</li>
+<li><code>ServeUi</code> If <code>true</code>, SPA will be served by AdminUI using packaged static files. Defaults to <code>true</code>.</li>
+<li><code>PasswordPolicy</code><ul>
+<li><code>RequireDigit</code> Defaults to <code>true</code></li>
+<li><code>RequireLowercase</code> Defaults to <code>true</code></li>
+<li><code>RequireNonAlphanumeric</code> Defaults to <code>true</code></li>
+<li><code>RequireUppercase</code> Defaults to <code>true</code></li>
+<li><code>RequiredLength</code> Defaults to <code>6</code></li>
+<li><code>RequiredUniqueChars</code> Defaults to <code>1</code></li>
+</ul>
+</li>
+<li><code>UsernamePolicy</code><ul>
+<li><code>AllowedUserNameCharacters</code> - Defaults to <code>abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789-._@+</code></li>
+<li><code>RequireUniqueEmail</code> - Defaults to <code>true</code></li>
+</ul>
+</li>
+<li><code>AuditRecordsConnectionString</code> The database connection string for AdminUI audits, if missing will default to the <code>IdentityServerConnectionString</code></li>
+<li><code>AuditRecordsCulture</code> Language used for generation of audit records, if missing or invalid will default to English <code>en-GB</code>. Supported languages are:<ul>
+<li><code>de</code> German</li>
+<li><code>zh-TW</code> Chinese (Traditional)</li>
+<li><code>zh-CN</code> Chinese (Simplified)</li>
+<li><code>es</code> Spanish</li>
+<li><code>fr</code> French</li>
+</ul>
+</li>
+<li><code>AuditReadActions</code> Defaults to <code>true</code>. If <code>false</code>, no audit records will be generated for read actions (e.g when a user views resources though AdminUI)</li>
+<li><code>LoggingMinimumLevel</code> Defaults to <code>info</code>. 
+    Supported logging levels are <ul>
+<li><code>debug</code></li>
+<li><code>info</code></li>
+<li><code>warning</code></li>
+<li><code>error</code></li>
+<li><code>critical</code> </li>
+</ul>
+</li>
+<li><code>LoggingOutputTemplate</code> Defaults to <code>[{Timestamp:dd-MM-yyyy HH:mm:ss} {Level}] {Message}{NewLine}{Exception}</code>.
+For more infomation see <a href="https://github.com/serilog/serilog/wiki/Formatting-Output">the serilog docs</a>. </li>
+<li><code>AddUserPassword</code> Defaults to <code>false</code>. If <code>true</code>, allows for setting a users password on creation (this is for demo purposes only, do not use in production), see more <a href="../Users/Set_User_Password.html">here</a></li>
+<li><code>AzureAppServiceLogging (optional)</code> Used for debugging the API - see the <a href="Enabling_Logging.html">enable logging</a> page for more details.</li>
+<li><code>FeatureFlags</code><ul>
+<li><code>DefaultUserValidation</code> - Defaults to <code>false</code>. If set to true AdminUI will not prompt you to remove the default user if present.</li>
+<li><code>EnableEnforcerAuthorization</code> - Defaults to <code>false</code>. If set to true will use the Enforcer authorization engine for more fine grained access control. More info can be found in our <a href="https://www.identityserver.com/articles/adminui-63-release-notes">6.3 release article</a></li>
+<li><code>EnableSharedScopes</code> - Defaults to <code>false</code>. If set to <code>true</code> AdminUI will allow scopes to be shared between protected resources.</li>
+<li><code>EnableSessionManagement</code> - Defaults to <code>true</code>. Allows the management of the <a href="../Users/SessionManagement.html">IdentityServer Duende session management feature</a>. If set to <code>false</code> AdminUI will not show the SessionManagment tables when viewing or editing users.</li>
+<li><code>EnableDynamicAuthentication</code> - Defaults to <code>Duende</code>. Allows the management of Dynamic Authentication through AdminUI.
+    Options are<ul>
+<li><code>Disabled</code> Dynamic Authentication is disabled.</li>
+<li><code>Duende</code> Duende IdentityServer Dynamic Authentication is enabled.</li>
+</ul>
+</li>
+</ul>
+</li>
+<li><code>OperationalStoreSchemaName</code> <strong>(Optional)</strong> Changes schema name for the Operational Store. If you are planning to use this, read about <a href="Integrating_with_IdentityServer_Custom_Schema.html">custom database schema names</a>.</li>
+<li><code>ConfigurationStoreSchemaName</code> <strong>(Optional)</strong> Changes schema name for the Configuration Store. If you are planning to use this, read about <a href="Integrating_with_IdentityServer_Custom_Schema.html">custom database schema names</a>.</li>
+<li><code>DataProtection</code> Used for configuration of Cookie protection and peristence.<ul>
+<li><code>Persistence</code> - The type of persistence can be FileSystem or Database, these require different setup as shown below<ul>
+<li><code>Type</code> - FileSystem</li>
+<li><code>Location</code> - Location to persist keys</li>
+<li>OR</li>
+<li><code>Type</code> - Database</li>
+<li><code>DbProvider</code> Supported types and their values are:<ul>
+<li><code>SqlServer</code></li>
+<li><code>MySql</code> (Note: AdminUI requires the MySQL setting <code>lower_case_table_names</code> to be <code>false</code>)</li>
+<li><code>PostgreSql</code></li>
+</ul>
+</li>
+<li><code>DataProtectionConnectionString</code> - The connection string for the data protection database</li>
+</ul>
+</li>
+<li><code>Protection</code>  The certficate or keyvault that will protect the cookies. The two available types are KeyVault and Certifcate. A Certificate can be provided by location or by thumbprint.<ul>
+<li><code>Type</code> - KeyVault</li>
+<li><code>KeyIdentifier</code> - The Azure KeyVault certificate identifier used for key encryption.</li>
+<li><code>ClientId</code> - The Application Client Id</li>
+<li><code>Vault</code> - The KeyVault public Uri</li>
+<li><code>Secret</code> - <strong>(Optional)</strong> The client secret to use for authentication. Optional valid only for Azure hosted scenarios</li>
+<li>OR</li>
+<li><code>Type</code> - Certificate (To protect with certificate you can provide either a thumbprint or a location)<ul>
+<li><code>CertificateType</code> - Thumbprint</li>
+<li><code>Thumbprint</code> - The thumbprint of the certificate that is installed either for the user or the machine.</li>
+<li>OR</li>
+<li><code>CertificateType</code> - File</li>
+<li><code>Location</code> - The location on disk of the certificate. We recommend using a PFX file as private key access is necessary.</li>
+<li><code>Password</code> <strong>(Optional)</strong> - The password for the certificate</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+<p>Filesystem data protection and persistence is intended for IIS installations - we recommend a using the KeyVault method for protection alongside a database for persistence and protection when installing AdminUI in Azure.</p>
+<h2 id="targetidentityserver4-flag-deprecated-from-v70">TargetIdentityServer4 Flag <code>Deprecated from v7.0</code></h2>
+<p>The TargetIdentityServer4 flag in the API Configuration is used to determine what version of IdentityServer you want your AdminUI to target. If you're working with an IdentityServer4 database, you'll want to set this flag to <code>true</code>. If you're working with a Duende IdentityServer database, you'll want to set this flag to <code>false</code>.</p>
+<p>This configuration setting will change how AdminUI displays certain entities such as Protected Resources, as well as if it will display certain views.</p>
+<p>This setting will also change what <a href="../Migrations/Migrations_Help.html">migrations</a> will be run by the migration tool.</p>
+<h2 id="example-configurations">Example Configurations</h2>
+<h3 id="appsettingsjson">appsettings.json:</h3>
+<p> <pre><code class=language-json>{
+  &quot;UiUrl&quot;: &quot;http://localhost:5000&quot;,
+  &quot;AuthorityUrl&quot;: &quot;https://localhost:5003&quot;,
+
+  &quot;AzureAppServiceLogging&quot;: false,
+  &quot;LoggingMinimumLevel&quot;: &quot;Info&quot;,
+  &quot;EFLoggingMinimumLevel&quot;: &quot;Warning&quot;,
+
+  &quot;DbProvider&quot;: &quot;SqlServer&quot;,
+  &quot;IdentityConnectionString&quot;: &quot;Server=localhost;User Id=AdminUI;Password=Password123!;Database=IdentityExpressDb;&quot;,
+  &quot;IdentityServerConnectionString&quot;: &quot;Server=localhost;User Id=AdminUI;Password=Password123!;Database=IdentityExpressDb;&quot;,
+  &quot;AuditRecordsConnectionString&quot;: &quot;Server=localhost;User Id=AdminUI;Password=Password123!;Database=IdentityExpressDb;&quot;,
+  &quot;DataProtectionConnectionString&quot;: &quot;Server=localhost;User Id=AdminUI;Password=Password123!;Database=IdentityExpressDb;&quot;,
+
+  &quot;RequireHttpsMetadata&quot;: false,
+  &quot;LicenseKey&quot;: &quot;&quot;,
+
+  &quot;PasswordPolicy&quot;: {
+    &quot;RequireDigit&quot;: true,
+    &quot;RequireLowercase&quot;: true,
+    &quot;RequireNonAlphanumeric&quot;: true,
+    &quot;RequireUppercase&quot;: true,
+    &quot;RequiredLength&quot;: 6,
+    &quot;RequiredUniqueChars&quot;: 1
+  },
+
+  &quot;UsernamePolicy&quot;: {
+    &quot;AllowedUserNameCharacters&quot;: &quot;abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789-._@+&quot;,
+    &quot;RequireUniqueEmail&quot;: false
+  },
+
+  &quot;ReferenceTokens&quot;: {
+    &quot;UseReferenceTokens&quot;: false,
+    &quot;Secret&quot;: &quot;&quot;
+  },
+
+  &quot;TargetIdentityServer4&quot;: false,
+
+  &quot;DisableBootstrap&quot;: false,
+
+  &quot;ServeUi&quot;: true,
+
+  &quot;FeatureFlags&quot;: {
+    &quot;DefaultUserValidation&quot;: true,
+    &quot;AddUserPassword&quot;: false,
+    &quot;EnableEnforcerAuthorization&quot;: false,
+    &quot;EnableSharedScopes&quot;: false,
+    &quot;EnableSessionManagement&quot;: true,
+    &quot;EnableDynamicAuthentication&quot;: &quot;Duende&quot;
+  },
+
+  &quot;DataProtection&quot;: {
+    &quot;Persistence&quot;: {
+      &quot;Type&quot;: &quot;Database&quot;,
+      &quot;DbProvider&quot;: &quot;SqlServer&quot;,
+      &quot;DataProtectionConnectionString&quot;: &quot;Server=localhost;User Id=AdminUI;Password=Password123!;Database=IdentityExpressDb;&quot;
+    },
+
+    &quot;Protection&quot;: {
+      &quot;Type&quot;: &quot;Certificate&quot;,
+      &quot;CertificateType&quot;:  &quot;Thumbprint&quot;,
+      &quot;Thumbprint&quot;:  &quot;c09fb8e928ef97fbd2a78be9bfe99341a2175af4&quot;
+    }
+  }
+}
+</code></pre></p>
+<h3 id="new-settings-model">New settings model</h3>
+<p>From AdminUI 6.8 onwards there is a new way of configuring the settings for AdminUI that doesn't rely on reading configuration data from key-value pairs using configuration sources such as appsettings.json or environment variables.</p>
+<p>The new way to define settings is via the new <code>IAdminUISettings</code> interface:</p>
+<p> <pre><code class=c#>public class MyAdminUISettings : IAdminUISettings {
+  public string DbProvider { get; set; }
+  ...
+}
+</code></pre></p>
+<p>This is how you can set it in Program.cs:</p>
+<p> <pre><code class=c#>// Program.cs
+
+var builder = WebApplication.CreateBuilder(args);
+
+// Populate settings from anywhere you like
+var settings = new MyAdminUISettings();
+
+builder.Services.AddAdminUI(settings);
+
+var app = builder.Build();
+
+app.UseAdminUI();
+
+app.Run();
+</code></pre></p>
+<p>If you prefer, we still support reading settings the old way by reading configuration data from key-value pairs using configuration sources such as appsettings.json or environment variables:</p>
+<p> <pre><code class=c#>// Program.cs
+
+var builder = WebApplication.CreateBuilder(args);
+
+builder.Services.AddAdminUI(new AdminUISettings(builder.Configuration));
+
+var app = builder.Build();
+
+app.UseAdminUI();
+
+app.Run();
+</code></pre></p>
+<p>Also for backwards compatibility, we still support the old version of <code>AddAdminUI</code> that reads configuration data from key-value pairs using configuration sources such as appsettings.json or environment variables, but this will be deprecated in the future:</p>
+<p> <pre><code class=c#>// Program.cs
+var builder = WebApplication.CreateBuilder(args);
+
+builder.Services
+    .AddAdminUI(
+        options =&gt;
+        {
+            // Override default options here
+        }
+    );
+
+var app = builder.Build();
+
+app.UseAdminUI();
+
+app.Run();
+</code></pre></p>
+                            </div>
+                        
+                        
+                            
+<div class="mt-8 flex justify-between no-print">
+    
+    <a class="btn btn-line-subtle btn-small flex justify-center w-32" href="../Bootstrapping/Bootstrapping_Help.html" title="Bootstrapping"><span class="fas fa-long-arrow-alt-left mr-2 flex-no-shrink"></span>Previous</a>
+    
+    
+    <a class="btn btn-line-subtle btn-small flex justify-center w-32 ml-auto" href="Integrating_with_IdentityServer.html" title="Integrating with Identity Server">Next<span class="fas fa-long-arrow-alt-right ml-2 flex-no-shrink"></span></a>
+    
+</div>
+
+                        
+                    </section>
+                </div>
+            </div>
+        </div>
+        <div class="hidden fa-times fa-minus fa-minus-square"></div>
+    </main>
+    <footer class="bg-grey-darkest text-grey-lighter p-6 relative z-20 no-print">
+    <div class="container text-sm text-center mx-auto flex-wrap flex items-center justify-center">
+        <span class="w-full mb-2">Copyright &copy; 2022 <a class='font-bold' href='https://www.rocksolidknowledge.com' target='_blank' rel='noopener'>Rock Solid Knowledge</a></span>
+        <span class="text-xs">Last updated Wednesday 20 December 2023</span>
+    </div>
+</footer>
+    <script src="../js/jquery-3.5.1.min.js"></script>
+    <script src="../js/theme.js"></script>
+    
+    <script src="../search/main.js"></script>
+    
+    <script src="../js/prism-1.15.0/prism.min.js"></script>
+    <script async src="../js/prism-1.15.0/prism-javascript.min.js"></script>
+    <script async src="../js/prism-1.15.0/prism-typescript.min.js"></script>
+    <script async src="../js/prism-1.15.0/prism-csharp.min.js"></script>
+    <script async src="../js/prism-1.15.0/prism-json.min.js"></script>
+    <script async src="../js/prism-1.15.0/prism-yaml.min.js"></script>
+    <script async src="../js/prism-1.15.0/prism-bash.min.js"></script>
+    <script async src="../js/prism-1.15.0/prism-alfa.js"></script>
+
+    
+</body>
+</html>

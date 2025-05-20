@@ -1,0 +1,1732 @@
+﻿{
+  "Common": {
+    "LicenseIsInGracePeriod": "您的授權已過期，請在 {0}之前更新您的訂閱，以便繼續使用 AdminUI",
+    "PolicyWithUTCNotice": "所選的存取原則<br/>日期採用 UTC 時間",
+    "Dates": {
+      "UTCWarning": "所選日期採用 UTC 時間"
+    },
+    "Saving": "正在儲存",
+    "Confirm": "確認",
+    "QuotaLimit": "您已達到/超出 AdminUI Starter 的 {{limit}} \"{{type}}\" 限額。<a class=\"tw-inline-block tw-text-blue-500 hover:tw-text-body trans\" href=\"{{href}}\" target=\"_blank\">升級</a> 以管理無限數量的 \"{{type}}\"。",
+    "OverQuota": "超出額度，為使用，請減少至以下",
+    "DPoP": "DPoP",
+    "Remove": {
+      "Title": "移除",
+      "Confirm": "確認移除",
+      "No": "否，不要移除"
+    },
+    "Update": "更新",
+    "Test": "測試",
+    "ValidateCert": "驗證憑證",
+    "ValidateMetadata": "驗證元資料",
+    "ID": "ID",
+    "Add": "新增",
+    "True": "真",
+    "False": "偽",
+    "Edit": "編輯",
+    "Cancel": "取消",
+    "Clear": "清除",
+    "Save": "儲存",
+    "Saved": "已儲存",
+    "Scheme": "配置",
+    "Wizards": {
+      "Review": "提交前有機會檢查",
+      "Empty": "哎呀……似乎發生了意外錯誤"
+    },
+    "ComingSoon": "即將推出",
+    "DontSave": "不儲存",
+    "Enabled": "啟用",
+    "Disabled": "停用",
+    "Required": "必填",
+    "Removed": "移除",
+    "Advanced": "進階項目",
+    "DisplayName": "顯示名稱",
+    "DisplayURL": "顯示 URL",
+    "LogoURL": "Logo URL",
+    "LogoutURL": "登出 URL",
+    "Callback": "回呼",
+    "CallbackURL": "回呼 URL",
+    "CORSUrl": "CORS URL",
+    "CORS": "CORS",
+    "Description": "描述",
+    "ExpirationDate": "逾期日",
+    "Expiration": "逾期",
+    "Invalid": "無效",
+    "Emphasize": "強調",
+    "EmphasizeReadOnly": "是在同意畫面上強調資源",
+    "Back": "上一個",
+    "Next": "下一個",
+    "Submit": "提交",
+    "Status": "狀態",
+    "URL": "URL",
+    "LogoutUri": "登出 Url",
+    "Close": "關閉",
+    "Change": "變更",
+    "Logo": "Logo",
+    "Info": "資訊",
+    "Email": "email",
+    "Phone": "電話",
+    "Name": "名稱",
+    "Created": "被建立",
+    "Added": "新增",
+    "Expires": "過期",
+    "Reserved": "保留",
+    "Secrets": "密錀",
+    "GenerateRandom": "隨機產生一個32字元字串",
+    "Restrictions": "限制使用之IdP",
+    "Never": "永久",
+    "OK": "OK",
+    "Yes": "是",
+    "No": "否",
+    "Note": "註釋",
+    "Signout": "登出",
+    "Revoke": "撤消",
+    "String": "字串",
+    "Number": "數字",
+    "Date": "日期",
+    "Error": "錯誤",
+    "Type": "類別",
+    "Value": "值",
+    "Button": "按鈕",
+    "DatePicker": "日期選擇",
+    "Boolean": "布林值",
+    "Text": "文字",
+    "Search": "搜尋...",
+    "Authenticating": "認證中",
+    "Loading": "載入中",
+    "AreYouSureContinue": "您確定要繼續?",
+    "CompanyName": "Rock Solid Knowledge 公司",
+    "AppName": "IdentityExpress AdminUI",
+    "Password": "密碼",
+    "Policy": "存取原則",
+    "Minute": "分",
+    "Hour": "時",
+    "Hours": "小時",
+    "Day": "天",
+    "Week": "週",
+    "Month": "月",
+    "Year": "日",
+    "Actions": "操作",
+    "Assign": "分配",
+    "Unassign": "取消分配",
+    "Days": "天",
+    "Weeks": "星期",
+    "Months": "月",
+    "Years": "年",
+    "Unlimited": "無限",
+    "Audits": "審計",
+    "Reset": "重設",
+    "SaveAll": "全部儲存",
+    "Custom": "自訂",
+    "Or": "或",
+    "RedirectUris": "重新導向URI",
+    "MustBeHttpsInProduction": "以上通訊協定以上仰賴生產中的TLS",
+    "Start": "開始",
+    "GrantTypes": "授與類型",
+    "Properties": "屬性",
+    "Warning": "警告",
+    "ShowMore": "顯示更多",
+    "ShowLess": "顯示較少",
+    "Thumbprint": "憑證指紋",
+    "Subject": "主旨",
+    "UntilExpiry": "天數",
+    "ExpiresOn": "截止日期",
+    "ExpiresIn": "Expires In",
+    "CommunityPolicyNotice": "這是存取原則螢幕的預覽。在社區版中已刪除了存取原則功能。您可以使用該螢幕，但這些原則都不會生效。如需瞭解有關完整AdminUI產品的更多資訊，請按一下下面的連結",
+    "SaveAndConfigure": "儲存並設定",
+    "SaveAndAdd": "儲存並新增其他項目",
+    "LoadingPleaseWait": "正在載入中，請稍候...",
+    "AddAndAdd": "新增並新增另一個",
+    "ReadCertificate": "“從憑證中讀取”",
+    "Consent": "同意",
+    "IdentityProviders": "“身份識別提供者”",
+    "PKCE": "“PKCE(代碼交換的證明金鑰)”",
+    "DeviceFlow": "“裝置流程”",
+    "SingeSignOut": "“單一登出”",
+    "RefreshTokens": "“重新整理權杖”",
+    "Use": "使用",
+    "Other": "其它",
+    "NoDateSet": "沒有日期設置",
+    "Delete": {
+      "Title": "刪除",
+      "TitleUndo": "復原",
+      "Deleted": "刪除",
+      "Confirm": "確認刪除",
+      "UndoDelete": "復原",
+      "ConfirmUndoDelete": "您確認要復原使用者",
+      "AreYouSure": "您確定要刪除值嗎？",
+      "AreYouSureSimple": "您確定要刪除",
+      "AreYouSureSimple2": "您確定要刪除嗎？",
+      "AreYouSureSimple3": "\"確定要刪除這個嗎？",
+      "Warning": "注意: 此操作無法撤消.",
+      "No": "不，不要刪除",
+      "FinalScopeOnResourceWarning": "警告：刪除此範圍將從資料庫中移除它。此操作無法還原。"
+    },
+    "Types": {
+      "String": "字串",
+      "Int": "整數",
+      "DateTime": "日期",
+      "Boolean": "布林值",
+      "Name": "類別名稱",
+      "Description": "類別描述",
+      "Enum": "列舉"
+    },
+    "ResetPassword": {
+      "Confirm": "確認重置",
+      "AreYouSureSimple": "你確定要重設密碼嗎",
+      "Title": "重置密碼",
+      "HowToSetupTitle": "設定使用者密碼重置Webhook",
+      "HowToSetup": "密碼重設Webhook在使用前需先設定。進階資訊，請參閱AdminUI Webhook文件。"
+    },
+    "UserEditable": "使用者可編輯",
+    "Key": "關鍵值",
+    "CommunityEditionBanner": "歡迎使用AdminUI社群版。 這是用於管理IdentityServer組態和用戶的AdminUI工具的免費版本。它僅限於10個使用者和2個用戶端。 要了解有關完整AdminUI產品的更多訊息，請點擊下面的連結",
+    "ReadOnly": "唯讀",
+    "NoValue": "未知值",
+    "NoValues": "未選擇值",
+    "UserTOTPEnabled": "用戶已啟用 TOTP",
+    "Continue": "繼續",
+    "ResetMfa": {
+      "Confirm": "確認重設",
+      "AreYouSureSimple": "確定要重設多重要素驗證",
+      "Title": "重設多重要素驗證",
+      "HowToSetupTitle": "設定使用者 Mfa 重設 Webhook",
+      "HowToSetup": "需要先設定 Mfa 重設 Webhook，然後才能使用此功能。如需更多資訊，請參閱 AdminUI Webhook 文件。"
+    },
+    "SameSiteCookiesError": "您的瀏覽器不支援 SameSite Cookie。AdminUI 的安全性模型依賴於使用 SameSite Cookie 防禦跨網站偽造要求 (CSRF)。如需更多資訊，請<a href='{{link}}' target='_blank'>參閱 SameSite Cookie</a>。",
+    "SameSiteCookiesBannerError": "您的瀏覽器不支援 SameSite Cookie。AdminUI 的安全性模型依賴於使用 SameSite Cookie 防禦跨網站偽造要求 (CSRF)。請考慮將您的瀏覽器升級至具有最新技術的瀏覽器。",
+    "CIBA": "CIBA",
+    "CIBALifetime": "CIBA 生存期",
+    "PollingInterval": "輪詢間隔",
+    "Request": "請求",
+    "Claims": "聲明",
+    "SignOut": "登出",
+    "Metadata": "元數據",
+    "Tokens": "令牌",
+    "None": "無",
+    "Help": "幫助"
+  },
+  "Nav": {
+    "Breadcrumbs": "階層連結",
+    "Active": "使用中",
+    "Account": "帳戶",
+    "Found": "找到",
+    "ResultsFound": "個結果被找到",
+    "PageXofX": "第{0}頁 共{1}頁",
+    "First": "第一個",
+    "Previous": "上一個",
+    "Next": "下一個",
+    "Last": "最後一個",
+    "Logout": "登出",
+    "Home": "首頁",
+    "Users": "使用者(User)",
+    "Roles": "角色(Role)",
+    "ClaimTypes": "宣告(Claim)",
+    "Clients": "用戶端(Client)",
+    "Resources": "資源(Resource)",
+    "IdentityResources": "身份資源(Identity Resource)",
+    "ProtectedResources": "應用程式介面資源(Api Resource)",
+    "ToTop": "回到最上方",
+    "Support": "支援",
+    "MobileListInfo": "連續點擊將開啟使用者明細",
+    "PerPage": "筆(每頁)",
+    "Displaying": "顯示",
+    "Page": "頁",
+    "of": "的",
+    "Details": "明細",
+    "Scopes": "範圍",
+    "Authentication": "認證",
+    "Applications": "應用程式",
+    "Additional Details": "額外的明細",
+    "ToggleNavigation": "切換巡覽",
+    "Login": "登入",
+    "External Logins": "外部登入",
+    "Settings": "設定",
+    "AccessPolicy": "存取原則",
+    "IdentityServer": "IdentityServer 管理",
+    "UserManagement": "使用者管理",
+    "Start": "開始",
+    "Auditing": "正在審計",
+    "Audits": "審計",
+    "SkipToContent": "跳至內容",
+    "Menu": "功能表",
+    "SubMenu": "子功能表",
+    "Claims": "宣告",
+    "Secrets": "祕密",
+    "Saml": "SAML",
+    "WsFed": "WS-Fed",
+    "SubMenuPlaceholder": "“子選單...”",
+    "Logins": "登錄",
+    "Properties": "屬性",
+    "Keys": "金鑰",
+    "Webhooks": "Webhook",
+    "SessionManagement": "工作階段管理",
+    "Advanced": "進階",
+    "DynamicAuth": "動態驗證",
+    "Request": "請求",
+    "Response": "回應",
+    "SP": "服務提供者（SP）",
+    "IdP": "身份提供者（IdP）"
+  },
+  "Errors": {
+    "UnableToCompilePolicy": "無法編譯授權策略，請檢視記錄檔或聯絡管理員",
+    "NotFoundTitle": "Error 404",
+    "NotFoundDescription": "該頁面或資源找不到.",
+    "ForbiddenTitle": "Error 403",
+    "ForbiddenDescription": "您沒有權限存取此頁.",
+    "UnauthenticatedTitle": "尚未認證或認證過期",
+    "UnauthenticatedDescription": "即將重導至登入頁...",
+    "Unauthorized": "未授權",
+    "ContactAdmin": "您未被允許使用 AdminUI, 請連絡您的系統管理人員",
+    "ResourceNotFound": "未找到資源(resource)",
+    "ResourceNotFoundDescription": "未找到此項資源(resource)",
+    "RssUnavailable": "RSS不可用",
+    "LoginLoopError": "您卡在登錄重新定向的循環中。 <a href='{{link}}' target='_blank'></a>可以在此處找到更多幫助。",
+    "ValidateImportError": {
+      "ImportNull": "正在嘗試匯入 json 時發生錯誤",
+      "WrongVersion": "抱歉，匯出檔案來自 AdminUI ({0}) 不相容的版本。僅支援 2.6.0 - {1}版本",
+      "ValidateImport": "抱歉，正在匯入時發生問題。請再試一次"
+    },
+    "CloneClientError": {
+      "ClientIdConflict": "“具有此ID的用戶端已存在”",
+      "ClientNameConflict": "“使用此名稱的用戶端已存在”",
+      "QuotaReached": "“用戶端配額已滿”",
+      "Default": "“在嘗試複製用戶端時發生錯誤”"
+    },
+    "PathValidation": "必須是有效的路徑，以'/'開頭",
+    "PillListLimitReached": "顯示的值太多，已分配 {0}/{1}",
+    "ValidateAbsoluteUri": {
+      "NullOrUndefined": "必須設置",
+      "MustBeAbsolute": "URI 必須是絕對的",
+      "MustNotContainQueryFragmeant": "URI 不得包含查詢或片段"
+    },
+    "DynamicAuthentication": {
+      "SchemeHealthHttp": "動態身份驗證數據庫檢查失敗，狀態碼：{{status}}",
+      "SchemaHealth": "RSK 動態身份驗證存在問題。似乎數據庫配置不正確。點擊<a class=\"tw-inline-block tw-text-blue-500 hover:tw-text-body trans\" href=\"{{href}}\" target=\"_blank\">這裡</a>獲取有關如何解決此問題的更多信息。"
+    }
+  },
+  "Index": {
+    "Title": "儀表板",
+    "LicensedTo": "授權給",
+    "LicenseType": "授權類型",
+    "Users": {
+      "Title": "使用者管理",
+      "Body": "輕鬆管理IdentityServer使用者."
+    },
+    "Claims": {
+      "Heading": "宣告",
+      "Title": "宣告與角色管理",
+      "Body": "管理用戶端和應用程式可用之宣告類型和角色"
+    },
+    "IdentityServer": {
+      "Title": "IdentityServer 組態",
+      "Body": "管理IdentityServer用戶應用程式,及用戶端與資源端應用程式介面的資源"
+    }
+  },
+  "Users": {
+    "SearchPlaceholder": "Username, full name, or email starts with...",
+    "Title": "使用者",
+    "Singular": "使用者",
+    "AddUser": "新增使用者",
+    "NewUser": "新使用者",
+    "SearchUser": "搜尋使用者...",
+    "MinimumSearchLength": "最小搜尋長度為2個字元",
+    "Filter": {
+      "IncludeClaims": "包括宣告值",
+      "IncludeClaimsHelp": "將搜尋使用者宣告值。可能會影響性能。",
+      "Active": "啟用",
+      "Blocked": "停用",
+      "Label": "僅顯示符合以下條件的使用者：",
+      "Deleted": "已刪除",
+      "StoredProcedureErrorMessage": "篩選時出現錯誤，請驗證您的資料庫中是否有 AdminUI 儲存程序。"
+    },
+    "Username": "使用者名稱",
+    "FullName": "全名",
+    "Email": "Email 位址",
+    "FirstName": "名字",
+    "LastName": "姓氏",
+    "Details": {
+      "AdditionalDetailsBody": "設定與使用者相關的額外資訊. 若要建立新的類型,請前往宣告(Claim)類型之功能頁面.",
+      "AddClaim": "新增請求"
+    },
+    "CopyValue": "從明細中複製值",
+    "NoUsersFound": "找不到使用者",
+    "AddAnother": "連續新增使用者",
+    "CloseBox": "選擇 <strong>新增</strong> 將關閉此對話框，並回到使用者列表。",
+    "Password": {
+      "Requirements": {
+        "1": "至少一個大寫字母",
+        "2": "至少一個小寫字母",
+        "3": "至少一位數字",
+        "4": "至少一個特殊字元 (# ? ! @ $ % ^ &amp; * -)",
+        "5": "至少八個字元長度"
+      },
+      "Title": "密碼",
+      "DemoTitle": "“已啟動樣本示範使用”",
+      "DemoLink": "這是什麼？"
+    },
+    "Delete": {
+      "DeletedUser": "使用者已刪除.",
+      "AuditingPurposes": "使用者資訊仍會保留以方便稽核",
+      "Confirmation": "{0}已刪除。使用者資料仍可存取審核"
+    },
+    "First page of results": "第一頁",
+    "Previous page of results": "前一頁",
+    "Last page of results": "最末頁",
+    "Next page of results": "下一頁",
+    "Applications": {
+      "Access": "使用者已同意或目前已擁有IdentityServer端Token的應用程式.",
+      "None": "此使用者尚未與任何應用程式建立關聯",
+      "RevokeApp": "撤消應用程式",
+      "RevokeUserConfirm": "此將撤消存取權限",
+      "ForUser": "給使用者",
+      "RevokeYes": "是, 撤消應用程式",
+      "Accessible": "應用程式可存取的資源/範圍：",
+      "Revoke": "撤銷",
+      "DontRevoke": "“不，不要撤銷”",
+      "RevokeAll": "“全部撤消”",
+      "DontRevokeAll": "“不，不要全部撤消”",
+      "RevokeConfirm": "“您要撤銷此帳戶上所有應用程式的存取權限嗎？”",
+      "DataEncrypted": "由於 IdentityServer 資料保護配置，範疇顯示器可能不會顯示在此處"
+    },
+    "AssignedRoles": "已分配的角色",
+    "LockoutEnabled": "已啟用鎖定功能",
+    "LockoutEnd": "鎖定結束"
+  },
+  "UserDetails": {
+    "EnabledTwoFactor": "启用ASP.NET Identity两因素身份验证",
+    "EnabledTwoFactorHelp": "根據您的 IdentityServer 實現，這可能沒有任何影響",
+    "EnabledTwoFactorReadOnly": "是否啟用了 ASP.NET 身份雙因素認證",
+    "AdditionalDetailsBlurb": "額外的資訊Blurb",
+    "Active": "啟用",
+    "Blocked": "停用",
+    "Title": "使用者資料",
+    "Assigned": "已指派項目",
+    "Available": "可選擇項目",
+    "Search Roles": "搜尋角色...",
+    "Select Type": "選擇類別",
+    "Value": "值",
+    "Name": "名稱",
+    "Search for apps": "搜尋apps",
+    "Password": "密碼",
+    "New Password": "新密碼",
+    "Confirm Password": "確認密碼",
+    "Two Step": "兩階段",
+    "Copy Value": "從明細中複製值",
+    "Phone Number": "電話號碼",
+    "Email Address": "Email Address",
+    "MisMatchPasswordWarning": "密碼 <u>不</u> 相符",
+    "PasswordMatchMessage": " 密碼相符",
+    "ChangePassword": "重置密碼",
+    "UnauthorizedWarning": "您沒有指派此用戶這項宣告(Claim)之權限",
+    "UnauthorizedWarningEdit": "您沒有修改此用戶這項宣告(Claim)之權限",
+    "UnauthorizedWarningDelete": "您沒有移除此用戶這項宣告(Claim)之權限",
+    "NoRolesFoundWarning": "找不到任何使用者角色",
+    "NoClaimsMessage": "No additional details found for this user",
+    "ResetMfa": "重設 MFA"
+  },
+  "UserLogins": {
+    "ProviderDisplayName": "識別提供者(IdP)名稱",
+    "LoginProvider": "登入提供者",
+    "ProviderKey": "使用者識別",
+    "NoLogins": "使用者目前尚未使用外部登入",
+    "RevokeExternalLogin": "撤消外部登入",
+    "RevokeLoginConfirmationText": "您確定要撤消此外部登入"
+  },
+  "ClaimTypes": {
+    "SearchPlaceholder": "Claim type name contains...",
+    "NameHelp": "用於識別宣告類型的名稱",
+    "DisplayNameHelp": "宣告類型的親和名稱",
+    "TooManyAllowedValues": "要顯示的值太多",
+    "TypeaheadHelp": "選項過多，請輸入以便篩選…",
+    "AllowedValuesFiltering": {
+      "FilteringAllowedValues": "篩選宣告類型的允許值時發生錯誤。",
+      "NothingFound": "未找到任何內容！",
+      "TooManyFound": "找到太多可能的值，請繼續篩選。"
+    }
+  },
+  "Roles": {
+    "SearchPlaceholder": "Role name contains...",
+    "AreYouSureRemove": "您是否確定希望將<b>{0}</b>從<b>{1}</b>移除？",
+    "UpdateBadRequest": "無法處理您的要求",
+    "ManageUsers": "管理使用者",
+    "AddUsers": "新增使用者",
+    "AddRemoveUsersFromRole": "新增使用者或將使用者從<b>{0}</b>移除",
+    "User": "使用者",
+    "InRole": "角色：",
+    "SearchAllUsers": "搜尋所有使用者",
+    "Adding": "新增",
+    "Removing": "移除",
+    "CancelAdding": "取消新增",
+    "CancelRemoving": "取消移除",
+    "NoUsersAdding": "不會新增任何使用者",
+    "NoUsersRemoving": "不會移除任何使用者",
+    "RoleUserManagement": "角色使用者管理",
+    "AddRemoveUserFromRole": "新增使用者或將其移除出",
+    "NoResults": "未找到相符的使用者",
+    "NotSelected": "搜尋要新增或從此角色移除的使用者（最少2個字元）",
+    "SavingPleaseWait": "正在儲存，請稍候......",
+    "Role": "角色",
+    "NewRole": "新增角色",
+    "AddAnother": "連續新增角色",
+    "AddAnotherInfo": "選擇 <strong>連續新增角色</strong> 在「新增角色」之後會保留這個對話框，您可以繼續新增另一個角色.",
+    "CloseReturnsRoleList": "選擇 <strong>新增</strong> 將關閉對話框，並回到角色列表.",
+    "RoleRemoved": "角色已被刪除.",
+    "Search": "搜尋角色...",
+    "ReservedHelp": "此角色已被保留，不可編輯",
+    "Reserved": "保留",
+    "NoRolesFound": "找不到角色",
+    "RoleCreated": "角色已建立",
+    "Success": "角色更新成功",
+    "AreYouSureDelete": "您確定要刪除",
+    "AssignUnauthorized": "您沒有指派此角色所需之權限",
+    "UnassignUnauthorized": "您沒有移除指派此角色所需之權限",
+    "UpdateUnauthorized": "您沒有修改此角色所需之權限",
+    "DeleteUnauthorized": "您沒有移除此角色所需之權限",
+    "AddRole": "添加角色",
+	"TrimWhitespaceHelp":  "名稱的開頭和結尾將修剪所有空格"
+  },
+  "Claims": {
+    "Title": "宣告",
+    "New": "新增宣告類型",
+    "ClaimTypeName": "宣告類型名稱",
+    "ClaimTypeDescription": "宣告描述",
+    "ClaimTypeRule": "宣告類型規則",
+    "RegexRule": "正規表示式規則",
+    "RuleValidationFailureDescription": "規則驗證失敗說明",
+    "Required": "必填之宣告",
+    "FutureUsers": "未來新增使用者時必須有值",
+    "AddAnother": "選擇 <strong>新增另一項宣告</strong> 在提交後繼續保留此對話框，您可以繼續新增另一項宣告.",
+    "DeleteConfirmation": "你是否要刪除此宣告類型",
+    "Search": "搜尋宣告名稱...",
+    "UserEditable": "如果通過對外公開的顯露，則使用者可以編輯這些值",
+    "AssignUnassignUnauthorized": "您沒有指派或移除指派此宣告(Claim)所需之權限",
+    "NoClaimsFound": "未找到任何宣告",
+    "Add": "添加声明类型",
+    "AddAnotherClaimType": "送出後新增其他聲明類型",
+    "AllowedValues": "允許值"
+  },
+  "Resources": {
+    "SearchPlaceholder": "Resource name or id contains...",
+    "ResourceID": "資源ID",
+    "ResourceStatus": "資源狀態",
+    "RemovedResource": "移除資源",
+    "RemovedResourceScope": "移除資源範圍",
+    "Failed": "更新資源失敗",
+    "EnterBasicDetails": "請輸入以下基本項目",
+    "DescriptionHelp": "在同意畫面出現的資源描述",
+    "ResourceAddedSuccess": "新增資源成功",
+    "AssignClaims": "指派將包含在Tokens中之使用者宣告",
+    "UniqueIdentifier": "此資源的識別ID",
+    "ResourceName": "在Admin UI中使用的資源名稱",
+    "ResourceDescription": "在Admin UI中使用的資源描述",
+    "UpdatedSuccess": "更新資源成功",
+    "AddResource": "添加资源",
+	"RequireResourceIndicator": "需要資源指標",
+    "RequireResourceIndicatorHelp": "確保僅在請求包含resource參數時才可以請求此資源。 確保令牌僅包含此資源作為訪問者。",
+    "Scope": {
+      "NewScope": "新範圍",
+      "DisplayName": "在同意畫面出現之範圍名稱",
+      "Description": "在同意畫面出現之範圍描述",
+      "ScopeFor": "scope for the",
+      "Updated": "更新範圍成功",
+      "Failed": "更新範圍失敗",
+      "ScopeID": "範圍ID",
+      "Consent": "需要同意使用範圍才能完成身份驗證",
+      "DiscoveryDocumentDescription": "範圍顯示於探索文件 (/.well-known/openid-configuration)",
+      "EmphasiseScope": "在同意畫面上強調範圍名稱",
+      "UserClaimTypes": "Tokens內包含使用者宣告類型，宣告類型將被附加到上層資源的宣告類型列表中.",
+      "ScopeAdded": "範圍已新增"
+    },
+    "Required": "是否需要同意",
+    "AssignedClaims": "已分配的宣告",
+    "AssignedResources": "已分配的資源",
+    "AllowedAccessTokenSigningAlgorithms": "允許存取權杖數位簽章演算法"
+  },
+  "IdentityResources": {
+    "Title": "身份資源",
+    "Singular": "身份資源",
+    "Create": "建立身份資源",
+    "UserClaimTypes": "指派Tokens中包含之使用者宣告類型",
+    "IDHelp": "用於請求時此資源的唯一識別ID",
+    "DisplayNameHelp": "在同意畫面出現的資源名稱",
+    "ConsentResource": "需要同意使用資源才能完成身份驗證",
+    "DiscoveryDocumentDescription": "資源顯示於探索文件 (/.well-known/openid-configuration)",
+    "ShowInDiscoveryDocument": "顯示於探索文件",
+    "ConsentScreen": "在同意畫面上強調資源名稱",
+    "UpdatedClient": "更新用戶端成功",
+    "ResourceReservedHelp": "此項應用程式介面資源被設定為保留項目，不可修改",
+    "NoIdentityResources": "找不到身份資源",
+    "Reserved": "此為保留項目，不可修改",
+    "ShowInDiscoveryDocumentReadOnly": "是發現文件檔中的資源",
+    "UpdatedResource": "更新資源成功"
+  },
+  "ProtectedResources": {
+    "Title": "應用程式介面資源",
+    "TitlePlural": "應用程式介面資源",
+    "Create": "建立應用程式介面資源",
+    "AssignClaims": "指定要包含在Token內的使用者宣告類型",
+    "Secrets": "輸入密鑰 (非必填)",
+    "UserClaimTypes": "包含在Token中的使用者宣告類型。 適用於所有範圍的資源.",
+    "AddScope": "新增範圍",
+    "AddSharedScope": "分配共用範圍",
+    "ProtectedResource": "應用程式介面資源?",
+    "ClientAccess": "選擇此用戶端可以存取之應用程式介面資源",
+    "NoneFound": "找不到應用程式介面資源",
+    "UpdatedResource": "更新資源成功"
+  },
+  "Clients": {
+    "SearchPlaceholder": "Client name starts with...",
+    "ScopePickerSharedScopeWarning": "(*)被超過一個受保護資源使用",
+    "Export": {
+      "ExportAll": "匯出全部",
+      "ExportAllClients": "匯出所有客戶",
+      "ExportSelected": "匯出所選",
+      "ExportSelectedClients": "匯出選定的客戶"
+    },
+    "Import": {
+      "Import": "匯入",
+      "ImportClients": "匯入客戶",
+      "ImportExportClients": "匯入/匯出客戶端",
+      "Wizard": {
+        "Setup": {
+          "Title": "匯入客戶",
+          "Summary": "從另一個AdminUI解決方案匯入客戶及資源。",
+          "ChooseFile": "選擇檔案",
+          "ChooseFileHelp": "從另一個AdminUI解決方案匯出的JSON文件",
+          "CheckImportPleaseWait": "驗證中，請稍候",
+          "Errors": {
+            "Default": "很抱歉，匯入時出現問題。請再試一次。",
+            "InvalidFile": "抱歉，讀取文件時出現問題。請再試一次。",
+            "InvalidData": "很抱歉，文件資料無效。請檢視並再試一次。",
+            "CompleteImportFailed": "很抱歉，匯入期間出現錯誤。請再試一次。"
+          }
+        },
+        "Secrets": {
+          "Title": "密碼",
+          "ChooseWhatToDo": "請選擇要如何處理先前建立的機密。",
+          "DoNotSet": "不要設定密碼",
+          "Generate": "製作隨機密碼",
+          "ManuallyCreate": "手動建立密碼",
+          "RememberMyDecision": "記住設定並套用到所有目前的密碼",
+          "UseExistingSecrets": "使用現有的密碼",
+          "Note": {
+            "Note": "匯入後即可下載新密碼",
+            "Title": "備註"
+          },
+          "ProtectedResource": "受保護的資源",
+          "IdentityResource": "身份資源",
+          "Client": "客戶",
+          "ClaimType": "宣告類型"
+        },
+        "Certificates": {
+          "Title": "憑證",
+          "ChooseWhatToDo": "請選擇如何處理先前連結的憑證。",
+          "DoNotSet": "不新增憑證",
+          "UploadNewCertificates": "上載新憑證",
+          "RememberMyDecision": "記住設定並套用到所有目前的憑證",
+          "UseExistingCertificates": "使用現有的憑證",
+          "AddCertificate": "新增憑證",
+          "FailedToParseCertificate": "解析憑證失敗",
+          "TryAgainDifferentFile": "請使用其他憑證再試一次",
+          "DuplicateCertificate": "憑證已新增",
+          "InvalidCertificate": "憑證重複"
+        },
+        "Warning": {
+          "Title": "警告",
+          "Text1": "客戶尚未匯入完成。",
+          "Text2": "確定要離開嗎?",
+          "DownloadSecrets": "新密碼已製作。",
+          "Yes": "是",
+          "No": "否"
+        },
+        "Summary": {
+          "LinkedClients": "哪些客戶與這資源相依？",
+          "EffectsImportClients": "匯入",
+          "EffectsExistingClients": "現有的",
+          "NewClients": "新客戶",
+          "ExistingClients": "現有客戶",
+          "ClientsHelp": "匯入資源會影響的客戶數量",
+          "DependencyConflicts": "相依",
+          "Title": {
+            "All": "匯入摘要",
+            "Client": "客戶總結",
+            "Resource": "資源彙整",
+            "ClaimType": "宣告類型摘要",
+            "Final": "最終匯入摘要"
+          },
+          "Name": {
+            "Client": "客戶名稱",
+            "Resource": "資源名稱",
+            "ClaimType": "宣告類型"
+          },
+          "Identifier": {
+            "Client": "客戶 ID",
+            "Resource": "資源ID",
+            "ClaimType": "宣告類型"
+          },
+          "Type": {
+            "Client": "客戶類型",
+            "Resource": "資源類型",
+            "ClaimType": "數值類型"
+          },
+          "Intro": {
+            "Client": "請選擇要匯入的客戶。",
+            "Resource": "匯入期間將更新以下資源。",
+            "ClaimType": "匯入期間將更新以下宣告類型。"
+          },
+          "ClientName": "客戶名稱",
+          "ClientId": "客戶 ID",
+          "ClientType": "客戶類型",
+          "Change": "變更",
+          "Changes": "變更",
+          "Conflicts": {
+            "ReviewChanges": "檢視變更",
+            "ConflictedServiceProvider": "服務廠商衝突",
+            "ConflictedRelyingParty": "信賴憑證者衝突",
+            "ConflictedScopes": "衝突範圍",
+            "ConfirmationText": {
+              "Client": "匯入這個客戶會變更以下內容。請問要接受變更嗎？",
+              "Resource": "匯入這個資源會變更以下內容。請問要接受變更嗎？",
+              "ClaimType": "匯入這個宣告會變更以下內容。請問要接受變更嗎？"
+            },
+            "Property": "屬性",
+            "Key": "金鑰",
+            "OldValue": "目前的數值",
+            "NewValue": "新的數值",
+            "NoValue": "沒有數值",
+            "Deleted": "已刪除",
+            "Accept": "接受",
+            "Decline": "拒絕",
+            "Cancel": "取消",
+            "Confirmation": {
+              "AreYouSure": "確定不要匯入變更嗎",
+              "Client": "這個客戶將不會匯入",
+              "Resource": "所有連結的客戶都從這次匯入中刪除"
+            }
+          },
+          "ResourceTypes": {
+            "Unknown": "未知",
+            "ServerSide": "網頁應用程式",
+            "Machine": "機器",
+            "Native": "原生",
+            "Device": "載具",
+            "Saml": "服務廠商",
+            "WsFed": "WS-Fed信賴憑證者",
+            "BrowserBased": "單一頁面",
+            "LegacyClientSide": "單頁應用程式（舊版）",
+            "Identity": "身分識別",
+            "Protected": "受保護",
+            "String": "字串",
+            "Int": "Int",
+            "DateTime": "日期時間",
+            "Boolean": "布林值"
+          },
+          "FinalSummary": "檢視要匯入的客戶和資源。重複項將不會匯入。"
+        },
+        "CompleteImport": {
+          "ImportInProgress": "匯入中...",
+          "ImportComplete": "匯入完成",
+          "ImportSuccess": "選定的客戶及有關資源已成功匯入",
+          "ImportSuccessMultiple": "{0}個客戶及有關資源已成功匯入",
+          "ImportFailure": "匯入失敗",
+          "FinishImport": "完成",
+          "DownloadSecrets": "下載密碼"
+        }
+      }
+    },
+    "ID": "用戶端ID",
+    "Title": "用戶端",
+    "Add": "新增用戶端",
+    "EnterBasicDetails": "請輸入下列基本項目",
+    "IDHelp": "此應用程式的識別ID(請使用CLI0000001格式編碼)",
+    "Secrets": "輸入密鑰",
+    "Review": "在提交前的最後檢查",
+    "DisplayURLHelp": "在同意畫面出現的應用程式 URL",
+    "LogoURLHelp": "在同意畫面出現的應用程式Logo圖示位置. 必須使用HTTPS.",
+    "DescriptionHelp": "Admin UI的應用程式描述",
+    "RedirectURLDescription": "導回網址的完整路徑. 在正式環境時請務必設定為HTTPS",
+    "LogoutURLDescription": "登出時使用者將被重導之網址. 於正式環境時請務必設定為HTTPS",
+    "IdentityResourcesAccess": "選擇此用戶端可存取之身份資源(Identity Resource)",
+    "ProtectedResourcesAccess": "選擇此用戶端可存取之應用程式介面資源(Api Resource)",
+    "Setup": "設定用戶端應用程式精靈",
+    "SelectType": "請選擇一種您想要建立的應用程式種類",
+    "SendClaimsHelp": "允許用戶端宣告傳送至所有授權類型",
+    "SendClaims": "總是傳送宣告",
+    "PrefixClaims": "前置宣告",
+    "AddRestriction": "新增限制",
+    "ProviderName": "識別提供者(IdP)名稱",
+    "Delete": "刪除用戶端",
+    "AddedSecret": "新增密鑰成功",
+    "UnableToAddSecret": "無法新增密鑰",
+    "UnableToAddProperty": "無法新增屬性，關鍵值已存在",
+    "RemovedSecret": "移除密鑰成功",
+    "UnableToRemoveSecret": "無法移除密鑰",
+    "UpdatedClient": "更新用戶端成功",
+    "Deleted": "用戶端已刪除",
+    "Search": "搜尋用戶端...",
+    "Reserved": "此為保留項目，不可修改",
+    "None": "找不到用戶端",
+    "NoSecrets": "尚未設置密鑰。請利用上方的表單新增，產出之密鑰將顯示於此.",
+    "EnableLocalLogin": "啟用本地登入",
+    "CORSUrl": "此Url是一個路徑，不能作為CORS Url",
+    "NullURL": "URL為空白",
+    "UrlIsPath": "此Url是一個路徑，不能作為CORS Url",
+    "UrlNotValid": "此Url不正確",
+    "EntityId": "實體識別碼",
+    "Realm": "領域",
+    "CallbackURL": "輸入回撥URL<br/><small>權杖會傳送至此端點(您可以等到安裝後再設定更多內容)</small> ",
+    "PostLogoutURL": "輸入登出後輸入URL<br /><small>可省略(您可以等到安裝後再設定更多內容)</small> ",
+    "NoClaims": "找不到任何用戶端角色",
+    "EditClaim": "編輯聲明",
+    "NoRestrictions": "找不到任何用戶端限制",
+    "DuplicateProvider": "已新增提供者",
+    "NoCertificates": "找不到憑證",
+    "DisplayNameHelp": "“此用戶端應用程式的友好名稱”",
+    "AddClaim": "新增宣告",
+    "PrefixClaimsHelp": "\"可選。選擇文本為該用戶端的宣告類型添加前綴”,",
+    "EnableLocalLoginHelp": "“允許IdentityServer本地憑據（例如用戶名和密碼）”",
+    "Clone": {
+      "Label": "複製",
+      "Title": "“複製用戶端”",
+      "CopyOf": "\"\\\"{0}\\\"\"的副本\"，“複製秘密”：“複製秘密”,",
+	  "CloneSecrets": "克隆秘密",
+      "CloneSecretsDescription": "“為此用戶端配置的所有秘密複製到用戶端副本”",
+      "CloneCerts": "“複製憑證”",
+      "CloneCertsDescription": "“將所有加密或簽章憑證複製到用戶端副本”"
+    },
+    "RelyingParty": {
+      "Heading": "信賴憑證者",
+      "General": "一般",
+      "TokenType": "權杖類型",
+      "SignatureAlgorithm": "簽章演算法",
+      "DigestAlgorithm": "摘要演算法",
+      "SAMLNameIdFormat": "SAML Name ID Format"
+    },
+    "ClaimMappings": {
+      "Heading": "宣告對應",
+      "ClaimType": "宣告類型",
+      "AssertionType": "判斷提示類型",
+      "None": "找不到任何宣告對應",
+      "AssertionTypeHeading": "宣告類型對應",
+      "AssertionTypeHeadingHelp": "新增宣告類型對應，或新增您自己的",
+      "AssertionTypeAlias": "別名",
+      "AssertionTypeValue": "數值",
+      "AssertionTypeSearch": "搜尋知名的宣告類型對應",
+      "ExisitingMappingWarning": "宣告類型已對應：",
+      "AssertionTypeValues": {
+        "Actor": "動作項目",
+        "Anonymous": "匿名",
+        "Authentication": "驗證",
+        "AuthenticationInstant": "即時驗證",
+        "AuthenticationMethod": "驗證方法",
+        "AuthorizationDecision": "授權決策",
+        "CookiePath": "Cookie路徑",
+        "Country": "國家",
+        "DateOfBirth": "出生日期",
+        "DenyOnlyPrimaryGroupSid": "僅限拒絕主要群組SID",
+        "DenyOnlyPrimarySid": "僅限拒絕主要SID",
+        "DenyOnlySid": "僅限拒絕SID",
+        "DenyOnlyWindowsDeviceGroup": "僅限拒絕Windows裝置群組",
+        "Dns": "DNS",
+        "Dsa": "DSA",
+        "Email": "電子郵件",
+        "Expiration": "逾期",
+        "Expired": "過期",
+        "Gender": "性別",
+        "GivenName": "指定名稱",
+        "GroupSid": "群組SID",
+        "Hash": "雜湊",
+        "HomePhone": "住家電話",
+        "IsPersistent": "持續發生",
+        "Locality": "位置",
+        "MobilePhone": "行動電話",
+        "Name": "名稱",
+        "NameIdentifier": "名稱識別碼",
+        "OtherPhone": "其他電話",
+        "PostalCode": "郵遞區號",
+        "PrimaryGroupSid": "主要群組SID",
+        "PrimarySid": "主要SID",
+        "Role": "角色",
+        "Rsa": "RSA",
+        "SerialNumber": "序號",
+        "Sid": "SID",
+        "Spn": "服務主體名稱",
+        "StateOrProvince": "省份",
+        "StreetAddress": "街道地址",
+        "Surname": "姓氏",
+        "System": "系統",
+        "Thumbprint": "憑證指紋",
+        "Upn": "UPN",
+        "Uri": "URI",
+        "UserData": "使用者資料",
+        "Version": "版本",
+        "Webpage": "網頁",
+        "WindowsAccountName": "Windows帳戶名稱",
+        "WindowsDeviceClaim": "Windows裝置宣告",
+        "WindowsDeviceGroup": "Windows裝置群組",
+        "WindowsFqbnVersion": "Windows FQBN版本",
+        "WindowsSubAuthority": "Windows子授權",
+        "WindowsUserClaim": "Windows使用者宣告",
+        "X500DistinguishedName": "X500 Distinguished Name"
+      }
+    },
+    "GrantTypes": {
+      "Implicit": "隱含(implicit)",
+      "AuthCode": "授權碼(authorization_code)",
+      "Hybrid": "混合(hybrid)",
+      "Password": "密碼(password)",
+      "Custom": "客製化",
+      "ClientCredentials": "用戶端憑證(client_credentials)",
+      "DeviceFlow": "裝置流",
+      "DuplicateGrantType": "贈款類型已添加",
+      "AddGrantType": "“新增授予類型”",
+      "CIBA": "ciba",
+      "None": "未找到授權類型"
+    },
+    "Properties": {
+      "None": "No properties found",
+      "EditProperty": "編輯屬性",
+      "AddProperty": "新增屬性"
+    },
+    "IdentityProviders": {
+      "EditProvider": "編輯提供者",
+      "AddProvider": "“新增提供者”"
+    },
+    "RequireConsent": {
+      "Title": "需要使用者同意",
+      "Summary": "Require Consent",
+      "Help": "“指定是否需要同意頁面”"
+    },
+    "AllowRememberConsent": {
+      "Title": "記住使用者同意",
+      "Help": "“指定在給予同意後是否記住同意頁面”"
+    },
+    "RequireSecret": {
+      "Title": "“需要秘密”",
+      "Help": "“指定是否需要秘密”"
+    },
+    "Tokens": {
+      "RequirePkce": "需要PKCE",
+      "Title": "Tokens",
+      "FrontChannelLogoutUri": "前端通道登出網址",
+      "PairWiseSubjectSalt": "成對 Subject Salt",
+      "FrontChannelLogoutSessionRequired": "需要前端通道登出Session",
+      "AccessTokenType": "Access Token 類型",
+      "Jwt": "JWT",
+      "Reference": "Reference",
+      "Refresh": "Refresh Token 用法",
+      "OneTime": "一次性",
+      "ReUse": "重覆使用",
+      "Expiration": "Refresh Token 逾期",
+      "Absolute": "絕對",
+      "Sliding": "滑動",
+      "AllowPlainTextPkce": "允許純文字 PKCE",
+      "AllowOfflineAccess": "允許離線存取",
+      "UpdateAccessTokens": "當刷新時更新 Access Token 宣告",
+      "IncludeJwtId": "包含 JWT ID",
+      "LogoutSessionRequired": "要求Seesion觸發登出",
+      "IncludeUserClaimsInIdToken": "Id Token中包含使用者宣告",
+      "BackChannelLogoutUri": "後端登出URI",
+      "UserSSOLifetime": "SSO存留期(秒)",
+      "UserCode": "使用者代碼生成器類型",
+      "DeviceCodeLifetime": "裝置流請求存留期",
+      "DurationTitle": "計算存留期時長",
+      "LifetimeInSeconds": "以秒為單位的有效期",
+      "ClientTokenLifetime": "身份識別權杖有效期",
+      "AccessTokenLifetime": "存取權杖有效期",
+      "ConsentLifetime": "同意權杖有效期",
+      "UserSSOLifetimeHelp": "用戶驗證挑戰之間以秒為單位的有效期。默認為IdentityServer工作階段有效期",
+      "FrontChannelLogoutUriHelp": "當單一登出被觸發時，Endpoint IdentityServer將召集瀏覽器iframe",
+      "PairWiseSubjectSaltHelp": "產出成對主體識別碼ID時使用的鹽值",
+      "FrontChannelLogoutSessionRequiredHelp": "啟動在單一登出期間發送工作階段ID",
+      "AuthCodeLifetime": "授權碼有效期",
+      "RefreshTokenLifetime": "絕對重新整理權杖有效期",
+      "RefreshHelp": "[僅限一次]是被推薦的最佳安全性實踐",
+      "SlidingRefreshTokenLifetime": "滑動重新整理權杖有效期",
+      "RequirePkceHelp": "要求用戶端使用證明金鑰進行代碼交換",
+      "AllowPlainTextPkceHelp": "允許用戶端發送未經偽裝的代碼驗證器。不建議",
+      "AllowOfflineAccessHelp": "啟用重新整理權杖",
+      "UpdateAccessTokensSummary": "使用重新整理權杖時更新存取權杖及其宣告",
+      "AccessTokensViaBrowser": "允許由瀏覽器發送存取權杖",
+      "AccessTokensViaBrowserSummary": "啟用此操作會將存取權杖公開給前端渠道",
+      "IncludeJwtIdHelp": "向JWT新增ID，可用於撤銷JWT",
+      "IncludeUserClaimsInIdTokenHelp": "啟用此功能可以將PII新增到您的身份識別權杖中。不建議",
+      "BackChannelLogoutSessionRequired": "需要後端渠道登出工作階",
+      "BackChannelLogoutSessionRequiredHelp": "啟動在單一登出期間發送工作階段ID",
+      "BackChannelLogoutUriHelp": "觸發單一登出時，Endpoint IdentityServer將被HTTP召集",
+      "UserCodeHelp": "覆蓋默認類型",
+	  "AllowedIdentityTokenSigningAlgorithms": "允許的身份令牌簽名算法",
+      "Durations": {
+        "Seconds": "秒",
+        "SecondsShort": "s",
+        "Second": "秒",
+        "SecondShort": "s",
+        "Minutes": "分",
+        "MinutesShort": "mins",
+        "Minute": "分",
+        "MinuteShort": "min",
+        "Hours": "小時",
+        "HoursShort": "hrs",
+        "Hour": "小時",
+        "HourShort": "hr",
+        "Days": "天",
+        "DaysShort": "d",
+        "Day": "天",
+        "DayShort": "d",
+        "Weeks": "星期",
+        "WeeksShort": "wk",
+        "Week": "星期",
+        "WeekShort": "wk",
+        "Months": "月",
+        "MonthsShort": "mos",
+        "Month": "月",
+        "MonthShort": "mo",
+        "Years": "年",
+        "YearsShort": "yrs",
+        "Year": "年",
+        "YearShort": "yr",
+        "Unlimited": "無限",
+        "UnlimitedShort": "∞"
+      }
+    },
+    "Home": {
+      "Title": "設定用戶端應用程式",
+      "Description": "從清單中選擇應用程式類型，深入了解。<br />然後按一下 \"開始\"開始安裝程式。"
+    },
+    "WizardTypes": {
+      "WebAppSelection": "選擇支援的流程",
+      "WebApplication": "混合式流程及用戶端驗證",
+      "PKCEWebApplication": "授權碼流程+PKCE",
+      "RobotApplication": "用戶端憑證",
+      "CIBARobotApplication": "用戶端驅動的反向通道身份驗證",
+      "NativeApplication": "具有客戶端驗證的混合式流程",
+      "PKCENativeApplication": "授權碼流程 + PKCE"
+    },
+    "MachineToMachine": {
+      "Setup": "設定伺服器應用程式",
+      "Title": "伺服器",
+      "Created": "伺服器應用程式已建立",
+      "Summary": "用戶端認證",
+      "Description": "機器對機器的通訊模式。<br />過程中沒有使用者涉入。<br />會透過反向通道通訊來傳送權杖。"
+    },
+    "SPA": {
+      "Setup": "設定SPA應用程式",
+      "Title": "單頁式網頁",
+      "Created": "SPA應用程式已建立",
+      "ExtractedDomain": "從您的網域中提取",
+      "Summary": "授權碼流程+PKCE",
+      "Description": "用戶端應用程式在瀏覽器中運作。以上應用程式基本上無法保密，卻可以使用重<br/>新整理權杖。<br/>會透過瀏覽器傳送權杖，就能讓使用者看見。"
+    },
+    "LegacySPA": {
+      "Setup": "設定舊版單一頁面應用程式",
+      "Title": "單一頁面應用程式(舊版)",
+      "Summary": "隱含流程",
+      "Description": "使用之前的OAuth工作小組建議，用戶端應用程式就能在瀏覽器中運作。<br/>以上應用程式無法保密，卻可以使用重新整理權杖。<br/>會透過瀏覽器傳送權杖，就能讓使用者看見。",
+      "Created": "舊版單一頁面應用程式已建立",
+      "ExtractedDomain": "Extracted from your domain"
+    },
+    "WebApp": {
+      "Setup": "設定Web應用程式",
+      "Created": "Web 應用程式已建立",
+      "Title": "Web應用程式",
+      "Summary": "混合式流程及用戶端驗證",
+      "Description": "伺服器端應用程式可在基礎結構中運作。<br />以上應用程式無法保密，卻可以使用重新整理權杖。<br/>會透過瀏覽器傳送權杖，就能讓使用者看見。",
+      "Secrets": "輸入部分秘密（選填）"
+    },
+    "PKCEWebApp": {
+      "Setup": "設定網路應用程式",
+      "Title": "網路應用程式",
+      "Summary": "授權碼流程+PKCE",
+      "Description": "伺服器端應用程式可在基礎結構中運作。<br />以上應用程式無法保密，卻可以使用重新整理權杖。<br/>會透過瀏覽器傳送權杖，就能讓使用者看見。",
+      "Created": "已建立網路應用程式",
+      "Secrets": "輸入部分秘密（選填）"
+    },
+    "PKCENativeApp": {
+      "Setup": "設定本體應用程式",
+      "Title": "本體",
+      "Summary": "授權碼流程 + PKCE",
+      "Description": "在使用者裝置上執行的桌上型或行動應用程式。<br />這些應用程式無法被信任以用於保密，但可用於更新令牌。<br />令牌可見性取決於瀏覽器與重新導向 URI 選擇。",
+      "Created": "已建立本體應用程式",
+      "Secrets": "輸入部分秘密（選填）"
+    },
+    "NativeApp": {
+      "Setup": "設定原生應用程式",
+      "Title": "原生",
+      "Created": "原生應用程式已建立",
+      "Summary": "授權碼流程+PKCE",
+      "Description": "桌面或行動應用程式可在使用者裝置中運作。<br />以上應用程式無法保密，卻可以使用重新整理權杖。<br />權杖可見度與瀏覽器和重新導向URI選擇有關。",
+      "Secrets": "輸入部分秘密（選填）"
+    },
+    "DeviceFlow": {
+      "Setup": "設定裝置",
+      "Created": "裝置流應用程式已建立",
+      "Title": "裝置",
+      "Summary": "裝置流量使用到外部瀏覽器",
+      "Description": "IoT應用程式或否則不需瀏覽器的限制輸入裝置。<br />以上應用程式基本上無法保密，卻可以使用重新整理權杖。"
+    },
+    "CIBAMachineToMachine": {
+      "Setup": "使用 CIBA 設定一個機器應用程式",
+      "Title": "機器",
+      "Summary": "CIBA",
+      "Description": "用戶端驅動的反向通道身份驗證。<br />允許用戶使用去耦合驗證裝置從消費者裝置進行身份驗證，而無需透過消費者裝置上的瀏覽器進行重新導向。<br/>令牌將通過反向通道通訊發送。"
+    },
+    "Saml": {
+      "Setup": "設定SAML服務提供者",
+      "Title": "SAML服務提供者",
+      "Summary": "SAML 2.0應用程式",
+      "Description": "SAML 2.0服務提供者常用於政府和教育機構。<br />無法用於API存取。",
+      "Created": "SAML服務提供者已建立",
+      "DefaultEndpoint": "預設端點",
+      "LocationUrl": "位置網址",
+      "LocationNotValid": "位置無效",
+      "BindingType": "繫結類型",
+      "Index": "索引",
+      "IndexNotUnique": "索引必須是唯一的",
+      "ACSEndpoints": "存取控制服務端點",
+      "SLOEndpoints": "SLO端點",
+      "NoEndpoints": "<strong>沒有端點安裝程式</strong>",
+      "Response": "回應",
+      "LocationBindingUnique": "端點和繫結類型必須是唯一的",
+      "Request": "請求",
+      "SignAssertions": "簽署宣告",
+      "SignAssertionsHelp": "讓IdentityServer同時簽署SAML訊息和宣告(建議使用)",
+      "EncryptAssertions": "加密宣告",
+      "EncryptAssertionsHelp": "將使用到公開金鑰的IdentityServer加密宣告傳送給服務提供者",
+      "AddCert": "新增憑證",
+      "DeleteCert": "刪除憑證",
+      "AddCertSummary": "上傳憑證或將憑證值貼到中繼資料",
+      "AddCertNote": "儲存時將會立即套用憑證",
+      "UploadCert": "上傳憑證",
+      "UploadCertHelp": "上傳有效的.cer檔案",
+      "UploadCertViaMetadata": "透過中繼資料來上傳",
+      "ServiceProviderSigningCert": "服務提供者簽署憑證",
+      "ServiceProviderSigningCertHelp": "服務提供者公開金鑰的X509憑證值",
+      "CertUploadSuccess": "憑證上傳成功",
+      "InvalidCert": "憑證無效",
+      "DuplicateCert": "複製憑證",
+      "DuplicateCertMessage": "此憑證已存在於服務提供者中",
+      "IndexInvalidType": "索引應為數字",
+      "ReplaceCertificate": "替換憑證",
+      "CannotDeleteResponseCert": "Cannot delete encryption certificate while encrypt assertions is true",
+      "AllowIdpInitiatedSso": "允許 IdP 初始化的單一登入",
+      "AllowIdpInitiatedSsoHelp": "透過識別提供者，允許單一登入初始化（不建議）",
+      "EditClaimMapping": "編輯聲明映射",
+      "DefaultEndpointHelp": "選擇一個現有的位置URL作為默認端點",
+      "DefaultEndpointNotice": "您需要先新增一個端點才能設置默認值",
+      "EditEndpoint": "編輯Endpoint(端點)",
+      "RequireRequestDestination": "需要請求目的地",
+      "RequireRequestDestinationHelp": "來臨請求需要一個目的地，以便讓IdentityServer確認它是預期的收件人",
+      "AddEndpoint": "新增Endpoint(端點)",
+      "AddClaimMapping": "新增宣告匹配",
+	  "RequireRequestsSigned": "需要身份驗證請求籤名",
+      "RequireRequestsSignedHelp": "需要服務提供商的簽名請求。 這將覆蓋全局的 “WantAuthenticationRequestsSigned” 設置",
+      "ACSEndpointHelpTitle": "判斷提示取用者服務端點",
+      "ACSEndpointsHelpBody": "SAML 回應與判斷提示將被發送到的服務提供者端點",
+      "SLOEndpointsHelpTitle": "單一登出服務端點",
+      "SLOEndpointsHelpBody": "SAML 登出請求與回應將發送到的服務提供者端點",
+      "ARSEndpoints": "ARS 端點",
+      "ARSEndpointsHelpTitle": "成品解析服務端點",
+      "ARSEndpointsHelpBody": "使用 HTTP-Artifact 連結時，將解析成品的服務提供者端點",
+      "RequireSignedArtifactResolveRequests": "需簽署的成品解析請求",
+      "RequireSignedArtifactResolveRequestsHelp": "要求服務提供者向成品解決服務端點提出已簽署的請求",
+      "RequireSignedArtifactResponses": "需要已簽署的成品回應",
+      "RequireSignedArtifactResponsesHelp": "使 IdentityServer 向服務提供者簽署成品回應",
+      "ArtifactDeliveryBindingType": "成品遞送連結類型",
+      "ArtifactDeliveryBindingTypeHelp": "如何透過前端通道遞送成品",
+      "NameIdentifierFormat": "名稱識別碼格式",
+      "NameIdentifierFormatHelp": "在單一登入過程中，控制身分提供者的用戶如何映射到服務提供者的用戶中",
+      "DefaultSamlRequestSigning": "預設/全局"
+    },
+    "WsFed": {
+      "Setup": "設定WS-同盟信賴憑證者",
+      "Title": "WS-Fed信賴憑證者",
+      "Summary": "WS-Federation應用程式",
+      "Description": "WS-Federation信賴憑證者常用於較舊的Microsoft應用程式。<br />無法用於API存取。",
+      "Created": "WS-Federation Relying Party Created"
+    },
+    "URLS": {
+      "Title": "應用程式 URLs",
+      "SendTokens": "可傳送Tokens至此URL",
+      "RedirectAfterLogout": "登出後將重導至此URL",
+      "CORSDomain": "此網域會造成跨網域請求",
+      "NoURLS": "不可缺少重導之urls",
+      "URLAddUnsuccessful": "增加URL時發生問題",
+      "None": "找不到應用程式URL",
+      "AddURL": "新增 URL",
+      "EditApplicationURLs": "編輯應用程式URLs",
+      "EditApplicationURL": "編輯應用程式URL",
+      "InitiateLogin": {
+        "Label": "啟動登錄 URI",
+        "Help": "選用，必須以 'https://' 開頭"
+      }
+    },
+    "DPoP": {
+      "ValidationMode": {
+        "Label": "驗證模式"
+      },
+      "ClockSkew": {
+        "Label": "時鐘偏差",
+        "Help": "用於驗證此客戶端的證明令牌 'iat' 声明值时使用"
+      }
+    },
+    "Selected": "(已選取)",
+    "Endpoint": "端點",
+    "Redirect": "重新導向",
+    "Post": "張貼",
+    "AcsEndpoints": "存取控制服務端點",
+    "AcsEndpointHelp": "存取控制服務端點網址 以上通訊協定以上仰賴生產中的TLS",
+    "SloEndpoints": "SLO端點",
+    "SloEndpointHelp": "SLO端點網址 以上通訊協定以上仰賴生產中的TLS",
+    "BindingType": "繫結類型",
+    "BindingTypeHelp": "指定端點的繫結類型",
+    "CIBAConfiguration": "輸入 CIBA 生存期與輪詢間隔值",
+    "CIBALifetimeDescription": "CIBA 驗證請求的生存期，以秒為單位",
+    "CIBAPollingIntervalDescription": "用戶端在兩次輪詢請求之間必須等待的秒數",
+    "Artifact": "成品",
+    "Soap": "SOAP",
+    "ArsEndpoints": "ARS 端點",
+    "ArsEndpointHelp": "ARS 端點網址. 這些協議在生產中依賴 TLS",
+    "IndexHelp": "端點索引"
+  },
+  "DynamicAuth": {
+    "SearchPlaceholder": "Scheme or Name start with...",
+    "Title": {
+      "Generic": "動態身份驗證",
+      "Duende": "Duende 動態身份驗證",
+      "RSK": "Rock Solid Knowledge 動態身份驗證"
+    },
+    "Scheme": {
+      "Label": "配置",
+      "Help": "此提供者的獨特識別碼"
+    },
+    "DisplayName": {
+      "Label": "顯示名稱",
+      "Help": "此提供者的易記名稱"
+    },
+    "Filters": {
+      "OIDC": "OIDC",
+      "SAML": "SAML",
+      "Enabled": "已啟用",
+      "Disabled": "已停用"
+    },
+    "Authority": {
+      "Label": "授權網址",
+      "Help": "該提供者託管網站的網址。必須以「https://」開頭",
+      "ReachableWarning": "警告：無法取得探索文件，這可能代表此授權已失效。",
+      "ReachableWarningTitle": "授權驗證",
+      "ReachableWarningMsg": "無法在標準端點取得發現文件，可能表示此授權無效。"
+    },
+    "ClientId": {
+      "Label": "用戶 ID",
+      "Help": "來自外部提供者的用戶識別碼"
+    },
+    "CallbackPath": {
+      "Label": "回撥路徑",
+      "Help": "驗證處理常式回撥路徑"
+    },
+    "Flow": {
+      "Label": "OAuth 流程",
+      "Help": "選擇提供者所用的驗證流程"
+    },
+    "Flows": {
+      "AuthCode": "授權碼流程",
+      "AuthCodePlusPkce": "授權碼流程 + PKCE"
+    },
+    "Scopes": {
+      "Label": "範圍",
+      "Placeholder": "輸入範圍……",
+      "AlreadyAdded": "此範圍已加入",
+      "MustSpecifyScope": "未指定範圍",
+      "CannotHaveSpaces": "範圍不得包含空格",
+      "NoScopesMessage": "尚未加入範圍"
+    },
+    "SignInScheme": {
+      "Label": "登入配置",
+      "Guide": {
+        "Text": "程式碼片段顯示登入配置的設定",
+        "DcosLink": "您可以在<a class=\"tw-inline-block tw-text-blue-500 hover:tw-text-body trans\" href=\"\" target=\";_blank\">此處</a>找到文件。"
+      },
+      "Placeholder": "輸入登入配置……",
+      "Help": "此設置可被覆蓋。詳細資訊請參閱<a class=\"tw-inline-block tw-text-blue-500 hover:tw-text-body trans\" href=\"documentation/DynamicAuthentication/Adding_a_Saml_Dynamic_Provider.html#identityserver-overriding-sign-inout-schemes\" target=\"_blank\">此處</a>。",
+      "IdSExternalLogin": {
+        "Name": "IdentityServer 外部登入方案",
+        "Help": "'Idsrv.External' 若您使用 IdentityServer 預設 Cookie，請使用此選項"
+      },
+      "AspNetExternalLogin": {
+        "Name": "Asp.Identity 外部登入方案",
+        "Help": "'Identity.External' 若您使用 Asp.Identity 預設 Cookie，請使用此選項"
+      }
+    },
+    "ClientSecret": {
+      "Label": "用戶端密碼",
+      "Help": "透過外部提供者驗證時使用的選擇性密碼"
+    },
+    "RemoteSignOutPath": {
+      "Label": "RemoteSignOutPath"
+    },
+    "SignedOutRedirectUri": {
+      "Label": "SignedOutRedirectUri"
+    },
+    "SignedOutCallbackPath": {
+      "Label": "SignedOutCallbackPath",
+      "Help": "SLO 端點"
+    },
+    "DifferentSignOut": {
+      "Label": "不同登出方案",
+      "Help": "設定不同的登出方案"
+    },
+    "SignOutScheme": {
+      "Label": "登出方案",
+      "Help": "此設置可被覆蓋。詳細資訊請參閱<a class=\"tw-inline-block tw-text-blue-500 hover:tw-text-body trans\" href=\"documentation/DynamicAuthentication/Adding_a_Saml_Dynamic_Provider.html#identityserver-overriding-sign-inout-schemes\" target=\"_blank\">此處</a>。",
+      "Placeholder": "輸入登出方案..."
+    },
+    "EntityId": {
+      "Label": "SP 實體 ID",
+      "Help": ""
+    },
+    "CallbackPathAcsEndpoint": {
+      "Label": "回呼路徑（ACS 端點）",
+      "Help": ""
+    },
+    "CertFile": {
+      "Label": "憑證",
+      "Help": "接受 PFX 和 P12 格式"
+    },
+    "CertPassword": {
+      "Label": "憑證密碼",
+      "Help": ""
+    },
+    "UploadCert": "上傳憑證",
+    "ChangeCert": "更改憑證",
+    "UpdateSigningCertificate": {
+      "Title": "更新簽署憑證"
+    },
+    "UpdateEncryptionCertificate": {
+      "Title": "更新加密憑證"
+    },
+    "FederationPathWarning": "路徑必須以 /federation/ 開始",
+    "ResponseMode": {
+      "Label": "回應模式",
+      "Help": "指定要使用的響應模式，決定如何在響應中編碼參數。"
+    },
+    "Prompt": {
+      "Label": "提示",
+      "Help": "確定如何設置提示值，可以添加自定義提示的選項。如果選擇了'不顯示提示'，則禁用所有其他選項。",
+      "Values": {
+        "None": "不顯示提示",
+        "Login": "登錄提示",
+        "Consent": "同意提示",
+        "SelectAccount": "選擇帳戶提示",
+        "Other": "其他提示"
+      }
+    },
+    "Resource": {
+      "Label": "資源",
+      "Help": "當使用動態提供程序時，在授權請求中將使用您要訪問的資源。提供的值必須是絕對 URI 格式，例如 urn:resource:1、https://resource.com"
+    },
+    "MetadataRefreshInterval": {
+      "Label": "元數據刷新間隔",
+      "Help": "自動元數據刷新應該發生的頻率，最少 300 秒（5 分鐘）。"
+    },
+    "MapInboundClaims": {
+      "Label": "映射入站聲明",
+      "Help": "在驗證 JwtSecurityToken 時提取的聲明類型的映射"
+    },
+    "RefreshOnIssuerKeyNotFound": {
+      "Label": "找不到簽發者金鑰的重整中繼資料",
+      "Help": "中繼資料重整會發生在金鑰變換時"
+    },
+    "GetClaimsFromUserInfoEndpoint": {
+      "Label": "從使用者資訊端點取得宣告",
+      "Help": "透過 id_token 建立識別碼之後，從使用者資訊端點擷取額外的宣告"
+    },
+    "SaveTokens": {
+      "Label": "儲存權杖",
+      "Help": "定義存取權限與重整權杖是否應該在成功驗證之後，儲存為瀏覽器的 Cookie。"
+    },
+    "UseTokenLifetime": {
+      "Label": "使用權仗存留期",
+      "Help": "驗證工作階段存留期（如 Cookie）應該要與驗證權仗的存留期相同。"
+    },
+    "SkipUnrecognizedRequests": {
+      "Label": "跳過不明的要求",
+      "Help": "如果回撥方法不含驗證資料，就跳過傳送過去的要求。停用這個選項，並將「CallbackPath」設到專屬端點，可能會更容易處理錯誤。"
+    },
+    "DisableTelemetry": {
+      "Label": "停用遙測",
+      "Help": "傳送 IdentityModel 封裝的組件版，作為授權／登出要求的參數。"
+    },
+    "List": {
+      "None": "找不到動態提供者"
+    },
+    "UpdateClientSecret": {
+      "Title": "更新用戶端密碼",
+      "Description": "在這裡新增用戶端密碼",
+      "Confirm": "更新",
+      "No": "不，不要更新"
+    },
+    "Wizard": {
+      "Setup": "建立動態驗證提供者",
+      "Title": "新增動態驗證提供者",
+      "TypeSelectStep": {
+        "OIDC": {
+          "Name": "OIDC 提供者",
+          "Title": "OpenID Connect 提供者",
+          "Description": "使用 OpenID Connect 驗證使用者的提供者。<br/>新增文件的提供者在<a class=\";tw-inline-block tw-text-blue-500 hover:tw-text-body trans\" href=\"documentation/DynamicAuthentication/Adding_a_Oidc_Dynamic_Provider.html\" target=\"_blank\">這裡</a>。"
+        },
+        "SAML": {
+          "Name": "SAML 提供者",
+          "Title": "安全性聲明標記語言",
+          "Description": "使用 SAML 驗證使用者的提供者。<br/>新增文件的提供者在<a class=\";tw-inline-block tw-text-blue-500 hover:tw-text-body trans\" href=\"documentation/DynamicAuthentication/Adding_a_Saml_Dynamic_Provider.html\" target=\"_blank\">這裡</a>。"
+        },
+        "TypeLabel": "動態驗證提供者類型",
+        "DocsLink": ""
+      },
+      "NameRoleStep": {
+        "Title": "定義動態提供者的配置與顯示名稱"
+      },
+      "SignInSchemeStep": {
+        "Title": "設定你的登入配置"
+      },
+      "SummaryStep": {
+        "Title": "提交前有機會檢查",
+        "Actions": "編輯",
+        "Edit": "編輯"
+      },
+      "OIDC": {
+        "Setup": "建立 OpenID Connect 動態提供者",
+        "Title": "OpenID Connect 提供者",
+        "ConnectionStep": {
+          "Title": "連線至外部動態提供者"
+        },
+        "ScopesStep": {
+          "Title": "要求範圍"
+        },
+        "ClientSecretStep": {
+          "Title": "設定你的共享用戶端密碼"
+        }
+      },
+      "SAML": {
+        "Setup": "設定 SAML 動態提供者",
+        "Title": "安全性聲明標記語言",
+        "ServiceProviderStep": {
+          "Title": "定義服務提供者（即您）"
+        },
+        "SigningStep": {
+          "Title": "選擇用於簽署請求的憑證，或點擊“下一步”跳過此步驟"
+        },
+        "ExternalProviderStep": {
+          "Title": "外部 IdP 設定",
+          "MetadataValidTitle": "IdP 元資料地址驗證成功",
+          "MetadataValidMsg": "外部身份提供者元資料地址存在並返回有效的 IdP 元資料檔案。",
+          "MetadataInValidTitle": "IdP 元資料地址驗證失敗",
+          "MetadataInValidMsg": "外部身份提供者元資料地址不存在，或返回無效的元資料檔案。"
+        }
+      }
+    },
+    "SPEntityID": {
+      "Label": "SP 實體 ID",
+      "Help": "為這個服務提供者的唯一識別符"
+    },
+    "SpMetadataAddress": {
+      "Label": "SP 元資料路徑",
+      "Help": "這個服務提供者的元資料路徑"
+    },
+    "Success": {
+      "Updated": "已成功更新 DynamicAuth"
+    },
+    "SAML": {
+      "RequireEncryptedAssertions": {
+        "Label": "需要加密斷言",
+        "Help": "如果回應不包含加密斷言，則登入回應驗證將失敗"
+      },
+      "RequireSignedAssertions": {
+        "Label": "需要簽署斷言",
+        "Help": "如果回應不包含簽署斷言，則登入回應驗證將失敗"
+      },
+      "SignAuthenticationRequests": {
+        "Label": "簽署身份驗證請求",
+        "Help": "服務提供者將始終簽署生成的請求"
+      },
+      "RequireValidMetadataSignature": {
+        "Label": "需要有效元資料簽名",
+        "Help": "需要 IdP 元資料通過簽名驗證"
+      },
+      "IdpMetadataAddress": {
+        "Label": "IdP 元資料地址",
+        "Help": "必須以 'https://' 開始",
+        "ReachableWarning": "無法連接該地址"
+      },
+      "AllowIdpInitiatedSso": {
+        "Label": "允許 IdP 主動啟動的 SSO",
+        "Help": "允許由身份提供者主動啟動單一登入（不建議）"
+      },
+      "IdPInitiatedSsoCompletionPath": {
+        "Label": "IdP 主動啟動的 SSO 完成路徑",
+        "Help": "成功完成 IdP 主動啟動的 SSO 後要重新導向到的端點"
+      },
+      "TimeComparisonTolerance": {
+        "Label": "時間比較容忍度",
+        "Help": "以秒為單位"
+      }
+    },
+    "RequestSigningSignature": {
+      "Label": "請求簽署憑證",
+      "Help": "這個服務提供者的簽署憑證",
+      "Subject": {
+        "Label": "主題"
+      },
+      "ThumbPrint": {
+        "Label": "指紋"
+      },
+      "Expiration": {
+        "Label": "到期日期"
+      },
+      "Options": {
+        "Add": "新增憑證",
+        "Replace": "替換憑證",
+        "Delete": "刪除憑證",
+        "NoCertificate": "未找到憑證"
+      }
+    }
+  },
+  "Secret Picker": {
+    "Set Expiration Button": "(非必填)過期時間設定",
+    "HiddenValue": "值已被隱藏",
+    "LastWarning": "警告：建立內容之後，就無法存取秘密值",
+    "ReadCertificate": "閱讀憑證",
+    "UploadCert": "上傳憑證",
+    "UploadCertHelp": "上傳有效的.cer檔案",
+    "MetaData": "認證Meta Data(元資料)",
+    "MetaDataHelp": "輸入base64憑證內容"
+  },
+  "Notifications": {
+    "Success": "成功",
+    "Failure": "失敗",
+    "Failed": "失效",
+    "Sorry": "很抱歉",
+    "Delete Error Title": "刪除錯誤",
+    "Delete User Message": "刪除使用者發生問題",
+    "Saving Error Title": "儲存錯誤",
+    "Saving Error Message": "儲存變更發生問題",
+    "Saving Success Title": "成功",
+    "Saving Success Message": "變更已儲存",
+    "SuccessfullyCreated": "建立成功",
+    "SuccessfullySaved": "已成功儲存",
+    "SuccessfullyDeleted": "已成功刪除",
+    "UsernameTaken": "使用者名稱已被使用",
+    "AccountCreated": "帳號已建立",
+    "AllAppsRevoked": "所有應用程式已成功撤消",
+    "AppRevoked": "應用程式已成功撤消",
+    "UnsavedChanges": "您尚未儲存變更",
+    "SomethingWrong": "發生一些問題",
+    "CheckLogs": "請檢查日誌.",
+    "Apology": "由於系統崩潰，我們將回到主頁面",
+    "Support": "留訊息至support@identityserver.com尋求更多協助",
+    "Reset Success Message": "密碼重設成功",
+    "Reset Error Message": "使用者密碼重設發生問題",
+    "Error": "錯誤",
+    "Unauthorized": "未授權",
+    "UnsavedChangesTitle": "未儲存的變更",
+    "ContinueWithoutSaving": "確定不儲存就離開瀏覽嗎？",
+    "DiscardChanges": "捨棄變更",
+    "StayHere": "停留在本頁",
+    "Notice": "注意",
+    "DontForgetToSave": "別忘了儲存變更",
+    "CertValidTitle": "憑證驗證成功",
+    "CertInValidTitle": "憑證驗證失敗",
+    "CertInValidMsg": "憑證或密碼不正確，請確保上傳了正確密碼的 .p12 或 .pfx 檔案。或點擊'清除'和'下一步'跳過此步驟。",
+    "StarterModeFailed": "無法啟動 Starter 模式"
+  },
+  "Settings": {
+    "Title": "設定/存取原則",
+    "AccessPolicy": {
+      "ClaimType": "宣告類型",
+      "ClaimValue": "宣告值",
+      "Permission": "權限",
+      "Save": "存檔",
+      "ConfirmSave": "您確定要變更這些存取原則嗎?",
+      "ConfirmChanges": "確認存取原則變更",
+      "SaveYes": "變更存檔",
+      "SaveNo": "不要存檔",
+      "InvalidClaimType": "未選擇宣告類型",
+      "InvalidClaimValue": "未輸入宣告值",
+      "InvalidPermission": "未選擇權限",
+      "AccessPolicyUpdated": "存取原則已變更",
+      "AccessPolicyConflict": "衝突：存取原則已存在",
+      "Title": "設定/存取原則",
+      "Add": "新增原則",
+      "NewPolicy": "新存取原則"
+    },
+    "Keys": {
+      "NoKeys": "無金鑰",
+      "Id": "身份證",
+      "Version": "版本",
+      "Created": "創建",
+      "Algorithm": "演算法",
+      "IsX509Certificate": "X509認證",
+      "RemovedKey": "已移除的金鑰",
+      "DeleteKey": "刪除金鑰"
+    }
+  },
+  "LandingPage": {
+    "Welcome": "Welcome to",
+    "LatestNews": "最新消息",
+    "IntroParagraph1": "IdentityServer 領先的使用者與組態管理工具",
+    "IntroParagraph2": "如需授權諮詢,請聯繫:",
+    "Documentation": "說明文件(英文)",
+    "APIDocs": "API 文件(Swagger)",
+    "IdentityServerError": "無法連線IdentityServer",
+    "APIError": "無法連線API",
+    "UIError": "UI{{error}}問題。",
+    "AdminCreation": "AdminUI 管理員使用者建立",
+    "DefaultUserRemoved": "預設系統管理員已移除"
+  },
+  "Permission": {
+    "UserManager": "使用者管理員",
+    "IdentityServerManager": "IdentityServer管理員",
+    "All": "全部",
+    "Auditer": "審計員",
+    "UserManagerReadOnly": "用戶管理器只讀",
+    "IdentityServerManagerReadOnly": "IdentityServer 管理器只讀",
+    "AllReadOnly": "全部只讀"
+  },
+  "Auditing": {
+    "ToggleDetails": "切換詳情",
+    "Title": "正在審計",
+    "SearchAudits": "搜尋審計",
+    "NoAuditsFound": "未找到審計",
+    "When": "時間",
+    "Subject": "主題",
+    "Resource": "資源",
+    "Source": "來源",
+    "Action": "操作",
+    "Description": "描述",
+    "Succeeded": "成功",
+    "FromDate": "起始日期",
+    "ToDate": "結束日期",
+    "SetDateToday": "將日期設定為今天",
+    "Today": "今天",
+    "SetDateLast24Hours": "設定最近24小時的日期",
+    "24Hours": "24小時",
+    "SetDateYesterday": "將日期設定為昨天",
+    "Yesterday": "昨天",
+    "SetDateLastWeek": "將日期設定為星期",
+    "Week": "星期",
+    "ResultsPerPage": "每頁結果數",
+    "AddFilter": "新增篩選器",
+    "ShowFilters": "顯示篩選器",
+    "HideFilters": "隱藏篩選器",
+    "FilterTerm": "篩選詞",
+    "FilterTermPlaceholder": "篩選詞...",
+    "RemoveFilter": "刪除篩選器",
+    "Showing": "顯示",
+    "ExecuteAndDownload": "執行並下載",
+    "ExecuteAndDisplay": "更新結果",
+    "UpdateWarning": "按一下「更新結果」以查看您的更改",
+    "Reset": "重設",
+    "Result": "結果",
+    "First page of results": "結果第一頁",
+    "Previous page of results": "結果的上一頁",
+    "Next page of results": "結果的下一頁",
+    "Last page of results": "結果的最後一頁",
+    "DownloadResults": "匯出",
+    "FromDateWarning": "開始日期不能是未來的時間",
+    "ToDateBehindWarning": "結束日期不能早於開始日期",
+    "ActiveFilters": "使用中的篩選",
+    "AddFilterTerm": "新增篩選條件"
+  },
+  "Resource": {
+    "user": "使用者",
+    "role": "角色",
+    "claimType": "ClaimType",
+    "client": "用戶端",
+    "identityResource": "識別資源",
+    "protectedResource": "受保護資源",
+    "serviceProvider": "服務提供者",
+    "relyingParty": "信賴憑證者"
+  },
+  "Webhooks": {
+    "ResetPassword": "重設密碼",
+    "ResetMFA": "重設 MFA",
+    "UserRegistration": "使用者註冊",
+    "EnsureHttps": "確定這些 URL 是 HTTPS",
+    "ProtectingScope": "保護範圍",
+    "EnableWebhook": "啟用 Webhook",
+    "EnableWebhooks": "啟用所有 Webhook",
+    "MultiFactorHeading": "多重要素驗證重設",
+    "PasswordResetHeading": "密碼重設",
+    "UserRegistrationHeading": "使用者註冊",
+    "ServerSideSessionDeleteHeading": "服務器端會話刪除",
+    "WebhookConfigurationUpdated": "Webhook 組態已更新",
+    "ClientCreationWarningTitle": "用戶端建立",
+    "ClientCreationWarningDescription": "啟用 Webhook 將建立一個用戶端，您要繼續嗎?",
+    "ClientDeletionWarningTitle": "用戶端刪除",
+    "ClientDeletionWarningDescription": "停用 Webhook 將移除相關聯用戶端，您要繼續嗎?"
+  },
+  "InitialAdminCreation": {
+    "SuccessMessage": "您已成功為 AdminUI 建立初始管理員。",
+    "LoginMessage": "現在，您可以登入 AdminUI 並管理您的 IdentityServer 解決方案。",
+    "EmbeddedCredentialsWarning": "在開始使用 AdminUI 之前，您需要建立一個管理員，因為目前登入使用不安全的內嵌認證。",
+    "PasswordHashMessage": "使用者密碼是使用預設 ASP.NET Identity 雜湊演算法建立。",
+    "PermissionsInfoMessage": "如需您的使用者將擁有的角色和權限的更多資訊，請參閱我們的<a class='tw-inline-block tw-text-blue-500 hover:tw-text-body trans' href='https://www.identityserver.com/documentation/adminui/Access_Policy/Access_Policy/' target='_blank'>存取原則文件</a>",
+    "ReminderMessage": "您的資料庫仍包含預設 AdminUI 管理員。請移除。",
+    "Resolve": "解析"
+  },
+  "SessionManagement": {
+    "Created": "已建立",
+    "Expires": "過期",
+    "Renewed": "已更新",
+    "Scheme": "方案",
+    "NoExpiration": "工作階段無過期時間",
+    "NotRenewed": "工作階段未更新",
+    "NoSessionsFound": "未找到工作階段"
+  },
+  "StarterMode": {
+    "RequiresUpgrade": "需要從 Starter 許可證升級",
+    "UpgradeAdminUI": "升級到 AdminUI 企業版",
+    "ExtendDemo": "延長示範許可證",
+    "ConfirmStarterMode": "確認 Starter 模式",
+    "Warning": "您現在處於 Starter 模式。認證已停用。",
+    "Consent": {
+      "Title": "您的 AdminUI 示範許可證已過期",
+      "Description": "確認 Starter 模式後，AdminUI 將轉換為免費的 Starter 許可證。將應用以下限制：",
+      "Features": {
+        "Authentication": "將刪除認證",
+        "Clients": "客戶端應用程式數量限制為 3",
+        "ClientFlows": "僅支持授權碼 + PKCE 和機器到機器客戶端流",
+        "Users": "用戶數量限制為 10",
+        "Import": "不支持客戶端配置的匯入和匯出",
+        "Audits": "無法查看或管理審計日誌",
+        "DynamicAuth": "無法管理動態認證提供商"
+      },
+      "NonAdminUser": "您不是管理員用戶。只有管理員用戶可以啟動 Starter 模式。"
+    },
+    "ConfirmationModal": {
+      "Title": "確認 AdminUI Starter 模式",
+      "Description": "AdminUI 現在將註銷您並進行刷新，然後您只需點擊登錄即可訪問 AdminUI，無需使用配置的 IdentityServer 進行認證。",
+      "Warning": "警告：不應在生產環境中執行此操作"
+    },
+    "Teaser": {
+      "Title": "升級到 AdminUI 企業版",
+      "TitleWithFeature": "升級到 AdminUI 企業版，以獲得以下好處：{0}",
+      "Description": "充分發揮 AdminUI 的潛力，支持您的 IdentityServer 解決方案並獲得以下訪問權限：",
+      "RedirectedDescription": "通過充分發揮 AdminUI 的潛力，獲得 {0} 和其他好處。支持您的 IdentityServer 解決方案並獲得以下訪問權限：",
+      "Features": {
+        "Authentication": "安全認證進入 AdminUI",
+        "UsersAndClients": "管理無限數量的用戶和客戶端應用程序",
+        "ExtraClientFlows": "管理額外的客戶端應用程序流程",
+        "Access": "AdminUI 的細粒度訪問控制",
+        "Import": "在不同環境之間匯入和匯出客戶端配置",
+        "Audits": "完整的可審計的 AdminUI 和 IdentityServer 操作控制",
+        "DynamicAuth": "管理動態認證提供商"
+      }
+    },
+    "Clients": {
+      "Basic": "基本設置",
+      "Enterprise": "企業設置",
+      "ExtraClientFlows": "更多客戶端應用程序流程"
+    }
+  }
+}
