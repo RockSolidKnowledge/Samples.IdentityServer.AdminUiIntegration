@@ -17,9 +17,9 @@ namespace Rsk.Samples.IdentityServer.AdminUiIntegration.Extensions;
 
 public static class EventSinkExtExtensions
 {
-    public static IServiceCollection AddAuditProviderFactory(this IServiceCollection services, DbContextOptionsBuilder<AuditDatabaseContext> auditDbBuilder)
+    public static IServiceCollection AddAuditProviderFactory(this IServiceCollection services, DbContextOptionsBuilder<AuditDatabaseContext> auditDbBuilder, string schemName = null)
     {
-        RSK.Audit.AuditProviderFactory auditFactory = new AuditProviderFactory(auditDbBuilder.Options);
+        RSK.Audit.AuditProviderFactory auditFactory = new AuditProviderFactory(auditDbBuilder.Options, schemName);
         services.AddSingleton(auditFactory.CreateAuditSource("IdentityServer"));
         services.AddSingleton<IEventSink, AuditSink>();
         return services;

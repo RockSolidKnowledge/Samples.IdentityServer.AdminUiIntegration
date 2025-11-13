@@ -34,7 +34,7 @@
     <PackageReference Include="Duende.IdentityServer" Version="7.1.0" />
     <PackageReference Include="Duende.IdentityServer.AspNetIdentity" Version="7.1.0" />
     <PackageReference Include="Duende.IdentityServer.EntityFramework" Version="7.1.0" />
-    <PackageReference Include="IdentityExpress.Identity" Version="6.0.1" />
+    <PackageReference Include="IdentityExpress.Identity" Version="7.0.0" />
     <PackageReference Include="IdentityModel.AspNetCore.OAuth2Introspection" Version="6.2.0" />
     <PackageReference Include="IdentityServer4.AccessTokenValidation" Version="3.0.1" />
     <PackageReference Include="Microsoft.Data.SqlClient" Version="6.0.1" />
@@ -43,8 +43,8 @@
     <PackageReference Include="Microsoft.IdentityModel.Protocols" Version="8.3.1" />
     <PackageReference Include="Microsoft.IdentityModel.Protocols.OpenIdConnect" Version="8.3.1" />
     <PackageReference Include="Microsoft.IdentityModel.Tokens.Saml" Version="8.3.1" />
-    <PackageReference Include="Rsk.DuendeIdentityServer.AuditEventSink" Version="3.0.0" />
-    <PackageReference Include="Rsk.Audit.EF" Version="2.0.0" />
+    <PackageReference Include="Rsk.DuendeIdentityServer.AuditEventSink" Version="4.0.0" />
+    <PackageReference Include="Rsk.Audit.EF" Version="3.0.0" />
     <PackageReference Include="Rsk.DynamicAuthenticationProviders" Version="2.0.0" />
     <PackageReference Include="Rsk.DynamicAuthenticationProviders.EntityFramework" Version="2.0.0" />
     <PackageReference Include="Rsk.DynamicAuthenticationProviders.Saml" Version="2.0.0" />

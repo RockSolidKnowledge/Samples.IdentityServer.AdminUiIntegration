@@ -84,7 +84,8 @@ namespace Rsk.Samples.IdentityServer.AdminUiIntegration
             }
             
             // Add Auditing
-            services.AddAuditProviderFactory(auditDbBuilder);
+            var auditSchema = Configuration.GetValue<string>("AuditStoreSchemaName");
+            services.AddAuditProviderFactory(auditDbBuilder, auditSchema);
 			
             // configure test-suitable X-Forwarded headers and CORS policy
             services.AddSingleton<XForwardedPrefixMiddleware>();
@@ -104,9 +105,11 @@ namespace Rsk.Samples.IdentityServer.AdminUiIntegration
                 options.AddDefaultPolicy(builder => builder.AllowAnyOrigin().AllowAnyHeader().AllowAnyMethod());
             });
 
+            var identitySchema = Configuration.GetValue<string>("IdentityStoreSchemaName");
+            
             // configure ASP.NET Identity
             services
-                .AddIdentityExpressAdminUiConfiguration(identityBuilder) // ASP.NET Core Identity Registrations for AdminUI
+                .AddIdentityExpressAdminUiConfiguration(identityBuilder, identitySchema) // ASP.NET Core Identity Registrations for AdminUI
                 .AddDefaultTokenProviders()
                 .AddIdentityExpressUserClaimsPrincipalFactory(); // Claims Principal Factory for loading AdminUI users as .NET Identities
 
