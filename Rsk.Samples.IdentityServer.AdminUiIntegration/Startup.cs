@@ -1,6 +1,8 @@
 using System;
 using System.Reflection;
 using System.Security.Cryptography.X509Certificates;
+using Duende.Bff;
+using Duende.Bff.EntityFramework;
 using Duende.IdentityServer.Services;
 using Duende.IdentityServer.Validation;
 using IdentityExpress.Identity;
@@ -49,12 +51,15 @@ namespace Rsk.Samples.IdentityServer.AdminUiIntegration
             // configure databases
             Action<DbContextOptionsBuilder> identityBuilder;
             Action<DbContextOptionsBuilder> identityServerBuilder;
-            DbContextOptionsBuilder<AuditDatabaseContext> auditDbBuilder = new DbContextOptionsBuilder<AuditDatabaseContext>();
-            
-            var identityConnectionString = Configuration.GetValue("IdentityConnectionString", Configuration.GetValue<string>("DbConnectionString"));
-            var identityServerConnectionString = Configuration.GetValue("IdentityServerConnectionString", identityConnectionString);
+            DbContextOptionsBuilder<AuditDatabaseContext> auditDbBuilder =
+                new DbContextOptionsBuilder<AuditDatabaseContext>();
+
+            var identityConnectionString = Configuration.GetValue("IdentityConnectionString",
+                Configuration.GetValue<string>("DbConnectionString"));
+            var identityServerConnectionString =
+                Configuration.GetValue("IdentityServerConnectionString", identityConnectionString);
             var auditConnectionString = Configuration.GetValue("AuditConnectionString", identityServerConnectionString);
-            
+
             var migrationAssembly = typeof(Startup).GetTypeInfo().Assembly.GetName().Name;
             var operationalStoreSchemaName = Configuration.GetValue<string>("OperationalStoreSchemaName");
             var configurationStoreSchemaName = Configuration.GetValue<string>("ConfigurationStoreSchemaName");
@@ -62,30 +67,45 @@ namespace Rsk.Samples.IdentityServer.AdminUiIntegration
             switch (Configuration.GetValue<string>("DbProvider"))
             {
                 case "SqlServer":
-                    identityBuilder = x => x.UseSqlServer(identityConnectionString, options => options.MigrationsAssembly(migrationAssembly));
-                    identityServerBuilder = x => x.UseSqlServer(identityServerConnectionString, options => options.MigrationsAssembly(migrationAssembly));
-                    auditDbBuilder = auditDbBuilder.UseSqlServer(auditConnectionString, options => options.MigrationsAssembly(migrationAssembly));
+                    identityBuilder = x => x.UseSqlServer(identityConnectionString,
+                        options => options.MigrationsAssembly(migrationAssembly));
+                    identityServerBuilder = x => x.UseSqlServer(identityServerConnectionString,
+                        options => options.MigrationsAssembly(migrationAssembly));
+                    auditDbBuilder = auditDbBuilder.UseSqlServer(auditConnectionString,
+                        options => options.MigrationsAssembly(migrationAssembly));
                     break;
                 case "MySql":
-                    identityBuilder = x => x.UseMySql(identityConnectionString,  new MySqlServerVersion(new Version(5, 6, 49)), options => options.MigrationsAssembly(migrationAssembly));
-                    identityServerBuilder = x => x.UseMySql(identityServerConnectionString, new MySqlServerVersion(new Version(5, 6, 49)),options => options.MigrationsAssembly(migrationAssembly));
-                    auditDbBuilder = auditDbBuilder.UseMySql(auditConnectionString, new MySqlServerVersion(new Version(5, 6, 49)),options => options.MigrationsAssembly(migrationAssembly));
+                    // identityBuilder = x => x.UseMySql(identityConnectionString,  new MySqlServerVersion(new Version(5, 6, 49)), options => options.MigrationsAssembly(migrationAssembly));
+                    // identityServerBuilder = x => x.UseMySql(identityServerConnectionString, new MySqlServerVersion(new Version(5, 6, 49)),options => options.MigrationsAssembly(migrationAssembly));
+                    // auditDbBuilder = auditDbBuilder.UseMySql(auditConnectionString, new MySqlServerVersion(new Version(5, 6, 49)),options => options.MigrationsAssembly(migrationAssembly));
+                    identityBuilder = x => x.UseMySQL(identityConnectionString,
+                        options => options.MigrationsAssembly(migrationAssembly));
+                    identityServerBuilder = x => x.UseMySQL(identityServerConnectionString,
+                        options => options.MigrationsAssembly(migrationAssembly));
+                    auditDbBuilder = auditDbBuilder.UseMySQL(auditConnectionString,
+                        options => options.MigrationsAssembly(migrationAssembly));
                     break;
                 case "PostgreSql":
-                    identityBuilder = x => x.UseNpgsql(identityConnectionString, options => options.MigrationsAssembly(migrationAssembly));
-                    identityServerBuilder = x => x.UseNpgsql(identityServerConnectionString, options => options.MigrationsAssembly(migrationAssembly));
-                    auditDbBuilder = auditDbBuilder.UseNpgsql(auditConnectionString, options => options.MigrationsAssembly(migrationAssembly));
+                    identityBuilder = x => x.UseNpgsql(identityConnectionString,
+                        options => options.MigrationsAssembly(migrationAssembly));
+                    identityServerBuilder = x => x.UseNpgsql(identityServerConnectionString,
+                        options => options.MigrationsAssembly(migrationAssembly));
+                    auditDbBuilder = auditDbBuilder.UseNpgsql(auditConnectionString,
+                        options => options.MigrationsAssembly(migrationAssembly));
                     break;
                 default:
-                    identityBuilder = x => x.UseSqlite(identityConnectionString, options => options.MigrationsAssembly(migrationAssembly));
-                    identityServerBuilder = x => x.UseSqlite(identityServerConnectionString, options => options.MigrationsAssembly(migrationAssembly));
-                    auditDbBuilder = auditDbBuilder.UseSqlite(auditConnectionString, options => options.MigrationsAssembly(migrationAssembly));
+                    identityBuilder = x => x.UseSqlite(identityConnectionString,
+                        options => options.MigrationsAssembly(migrationAssembly));
+                    identityServerBuilder = x => x.UseSqlite(identityServerConnectionString,
+                        options => options.MigrationsAssembly(migrationAssembly));
+                    auditDbBuilder = auditDbBuilder.UseSqlite(auditConnectionString,
+                        options => options.MigrationsAssembly(migrationAssembly));
                     break;
             }
-            
+
             // Add Auditing
             services.AddAuditProviderFactory(auditDbBuilder);
-			
+
             // configure test-suitable X-Forwarded headers and CORS policy
             services.AddSingleton<XForwardedPrefixMiddleware>();
 
@@ -94,11 +114,11 @@ namespace Rsk.Samples.IdentityServer.AdminUiIntegration
                 options.ForwardedHeaders = ForwardedHeaders.XForwardedProto | ForwardedHeaders.XForwardedHost;
                 options.RequireHeaderSymmetry = false;
                 options.ForwardLimit = 10;
-                
-                options.KnownNetworks.Clear();
+
+                options.KnownIPNetworks.Clear();
                 options.KnownProxies.Clear();
             });
-            
+
             services.AddCors(options =>
             {
                 options.AddDefaultPolicy(builder => builder.AllowAnyOrigin().AllowAnyHeader().AllowAnyMethod());
@@ -106,27 +126,27 @@ namespace Rsk.Samples.IdentityServer.AdminUiIntegration
 
             // configure ASP.NET Identity
             services
-                .AddIdentityExpressAdminUiConfiguration(identityBuilder) // ASP.NET Core Identity Registrations for AdminUI
+                .AddIdentityExpressAdminUiConfiguration(
+                    identityBuilder) // ASP.NET Core Identity Registrations for AdminUI
                 .AddDefaultTokenProviders()
                 .AddIdentityExpressUserClaimsPrincipalFactory(); // Claims Principal Factory for loading AdminUI users as .NET Identities
 
-            services.AddScoped<IUserStore<IdentityExpressUser>>(
-                x => new IdentityExpressUserStore(x.GetService<IdentityExpressDbContext>())
+            services.AddScoped<IUserStore<IdentityExpressUser>>(x =>
+                new IdentityExpressUserStore(x.GetService<IdentityExpressDbContext>())
                 {
                     AutoSaveChanges = true
                 });
-            
+
             // Add ServerSideSessions 
             services.AddBff()
                 .AddEntityFrameworkServerSideSessions(options =>
                 {
                     options.UseSqlServer(identityServerConnectionString);
                 });
-            
+
             // configure IdentityServer
             var idsBuilder = services.AddIdentityServer(options =>
                 {
-                    
                     options.KeyManagement.Enabled = false; // disabled to only use test cert
                     options.LicenseKey = null; // for development only
                     options.Events.RaiseErrorEvents = true;
@@ -137,13 +157,14 @@ namespace Rsk.Samples.IdentityServer.AdminUiIntegration
                     // options.DynamicProviders.SignOutScheme = "Identity.External";
                     options.Endpoints.EnablePushedAuthorizationEndpoint = true;
                 })
-                .AddOperationalStore(
-                    options => {
-                        options.ConfigureDbContext = identityServerBuilder;
-                        if (!string.IsNullOrWhiteSpace(operationalStoreSchemaName))
-                            options.DefaultSchema = operationalStoreSchemaName;
-                    })
-                .AddConfigurationStore(options => {
+                .AddOperationalStore(options =>
+                {
+                    options.ConfigureDbContext = identityServerBuilder;
+                    if (!string.IsNullOrWhiteSpace(operationalStoreSchemaName))
+                        options.DefaultSchema = operationalStoreSchemaName;
+                })
+                .AddConfigurationStore(options =>
+                {
                     options.ConfigureDbContext = identityServerBuilder;
                     if (!string.IsNullOrWhiteSpace(configurationStoreSchemaName))
                         options.DefaultSchema = configurationStoreSchemaName;
@@ -151,7 +172,7 @@ namespace Rsk.Samples.IdentityServer.AdminUiIntegration
                 .AddAspNetIdentity<IdentityExpressUser>() // configure IdentityServer to use ASP.NET Identity
                 .AddSigningCredential(GetEmbeddedCertificate()) // embedded test cert for testing only
                 .AddServerSideSessions();
-            
+
             // Configure Dynamic Authentication
             var dynamicAuthMode = Configuration.GetValue<string>("DynamicAuth:Mode");
 
@@ -191,7 +212,7 @@ namespace Rsk.Samples.IdentityServer.AdminUiIntegration
                 services.AddTransient<ICorsPolicyService, DemoCorsPolicy>();
                 services.AddTransient<IRedirectUriValidator, DemoRedirectUriValidator>();
             }
-            
+
             // configure the ASP.NET Identity cookie to work on HTTP for testing only
             services.Configure<CookieAuthenticationOptions>(IdentityConstants.ApplicationScheme, options =>
             {
@@ -239,11 +260,11 @@ namespace Rsk.Samples.IdentityServer.AdminUiIntegration
                 .AddJwtBearer(options =>
                 {
                     options.Authority = "https://localhost:5001";
-                    options.TokenValidationParameters.ValidTypes = new[] { "at+jwt" };
+                    options.TokenValidationParameters.ValidTypes = ["at+jwt"];
                     options.Audience = "admin_api";
 
                     // if token does not contain a dot, it is a reference token
-                    options.ForwardDefaultSelector = Selector.ForwardReferenceToken("introspection");
+                    options.ForwardDefaultSelector = Selector.ForwardReferenceToken();
                 })
                 .AddOAuth2Introspection("introspection", options =>
                 {
@@ -266,7 +287,7 @@ namespace Rsk.Samples.IdentityServer.AdminUiIntegration
 
             services.AddScoped<IAccountService, AccountService>();
             services.AddScoped<IExternalProviderService, ExternalProviderService>();
-            
+
             if (!IsHttps)
             {
                 services.ConfigureOptions<CustomOidcConfigureOptions>();
@@ -276,7 +297,7 @@ namespace Rsk.Samples.IdentityServer.AdminUiIntegration
         public void Configure(IApplicationBuilder app)
         {
             app.UseDeveloperExceptionPage();
-            
+
             app.UseMiddleware<XForwardedPrefixMiddleware>();
             app.UseForwardedHeaders();
 
@@ -294,20 +315,28 @@ namespace Rsk.Samples.IdentityServer.AdminUiIntegration
         {
             try
             {
-                using (var certStream = Assembly.GetExecutingAssembly().GetManifestResourceStream(@"Rsk.Samples.IdentityServer.AdminUiIntegration.CN=RSKSampleIdentityServer.pfx"))
+                const string resourceName =
+                    @"Rsk.Samples.IdentityServer.AdminUiIntegration.CN=RSKSampleIdentityServer.pfx";
+                using var certStream = Assembly.GetExecutingAssembly().GetManifestResourceStream(resourceName);
+
+                if (certStream == null)
                 {
-                    var rawBytes = new byte[certStream.Length];
-                    for (var index = 0; index < certStream.Length; index++)
-                    {
-                        rawBytes[index] = (byte)certStream.ReadByte();
-                    }
-                    
-                    return new X509Certificate2(rawBytes, "Password123!", X509KeyStorageFlags.MachineKeySet | X509KeyStorageFlags.Exportable);
+                    throw new NullReferenceException($"Failed to load cert resource '{resourceName}'");
                 }
+
+                var rawBytes = new byte[certStream.Length];
+                for (var index = 0; index < certStream.Length; index++)
+                {
+                    rawBytes[index] = (byte)certStream.ReadByte();
+                }
+
+                return new X509Certificate2(rawBytes, "Password123!",
+                    X509KeyStorageFlags.MachineKeySet | X509KeyStorageFlags.Exportable);
             }
             catch (Exception)
             {
-                return new X509Certificate2(AppDomain.CurrentDomain.BaseDirectory + "CN=RSKSampleIdentityServer.pfx", "Password123!");
+                return new X509Certificate2(AppDomain.CurrentDomain.BaseDirectory + "CN=RSKSampleIdentityServer.pfx",
+                    "Password123!");
             }
         }
     }
