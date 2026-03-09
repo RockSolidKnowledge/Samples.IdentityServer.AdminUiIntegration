@@ -166,6 +166,25 @@ namespace Rsk.Samples.IdentityServer.AdminUiIntegration
                         "api1"
                     },
                     RequireDPoP = false,
+                },
+                
+                // VsCode client for MCP
+                new Client
+                {
+                    ClientId = "vscode",
+                    ClientName = "VS Code Client",
+                    RequireClientSecret = false,
+                    Description = "Demo auth code + PKCE app. No client secret required.",
+                    AllowedGrantTypes = GrantTypes.Code,
+                    RedirectUris = {"http://127.0.0.1"},
+                    PostLogoutRedirectUris = {"http://127.0.0.1"},
+                    AllowedScopes = new List<string>
+                    {
+                        IdentityServerConstants.StandardScopes.OpenId,
+                        IdentityServerConstants.StandardScopes.Profile,
+                        "admin_mcp_access",
+                        "admin_mcp",
+                    },
                 }
             };
     }
