@@ -146,6 +146,11 @@ namespace Rsk.Samples.IdentityServer.AdminUiIntegration
                     AllowedGrantTypes = GrantTypes.ClientCredentials,
                     AllowedScopes = {"api1"},
                     RequireDPoP = false,
+                    ClientClaimsPrefix = "",
+                    Claims =
+                    {
+                        new("role", "AdminUI Administrator"),
+                    }
                 },
 
                 // interactive ASP.NET Core MVC client
@@ -158,6 +163,7 @@ namespace Rsk.Samples.IdentityServer.AdminUiIntegration
                     AllowedGrantTypes = GrantTypes.Code,
                     RedirectUris = {"https://localhost:5002/signin-oidc"},
                     PostLogoutRedirectUris = {"https://localhost:5002/signout-callback-oidc"},
+                    ClientClaimsPrefix = "",
                     AllowedScopes = new List<string>
                     {
                         IdentityServerConstants.StandardScopes.OpenId,
@@ -176,15 +182,23 @@ namespace Rsk.Samples.IdentityServer.AdminUiIntegration
                     RequireClientSecret = false,
                     Description = "Demo auth code + PKCE app. No client secret required.",
                     AllowedGrantTypes = GrantTypes.Code,
-                    RedirectUris = {"http://127.0.0.1"},
-                    PostLogoutRedirectUris = {"http://127.0.0.1"},
+                    RedirectUris = {"http://127.0.0.1:33418/"},
+                    PostLogoutRedirectUris = {"http://127.0.0.1:33418/"},
+                    ClientClaimsPrefix = "",
                     AllowedScopes = new List<string>
                     {
                         IdentityServerConstants.StandardScopes.OpenId,
                         IdentityServerConstants.StandardScopes.Profile,
                         "admin_mcp_access",
-                        "admin_mcp",
+                        "admin_mcp_users.read",
+                        "admin_mcp_users.write",
+                        "admin_mcp_users.delete",
+                        "admin_mcp_idp.read",
+                        "admin_mcp_idp.write",
+                        "admin_mcp_idp.delete",
+                        "admin_mcp_audits"
                     },
+                    RequireDPoP = false,
                 }
             };
     }
