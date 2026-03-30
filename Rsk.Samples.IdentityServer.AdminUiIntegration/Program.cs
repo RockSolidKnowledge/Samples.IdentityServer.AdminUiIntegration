@@ -185,6 +185,7 @@ namespace Rsk.Samples.IdentityServer.AdminUiIntegration
                     RedirectUris = {"http://127.0.0.1:33418/"},
                     PostLogoutRedirectUris = {"http://127.0.0.1:33418/"},
                     ClientClaimsPrefix = "",
+                    RequireConsent = true,
                     AllowedScopes = new List<string>
                     {
                         IdentityServerConstants.StandardScopes.OpenId,
