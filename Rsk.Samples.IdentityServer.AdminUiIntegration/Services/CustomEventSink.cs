@@ -1,5 +1,6 @@
 using System;
 using System.Text.Json;
+using System.Threading;
 using System.Threading.Tasks;
 using Duende.IdentityServer.Events;
 using Duende.IdentityServer.Services;
@@ -22,7 +23,7 @@ namespace Rsk.Samples.IdentityServer.AdminUiIntegration.Services
             this.eventStore = eventStore;
         }
 
-        public Task PersistAsync(Event evt)
+        public Task PersistAsync(Event evt, CancellationToken cancellationToken)
         {
             try
             {

@@ -1,6 +1,7 @@
 using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Threading;
 using System.Threading.Tasks;
 using Duende.IdentityServer.Stores;
 using Microsoft.AspNetCore.Authentication;
@@ -25,7 +26,7 @@ public class ExternalProviderService: IExternalProviderService
         this.configuration = configuration ?? throw new ArgumentNullException(nameof(configuration));
     }
     
-    public async Task<IEnumerable<ExternalProvider>> GetAll()
+    public async Task<IEnumerable<ExternalProvider>> GetAll(CancellationToken cancellationToken)
     {
         var mode = configuration.GetValue<string>("DynamicAuth:Mode");
         var providers = new List<ExternalProvider>();
@@ -36,16 +37,16 @@ public class ExternalProviderService: IExternalProviderService
                 providers.AddRange(await GetRskSchemes());
                 break;
             case "Duende":
-                providers.AddRange(await GetDuendeSchemes());
+                providers.AddRange(await GetDuendeSchemes(cancellationToken));
                 break;
         }
         
         return providers;
     }
 
-    public async Task<ExternalProvider> GetScheme(string scheme)
+    public async Task<ExternalProvider> GetScheme(string scheme, CancellationToken cancellationToken)
     {
-        return (await GetAll()).FirstOrDefault(x => x.AuthenticationScheme == scheme);
+        return (await GetAll(cancellationToken)).FirstOrDefault(x => x.AuthenticationScheme == scheme);
     }
 
     private async Task<IEnumerable<ExternalProvider>> GetRskSchemes()
@@ -61,9 +62,9 @@ public class ExternalProviderService: IExternalProviderService
             }).ToList();
     }
 
-    private async Task<IEnumerable<ExternalProvider>> GetDuendeSchemes()
+    private async Task<IEnumerable<ExternalProvider>> GetDuendeSchemes(CancellationToken cancellationToken)
     {
-        return (await identityProviderStore.GetAllSchemeNamesAsync())
+        return (await identityProviderStore.GetAllSchemeNamesAsync(cancellationToken))
             .Where(x => x.Enabled)
             .Select(x => new ExternalProvider
             {

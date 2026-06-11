@@ -1,4 +1,5 @@
-﻿using System.Threading.Tasks;
+﻿using System.Threading;
+using System.Threading.Tasks;
 using Duende.IdentityServer.Models;
 using IdentityExpress.Identity;
 using Duende.IdentityServer.Services;
@@ -20,9 +21,6 @@ namespace AdminUIIntegration.Tests
     {
         private readonly Mock<UserManager<IdentityExpressUser>> mockUserManager;
         private readonly Mock<IIdentityServerInteractionService> mockInteraction;
-        private readonly Mock<IClientStore> mockClientStore;
-        private readonly Mock<IHttpContextAccessor> mockAccessor;
-        private readonly Mock<IAuthenticationSchemeProvider> mockSchemeProvider;
         private readonly Mock<IEventService> mockEvents;
         private readonly Mock<IAccountService> mockAccountService;
         private readonly Mock<IUrlHelperFactory> mockUrlHelper;
@@ -34,11 +32,8 @@ namespace AdminUIIntegration.Tests
         public AccountControllerUnitTests()
         {
             mockInteraction = new Mock<IIdentityServerInteractionService>();
-            mockClientStore = new Mock<IClientStore>();
-            mockAccessor = new Mock<IHttpContextAccessor>();
             var userStoreMock = new Mock<IUserStore<IdentityExpressUser>>();
             mockUserManager = new Mock<UserManager<IdentityExpressUser>>(userStoreMock.Object, null, null, null, null, null, null, null, null);
-            mockSchemeProvider = new Mock<IAuthenticationSchemeProvider>();
             mockEvents = new Mock<IEventService>();
             mockAccountService = new Mock<IAccountService>();
             mockUrlHelper = new Mock<IUrlHelperFactory>();
@@ -83,14 +78,14 @@ namespace AdminUIIntegration.Tests
                 Username = "LoginHunt",
             };
             
-            mockAccountService.Setup(x => x.BuildLoginViewModelAsync(It.IsAny<string>()))
+            mockAccountService.Setup(x => x.BuildLoginViewModelAsync(It.IsAny<string>(), It.IsAny<CancellationToken>()))
                 .ReturnsAsync(testLoginViewModel);
             
             var sut = CreateSut();
 
             var actual = await sut.Login(testReturnUrl);
 
-            mockAccountService.Verify(x => x.BuildLoginViewModelAsync(testReturnUrl));
+            mockAccountService.Verify(x => x.BuildLoginViewModelAsync(testReturnUrl, CancellationToken.None));
 
             var viewResult = Assert.IsType<ViewResult>(actual);
             Assert.Equal(viewResult.Model, testLoginViewModel);
@@ -132,7 +127,7 @@ namespace AdminUIIntegration.Tests
                 ReturnUrl = "https://some.return.com",
             };
 
-            mockInteraction.Setup(x => x.GetAuthorizationContextAsync(It.IsAny<string>()))
+            mockInteraction.Setup(x => x.GetAuthorizationContextAsync(It.IsAny<string>(), It.IsAny<CancellationToken>()))
                 .ReturnsAsync(() => null);
             
             var sut = CreateSut();
@@ -155,13 +150,13 @@ namespace AdminUIIntegration.Tests
 
             var authRequest = new AuthorizationRequest();
 
-            mockInteraction.Setup(x => x.GetAuthorizationContextAsync(It.IsAny<string>()))
+            mockInteraction.Setup(x => x.GetAuthorizationContextAsync(It.IsAny<string>(), It.IsAny<CancellationToken>()))
                 .ReturnsAsync(() => authRequest);
 
             var sut = CreateSut();
             var actual = await sut.Login(testLoginModel, "cancel");
             
-            mockInteraction.Verify(x => x.DenyAuthorizationAsync(authRequest, AuthorizationError.AccessDenied, null));
+            mockInteraction.Verify(x => x.DenyAuthorizationAsync(authRequest, InteractionError.AccessDenied, CancellationToken.None, null));
 
             var viewResult = Assert.IsType<RedirectResult>(actual);
             Assert.Equal(testLoginModel.ReturnUrl, viewResult.Url);

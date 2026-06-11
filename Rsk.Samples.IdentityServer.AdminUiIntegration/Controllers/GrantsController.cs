@@ -4,6 +4,7 @@
 
 using System.Collections.Generic;
 using System.Linq;
+using System.Threading;
 using System.Threading.Tasks;
 using Duende.IdentityServer.Services;
 using Duende.IdentityServer.Stores;
@@ -50,21 +51,24 @@ namespace Rsk.Samples.IdentityServer.AdminUiIntegration.Controllers
         [ValidateAntiForgeryToken]
         public async Task<IActionResult> Revoke(string clientId)
         {
-            await interaction.RevokeUserConsentAsync(clientId);
+            CancellationToken cancellationToken = HttpContext.RequestAborted;
+            await interaction.RevokeUserConsentAsync(clientId, cancellationToken);
             return RedirectToAction("Index");
         }
 
         private async Task<GrantsViewModel> BuildViewModelAsync()
         {
-            var grants = await interaction.GetAllUserGrantsAsync();
+            CancellationToken cancellationToken = HttpContext.RequestAborted;
+            
+            var grants = await interaction.GetAllUserGrantsAsync(cancellationToken);
 
             var list = new List<GrantViewModel>();
             foreach(var grant in grants)
             {
-                var client = await clients.FindClientByIdAsync(grant.ClientId);
+                var client = await clients.FindClientByIdAsync(grant.ClientId, cancellationToken);
                 if (client != null)
                 {
-                    var resources = await this.resources.FindResourcesByScopeAsync(grant.Scopes);
+                    var resources = await this.resources.FindResourcesByScopeAsync(grant.Scopes, cancellationToken);
 
                     var item = new GrantViewModel
                     {

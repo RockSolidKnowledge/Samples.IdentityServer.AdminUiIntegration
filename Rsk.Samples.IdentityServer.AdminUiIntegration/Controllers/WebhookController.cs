@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Threading;
 using System.Threading.Tasks;
 using Duende.IdentityServer.Services;
 using IdentityExpress.Identity;
@@ -52,10 +53,11 @@ namespace Rsk.Samples.IdentityServer.AdminUiIntegration.Controllers
         {
             ArgumentNullException.ThrowIfNull(id);
 
+            CancellationToken cancellationToken = HttpContext.RequestAborted;
             await sessionManagementService.RemoveSessionsAsync(new RemoveSessionsContext
             {
                 SessionId = id
-            });
+            }, cancellationToken);
 
             return Ok();
         }

@@ -3,15 +3,14 @@
 
 
 using System.Linq;
+using System.Threading;
 using System.Threading.Tasks;
 using Duende.IdentityServer;
-using Duende.IdentityServer.Extensions;
 using Duende.IdentityServer.Services;
 using Duende.IdentityServer.Stores;
 using IdentityModel;
 using Microsoft.AspNetCore.Authentication;
 using Microsoft.AspNetCore.Http;
-using Microsoft.Extensions.DependencyInjection;
 using Rsk.Samples.IdentityServer.AdminUiIntegration.Models;
 
 namespace Rsk.Samples.IdentityServer.AdminUiIntegration.Services
@@ -41,9 +40,9 @@ namespace Rsk.Samples.IdentityServer.AdminUiIntegration.Services
             this.authenticationHandlerProvider = authenticationHandlerProvider;
         }
         
-        public async Task<LoginViewModel> BuildLoginViewModelAsync(string returnUrl)
+        public async Task<LoginViewModel> BuildLoginViewModelAsync(string returnUrl, CancellationToken cancellationToken)
         {
-            var context = await interaction.GetAuthorizationContextAsync(returnUrl);
+            var context = await interaction.GetAuthorizationContextAsync(returnUrl, cancellationToken);
             if (context?.IdP != null && await schemeProvider.GetSchemeAsync(context.IdP) != null)
             {
                 var local = context.IdP == IdentityServerConstants.LocalIdentityProvider;
@@ -64,12 +63,12 @@ namespace Rsk.Samples.IdentityServer.AdminUiIntegration.Services
                 return vm;
             }
 
-            var providers = await externalProviderService.GetAll();
+            var providers = await externalProviderService.GetAll(cancellationToken);
 
             var allowLocal = true;
             if (context?.Client.ClientId != null)
             {
-                var client = await clientStore.FindEnabledClientByIdAsync(context.Client.ClientId);
+                var client = await clientStore.FindEnabledClientByIdAsync(context.Client.ClientId, cancellationToken);
                 if (client != null)
                 {
                     allowLocal = client.EnableLocalLogin;
@@ -100,15 +99,15 @@ namespace Rsk.Samples.IdentityServer.AdminUiIntegration.Services
             };
         }
 
-        public async Task<LoginViewModel> BuildLoginViewModelAsync(LoginInputModel model)
+        public async Task<LoginViewModel> BuildLoginViewModelAsync(LoginInputModel model, CancellationToken cancellationToken)
         {
-            var vm = await BuildLoginViewModelAsync(model.ReturnUrl);
+            var vm = await BuildLoginViewModelAsync(model.ReturnUrl, cancellationToken);
             vm.Username = model.Username;
             vm.RememberLogin = model.RememberLogin;
             return vm;
         }
 
-        public async Task<LogoutViewModel> BuildLogoutViewModelAsync(string logoutId)
+        public async Task<LogoutViewModel> BuildLogoutViewModelAsync(string logoutId, CancellationToken cancellationToken)
         {
             var vm = new LogoutViewModel { LogoutId = logoutId, ShowLogoutPrompt = true };
 
@@ -119,7 +118,7 @@ namespace Rsk.Samples.IdentityServer.AdminUiIntegration.Services
                 return vm;
             }
 
-            var context = await interaction.GetLogoutContextAsync(logoutId);
+            var context = await interaction.GetLogoutContextAsync(logoutId, cancellationToken);
             if (context?.ShowSignoutPrompt == false)
             {
                 // it's safe to automatically sign-out
@@ -132,10 +131,10 @@ namespace Rsk.Samples.IdentityServer.AdminUiIntegration.Services
             return vm;
         }
 
-        public async Task<LoggedOutViewModel> BuildLoggedOutViewModelAsync(string logoutId)
+        public async Task<LoggedOutViewModel> BuildLoggedOutViewModelAsync(string logoutId, CancellationToken cancellationToken)
         {
             // get context information (client name, post logout redirect URI and iframe for federated signout)
-            var logout = await interaction.GetLogoutContextAsync(logoutId);
+            var logout = await interaction.GetLogoutContextAsync(logoutId, cancellationToken);
 
             var vm = new LoggedOutViewModel
             {
@@ -161,7 +160,7 @@ namespace Rsk.Samples.IdentityServer.AdminUiIntegration.Services
                             // if there's no current logout context, we need to create one
                             // this captures necessary info from the current logged in user
                             // before we signout and redirect away to the external IdP for signout
-                            vm.LogoutId = await interaction.CreateLogoutContextAsync();
+                            vm.LogoutId = await interaction.CreateLogoutContextAsync(cancellationToken);
                         }
                         
                         vm.ExternalAuthenticationScheme = idp;

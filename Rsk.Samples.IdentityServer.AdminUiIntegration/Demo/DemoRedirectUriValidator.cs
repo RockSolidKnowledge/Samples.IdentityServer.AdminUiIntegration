@@ -1,3 +1,4 @@
+using System.Threading;
 using System.Threading.Tasks;
 using Duende.IdentityServer.Models;
 using Duende.IdentityServer.Validation;
@@ -14,7 +15,7 @@ namespace Rsk.Samples.IdentityServer.AdminUiIntegration.Demo
             return Task.FromResult(true);
         }
 
-        public Task<bool> IsPostLogoutRedirectUriValidAsync(string requestedUri, Client client)
+        public Task<bool> IsPostLogoutRedirectUriValidAsync(string requestedUri, Client client, CancellationToken ct)
         {
             return Task.FromResult(true);
         }

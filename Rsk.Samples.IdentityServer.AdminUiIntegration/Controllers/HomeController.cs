@@ -2,6 +2,7 @@
 // Licensed under the Apache License, Version 2.0. See LICENSE in the project root for license information.
 
 
+using System.Threading;
 using System.Threading.Tasks;
 using Duende.IdentityServer.Services;
 using Microsoft.AspNetCore.Mvc;
@@ -36,7 +37,8 @@ namespace Rsk.Samples.IdentityServer.AdminUiIntegration.Controllers
             var vm = new ErrorViewModel();
             
             // retrieve error details from IdentityServer
-            var message = await interaction.GetErrorContextAsync(errorId);
+            CancellationToken cancellationToken = HttpContext.RequestAborted;
+            var message = await interaction.GetErrorContextAsync(errorId, cancellationToken);
             
             //try and get more details regarding the error from the IdentityServer event cache
             var cachedEventInformation = eventStore.GetEventByTraceID(HttpContext.TraceIdentifier);

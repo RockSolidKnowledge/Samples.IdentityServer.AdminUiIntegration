@@ -2,6 +2,7 @@
 // Licensed under the Apache License, Version 2.0. See LICENSE in the project root for license information.
 
 
+using System.Threading;
 using System.Threading.Tasks;
 using Duende.IdentityServer.Extensions;
 using Duende.IdentityServer.Services;
@@ -37,7 +38,8 @@ namespace Rsk.Samples.IdentityServer.AdminUiIntegration.Controllers
         [HttpGet]
         public async Task<IActionResult> Index(string returnUrl)
         {
-            var vm = await consent.BuildViewModelAsync(returnUrl);
+            CancellationToken cancellationToken = HttpContext.RequestAborted;
+            var vm = await consent.BuildViewModelAsync(returnUrl, cancellationToken);
             if (vm != null)
             {
                 return View("Index", vm);
@@ -53,7 +55,8 @@ namespace Rsk.Samples.IdentityServer.AdminUiIntegration.Controllers
         [ValidateAntiForgeryToken]
         public async Task<IActionResult> Index(ConsentInputModel model)
         {
-            var result = await consent.ProcessConsent(model, User.GetSubjectId());
+            CancellationToken cancellationToken  = HttpContext.RequestAborted;
+            var result = await consent.ProcessConsent(model, User.GetSubjectId(), cancellationToken);
 
             if (result.IsRedirect)
             {
