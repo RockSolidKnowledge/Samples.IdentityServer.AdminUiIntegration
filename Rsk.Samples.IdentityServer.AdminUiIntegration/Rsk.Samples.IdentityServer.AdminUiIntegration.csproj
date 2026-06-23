@@ -36,9 +36,9 @@
         <!--  Framework Agnostic Packages  -->
         <PackageReference Include="Duende.BFF" Version="4.2.0" />
         <PackageReference Include="Duende.BFF.EntityFramework" Version="4.2.0" />
-        <PackageReference Include="Duende.IdentityServer" Version="8.0.0" />
-        <PackageReference Include="Duende.IdentityServer.AspNetIdentity" Version="8.0.0" />
-        <PackageReference Include="Duende.IdentityServer.EntityFramework" Version="8.0.0" />
+        <PackageReference Include="Duende.IdentityServer" Version="8.0.2" />
+        <PackageReference Include="Duende.IdentityServer.AspNetIdentity" Version="8.0.2" />
+        <PackageReference Include="Duende.IdentityServer.EntityFramework" Version="8.0.2" />
         <PackageReference Include="IdentityExpress.Identity" Version="7.0.2" />
         <PackageReference Include="IdentityModel.AspNetCore.OAuth2Introspection" Version="6.2.0"/>
         <PackageReference Include="IdentityServer4.AccessTokenValidation" Version="3.0.1"/>
@@ -48,13 +48,13 @@
         <PackageReference Include="Microsoft.IdentityModel.Protocols" Version="8.19.1" />
         <PackageReference Include="Microsoft.IdentityModel.Protocols.OpenIdConnect" Version="8.19.1" />
         <PackageReference Include="Microsoft.IdentityModel.Tokens.Saml" Version="8.19.1" />
-        <PackageReference Include="Rsk.DuendeIdentityServer.AuditEventSink" Version="5.0.0" />
-        <PackageReference Include="Rsk.Audit.EF" Version="3.0.0" />
+        <PackageReference Include="Rsk.DuendeIdentityServer.AuditEventSink" Version="6.0.0" />
+        <PackageReference Include="Rsk.Audit.EF" Version="4.0.0" />
         <PackageReference Include="Rsk.DynamicAuthenticationProviders" Version="3.3.0" />
         <PackageReference Include="Rsk.DynamicAuthenticationProviders.EntityFramework" Version="3.3.0" />
         <PackageReference Include="Rsk.DynamicAuthenticationProviders.Saml" Version="3.3.0" />
         <PackageReference Include="System.IdentityModel.Tokens.Jwt" Version="8.19.1" />
-        <PackageReference Include="Rsk.Saml.DuendeIdentityServer" Version="11.0.0" />
-        <PackageReference Include="Rsk.Saml.DuendeIdentityServer.EntityFramework" Version="11.0.0" />
+        <PackageReference Include="Rsk.Saml.DuendeIdentityServer" Version="12.0.0" />
+        <PackageReference Include="Rsk.Saml.DuendeIdentityServer.EntityFramework" Version="12.0.0" />
     </ItemGroup>
 </Project>
