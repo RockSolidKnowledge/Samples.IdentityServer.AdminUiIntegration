@@ -45,15 +45,15 @@
         <PackageReference Include="Microsoft.Data.SqlClient" Version="6.1.3" />
         <PackageReference Include="Microsoft.Extensions.Logging" Version="10.0.1" />
         <PackageReference Include="Microsoft.Extensions.Logging.Console" Version="10.0.1" />
-        <PackageReference Include="Microsoft.IdentityModel.Protocols" Version="8.15.0" />
-        <PackageReference Include="Microsoft.IdentityModel.Protocols.OpenIdConnect" Version="8.15.0" />
+        <PackageReference Include="Microsoft.IdentityModel.Protocols" Version="8.21.0" />
+        <PackageReference Include="Microsoft.IdentityModel.Protocols.OpenIdConnect" Version="8.21.0" />
         <PackageReference Include="Microsoft.IdentityModel.Tokens.Saml" Version="8.15.0" />
         <PackageReference Include="Rsk.DuendeIdentityServer.AuditEventSink" Version="4.0.0" />
         <PackageReference Include="Rsk.Audit.EF" Version="3.0.0" />
         <PackageReference Include="Rsk.DynamicAuthenticationProviders" Version="3.3.0" />
         <PackageReference Include="Rsk.DynamicAuthenticationProviders.EntityFramework" Version="3.3.0" />
         <PackageReference Include="Rsk.DynamicAuthenticationProviders.Saml" Version="3.3.0" />
-        <PackageReference Include="System.IdentityModel.Tokens.Jwt" Version="8.15.0" />
+        <PackageReference Include="System.IdentityModel.Tokens.Jwt" Version="8.21.0" />
         <PackageReference Include="Rsk.Saml.DuendeIdentityServer" Version="11.0.0" />
         <PackageReference Include="Rsk.Saml.DuendeIdentityServer.EntityFramework" Version="11.0.0" />
     </ItemGroup>
