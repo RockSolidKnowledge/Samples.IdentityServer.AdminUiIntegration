@@ -171,8 +171,9 @@ namespace Rsk.Samples.IdentityServer.AdminUiIntegration
                 })
                 .AddAspNetIdentity<IdentityExpressUser>() // configure IdentityServer to use ASP.NET Identity
                 .AddSigningCredential(GetEmbeddedCertificate()) // embedded test cert for testing only
-                .AddServerSideSessions();
-
+                .AddServerSideSessions()
+                .AddJwtBearerClientAuthentication();
+            
             // Configure Dynamic Authentication
             var dynamicAuthMode = Configuration.GetValue<string>("DynamicAuth:Mode");
 
