@@ -5,6 +5,7 @@
 using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Threading;
 using System.Threading.Tasks;
 using Duende.IdentityServer;
 using Duende.IdentityServer.Events;
@@ -32,12 +33,12 @@ namespace Rsk.Samples.IdentityServer.AdminUiIntegration.Services
             this.logger = logger;
         }
 
-        public async Task<ProcessConsentResult> ProcessConsent(ConsentInputModel model, string userId)
+        public async Task<ProcessConsentResult> ProcessConsent(ConsentInputModel model, string userId, CancellationToken cancellationToken)
         {
             var result = new ProcessConsentResult();
 
             // validate return url is still valid
-            var request = await interaction.GetAuthorizationContextAsync(model.ReturnUrl);
+            var request = await interaction.GetAuthorizationContextAsync(model.ReturnUrl, cancellationToken);
             if (request == null) return result;
 
             ConsentResponse grantedConsent = null;
@@ -45,11 +46,11 @@ namespace Rsk.Samples.IdentityServer.AdminUiIntegration.Services
             // user clicked 'no' - send back the standard 'access_denied' response
             if (model.Button == "no")
             {
-                grantedConsent = new ConsentResponse {Error = AuthorizationError.AccessDenied};
+                grantedConsent = new ConsentResponse {Error = InteractionError.AccessDenied};
 
                 // emit event
                 await events.RaiseAsync(new ConsentDeniedEvent(userId, request.Client.ClientId,
-                    request.ValidatedResources.RawScopeValues));
+                    request.ValidatedResources.RawScopeValues), cancellationToken);
             }
             // user clicked 'yes' - validate the data
             else if (model.Button == "yes")
@@ -75,7 +76,7 @@ namespace Rsk.Samples.IdentityServer.AdminUiIntegration.Services
                     // emit event
                     await events.RaiseAsync(new ConsentGrantedEvent(userId, request.Client.ClientId,
                         request.ValidatedResources.RawScopeValues, grantedConsent.ScopesValuesConsented,
-                        grantedConsent.RememberConsent));
+                        grantedConsent.RememberConsent), cancellationToken);
                 }
                 else
                 {
@@ -90,7 +91,7 @@ namespace Rsk.Samples.IdentityServer.AdminUiIntegration.Services
             if (grantedConsent != null)
             {
                 // communicate outcome of consent back to identityserver
-                await interaction.GrantConsentAsync(request, grantedConsent);
+                await interaction.GrantConsentAsync(request, grantedConsent, cancellationToken);
 
                 // indicate that's it ok to redirect back to authorization endpoint
                 result.RedirectUri = model.ReturnUrl;
@@ -99,15 +100,15 @@ namespace Rsk.Samples.IdentityServer.AdminUiIntegration.Services
             else
             {
                 // we need to redisplay the consent UI
-                result.ViewModel = await BuildViewModelAsync(model.ReturnUrl, model);
+                result.ViewModel = await BuildViewModelAsync(model.ReturnUrl, cancellationToken, model);
             }
 
             return result;
         }
 
-        public async Task<ConsentViewModel> BuildViewModelAsync(string returnUrl, ConsentInputModel model = null)
+        public async Task<ConsentViewModel> BuildViewModelAsync(string returnUrl, CancellationToken cancellationToken, ConsentInputModel model = null)
         {
-            var request = await interaction.GetAuthorizationContextAsync(returnUrl);
+            var request = await interaction.GetAuthorizationContextAsync(returnUrl, cancellationToken);
             if (request != null)
             {
                 return CreateConsentViewModel(model, returnUrl, request);

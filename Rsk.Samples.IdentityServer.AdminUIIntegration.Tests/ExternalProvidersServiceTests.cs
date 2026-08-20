@@ -1,4 +1,5 @@
 using System.Collections.Generic;
+using System.Threading;
 using System.Threading.Tasks;
 using Duende.IdentityServer.Models;
 using Duende.IdentityServer.Stores;
@@ -40,7 +41,7 @@ public class ExternalProvidersServiceTests
         authenticationSchemeProviderMock.Setup(x => x.GetAllSchemesAsync())
             .ReturnsAsync(fakeAuthSchemesIncRsk);
         
-        identityProviderStoreMock.Setup(x => x.GetAllSchemeNamesAsync())
+        identityProviderStoreMock.Setup(x => x.GetAllSchemeNamesAsync(It.IsAny<CancellationToken>()))
             .ReturnsAsync(fakeDuendeSchemes);
     }
 
@@ -64,7 +65,7 @@ public class ExternalProvidersServiceTests
         
         var sut = CreateSut();
 
-        var actual = await sut.GetAll();
+        var actual = await sut.GetAll(CancellationToken.None);
 
         actual.Should().BeEmpty();
     }
@@ -75,7 +76,7 @@ public class ExternalProvidersServiceTests
         
         var sut = CreateSut();
 
-        var actual = await sut.GetAll();
+        var actual = await sut.GetAll(CancellationToken.None);
 
         var expected = new List<ExternalProvider>
         {
@@ -92,7 +93,7 @@ public class ExternalProvidersServiceTests
         
         var sut = CreateSut();
 
-        var actual = await sut.GetAll();
+        var actual = await sut.GetAll(CancellationToken.None);
         
         var expected = new List<ExternalProvider>
         {
@@ -110,11 +111,11 @@ public class ExternalProvidersServiceTests
         
         var sut = CreateSut();
 
-        var actualDuende = await sut.GetScheme("duende-oidc-scheme");
+        var actualDuende = await sut.GetScheme("duende-oidc-scheme", CancellationToken.None);
 
         actualDuende.Should().BeNull();
 
-        var actualRsk = await sut.GetScheme("rsk-oidc-scheme");
+        var actualRsk = await sut.GetScheme("rsk-oidc-scheme", CancellationToken.None);
 
         actualRsk.Should().BeNull();
     }
@@ -126,13 +127,13 @@ public class ExternalProvidersServiceTests
         
         var sut = CreateSut();
 
-        var actualDuende = await sut.GetScheme("duende-oidc-scheme");
+        var actualDuende = await sut.GetScheme("duende-oidc-scheme", CancellationToken.None);
 
         actualDuende.Should().NotBeNull();
         actualDuende.AuthenticationScheme.Should().Be("duende-oidc-scheme");
         actualDuende.DisplayName.Should().Be("Duende OIDC Scheme");
 
-        var actualRsk = await sut.GetScheme("rsk-saml-scheme");
+        var actualRsk = await sut.GetScheme("rsk-saml-scheme", CancellationToken.None);
 
         actualRsk.Should().BeNull();
     }
@@ -144,11 +145,11 @@ public class ExternalProvidersServiceTests
         
         var sut = CreateSut();
 
-        var actualDuende = await sut.GetScheme("duende-oidc-scheme");
+        var actualDuende = await sut.GetScheme("duende-oidc-scheme", CancellationToken.None);
 
         actualDuende.Should().BeNull();
 
-        var actualRsk = await sut.GetScheme("rsk-saml-scheme");
+        var actualRsk = await sut.GetScheme("rsk-saml-scheme", CancellationToken.None);
 
         actualRsk.Should().NotBeNull();
         actualRsk.AuthenticationScheme.Should().Be("rsk-saml-scheme");

@@ -1,3 +1,4 @@
+using System.Threading;
 using System.Threading.Tasks;
 using Duende.IdentityServer.Services;
 
@@ -8,7 +9,7 @@ namespace Rsk.Samples.IdentityServer.AdminUiIntegration.Demo
     /// </summary>
     public class DemoCorsPolicy : ICorsPolicyService
     {
-        public Task<bool> IsOriginAllowedAsync(string origin)
+        public Task<bool> IsOriginAllowedAsync(string origin, CancellationToken ct)
         {
             return Task.FromResult(true);
         }

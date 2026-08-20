@@ -1,11 +1,10 @@
 ﻿// Copyright (c) Brock Allen & Dominick Baier. All rights reserved.
 // Licensed under the Apache License, Version 2.0. See LICENSE in the project root for license information.
-
-
 using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Security.Claims;
+using System.Threading;
 using System.Threading.Tasks;
 using Duende.IdentityServer;
 using Duende.IdentityServer.Events;
@@ -66,9 +65,11 @@ namespace Rsk.Samples.IdentityServer.AdminUiIntegration.Controllers
         {
             bool externalLogin = Request.Cookies["Identity.External"] != null;
             
+            CancellationToken cancellationToken = HttpContext.RequestAborted;
+            
             // build a model so we know what to show on the login page
             // if were told we a linking an external login then then we build a model 
-            var vm = !externalLogin ? await accountService.BuildLoginViewModelAsync(returnUrl)
+            var vm = !externalLogin ? await accountService.BuildLoginViewModelAsync(returnUrl, cancellationToken)
                     : accountService.BuildLinkLoginViewModel(returnUrl);
 
             if (!externalLogin && vm.IsExternalLoginOnly)
@@ -87,6 +88,8 @@ namespace Rsk.Samples.IdentityServer.AdminUiIntegration.Controllers
         [ValidateAntiForgeryToken]
         public async Task<IActionResult> Login(LoginInputModel model, string button)
         {
+            CancellationToken cancellationToken = HttpContext.RequestAborted;
+            
             if (button != "login")
             {
                 if (Request.Cookies["Identity.External"] != null)
@@ -95,13 +98,13 @@ namespace Rsk.Samples.IdentityServer.AdminUiIntegration.Controllers
                 }
                 
                 // the user clicked the "cancel" button
-                var context = await interaction.GetAuthorizationContextAsync(model.ReturnUrl);
+                AuthorizationRequest context = await interaction.GetAuthorizationContextAsync(model.ReturnUrl, cancellationToken);
                 if (context != null)
                 {
                     // if the user cancels, send a result back into IdentityServer as if they 
                     // denied the consent (even if this client does not require consent).
                     // this will send back an access denied OIDC error response to the client.
-                    await interaction.DenyAuthorizationAsync(context, AuthorizationError.AccessDenied);
+                    await interaction.DenyAuthorizationAsync(context, InteractionError.AccessDenied, cancellationToken);
                     
                     // we can trust model.ReturnUrl since GetAuthorizationContextAsync returned non-null
                     return Redirect(model.ReturnUrl);
@@ -119,7 +122,7 @@ namespace Rsk.Samples.IdentityServer.AdminUiIntegration.Controllers
 
                 if (user != null && await userManager.CheckPasswordAsync(user, model.Password))
                 {
-                    await events.RaiseAsync(new UserLoginSuccessEvent(user.UserName, user.Id, user.UserName));
+                    await events.RaiseAsync(new UserLoginSuccessEvent(user.UserName, user.Id, user.UserName), cancellationToken);
 
                     // only set explicit expiration here if user chooses "remember me". 
                     // otherwise we rely upon expiration configured in cookie middleware.
@@ -143,11 +146,11 @@ namespace Rsk.Samples.IdentityServer.AdminUiIntegration.Controllers
                     };
 
                     // issue authentication cookie with subject ID and username
-                    await events.RaiseAsync(new UserLoginSuccessEvent(user.UserName, user.Id, user.UserName));
+                    await events.RaiseAsync(new UserLoginSuccessEvent(user.UserName, user.Id, user.UserName), cancellationToken);
                     await HttpContext.SignInAsync(isuser, props);
 
                     // link external login if cookie exists
-                    await LinkIfExternalLogin(user);
+                    await LinkIfExternalLogin(user, cancellationToken);
 
                     // make sure the returnUrl is still valid, and if so redirect back to authorize endpoint or a local page
                     if (interaction.IsValidReturnUrl(model.ReturnUrl) || Url.IsLocalUrl(model.ReturnUrl))
@@ -158,13 +161,13 @@ namespace Rsk.Samples.IdentityServer.AdminUiIntegration.Controllers
                     return Redirect("~/");
                 }
 
-                await events.RaiseAsync(new UserLoginFailureEvent(model.Username, "invalid credentials"));
+                await events.RaiseAsync(new UserLoginFailureEvent(model.Username, "invalid credentials"), cancellationToken);
 
                 ModelState.AddModelError("", "Invalid username or password");
             }
 
             // something went wrong, show form with error
-            var vm = await accountService.BuildLoginViewModelAsync(model);
+            var vm = await accountService.BuildLoginViewModelAsync(model, cancellationToken);
             vm.LinkSetup = Request.Cookies["Identity.External"] != null;
             return View(vm);
         }
@@ -247,7 +250,8 @@ namespace Rsk.Samples.IdentityServer.AdminUiIntegration.Controllers
             };
 
             // issue local authentication cookie for user
-            await events.RaiseAsync(new UserLoginSuccessEvent(provider, userId, user.Id, user.UserName));
+            CancellationToken cancellationToken =  HttpContext.RequestAborted;
+            await events.RaiseAsync(new UserLoginSuccessEvent(provider, userId, user.Id, user.UserName), cancellationToken);
             await HttpContext.SignInAsync(isuser, props);
 
             // delete temporary cookie used during external authentication
@@ -262,8 +266,10 @@ namespace Rsk.Samples.IdentityServer.AdminUiIntegration.Controllers
         [HttpGet]
         public async Task<IActionResult> Logout(string logoutId)
         {
+            CancellationToken cancellationToken = HttpContext.RequestAborted;
+            
             // build a model so the logout page knows what to display
-            var vm = await accountService.BuildLogoutViewModelAsync(logoutId);
+            var vm = await accountService.BuildLogoutViewModelAsync(logoutId, cancellationToken);
 
             if (vm.ShowLogoutPrompt == false)
             {
@@ -282,8 +288,10 @@ namespace Rsk.Samples.IdentityServer.AdminUiIntegration.Controllers
         [ValidateAntiForgeryToken]
         public async Task<IActionResult> Logout(LogoutInputModel model)
         {
+            CancellationToken cancellationToken  = HttpContext.RequestAborted;
+            
             // build a model so the logged out page knows what to display
-            var vm = await accountService.BuildLoggedOutViewModelAsync(model.LogoutId);
+            var vm = await accountService.BuildLoggedOutViewModelAsync(model.LogoutId, cancellationToken);
 
             var user = HttpContext.User;
             if (user?.Identity.IsAuthenticated == true)
@@ -292,7 +300,7 @@ namespace Rsk.Samples.IdentityServer.AdminUiIntegration.Controllers
                 await HttpContext.SignOutAsync(IdentityConstants.ApplicationScheme);
 
                 // raise the logout event
-                await events.RaiseAsync(new UserLogoutSuccessEvent(user.GetSubjectId(), user.GetDisplayName()));
+                await events.RaiseAsync(new UserLogoutSuccessEvent(user.GetSubjectId(), user.GetDisplayName()), cancellationToken);
             }
 
             // check if we need to trigger sign-out at an upstream identity provider
@@ -356,7 +364,7 @@ namespace Rsk.Samples.IdentityServer.AdminUiIntegration.Controllers
             return View(vm);
         }
 
-        private async Task<IdentityResult> LinkIfExternalLogin(IdentityExpressUser localUser)
+        private async Task<IdentityResult> LinkIfExternalLogin(IdentityExpressUser localUser, CancellationToken cancellationToken)
         {
             // get external identity from external scheme cookie
             var result = await HttpContext.AuthenticateAsync("Identity.External");
@@ -373,7 +381,7 @@ namespace Rsk.Samples.IdentityServer.AdminUiIntegration.Controllers
             var userId = userIdClaim.Value;
             var providerScheme = result.Properties.Items["scheme"];
             
-            var provider = await externalProviderService.GetScheme(providerScheme);
+            var provider = await externalProviderService.GetScheme(providerScheme, cancellationToken);
             var outcome =  await userManager.AddLoginAsync(localUser, new UserLoginInfo(provider.AuthenticationScheme, userId, provider.DisplayName));
             await HttpContext.SignOutAsync("Identity.External");
             return outcome;

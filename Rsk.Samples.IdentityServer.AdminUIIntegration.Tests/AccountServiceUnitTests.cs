@@ -1,5 +1,6 @@
 ﻿using System.Collections.Generic;
 using System.Security.Claims;
+using System.Threading;
 using System.Threading.Tasks;
 using IdentityModel;
 using Duende.IdentityServer.Models;
@@ -82,13 +83,13 @@ namespace AdminUIIntegration.Tests
             };
 
             LogoutRequest logoutRequest = new LogoutRequest(iFrameUrl, logoutMessge);
-            mockInteraction.Setup(x => x.GetLogoutContextAsync(logoutId))
+            mockInteraction.Setup(x => x.GetLogoutContextAsync(logoutId, It.IsAny<CancellationToken>()))
                 .ReturnsAsync(logoutRequest).Verifiable();
 
             mockAccessor.SetupGet(x => x.HttpContext.User).Returns(user).Verifiable();
 
             //act
-            var result = await CreateSut().BuildLoggedOutViewModelAsync(logoutId);
+            var result = await CreateSut().BuildLoggedOutViewModelAsync(logoutId, CancellationToken.None);
 
             //assert
             Assert.True(result.AutomaticRedirectAfterSignOut);
