@@ -9,7 +9,7 @@ using Microsoft.AspNetCore.Authentication.Cookies;
 using Microsoft.AspNetCore.Authentication.OpenIdConnect;
 using Microsoft.Extensions.Configuration;
 using Moq;
-// using Rsk.AspNetCore.Authentication.Saml2p;
+using Rsk.AspNetCore.Authentication.Saml2p;
 using Rsk.Samples.IdentityServer.AdminUiIntegration.Models;
 using Rsk.Samples.IdentityServer.AdminUiIntegration.Services;
 using Xunit;
@@ -26,7 +26,7 @@ public class ExternalProvidersServiceTests
     {
         new AuthenticationScheme("Cookies", null, typeof(CookieAuthenticationHandler)),
         new AuthenticationScheme("rsk-oidc-scheme", "RSK OIDC Scheme", typeof(OpenIdConnectHandler)),
-        // new AuthenticationScheme("rsk-saml-scheme", "RSK SAML Scheme", typeof(Saml2pAuthenticationHandler)),
+        new AuthenticationScheme("rsk-saml-scheme", "RSK SAML Scheme", typeof(Saml2pAuthenticationHandler)),
     };
     
     private readonly List<IdentityProviderName> fakeDuendeSchemes = new List<IdentityProviderName>
