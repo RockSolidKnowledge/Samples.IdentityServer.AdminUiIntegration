@@ -177,34 +177,21 @@ namespace Rsk.Samples.IdentityServer.AdminUiIntegration
             // Configure Dynamic Authentication
             var dynamicAuthMode = Configuration.GetValue<string>("DynamicAuth:Mode");
 
-            switch (dynamicAuthMode)
+            if (dynamicAuthMode == "Rsk")
             {
-                case "Duende":
-                    idsBuilder.AddSamlDynamicProvider(options =>
-                        {
-                            options.Licensee = Configuration.GetValue<string>("DynamicAuth:SamlLicensee");
-                            options.LicenseKey = Configuration.GetValue<string>("DynamicAuth:SamlLicenseKey");
-                            // Uncommenting these lines will overwrite at runtime the SignInScheme and SignOutScheme configured on any Saml Dynamic Authentication
-                            // options.SignInScheme = "Identity.External";
-                            // options.SignOutScheme = "Identity.External";
-                        })
-                        .AddIdentityProviderStore<SamlIdentityProviderStore>();
-                    break;
-                case "Rsk":
-                    services.AddDynamicProviders(options =>
-                        {
-                            // Component setup
-                            options.Licensee = Configuration.GetValue<string>("DynamicAuth:RskComponentLicensee");
-                            options.LicenseKey = Configuration.GetValue<string>("DynamicAuth:RskComponentLicenseKey");
-                        })
-                        .AddEntityFrameworkStore(options => options.UseSqlServer(identityServerConnectionString))
-                        .AddOpenIdConnect()
-                        .AddSaml(o =>
-                        {
-                            o.Licensee = Configuration.GetValue<string>("DynamicAuth:SamlLicensee");
-                            o.LicenseKey = Configuration.GetValue<string>("DynamicAuth:SamlLicenseKey");
-                        });
-                    break;
+                services.AddDynamicProviders(options =>
+                    {
+                        // Component setup
+                        options.Licensee = Configuration.GetValue<string>("DynamicAuth:RskComponentLicensee");
+                        options.LicenseKey = Configuration.GetValue<string>("DynamicAuth:RskComponentLicenseKey");
+                    })
+                    .AddEntityFrameworkStore(options => options.UseSqlServer(identityServerConnectionString))
+                    .AddOpenIdConnect()
+                    .AddSaml(o =>
+                    {
+                        o.Licensee = Configuration.GetValue<string>("DynamicAuth:SamlLicensee");
+                        o.LicenseKey = Configuration.GetValue<string>("DynamicAuth:SamlLicenseKey");
+                    });
             }
 
             // Demo services - DO NOT USE IN PRODUCTION
